@@ -6,7 +6,7 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd
 		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
-
+	<!-- servlet-context는 웹관련 설정을 넣는다. -->
 	<!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
 	
 	<!-- Enables the Spring MVC @Controller programming model -->
@@ -16,8 +16,9 @@
 	<resources mapping="/**" location="/resources/" />
 
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
+	<!-- view의 이름만 적어도 경로가 정해지는이유! 여기에서 적어놨기 때문에 -->
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<beans:property name="prefix" value="/WEB-INF/views/" />
+		<beans:property name="prefix" value="/WEB-INF/views/" /> <!--  -->
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 
