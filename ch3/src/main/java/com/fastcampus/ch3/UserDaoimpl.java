@@ -14,7 +14,7 @@ import java.sql.SQLException;
 import java.util.Date;
 
 //@Component UserDao를 구현한 클래스가 빈으로 등록되려면 Component를 사용해야한다. but 얘는 Repository로
-//원래 Component안에  Repository가 있어서 같이구현되는데 종류별로 다르
+//원래 Component안에  Repository가 있어서 같이구현되는데 똑같은 Component여도 종류별로 다르게 구현해놓았음.
 //@Component @Repository @Service @ControllerAdvice 내부에Componentr가 구현되어있음.
 @Repository
 public class UserDaoimpl implements UserDao {
@@ -80,7 +80,7 @@ public class UserDaoimpl implements UserDao {
             return null;
         } finally {
             // close()를 호출하다가 예외가 발생할 수 있으므로, try-catch로 감싸야함.
-            // close()의 호출순서는 생성된 순서의 역순
+            // close()의 호출순서는 생성된 순서의 역순!!!!!!
 //            try { if(rs!=null)    rs.close();    } catch (SQLException e) { e.printStackTrace();}
 //            try { if(pstmt!=null) pstmt.close(); } catch (SQLException e) { e.printStackTrace();}
 //            try { if(conn!=null)  conn.close();  } catch (SQLException e) { e.printStackTrace();}
@@ -166,7 +166,7 @@ public class UserDaoimpl implements UserDao {
     }
 
     private void close(AutoCloseable... acs) {
-        for(AutoCloseable ac :acs)
+        for(AutoCloseable ac :acs) //가변인자를 선언해서 여러개가 들어갈수 있음.
             try { if(ac!=null) ac.close(); } catch(Exception e) { e.printStackTrace(); }
     }
 }

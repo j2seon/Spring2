@@ -26,7 +26,7 @@
 		<context:exclude-filter type="regex" expression="com.fastcampus.ch3.diCopy*.*"/>
 	</context:component-scan>
 
-	<!--view-->
+	<!--view -->
 	<view-controller path="/" view-name="index"/>
 
 	<!--에러메세지-->

@@ -20,7 +20,7 @@ public class AopMain {
 }
 
 class Myadvice{ //각메소드에 해당 내용을 추가하지않고 따로 빼냄.
-    //원하는 곳만 반영하는 법 :Pattern해주기
+    //원하는 곳만 반영하 는 법 :Pattern해주기
     Pattern pattern =Pattern.compile("a.*"); //a로시작하는 단어
     boolean matches(Method m){
         Matcher matcher =pattern.matcher(m.getName());
