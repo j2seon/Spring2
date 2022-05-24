@@ -22,12 +22,16 @@ public class A1DaoTest extends TestCase {
     @Autowired
     DataSource ds;
 
+    @Autowired
+    DataSourceTransactionManager tm;
+
+
 
     @Test
     public void insertTest() {
         //원하는 조건 : 둘다 성공시에만 커밋!
         // 1. Transaction을 생성
-        PlatformTransactionManager tm = new DataSourceTransactionManager(ds);
+      //  PlatformTransactionManager tm = new DataSourceTransactionManager(ds); 위에서 트렌젝션을 bean으로해서 넣어서 주석처리함.
         //2. 트렌젝션 매니져를 사용해서 트렌젝션을 가져오고 그 속성은 뭐다 ~
         //그리고 그걸 TransactionStatus 트렌젝션 상태에 가져온다. 이렇게 하면 시작됨.
         TransactionStatus status = tm.getTransaction(new DefaultTransactionDefinition());
@@ -35,7 +39,7 @@ public class A1DaoTest extends TestCase {
         try {//하나라도 예외발생되면 실행 안되게 묶고
             a1Dao.deleteAll();
             a1Dao.insert(1,100); //성공 >> 이건 값이 들어오게 된다.
-            a1Dao.insert(1,200); //실패
+            a1Dao.insert(2,200); //실패
             tm.commit(status); //성공하면 해당상태를 커밋
         } catch (Exception e) {
             tm.rollback(status); //실패하면 이전상태로 롤백.

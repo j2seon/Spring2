@@ -14,7 +14,7 @@ public class A1Dao {
     @Autowired
     DataSource ds;
 
-    public int insert(int key, int value) {
+    public int insert(int key, int value) throws Exception {
         Connection conn = null;
         PreparedStatement pstmt = null;
 
@@ -27,7 +27,8 @@ public class A1Dao {
 
             return pstmt.executeUpdate();
         } catch (SQLException e) {
-            throw new RuntimeException(e); //예외로 다시던져줘야한다.(트렌젝션..)
+            e.getStackTrace();
+            throw e; //예외로 다시던져줘야한다.(트렌젝션..)
         }finally {
        //     close(pstmt, conn);
             close(pstmt); //애만 직접 닫아주고
