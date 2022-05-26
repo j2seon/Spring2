@@ -5,15 +5,10 @@
 <mapper namespace="com.fastcampus.ch4.dao.BoardMapper">
     <select id="count" resultType="int">
         SELECT count(*) FROM board
-    </select> <!--전체 게시글 숫자 -->
+    </select>
 
     <delete id="deleteAll">
         DELETE FROM board
-    </delete>
-
-    <!--관리자일 경우 삭제할 수 있게 하는~ -->
-    <delete id="deleteForAdmin" >
-        DELETE FROM board WHERE bno = #{bno};
     </delete>
 
     <delete id="delete" parameterType="map">
@@ -25,19 +20,12 @@
             (title, content, writer)
         VALUES
             (#{title}, #{content}, #{writer})
-    </insert> <!-- BoardDto를 받으면  -->
+    </insert>
 
     <select id="selectAll" resultType="BoardDto">
         SELECT bno, title, content, writer, view_cnt, comment_cnt, reg_date
         FROM board
         ORDER BY reg_date DESC, bno DESC
-    </select><!-- 등록일과 번호를 역순으로 전체가져옴.  -->
-
-    <select id="selectPage" parameterType="map" resultType="BoardDto">
-        SELECT bno, title, content, writer, view_cnt, comment_cnt, reg_date
-        FROM board
-        ORDER BY reg_date DESC, bno DESC
-        LIMIT #{offset}, #{pageSize}
     </select>
 
     <sql id="selectFromBoard">
@@ -48,7 +36,7 @@
     <select id="select" parameterType="int" resultType="BoardDto">
         <include refid="selectFromBoard"/>
         WHERE bno = #{bno}
-    </select> <!--게시글번호주면 해당 게시글 출력 -->
+    </select>
 
     <select id="selectPage" parameterType="map" resultType="BoardDto">
         <include refid="selectFromBoard"/>
@@ -61,8 +49,8 @@
         SET   title = #{title}
           , content = #{content}
           , up_date = now()
-        WHERE bno = #{bno}
-    </update> <!--dto 받아서 변경해주고 반환 -->
+        WHERE bno = #{bno} and writer = #{writer}
+    </update>
 
     <update id="updateCommentCnt" parameterType="map">
         UPDATE board
@@ -74,6 +62,22 @@
         UPDATE board
         SET   view_cnt = view_cnt + 1
         WHERE bno = #{bno}
-    </update> <!--조회 수 증가 -->
+    </update>
+
+    <select id="searchSelectPage" parameterType="SearchCondition" resultType="BoardDto">
+        <include refid="selectFromBoard"/>
+        WHERE true
+        AND title LIKE concat('%', #{keyword} , '%')
+        ORDER BY reg_date DESC, bno DESC
+        LIMIT #{offset}, #{pageSize}
+    </select>
+
+    <select id="searchResultCnt" parameterType="SearchCondition" resultType="int">
+        SELECT count(*)
+        FROM board
+        WHERE true
+        AND title LIKE concat('%', #{keyword} , '%')
+    </select>
+
 
 </mapper>

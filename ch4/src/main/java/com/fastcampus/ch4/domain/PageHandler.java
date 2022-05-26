@@ -1,11 +1,15 @@
 package com.fastcampus.ch4.domain;
 
 public class PageHandler {
+//    private int pageSize; // 한 페이지의 크기
+//    private String option;
+//    private String keyword; 위에 옵션과 키워드가 추가되면서 SearchCondition으로 바꿨다.
+//    private int page; //현재페이지
+
+    private SearchCondition sc;
     private int totalCnt; // 총 개시물 갯수
-    private int pageSize; // 한 페이지의 크기
-    private int naviSize = 10; // 페이지 네비게이션의 크기
     private int totalPage; // 전체 페이지의 개수
-    private int page; //현재페이지
+    private int naviSize = 10; // 페이지 네비게이션의 크기
     private int beginPage; //네비게이션의 첫번째 페이지
     private int endPage; //네비게이션의 마지막 페이지
     private boolean showPrev; // 이전페이지로 이동하는 링크를 보여줄 것인지의 여부
@@ -17,14 +21,6 @@ public class PageHandler {
 
     public void setTotalCnt(int totalCnt) {
         this.totalCnt = totalCnt;
-    }
-
-    public int getPageSize() {
-        return pageSize;
-    }
-
-    public void setPageSize(int pageSize) {
-        this.pageSize = pageSize;
     }
 
     public int getNaviSize() {
@@ -43,12 +39,12 @@ public class PageHandler {
         this.totalPage = totalPage;
     }
 
-    public int getPage() {
-        return page;
+    public SearchCondition getSc() {
+        return sc;
     }
 
-    public void setPage(int page) {
-        this.page = page;
+    public void setSc(SearchCondition sc) {
+        this.sc = sc;
     }
 
     public int getBeginPage() {
@@ -83,19 +79,17 @@ public class PageHandler {
         this.showNext = showNext;
     }
 
-    //셍성자로 페이지 사이즈를정하지 않으면 10 으로
-    public PageHandler(int totalCnt, int page){
-        this(totalCnt, page,10);
+    public PageHandler(int totalCnt, SearchCondition sc){
+        this.totalCnt = totalCnt;
+        this.sc = sc;
+        doPaging(totalCnt , sc);
     }
 
-
-    public PageHandler(int totalCnt, int page, int pageSize){ //페이지 계산하는데에 필요하다~
+    public void doPaging(int totalCnt, SearchCondition sc){ //페이지 계산하는데에 필요하다~
         this.totalCnt = totalCnt;
-        this.page = page;
-        this.pageSize = pageSize;
 
-        totalPage = (int)Math.ceil(totalCnt / (double)pageSize); // 총 페이지의 개수는 총 게시물의 개수/한페이지의 크기 반올림을 하기때문에
-        beginPage = page / naviSize * naviSize + 1; //시작페이지
+        totalPage = (int)Math.ceil(totalCnt / (double)sc.getPageSize()); // 총 페이지의 개수는 총 게시물의 개수/한페이지의 크기 반올림을 하기때문에
+        beginPage = (sc.getPage()-1) / naviSize * naviSize + 1; //시작페이지
         endPage = Math.min(beginPage + naviSize -1, totalPage); //끝나는 페이지가 totalpage가 작을 수 있다. >  Math.min으로 둘중에 작은거적용
         //삼항연산자 가능
         showPrev = beginPage != 1; //1일때 보이지 않아야한다. 1일 때 false
@@ -104,7 +98,7 @@ public class PageHandler {
 
     //페이지네이게이션을 출력하는 메서드
     void print(){
-        System.out.println("page = " + page); //현재 페이지
+        System.out.println("page = " + sc.getPage()); //현재 페이지
         System.out.println(showPrev? "[PREV]" : "" ); // showPrev가 true이면 보여주고 아니면 빈문자열
         for(int i = beginPage; i <= endPage; i++){ //beginPage부터~ endPage까지 출력한다.
             System.out.print(i + " ");
@@ -115,11 +109,10 @@ public class PageHandler {
     @Override
     public String toString() {
         return "PageHandler{" +
-                "totalCnt=" + totalCnt +
-                ", pageSize=" + pageSize +
-                ", naviSize=" + naviSize +
+                "sc=" + sc +
+                ", totalCnt=" + totalCnt +
                 ", totalPage=" + totalPage +
-                ", page=" + page +
+                ", naviSize=" + naviSize +
                 ", beginPage=" + beginPage +
                 ", endPage=" + endPage +
                 ", showPrev=" + showPrev +
