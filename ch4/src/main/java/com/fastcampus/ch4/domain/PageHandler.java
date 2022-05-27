@@ -1,5 +1,7 @@
 package com.fastcampus.ch4.domain;
 
+import org.springframework.web.util.UriComponentsBuilder;
+
 public class PageHandler {
 //    private int pageSize; // 한 페이지의 크기
 //    private String option;
@@ -94,7 +96,9 @@ public class PageHandler {
         //삼항연산자 가능
         showPrev = beginPage != 1; //1일때 보이지 않아야한다. 1일 때 false
         showNext = endPage != totalPage; //endpage 가 총 페이지개수랑 같지 않아야 된다.
+
     }
+
 
     //페이지네이게이션을 출력하는 메서드
     void print(){

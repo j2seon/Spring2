@@ -15,6 +15,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -134,33 +137,36 @@ public class BoardController {
     }
 
 
-    @GetMapping("/list")//Integer page, Integer pageSize,String keyword, String option >>SearchCondition 으로 바꿀수있다.
-    public String list(SearchCondition sc, Model m, HttpServletRequest request) {
-        if (!loginCheck(request))
-            return "redirect:/login/login?toURL=" + request.getRequestURL();  // 로그인을 안했으면 로그인 화면으로 이동
-
-
+    @GetMapping("/list")
+    public String list(Model m, SearchCondition sc, HttpServletRequest request) {
+        if(!loginCheck(request))
+            return "redirect:/login/login?toURL="+request.getRequestURL();  // 로그인을 안했으면 로그인 화면으로 이동
 
         try {
-            int totalCnt = boardService.getsearchResultCnt(sc);
-            //네비게이션을 만들기 위함 .
-            PageHandler pageHandler = new PageHandler(totalCnt , sc);
+            int totalCnt = boardService.getSearchResultCnt(sc);
+            m.addAttribute("totalCnt", totalCnt);
 
+            PageHandler pageHandler = new PageHandler(totalCnt, sc);
 
-            List<BoardDto> list = boardService.getrSearchResultPage(sc);
-            m.addAttribute("list" , list);
-            m.addAttribute("pageHandler",pageHandler);
+            List<BoardDto> list = boardService.getSearchResultPage(sc);
+            m.addAttribute("list", list);
+            m.addAttribute("ph", pageHandler);
 
+            Instant startOfToday = LocalDate.now().atStartOfDay(ZoneId.systemDefault()).toInstant();
+            m.addAttribute("startOfToday", startOfToday.toEpochMilli());
         } catch (Exception e) {
             e.printStackTrace();
+            m.addAttribute("msg", "LIST_ERR");
+            m.addAttribute("totalCnt", 0);
         }
+
         return "boardList"; // 로그인을 한 상태이면, 게시판 화면으로 이동
     }
 
     private boolean loginCheck(HttpServletRequest request) {
-        // 1. 세션을 얻어서
-        HttpSession session = request.getSession();
+        // 1. 세션을 얻어서(false는 session이 없어도 새로 생성하지 않는다. 반환값 null)
+        HttpSession session = request.getSession(false);
         // 2. 세션에 id가 있는지 확인, 있으면 true를 반환
-        return session.getAttribute("id") != null;
+        return session!=null && session.getAttribute("id")!=null;
     }
 }

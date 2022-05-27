@@ -1,5 +1,5 @@
 package com.fastcampus.ch4.service;
-//Daoimpl에 있는 내용을 가지고 작성한다~
+
 import com.fastcampus.ch4.dao.*;
 import com.fastcampus.ch4.domain.*;
 import org.springframework.beans.factory.annotation.*;
@@ -13,16 +13,6 @@ public class BoardServiceImpl implements BoardService {
     BoardDao boardDao;
 
     @Override
-    public int getsearchResultCnt(SearchCondition sc) throws Exception{
-        return boardDao.searchResultCnt(sc);
-    }
-
-    @Override
-    public List<BoardDto> getrSearchResultPage(SearchCondition sc)throws Exception{
-        return boardDao.searchSelectPage(sc);
-    }
-
-    @Override
     public int getCount() throws Exception {
         return boardDao.count();
     }
@@ -34,7 +24,6 @@ public class BoardServiceImpl implements BoardService {
 
     @Override
     public int write(BoardDto boardDto) throws Exception {
-//        throw new Exception("test");
         return boardDao.insert(boardDto);
     }
 
@@ -61,18 +50,18 @@ public class BoardServiceImpl implements BoardService {
         return boardDao.update(boardDto);
     }
 
-//    @Override
-//    public int getSearchResultCnt(SearchCondition sc) throws Exception {
-//        return boardDao.searchResultCnt(sc);
-//    }
-//
-//    @Override
-//    public List<BoardDto> getSearchResultPage(SearchCondition sc) throws Exception {
-//        return boardDao.searchSelectPage(sc);
-//    }
+    @Override
+    public int getSearchResultCnt(SearchCondition sc) throws Exception {
+        return boardDao.searchResultCnt(sc);
+    }
+
+    @Override
+    public List<BoardDto> getSearchResultPage(SearchCondition sc) throws Exception {
+        return boardDao.searchSelectPage(sc);
+    }
+    @Override
+    public int updateCommentCnt(Integer bno, int i){
+        return 0;
+    }
+
 }
-
-
-
-
-
