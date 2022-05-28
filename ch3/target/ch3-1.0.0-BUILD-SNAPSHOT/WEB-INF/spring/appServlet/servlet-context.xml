@@ -9,8 +9,7 @@
 	<!-- servlet-context는 웹관련 설정을 넣는다. -->
 	<!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
 	
-	<!-- Enables the Spring MVC @Controller programming model -->
-	<annotation-driven />
+	<!-- Enables the Spring MVC @Controller programming model 이게 있어야 트렌젝션 가능 -->
 
 	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
 	<resources mapping="/**" location="/resources/" />
@@ -22,11 +21,7 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 
-	<context:component-scan base-package="com.fastcampus.ch3">
-		<context:exclude-filter type="regex" expression="com.fastcampus.ch3.diCopy*.*"/>
-	</context:component-scan>
-
-	<!--view-->
+	<!--view -->
 	<view-controller path="/" view-name="index"/>
 
 	<!--에러메세지-->
