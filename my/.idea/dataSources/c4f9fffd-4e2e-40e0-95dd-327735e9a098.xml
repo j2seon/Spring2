@@ -1392,7 +1392,7 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <SourceTextLength>792</SourceTextLength>
       <System>1</System>
     </view>
-    <table id="367" parent="278" name="user_info">
+    <table id="367" parent="278" name="users">
       <Engine>InnoDB</Engine>
       <CollationName>utf8_bin</CollationName>
     </table>
@@ -4955,31 +4955,38 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <Position>6</Position>
     </column>
     <column id="1098" parent="367" name="id">
-      <DataType>varchar(30)|0s</DataType>
+      <DataType>varchar(45)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
     <column id="1099" parent="367" name="pwd">
       <DataType>varchar(45)|0s</DataType>
+      <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
     <column id="1100" parent="367" name="name">
       <DataType>varchar(45)|0s</DataType>
+      <NotNull>1</NotNull>
       <Position>3</Position>
     </column>
     <column id="1101" parent="367" name="email">
       <DataType>varchar(45)|0s</DataType>
       <Position>4</Position>
     </column>
-    <column id="1102" parent="367" name="birth">
-      <DataType>date|0s</DataType>
+    <column id="1102" parent="367" name="phone">
+      <DataType>varchar(45)|0s</DataType>
       <Position>5</Position>
     </column>
-    <column id="1103" parent="367" name="reg_date">
-      <DataType>datetime|0s</DataType>
+    <column id="1103" parent="367" name="address">
+      <DataType>varchar(80)|0s</DataType>
       <Position>6</Position>
     </column>
-    <key id="1104" parent="367" name="PRIMARY">
+    <column id="1104" parent="367" name="reg_date">
+      <DataType>datetime|0s</DataType>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+      <Position>7</Position>
+    </column>
+    <key id="1105" parent="367" name="PRIMARY">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
