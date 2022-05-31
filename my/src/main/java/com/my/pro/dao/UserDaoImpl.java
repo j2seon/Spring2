@@ -39,10 +39,15 @@ public class UserDaoImpl implements UserDao {
         return session.update(namespace+"dto",dto);
     }// 회원정보 수정하기
 
-    public UserDto select(String id)throws Exception{
+    public UserDto select(String id) throws Exception{
         return session.selectOne(namespace+"select",id);
     }//특정 회원찾기
-    
+
+    public UserDto selectch(UserDto dto) throws Exception{
+        return session.selectOne(namespace+"selectch",dto);
+    } //로그인할때 활용
+
+
     public List<UserDao> selectAll()throws Exception{
         return session.selectList(namespace+"selectAll");
     }//전체 회원보기

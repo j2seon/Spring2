@@ -17,6 +17,7 @@ public interface UserDao {
 
     public List<UserDao> selectAll()throws Exception; //전체회원조회
 
+    public UserDto selectch(UserDto dto) throws Exception; //로그인할때 활용
 
 
 

@@ -14,7 +14,7 @@
     </delete>
 
     <delete id="deleteAll">
-        DELETE FROM users
+        DELETE from users
     </delete>
 
     <update id="update" parameterType="UserDto" >
@@ -40,6 +40,13 @@
         <include refid="selectFromUser"/>
         where id =#{id}
     </select>
+
+    <select id="selectch" resultType="UserDto">
+        SELECT id, pwd, name, email, phone, address, reg_date
+        from users
+        where id =#{id} and pwd=#{pwd}
+    </select>
+
 
     <select id="selectAll" resultType="UserDto">
         <include refid="selectFromUser"/>

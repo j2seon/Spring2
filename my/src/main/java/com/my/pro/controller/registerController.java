@@ -33,7 +33,7 @@ public class registerController {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return "index"; //회원가입하면 홈화면으로 가게하자
+        return "redirct:/"; //회원가입하면 홈화면으로 가게하자
     }
     
     

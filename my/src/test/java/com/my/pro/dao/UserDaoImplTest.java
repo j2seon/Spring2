@@ -17,24 +17,56 @@ public class UserDaoImplTest extends TestCase {
 
     @Test
     public void testInsert() throws Exception {
-        UserDto userDto = new UserDto("asdf","asdf","asdf","asdf","asdf","asdf");
+        UserDto userDto = new UserDto("4567", "asdf", "asdf", "asdf", "asdf", "asdf");
 
-        assertTrue(userDao.insert(userDto)==1);
+        assertTrue(userDao.insert(userDto) == 1);
 
     }
 
-    public void testDelete() {
+    public void testDelete() throws Exception {
+       int cnt = userDao.delete("4567","asdf");
+        assertTrue(cnt==1);
     }
 
-    public void testDeleteAll() {
+    @Test
+    public void testDeleteAll() throws Exception {
+        int cnt = userDao.deleteAll();
+        assertTrue(cnt==  1);
     }
 
     public void testUpdate() {
     }
 
-    public void testSelect() {
+    @Test
+    public void testSelect() throws Exception {
+        UserDto userDto = new UserDto("kkkk", "asdf", "asdf", "asdf", "asdf", "asdf");
+        assertTrue(userDao.insert(userDto)==1);
+        System.out.println(userDto);
+
+        UserDto user2 = userDao.select(userDto.getId());
+
+        assertTrue(userDto.equals(user2));
+        System.out.println(user2);
+
+        user2 = userDao.select("kkkk");
+        assertTrue(user2==null);
     }
 
     public void testSelectAll() {
+    }
+
+    @Test
+    public void selectch() throws Exception {
+        UserDto dd = userDao.select("zxcv");
+        String a = dd.getId();
+        String aa = dd.getPwd();
+
+        UserDto dto = new UserDto();
+        dto.setId("zxcv");
+        dto.setPwd("zxcvzxcv");
+        System.out.println(userDao.selectch(dto));
+        assertTrue(a.equals(dto.getId()));
+        assertTrue(aa.equals(dto.getPwd()));
+
     }
 }
