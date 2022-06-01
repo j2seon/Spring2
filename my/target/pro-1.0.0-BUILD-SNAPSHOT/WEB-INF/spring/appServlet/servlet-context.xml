@@ -13,6 +13,10 @@
 
 	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
 	<resources mapping="/**" location="/resources/" />
+	<resources mapping="/css/**" location="/resources/css/" />
+	<resources mapping="/js/**" location="/resources/js/" />
+	<resources mapping="/jpg/**" location="/resources/image/" />
+	<resources mapping="/png/**" location="/resources/image/" />
 
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -22,6 +26,6 @@
 	
 	<context:component-scan base-package="com.my.pro" />
 
-	<view-controller path="/" view-name="index"/> <!--/f로 방문하면 index.jsp를 가져온다-->
+	<view-controller path="/" view-name="main"/> <!--/f로 방문하면 index.jsp를 가져온다-->
 <!--	<view-controller path="/register/add" view-name="registerForm"/>-->
 </beans:beans>

@@ -8,8 +8,8 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>fastcampus</title>
-    <link rel="stylesheet" href="<c:url value='/resources/css/menu.css'/>">
+    <title>regsiter</title>
+    <link rel="stylesheet" href="<c:url value="./css/menu.css"/>">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"/>
     <style>
         * { box-sizing:border-box; }
@@ -72,8 +72,8 @@
 <form action="<c:url value="/login/login"/>" method="post" onsubmit="return formCheck(this);">
     <h3 id="title">Login</h3>
     <div id="msg">
-        <c:if test="${not empty param.msg}">
-            <i class="fa fa-exclamation-circle"> ${param.msg}</i>
+        <c:if test="${not empty msg}">
+            <i class="fa fa-exclamation-circle"> ${msg}</i>
         </c:if>
     </div>              <!--value에 회원 id가 들어가야한다.-->
     <input type="text" name="id" value="${cookie.id.value}" placeholder="아이디 입력" autofocus>

@@ -14,7 +14,6 @@ public class UserDto {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date reg_date;
 
-
     public UserDto(){};
     public UserDto(String id, String pwd, String name, String email, String phone, String address) {
         this.id = id;

@@ -14,14 +14,14 @@ public class BoardController {
 
     @GetMapping("/list")
     public String list(HttpServletRequest request){
-        if(!logincheck(request))
-            return "redirect:/login/login";
+        if(!logcheck(request))
+            return "redirect:/login/login?toURL="+request.getRequestURL();
 
 
-        return "boardList";
+        return "board";
     }
 
-    private boolean logincheck(HttpServletRequest request){
+    private boolean logcheck(HttpServletRequest request){
         HttpSession session = request.getSession();
         return session.getAttribute("id")!=null;
     }

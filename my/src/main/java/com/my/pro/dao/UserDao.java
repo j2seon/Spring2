@@ -5,20 +5,24 @@ import com.my.pro.dto.UserDto;
 import java.util.List;
 
 public interface UserDao {
-    int insert(UserDto dto) throws Exception;//회원 추가
-
-    int delete(String id, String pwd) throws Exception; //회원삭제
-
-    int deleteAll() throws Exception; //전체삭제
-
-    public int update(UserDto dto)throws Exception; //회원정보수정
-
-    public UserDto select(String id)throws Exception; // 특정회원조회
-
-    public List<UserDao> selectAll()throws Exception; //전체회원조회
-
-    public UserDto selectch(UserDto dto) throws Exception; //로그인할때 활용
+    int insert(UserDto dto) throws Exception;//회원 추가하기
 
 
+    List<UserDto> selectAll() throws Exception//전체 회원보기
+    ;
+
+    UserDto select(String id) throws Exception // 특정회원
+    ;
+
+    int count() throws Exception // 전체 회원 수
+    ;
+
+    int delete(String id) throws Exception;
+
+    int deleteAll() throws Exception;
+
+    UserDto check(UserDto dto) throws Exception;
+
+    int checkid(String id)throws Exception;
 
     }

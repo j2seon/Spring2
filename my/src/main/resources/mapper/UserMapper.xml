@@ -4,6 +4,46 @@
 
 <mapper namespace="com.my.pro.dao.UserMapper">
     <insert id="insert" parameterType="UserDto">
-        INSERT INTO
+        INSERT INTO users(id, pwd, name, email, phone, address, reg_date)
+        values (#{id},#{pwd},#{name},#{email},#{phone},#{address}, now())
     </insert>
+    <select id="select" parameterType="String" resultType="UserDto">
+        SELECT id, pwd, name, email, phone, address
+        From users
+        where id = #{id}
+    </select>
+    <select id="selectAll" resultType="UserDto">
+        SELECT id, pwd, name, email, phone, address, reg_date
+        FROM users
+        order by reg_date desc
+    </select>
+    <select id="count" resultType="int">
+        SELECT COUNT(*)
+        from users
+    </select>
+    <update id="update" >
+        UPDATE users
+        SET pwd = #{pwd},
+            name = #{name},
+            email = #{email},
+            phone = #{phone},
+            address =#{address}
+    </update>
+    <delete id="delete" parameterType="String">
+        DELETE from users
+        where id =#{id}
+    </delete>
+    <delete id="deleteAll">
+        DELETE from users
+    </delete>
+    <select id="check" resultType="UserDto" >
+        SELECT id, pwd, name, email, phone, address, reg_date
+        from users
+        where id=#{id} and pwd=#{pwd}
+    </select>
+    <select id="checkid" resultType="int" parameterType="String">
+        SELECT COUNT(id)
+        from users
+        WHERE id=#{id}
+    </select>
 </mapper>

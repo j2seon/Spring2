@@ -2,55 +2,48 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace = "com.my.pro.dao.UserMapper">
-
-   <insert id="insert" parameterType="UserDto">
-    INSERT INTO users(id, pwd, name, email, phone, address, reg_date)
-    values (#{id}, #{pwd}, #{name}, #{email}, #{phone}, #{address}, now())
-   </insert>
-
-    <delete id="delete" parameterType="map" >
-        DELETE FROM users WHERE id = #{id} and pwd = #{pwd}
-    </delete>
-
-    <delete id="deleteAll">
-        DELETE from users
-    </delete>
-
-    <update id="update" parameterType="UserDto" >
+<mapper namespace="com.my.pro.dao.UserMapper">
+    <insert id="insert" parameterType="UserDto">
+        INSERT INTO users(id, pwd, name, email, phone, address, reg_date)
+        values (#{id},#{pwd},#{name},#{email},#{phone},#{address}, now())
+    </insert>
+    <select id="select" parameterType="String" resultType="UserDto">
+        SELECT id, pwd, name, email, phone, address
+        From users
+        where id = #{id}
+    </select>
+    <select id="selectAll" resultType="UserDto">
+        SELECT id, pwd, name, email, phone, address, reg_date
+        FROM users
+        order by reg_date desc
+    </select>
+    <select id="count" resultType="int">
+        SELECT COUNT(*)
+        from users
+    </select>
+    <update id="update" >
         UPDATE users
         SET pwd = #{pwd},
             name = #{name},
             email = #{email},
-            phone  = #{phone},
-            address = #{address}
-        WHERE id = #{id}
+            phone = #{phone},
+            address =#{address}
     </update>
-
-    <select id="count" resultType="int" >
-        SELECT count(*) from users
-    </select>
-
-    <sql id="selectFromUser">
-        SELECT id, pwd, name, email, phone, address,reg_date
-        from users
-    </sql>
-
-    <select id="select" parameterType="String" resultType="UserDto">
-        <include refid="selectFromUser"/>
+    <delete id="delete" parameterType="String">
+        DELETE from users
         where id =#{id}
-    </select>
-
-    <select id="selectch" resultType="UserDto">
+    </delete>
+    <delete id="deleteAll">
+        DELETE from users
+    </delete>
+    <select id="check" resultType="UserDto" >
         SELECT id, pwd, name, email, phone, address, reg_date
         from users
-        where id =#{id} and pwd=#{pwd}
+        where id=#{id} and pwd=#{pwd}
     </select>
-
-
-    <select id="selectAll" resultType="UserDto">
-        <include refid="selectFromUser"/>
-        order by reg_date DESC
+    <select id="checkid" resultType="int" parameterType="String">
+        SELECT COUNT(id)
+        from users
+        WHERE id=#{id}
     </select>
-
 </mapper>

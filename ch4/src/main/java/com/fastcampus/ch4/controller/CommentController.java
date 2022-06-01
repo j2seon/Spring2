@@ -92,7 +92,7 @@ public class CommentController {
     //댓글을 수정하는 메소드
     @ResponseBody
     @PatchMapping("/comments/{cno}") // 수정은 PATCH를 이용한다.
-    public ResponseEntity<String> modify(@PathVariable Integer cno ,@RequestBody CommentDto dto){
+    public ResponseEntity<String> modify(@PathVariable Integer cno ,@RequestBody CommentDto dto, HttpSession session){
         //작성자는 세션에서 가져와야한다.
         //String commenter = (String)session.getAttribute("id");
         String commenter = "asdf";
