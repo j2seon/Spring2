@@ -56,13 +56,11 @@ public class LoginController {
                     response.addCookie(cookie);
                 }
 
-                toURL = toURL==null || toURL.equals("") ? "/" : toURL;
-                return "redirect:"+toURL;
-
             }
         } catch (Exception e) {
-            throw new RuntimeException(e);
         }
+        toURL = toURL==null || toURL.equals("") ? "/" : toURL;
+        return "redirect:"+toURL;
     }
 
 

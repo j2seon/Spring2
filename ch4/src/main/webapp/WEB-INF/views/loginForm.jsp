@@ -8,8 +8,8 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>fastcampus</title>
-    <link rel="stylesheet" href="<c:url value='/resources/css/menu.css'>"/>
+    <title>regsiter</title>
+    <link rel="stylesheet" href="<c:url value="./css/menu.css"/>">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"/>
     <style>
         * { box-sizing:border-box; }
@@ -61,22 +61,22 @@
 <body>
 <div id="menu">
     <ul>
-        <li id="logo">fastcampus</li>
+        <li id="logo">logo</li>
         <li><a href="<c:url value='/'/>">Home</a></li>
-        <li><a href="<c:url value=''/>">Board</a></li>
+        <li><a href="<c:url value='/board/list'/>">Board</a></li>
         <li><a href="<c:url value='${loginOutLink}'/>">${loginOut}</a></li>
-        <li><a href="<c:url value='/'>">Sign in</a></li>
+        <li><a href="<c:url value='//add'/>">Sign in</a></li>
         <li><a href=""><i class="fa fa-search"></i></a></li>
     </ul>
-</div>
+</div>    <!--c;url 사용 이유 쿠키를 사용하지 않는 애들은 세션이 와야하기때문 : 쿠키차단하고 c url 없으면 세션이 계속 바뀜 서버부담 증가-->
 <form action="<c:url value="/login/login"/>" method="post" onsubmit="return formCheck(this);">
     <h3 id="title">Login</h3>
     <div id="msg">
-        <c:if test="${not empty param.msg}">
-            <i class="fa fa-exclamation-circle"> ${URLDecoder.decode(param.msg)}</i>
+        <c:if test="${not empty msg}">
+            <i class="fa fa-exclamation-circle"> ${msg}</i>
         </c:if>
-    </div>
-    <input type="text" name="id" value="${cookie.id.value}" placeholder="이메일 입력" autofocus>
+    </div>              <!--value에 회원 id가 들어가야한다.-->
+    <input type="text" name="id" value="${cookie.id.value}" placeholder="아이디 입력" autofocus>
     <input type="password" name="pwd" placeholder="비밀번호">
     <input type="hidden" name="toURL" value="${param.toURL}">
     <button>로그인</button>

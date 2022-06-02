@@ -10,58 +10,43 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="520e26e4-e609-45b9-891e-7adfefaf6d89" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../ch4/src/main/webapp/WEB-INF/views/test.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/my/pro/service/UserService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/my/pro/service/UserServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/register.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/my/pro/service/UserServiceImplTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ch4/src/main/java/com/fastcampus/ch4/Base64Test2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/my/pro/dao/BoardDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/my/pro/dao/BoardDaoImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/my/pro/dto/BoardDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/my/pro/dto/PageHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/my/pro/service/BoardService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/my/pro/service/BoardServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/mapper/BoardMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/my/pro/dao/BoardDaoImplTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/my/pro/service/BoardServiceImplTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ch4/.idea/webContexts.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ch4/.idea/webContexts.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ch4/src/main/java/com/fastcampus/ch4/controller/CommentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ch4/src/main/java/com/fastcampus/ch4/controller/CommentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ch4/src/main/java/com/fastcampus/ch4/controller/SimpleRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ch4/src/main/java/com/fastcampus/ch4/controller/SimpleRestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ch4/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ch4/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ch4/src/main/java/com/fastcampus/ch4/controller/BoardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ch4/src/main/java/com/fastcampus/ch4/controller/BoardController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ch4/src/main/webapp/WEB-INF/views/loginForm.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../ch4/src/main/webapp/WEB-INF/views/loginForm.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ch4/target/ch4-1.0.0-BUILD-SNAPSHOT.war" beforeDir="false" afterPath="$PROJECT_DIR$/../ch4/target/ch4-1.0.0-BUILD-SNAPSHOT.war" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ch4/target/ch4-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/fastcampus/ch4/controller/BoardController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../ch4/target/ch4-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/fastcampus/ch4/controller/BoardController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ch4/target/ch4-1.0.0-BUILD-SNAPSHOT/WEB-INF/views/loginForm.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../ch4/target/ch4-1.0.0-BUILD-SNAPSHOT/WEB-INF/views/loginForm.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ch4/target/classes/com/fastcampus/ch4/controller/BoardController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../ch4/target/classes/com/fastcampus/ch4/controller/BoardController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/c4f9fffd-4e2e-40e0-95dd-327735e9a098.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/c4f9fffd-4e2e-40e0-95dd-327735e9a098.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/webContexts.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/webContexts.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/pro/controller/BoardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/my/pro/controller/BoardController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/my/pro/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/my/pro/controller/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/pro/controller/registerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/my/pro/controller/registerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/pro/dao/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/my/pro/dao/UserDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/pro/dao/UserDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/my/pro/dao/UserDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/pro/dto/UserDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/my/pro/dto/UserDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/pro/service/Userservice.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/pro/service/Userserviceimpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/UserMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/spring/appServlet/servlet-context.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/spring/appServlet/servlet-context.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/spring/root-context.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/spring/root-context.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/loginForm.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/loginForm.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/registerForm.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/registerForm.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/my/pro/dao/UserDaoImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/my/pro/dao/UserDaoImplTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/my/pro/service/UserserviceimplTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mybatis-config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mybatis-config.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/boardList.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/boardList.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/main.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/main.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/my/pro/controller/BoardController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/my/pro/controller/BoardController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/my/pro/controller/LoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/my/pro/controller/LoginController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/my/pro/controller/registerController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/my/pro/controller/registerController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/my/pro/dao/UserDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/my/pro/dao/UserDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/my/pro/dao/UserDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/my/pro/dao/UserDaoImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/my/pro/dto/UserDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/my/pro/dto/UserDto.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/my/pro/service/Userservice.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/my/pro/service/Userservice.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/my/pro/service/Userserviceimpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/my/pro/service/Userserviceimpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mapper/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/UserMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/mybatis-config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mybatis-config.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/pro-1.0.0-BUILD-SNAPSHOT.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/pro-1.0.0-BUILD-SNAPSHOT.war" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/pro-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/my/pro/controller/BoardController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/pro-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/my/pro/controller/BoardController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/pro-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/my/pro/controller/LoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/pro-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/my/pro/controller/LoginController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/pro-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/my/pro/controller/registerController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/pro-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/my/pro/controller/registerController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/pro-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/my/pro/dao/UserDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/pro-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/my/pro/dao/UserDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/pro-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/my/pro/dao/UserDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/pro-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/my/pro/dao/UserDaoImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/pro-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/my/pro/dto/UserDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/pro-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/my/pro/dto/UserDto.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/pro-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/my/pro/service/Userservice.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/pro-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/my/pro/service/Userservice.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/pro-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/my/pro/service/Userserviceimpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/pro-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/my/pro/service/Userserviceimpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/pro-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/mapper/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/pro-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/mapper/UserMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/pro-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/mybatis-config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/pro-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/mybatis-config.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/pro-1.0.0-BUILD-SNAPSHOT/WEB-INF/spring/appServlet/servlet-context.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/pro-1.0.0-BUILD-SNAPSHOT/WEB-INF/spring/appServlet/servlet-context.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/pro-1.0.0-BUILD-SNAPSHOT/WEB-INF/spring/root-context.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/pro-1.0.0-BUILD-SNAPSHOT/WEB-INF/spring/root-context.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/pro-1.0.0-BUILD-SNAPSHOT/WEB-INF/views/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/pro-1.0.0-BUILD-SNAPSHOT/WEB-INF/views/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/pro-1.0.0-BUILD-SNAPSHOT/WEB-INF/views/loginForm.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/pro-1.0.0-BUILD-SNAPSHOT/WEB-INF/views/loginForm.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/pro-1.0.0-BUILD-SNAPSHOT/WEB-INF/views/registerForm.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/pro-1.0.0-BUILD-SNAPSHOT/WEB-INF/views/registerForm.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/my/pro/dao/UserDaoImplTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/my/pro/dao/UserDaoImplTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/my/pro/service/UserserviceimplTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/my/pro/service/UserserviceimplTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/pro-1.0.0-BUILD-SNAPSHOT/WEB-INF/views/boardList.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/pro-1.0.0-BUILD-SNAPSHOT/WEB-INF/views/boardList.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/pro-1.0.0-BUILD-SNAPSHOT/WEB-INF/views/main.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/pro-1.0.0-BUILD-SNAPSHOT/WEB-INF/views/main.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,10 +59,10 @@
         <option value="spring-beans.schema" />
         <option value="CSS File" />
         <option value="JUnit3 Test Class" />
-        <option value="Interface" />
-        <option value="Class" />
-        <option value="JUnit4 Test Class" />
         <option value="Jsp File" />
+        <option value="Class" />
+        <option value="Interface" />
+        <option value="JUnit4 Test Class" />
       </list>
     </option>
   </component>
@@ -107,38 +92,38 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit4&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit3&quot;: &quot;junit.framework.TestCase&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4&quot;: &quot;&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/ddj04/IdeaProjects/my&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.appearance&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;1f0f70bf2b5ad94c7387e64c16dc455a&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit4",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit3": "junit.framework.TestCase",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4": "",
+    "last_opened_file_path": "C:/Users/ddj04/IdeaProjects/my/src/main/webapp/WEB-INF/views",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "configurable.group.appearance",
+    "spring.configuration.checksum": "1f0f70bf2b5ad94c7387e64c16dc455a"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mysql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
     ],
-    &quot;GitStage.ChangesTree.GroupingKeys&quot;: [
-      &quot;directory&quot;,
-      &quot;module&quot;,
-      &quot;repository&quot;
+    "GitStage.ChangesTree.GroupingKeys": [
+      "directory",
+      "module",
+      "repository"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\ddj04\IdeaProjects\my\src\main\webapp\WEB-INF\views" />
@@ -159,12 +144,13 @@
       <recent name="com.my.pro.dao" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.my.pro.dto" />
       <recent name="com.my.pro.service" />
       <recent name="com.my.pro.dao" />
     </key>
   </component>
   <component name="RunManager" selected="Tomcat Server.Tomcat 9.0.52">
-    <configuration name="UserDaoImplTest.testCheck" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="BoardDaoImplTest.insert2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="pro" />
       <extension name="coverage">
         <pattern>
@@ -173,62 +159,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.my.pro.dao" />
-      <option name="MAIN_CLASS_NAME" value="com.my.pro.dao.UserDaoImplTest" />
-      <option name="METHOD_NAME" value="testCheck" />
+      <option name="MAIN_CLASS_NAME" value="com.my.pro.dao.BoardDaoImplTest" />
+      <option name="METHOD_NAME" value="insert2" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserDaoImplTest.testcheckid" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="pro" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.my.pro.dao.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.my.pro.dao" />
-      <option name="MAIN_CLASS_NAME" value="com.my.pro.dao.UserDaoImplTest" />
-      <option name="METHOD_NAME" value="testcheckid" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="UserDaoImplTest.testcount" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="pro" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.my.pro.dao.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.my.pro.dao" />
-      <option name="MAIN_CLASS_NAME" value="com.my.pro.dao.UserDaoImplTest" />
-      <option name="METHOD_NAME" value="testcount" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="UserDaoImplTest.testcount2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="pro" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.my.pro.dao.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.my.pro.dao" />
-      <option name="MAIN_CLASS_NAME" value="com.my.pro.dao.UserDaoImplTest" />
-      <option name="METHOD_NAME" value="testcount2" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="UserServiceImplTest.idCheck" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="BoardServiceImplTest.modify" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="pro" />
       <extension name="coverage">
         <pattern>
@@ -237,8 +175,56 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.my.pro.service" />
-      <option name="MAIN_CLASS_NAME" value="com.my.pro.service.UserServiceImplTest" />
-      <option name="METHOD_NAME" value="idCheck" />
+      <option name="MAIN_CLASS_NAME" value="com.my.pro.service.BoardServiceImplTest" />
+      <option name="METHOD_NAME" value="modify" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BoardServiceImplTest.read" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="pro" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.my.pro.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.my.pro.service" />
+      <option name="MAIN_CLASS_NAME" value="com.my.pro.service.BoardServiceImplTest" />
+      <option name="METHOD_NAME" value="read" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BoardServiceImplTest.remove" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="pro" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.my.pro.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.my.pro.service" />
+      <option name="MAIN_CLASS_NAME" value="com.my.pro.service.BoardServiceImplTest" />
+      <option name="METHOD_NAME" value="remove" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PageHandlerTest.test1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="pro" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.my.pro.dto.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.my.pro.dto" />
+      <option name="MAIN_CLASS_NAME" value="com.my.pro.dto.PageHandlerTest" />
+      <option name="METHOD_NAME" value="test1" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -333,20 +319,20 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="JUnit.UserDaoImplTest.testCheck" />
-      <item itemvalue="JUnit.UserDaoImplTest.testcheckid" />
-      <item itemvalue="JUnit.UserDaoImplTest.testcount" />
-      <item itemvalue="JUnit.UserDaoImplTest.testcount2" />
-      <item itemvalue="JUnit.UserServiceImplTest.idCheck" />
+      <item itemvalue="JUnit.BoardDaoImplTest.insert2" />
+      <item itemvalue="JUnit.PageHandlerTest.test1" />
+      <item itemvalue="JUnit.BoardServiceImplTest.modify" />
+      <item itemvalue="JUnit.BoardServiceImplTest.read" />
+      <item itemvalue="JUnit.BoardServiceImplTest.remove" />
       <item itemvalue="Tomcat Server.Tomcat 9.0.52" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.UserDaoImplTest.testCheck" />
-        <item itemvalue="JUnit.UserServiceImplTest.idCheck" />
-        <item itemvalue="JUnit.UserDaoImplTest.testcheckid" />
-        <item itemvalue="JUnit.UserDaoImplTest.testcount2" />
-        <item itemvalue="JUnit.UserDaoImplTest.testcount" />
+        <item itemvalue="JUnit.PageHandlerTest.test1" />
+        <item itemvalue="JUnit.BoardDaoImplTest.insert2" />
+        <item itemvalue="JUnit.BoardServiceImplTest.remove" />
+        <item itemvalue="JUnit.BoardServiceImplTest.modify" />
+        <item itemvalue="JUnit.BoardServiceImplTest.read" />
       </list>
     </recent_temporary>
   </component>
@@ -377,7 +363,13 @@
       <workItem from="1654068421284" duration="4397000" />
       <workItem from="1654075643101" duration="2529000" />
       <workItem from="1654081089095" duration="5952000" />
-      <workItem from="1654087118642" duration="5671000" />
+      <workItem from="1654087118642" duration="8568000" />
+      <workItem from="1654096032746" duration="10759000" />
+      <workItem from="1654130592151" duration="4999000" />
+      <workItem from="1654138231160" duration="1361000" />
+      <workItem from="1654139640220" duration="4701000" />
+      <workItem from="1654147440201" duration="5616000" />
+      <workItem from="1654154675824" duration="19585000" />
     </task>
     <servers />
   </component>
@@ -394,5 +386,15 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.NullPointerException" package="java.lang" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

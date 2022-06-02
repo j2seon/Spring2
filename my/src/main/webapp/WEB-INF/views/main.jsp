@@ -5,7 +5,7 @@
 <c:set var="loginOutLink" value="${loginId=='' ? '/login/login' : '/login/logout'}"/>
 <c:set var="loginOut" value="${loginId=='' ? 'Login' : 'ID='+=loginId}"/>
 <c:set var="RegisterLink" value="${loginId==''? '/register/add' : ''}"/>
-<c:set var="Registercheck" value="${loginId=''? 'Sign Up' : 'My Cart'}"/>
+<c:set var="Registercheck" value="${loginId=='' ? 'Sign Up' : 'My Cart'}"/>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -251,7 +251,7 @@
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
   <a href="#">About</a>
   <a href="">Product</a>
-  <a href="/board/list">Board</a>
+  <a href="<c:url value="/board/list"/>">Board</a>
   <a href="#">Contact</a>
 </div>
 

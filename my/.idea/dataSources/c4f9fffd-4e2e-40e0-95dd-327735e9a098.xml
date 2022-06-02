@@ -1076,43 +1076,487 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <Host>localhost</Host>
       <Plugin>caching_sha2_password</Plugin>
     </user>
-    <table id="288" parent="282" name="users">
+    <view id="288" parent="274" name="ADMINISTRABLE_ROLE_AUTHORIZATIONS">
+      <SourceTextLength>721</SourceTextLength>
+      <System>1</System>
+    </view>
+    <view id="289" parent="274" name="APPLICABLE_ROLES">
+      <SourceTextLength>4860</SourceTextLength>
+      <System>1</System>
+    </view>
+    <view id="290" parent="274" name="CHARACTER_SETS">
+      <SourceTextLength>262</SourceTextLength>
+      <System>1</System>
+    </view>
+    <view id="291" parent="274" name="CHECK_CONSTRAINTS">
+      <SourceTextLength>556</SourceTextLength>
+      <System>1</System>
+    </view>
+    <view id="292" parent="274" name="COLLATIONS">
+      <SourceTextLength>475</SourceTextLength>
+      <System>1</System>
+    </view>
+    <view id="293" parent="274" name="COLLATION_CHARACTER_SET_APPLICABILITY">
+      <SourceTextLength>187</SourceTextLength>
+      <System>1</System>
+    </view>
+    <view id="294" parent="274" name="COLUMNS">
+      <SourceTextLength>3613</SourceTextLength>
+      <System>1</System>
+    </view>
+    <view id="295" parent="274" name="COLUMNS_EXTENSIONS">
+      <SourceTextLength>755</SourceTextLength>
+      <System>1</System>
+    </view>
+    <view id="296" parent="274" name="COLUMN_STATISTICS">
+      <SourceTextLength>383</SourceTextLength>
+      <System>1</System>
+    </view>
+    <view id="297" parent="274" name="ENABLED_ROLES">
+      <SourceTextLength>977</SourceTextLength>
+      <System>1</System>
+    </view>
+    <view id="298" parent="274" name="EVENTS">
+      <SourceTextLength>1787</SourceTextLength>
+      <System>1</System>
+    </view>
+    <view id="299" parent="274" name="FILES">
+      <SourceTextLength>2568</SourceTextLength>
+      <System>1</System>
+    </view>
+    <view id="300" parent="274" name="INNODB_DATAFILES">
+      <SourceTextLength>377</SourceTextLength>
+      <System>1</System>
+    </view>
+    <view id="301" parent="274" name="INNODB_FIELDS">
+      <SourceTextLength>543</SourceTextLength>
+      <System>1</System>
+    </view>
+    <view id="302" parent="274" name="INNODB_FOREIGN">
+      <SourceTextLength>932</SourceTextLength>
+      <System>1</System>
+    </view>
+    <view id="303" parent="274" name="INNODB_FOREIGN_COLS">
+      <SourceTextLength>705</SourceTextLength>
+      <System>1</System>
+    </view>
+    <view id="304" parent="274" name="INNODB_TABLESPACES_BRIEF">
+      <SourceTextLength>677</SourceTextLength>
+      <System>1</System>
+    </view>
+    <view id="305" parent="274" name="KEYWORDS">
+      <SourceTextLength>10926</SourceTextLength>
+      <System>1</System>
+    </view>
+    <view id="306" parent="274" name="KEY_COLUMN_USAGE">
+      <SourceTextLength>2292</SourceTextLength>
+      <System>1</System>
+    </view>
+    <view id="307" parent="274" name="PARAMETERS">
+      <SourceTextLength>3057</SourceTextLength>
+      <System>1</System>
+    </view>
+    <view id="308" parent="274" name="PARTITIONS">
+      <SourceTextLength>5698</SourceTextLength>
+      <System>1</System>
+    </view>
+    <view id="309" parent="274" name="REFERENTIAL_CONSTRAINTS">
+      <SourceTextLength>858</SourceTextLength>
+      <System>1</System>
+    </view>
+    <view id="310" parent="274" name="RESOURCE_GROUPS">
+      <SourceTextLength>376</SourceTextLength>
+      <System>1</System>
+    </view>
+    <view id="311" parent="274" name="ROLE_COLUMN_GRANTS">
+      <SourceTextLength>4804</SourceTextLength>
+      <System>1</System>
+    </view>
+    <view id="312" parent="274" name="ROLE_ROUTINE_GRANTS">
+      <SourceTextLength>4649</SourceTextLength>
+      <System>1</System>
+    </view>
+    <view id="313" parent="274" name="ROLE_TABLE_GRANTS">
+      <SourceTextLength>4547</SourceTextLength>
+      <System>1</System>
+    </view>
+    <view id="314" parent="274" name="ROUTINES">
+      <SourceTextLength>4233</SourceTextLength>
+      <System>1</System>
+    </view>
+    <view id="315" parent="274" name="SCHEMATA">
+      <SourceTextLength>583</SourceTextLength>
+      <System>1</System>
+    </view>
+    <view id="316" parent="274" name="SCHEMATA_EXTENSIONS">
+      <SourceTextLength>318</SourceTextLength>
+      <System>1</System>
+    </view>
+    <view id="317" parent="274" name="STATISTICS">
+      <SourceTextLength>2502</SourceTextLength>
+      <System>1</System>
+    </view>
+    <view id="318" parent="274" name="ST_GEOMETRY_COLUMNS">
+      <SourceTextLength>763</SourceTextLength>
+      <System>1</System>
+    </view>
+    <view id="319" parent="274" name="ST_SPATIAL_REFERENCE_SYSTEMS">
+      <SourceTextLength>472</SourceTextLength>
+      <System>1</System>
+    </view>
+    <view id="320" parent="274" name="ST_UNITS_OF_MEASURE">
+      <SourceTextLength>2788</SourceTextLength>
+      <System>1</System>
+    </view>
+    <view id="321" parent="274" name="TABLES">
+      <SourceTextLength>4509</SourceTextLength>
+      <System>1</System>
+    </view>
+    <view id="322" parent="274" name="TABLESPACES_EXTENSIONS">
+      <SourceTextLength>123</SourceTextLength>
+      <System>1</System>
+    </view>
+    <view id="323" parent="274" name="TABLES_EXTENSIONS">
+      <SourceTextLength>486</SourceTextLength>
+      <System>1</System>
+    </view>
+    <view id="324" parent="274" name="TABLE_CONSTRAINTS">
+      <SourceTextLength>1393</SourceTextLength>
+      <System>1</System>
+    </view>
+    <view id="325" parent="274" name="TABLE_CONSTRAINTS_EXTENSIONS">
+      <SourceTextLength>597</SourceTextLength>
+      <System>1</System>
+    </view>
+    <view id="326" parent="274" name="TRIGGERS">
+      <SourceTextLength>1704</SourceTextLength>
+      <System>1</System>
+    </view>
+    <view id="327" parent="274" name="USER_ATTRIBUTES">
+      <SourceTextLength>253</SourceTextLength>
+      <System>1</System>
+    </view>
+    <view id="328" parent="274" name="VIEWS">
+      <SourceTextLength>1158</SourceTextLength>
+      <System>1</System>
+    </view>
+    <view id="329" parent="274" name="VIEW_ROUTINE_USAGE">
+      <SourceTextLength>992</SourceTextLength>
+      <System>1</System>
+    </view>
+    <view id="330" parent="274" name="VIEW_TABLE_USAGE">
+      <SourceTextLength>792</SourceTextLength>
+      <System>1</System>
+    </view>
+    <table id="331" parent="282" name="board">
       <Engine>InnoDB</Engine>
       <CollationName>utf8_bin</CollationName>
     </table>
-    <column id="289" parent="288" name="id">
-      <DataType>varchar(45)|0s</DataType>
+    <table id="332" parent="282" name="users">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8_bin</CollationName>
+    </table>
+    <column id="333" parent="291" name="CONSTRAINT_CATALOG">
+      <DataType>varchar(64)|0s</DataType>
+      <Position>1</Position>
+    </column>
+    <column id="334" parent="291" name="CONSTRAINT_SCHEMA">
+      <DataType>varchar(64)|0s</DataType>
+      <Position>2</Position>
+    </column>
+    <column id="335" parent="294" name="TABLE_CATALOG">
+      <DataType>varchar(64)|0s</DataType>
+      <Position>1</Position>
+    </column>
+    <column id="336" parent="294" name="TABLE_SCHEMA">
+      <DataType>varchar(64)|0s</DataType>
+      <Position>2</Position>
+    </column>
+    <column id="337" parent="294" name="TABLE_NAME">
+      <DataType>varchar(64)|0s</DataType>
+      <Position>3</Position>
+    </column>
+    <column id="338" parent="298" name="EVENT_CATALOG">
+      <DataType>varchar(64)|0s</DataType>
+      <Position>1</Position>
+    </column>
+    <column id="339" parent="298" name="EVENT_SCHEMA">
+      <DataType>varchar(64)|0s</DataType>
+      <Position>2</Position>
+    </column>
+    <column id="340" parent="305" name="WORD">
+      <DataType>varchar(31)|0s</DataType>
+      <Position>1</Position>
+    </column>
+    <column id="341" parent="306" name="CONSTRAINT_CATALOG">
+      <DataType>varchar(64)|0s</DataType>
+      <Position>1</Position>
+    </column>
+    <column id="342" parent="306" name="CONSTRAINT_SCHEMA">
+      <DataType>varchar(64)|0s</DataType>
+      <Position>2</Position>
+    </column>
+    <column id="343" parent="306" name="TABLE_CATALOG">
+      <DataType>varchar(64)|0s</DataType>
+      <Position>4</Position>
+    </column>
+    <column id="344" parent="306" name="TABLE_SCHEMA">
+      <DataType>varchar(64)|0s</DataType>
+      <Position>5</Position>
+    </column>
+    <column id="345" parent="306" name="TABLE_NAME">
+      <DataType>varchar(64)|0s</DataType>
+      <Position>6</Position>
+    </column>
+    <column id="346" parent="307" name="SPECIFIC_CATALOG">
+      <DataType>varchar(64)|0s</DataType>
+      <Position>1</Position>
+    </column>
+    <column id="347" parent="307" name="SPECIFIC_SCHEMA">
+      <DataType>varchar(64)|0s</DataType>
+      <Position>2</Position>
+    </column>
+    <column id="348" parent="308" name="TABLE_CATALOG">
+      <DataType>varchar(64)|0s</DataType>
+      <Position>1</Position>
+    </column>
+    <column id="349" parent="308" name="TABLE_SCHEMA">
+      <DataType>varchar(64)|0s</DataType>
+      <Position>2</Position>
+    </column>
+    <column id="350" parent="314" name="ROUTINE_CATALOG">
+      <DataType>varchar(64)|0s</DataType>
+      <Position>2</Position>
+    </column>
+    <column id="351" parent="314" name="ROUTINE_SCHEMA">
+      <DataType>varchar(64)|0s</DataType>
+      <Position>3</Position>
+    </column>
+    <column id="352" parent="315" name="CATALOG_NAME">
+      <DataType>varchar(64)|0s</DataType>
+      <Position>1</Position>
+    </column>
+    <column id="353" parent="315" name="SCHEMA_NAME">
+      <DataType>varchar(64)|0s</DataType>
+      <Position>2</Position>
+    </column>
+    <column id="354" parent="316" name="CATALOG_NAME">
+      <DataType>varchar(64)|0s</DataType>
+      <Position>1</Position>
+    </column>
+    <column id="355" parent="316" name="SCHEMA_NAME">
+      <DataType>varchar(64)|0s</DataType>
+      <Position>2</Position>
+    </column>
+    <column id="356" parent="317" name="TABLE_CATALOG">
+      <DataType>varchar(64)|0s</DataType>
+      <Position>1</Position>
+    </column>
+    <column id="357" parent="317" name="TABLE_SCHEMA">
+      <DataType>varchar(64)|0s</DataType>
+      <Position>2</Position>
+    </column>
+    <column id="358" parent="317" name="TABLE_NAME">
+      <DataType>varchar(64)|0s</DataType>
+      <Position>3</Position>
+    </column>
+    <column id="359" parent="317" name="INDEX_SCHEMA">
+      <DataType>varchar(64)|0s</DataType>
+      <Position>5</Position>
+    </column>
+    <column id="360" parent="318" name="TABLE_CATALOG">
+      <DataType>varchar(64)|0s</DataType>
+      <Position>1</Position>
+    </column>
+    <column id="361" parent="318" name="TABLE_SCHEMA">
+      <DataType>varchar(64)|0s</DataType>
+      <Position>2</Position>
+    </column>
+    <column id="362" parent="318" name="TABLE_NAME">
+      <DataType>varchar(64)|0s</DataType>
+      <Position>3</Position>
+    </column>
+    <column id="363" parent="321" name="TABLE_CATALOG">
+      <DataType>varchar(64)|0s</DataType>
+      <Position>1</Position>
+    </column>
+    <column id="364" parent="321" name="TABLE_SCHEMA">
+      <DataType>varchar(64)|0s</DataType>
+      <Position>2</Position>
+    </column>
+    <column id="365" parent="321" name="TABLE_NAME">
+      <DataType>varchar(64)|0s</DataType>
+      <Position>3</Position>
+    </column>
+    <column id="366" parent="324" name="CONSTRAINT_CATALOG">
+      <DataType>varchar(64)|0s</DataType>
+      <Position>1</Position>
+    </column>
+    <column id="367" parent="324" name="CONSTRAINT_SCHEMA">
+      <DataType>varchar(64)|0s</DataType>
+      <Position>2</Position>
+    </column>
+    <column id="368" parent="324" name="TABLE_SCHEMA">
+      <DataType>varchar(64)|0s</DataType>
+      <Position>4</Position>
+    </column>
+    <column id="369" parent="324" name="TABLE_NAME">
+      <DataType>varchar(64)|0s</DataType>
+      <Position>5</Position>
+    </column>
+    <column id="370" parent="326" name="TRIGGER_CATALOG">
+      <DataType>varchar(64)|0s</DataType>
+      <Position>1</Position>
+    </column>
+    <column id="371" parent="326" name="TRIGGER_SCHEMA">
+      <DataType>varchar(64)|0s</DataType>
+      <Position>2</Position>
+    </column>
+    <column id="372" parent="326" name="EVENT_OBJECT_CATALOG">
+      <DataType>varchar(64)|0s</DataType>
+      <Position>5</Position>
+    </column>
+    <column id="373" parent="326" name="EVENT_OBJECT_SCHEMA">
+      <DataType>varchar(64)|0s</DataType>
+      <Position>6</Position>
+    </column>
+    <column id="374" parent="326" name="EVENT_OBJECT_TABLE">
+      <DataType>varchar(64)|0s</DataType>
+      <Position>7</Position>
+    </column>
+    <column id="375" parent="328" name="TABLE_CATALOG">
+      <DataType>varchar(64)|0s</DataType>
+      <Position>1</Position>
+    </column>
+    <column id="376" parent="328" name="TABLE_SCHEMA">
+      <DataType>varchar(64)|0s</DataType>
+      <Position>2</Position>
+    </column>
+    <column id="377" parent="328" name="TABLE_NAME">
+      <DataType>varchar(64)|0s</DataType>
+      <Position>3</Position>
+    </column>
+    <column id="378" parent="329" name="TABLE_CATALOG">
+      <DataType>varchar(64)|0s</DataType>
+      <Position>1</Position>
+    </column>
+    <column id="379" parent="329" name="TABLE_SCHEMA">
+      <DataType>varchar(64)|0s</DataType>
+      <Position>2</Position>
+    </column>
+    <column id="380" parent="329" name="TABLE_NAME">
+      <DataType>varchar(64)|0s</DataType>
+      <Position>3</Position>
+    </column>
+    <column id="381" parent="329" name="SPECIFIC_CATALOG">
+      <DataType>varchar(64)|0s</DataType>
+      <Position>4</Position>
+    </column>
+    <column id="382" parent="329" name="SPECIFIC_SCHEMA">
+      <DataType>varchar(64)|0s</DataType>
+      <Position>5</Position>
+    </column>
+    <column id="383" parent="330" name="VIEW_CATALOG">
+      <DataType>varchar(64)|0s</DataType>
+      <Position>1</Position>
+    </column>
+    <column id="384" parent="330" name="VIEW_SCHEMA">
+      <DataType>varchar(64)|0s</DataType>
+      <Position>2</Position>
+    </column>
+    <column id="385" parent="330" name="VIEW_NAME">
+      <DataType>varchar(64)|0s</DataType>
+      <Position>3</Position>
+    </column>
+    <column id="386" parent="330" name="TABLE_CATALOG">
+      <DataType>varchar(64)|0s</DataType>
+      <Position>4</Position>
+    </column>
+    <column id="387" parent="330" name="TABLE_SCHEMA">
+      <DataType>varchar(64)|0s</DataType>
+      <Position>5</Position>
+    </column>
+    <column id="388" parent="330" name="TABLE_NAME">
+      <DataType>varchar(64)|0s</DataType>
+      <Position>6</Position>
+    </column>
+    <column id="389" parent="331" name="bno">
+      <AutoIncrement>1</AutoIncrement>
+      <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="290" parent="288" name="pwd">
-      <DataType>varchar(45)|0s</DataType>
+    <column id="390" parent="331" name="title">
+      <DataType>varchar(100)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="291" parent="288" name="name">
-      <DataType>varchar(45)|0s</DataType>
+    <column id="391" parent="331" name="content">
+      <DataType>text|0s</DataType>
       <NotNull>1</NotNull>
       <Position>3</Position>
     </column>
-    <column id="292" parent="288" name="email">
-      <DataType>varchar(45)|0s</DataType>
+    <column id="392" parent="331" name="writer">
+      <DataType>varchar(30)|0s</DataType>
+      <NotNull>1</NotNull>
       <Position>4</Position>
     </column>
-    <column id="293" parent="288" name="phone">
-      <DataType>varchar(45)|0s</DataType>
+    <column id="393" parent="331" name="view_cnt">
+      <DataType>int|0s</DataType>
       <Position>5</Position>
     </column>
-    <column id="294" parent="288" name="address">
-      <DataType>varchar(80)|0s</DataType>
+    <column id="394" parent="331" name="comment_cnt">
+      <DataType>int|0s</DataType>
       <Position>6</Position>
     </column>
-    <column id="295" parent="288" name="reg_date">
+    <column id="395" parent="331" name="reg_date">
       <DataType>datetime|0s</DataType>
       <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
       <Position>7</Position>
     </column>
-    <key id="296" parent="288" name="PRIMARY">
+    <column id="396" parent="331" name="up_date">
+      <DataType>datetime|0s</DataType>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+      <Position>8</Position>
+    </column>
+    <key id="397" parent="331" name="PRIMARY">
+      <ColNames>bno</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+    </key>
+    <column id="398" parent="332" name="id">
+      <DataType>varchar(45)|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+    </column>
+    <column id="399" parent="332" name="pwd">
+      <DataType>varchar(45)|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+    </column>
+    <column id="400" parent="332" name="name">
+      <DataType>varchar(45)|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+    </column>
+    <column id="401" parent="332" name="email">
+      <DataType>varchar(45)|0s</DataType>
+      <Position>4</Position>
+    </column>
+    <column id="402" parent="332" name="phone">
+      <DataType>varchar(45)|0s</DataType>
+      <Position>5</Position>
+    </column>
+    <column id="403" parent="332" name="address">
+      <DataType>varchar(80)|0s</DataType>
+      <Position>6</Position>
+    </column>
+    <column id="404" parent="332" name="reg_date">
+      <DataType>datetime|0s</DataType>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+      <Position>7</Position>
+    </column>
+    <key id="405" parent="332" name="PRIMARY">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
