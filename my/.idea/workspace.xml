@@ -10,22 +10,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="520e26e4-e609-45b9-891e-7adfefaf6d89" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/my/pro/dto/SearchCondition.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/c4f9fffd-4e2e-40e0-95dd-327735e9a098.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/c4f9fffd-4e2e-40e0-95dd-327735e9a098.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/pro/controller/BoardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/my/pro/controller/BoardController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/pro/dto/PageHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/my/pro/dto/PageHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/pro/dao/BoardDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/my/pro/dao/BoardDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/pro/dao/BoardDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/my/pro/dao/BoardDaoImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/BoardMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/BoardMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/boardList.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/boardList.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/my/pro/controller/BoardController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/my/pro/controller/BoardController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/my/pro/dto/PageHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/my/pro/dto/PageHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mybatis-config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mybatis-config.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/my/pro/dao/BoardDaoImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/my/pro/dao/BoardDaoImplTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/my/pro/dao/BoardDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/my/pro/dao/BoardDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/my/pro/dao/BoardDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/my/pro/dao/BoardDaoImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/mapper/BoardMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/BoardMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mybatis-config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mybatis-config.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/pro-1.0.0-BUILD-SNAPSHOT.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/pro-1.0.0-BUILD-SNAPSHOT.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/pro-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/my/pro/controller/BoardController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/pro-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/my/pro/controller/BoardController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/pro-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/my/pro/dto/PageHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/pro-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/my/pro/dto/PageHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/pro-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/my/pro/dao/BoardDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/pro-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/my/pro/dao/BoardDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/pro-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/my/pro/dao/BoardDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/pro-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/my/pro/dao/BoardDaoImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/pro-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/mapper/BoardMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/pro-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/mapper/BoardMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/pro-1.0.0-BUILD-SNAPSHOT/WEB-INF/views/board.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/pro-1.0.0-BUILD-SNAPSHOT/WEB-INF/views/board.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/pro-1.0.0-BUILD-SNAPSHOT/WEB-INF/views/boardList.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/pro-1.0.0-BUILD-SNAPSHOT/WEB-INF/views/boardList.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/pro-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/mybatis-config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/pro-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/mybatis-config.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/my/pro/dao/BoardDaoImplTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/my/pro/dao/BoardDaoImplTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,9 +41,9 @@
         <option value="CSS File" />
         <option value="JUnit3 Test Class" />
         <option value="Jsp File" />
-        <option value="Class" />
         <option value="Interface" />
         <option value="JUnit4 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -107,6 +109,9 @@
   }
 }</component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.my.pro.dto" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\ddj04\IdeaProjects\my\src\main\webapp\WEB-INF\views" />
       <recent name="C:\Users\ddj04\IdeaProjects\my\src\main\webapp\resources\js" />
@@ -132,6 +137,22 @@
     </key>
   </component>
   <component name="RunManager" selected="Tomcat Server.Tomcat 9.0.52">
+    <configuration name="BoardDaoImplTest.TestsearchResultCount" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="pro" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.my.pro.dao.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.my.pro.dao" />
+      <option name="MAIN_CLASS_NAME" value="com.my.pro.dao.BoardDaoImplTest" />
+      <option name="METHOD_NAME" value="TestsearchResultCount" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="BoardDaoImplTest.insert2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="pro" />
       <extension name="coverage">
@@ -148,7 +169,39 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BoardServiceImplTest.modify" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="BoardDaoImplTest.searchSelectPagetest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="pro" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.my.pro.dao.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.my.pro.dao" />
+      <option name="MAIN_CLASS_NAME" value="com.my.pro.dao.BoardDaoImplTest" />
+      <option name="METHOD_NAME" value="searchSelectPagetest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BoardDaoImplTest.testsearchSelectPage" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="pro" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.my.pro.dao.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.my.pro.dao" />
+      <option name="MAIN_CLASS_NAME" value="com.my.pro.dao.BoardDaoImplTest" />
+      <option name="METHOD_NAME" value="testsearchSelectPage" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BoardServiceImplTest.searchcnt" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="pro" />
       <extension name="coverage">
         <pattern>
@@ -158,13 +211,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.my.pro.service" />
       <option name="MAIN_CLASS_NAME" value="com.my.pro.service.BoardServiceImplTest" />
-      <option name="METHOD_NAME" value="modify" />
+      <option name="METHOD_NAME" value="searchcnt" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BoardServiceImplTest.read" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="BoardServiceImplTest.searchlist" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="pro" />
       <extension name="coverage">
         <pattern>
@@ -174,39 +227,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.my.pro.service" />
       <option name="MAIN_CLASS_NAME" value="com.my.pro.service.BoardServiceImplTest" />
-      <option name="METHOD_NAME" value="read" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="BoardServiceImplTest.remove" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="pro" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.my.pro.service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.my.pro.service" />
-      <option name="MAIN_CLASS_NAME" value="com.my.pro.service.BoardServiceImplTest" />
-      <option name="METHOD_NAME" value="remove" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="PageHandlerTest.test1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="pro" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.my.pro.dto.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.my.pro.dto" />
-      <option name="MAIN_CLASS_NAME" value="com.my.pro.dto.PageHandlerTest" />
-      <option name="METHOD_NAME" value="test1" />
+      <option name="METHOD_NAME" value="searchlist" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -301,20 +322,20 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="JUnit.BoardDaoImplTest.TestsearchResultCount" />
+      <item itemvalue="JUnit.BoardServiceImplTest.searchcnt" />
+      <item itemvalue="JUnit.BoardServiceImplTest.searchlist" />
+      <item itemvalue="JUnit.BoardDaoImplTest.testsearchSelectPage" />
       <item itemvalue="JUnit.BoardDaoImplTest.insert2" />
-      <item itemvalue="JUnit.PageHandlerTest.test1" />
-      <item itemvalue="JUnit.BoardServiceImplTest.modify" />
-      <item itemvalue="JUnit.BoardServiceImplTest.read" />
-      <item itemvalue="JUnit.BoardServiceImplTest.remove" />
       <item itemvalue="Tomcat Server.Tomcat 9.0.52" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.PageHandlerTest.test1" />
         <item itemvalue="JUnit.BoardDaoImplTest.insert2" />
-        <item itemvalue="JUnit.BoardServiceImplTest.remove" />
-        <item itemvalue="JUnit.BoardServiceImplTest.modify" />
-        <item itemvalue="JUnit.BoardServiceImplTest.read" />
+        <item itemvalue="JUnit.BoardServiceImplTest.searchlist" />
+        <item itemvalue="JUnit.BoardServiceImplTest.searchcnt" />
+        <item itemvalue="JUnit.BoardDaoImplTest.testsearchSelectPage" />
+        <item itemvalue="JUnit.BoardDaoImplTest.TestsearchResultCount" />
       </list>
     </recent_temporary>
   </component>
@@ -354,6 +375,9 @@
       <workItem from="1654154675824" duration="33082000" />
       <workItem from="1654191664078" duration="3197000" />
       <workItem from="1654216449423" duration="7590000" />
+      <workItem from="1654250935958" duration="3180000" />
+      <workItem from="1654254167082" duration="136000" />
+      <workItem from="1654254426395" duration="13536000" />
     </task>
     <servers />
   </component>

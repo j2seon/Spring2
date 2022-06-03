@@ -14,10 +14,6 @@ public class PageHandlerTest {
 
     @Test
     public void test1(){
-        PageHandler ph =new PageHandler(250,10,10);
-        System.out.println(ph.getEndNavi());
-        System.out.println(ph.getStartNavi());
-        assertTrue(ph.getEndNavi()==10);
-        assertTrue(ph.getStartNavi()==1);
+
     }
 }

@@ -1,12 +1,15 @@
 package com.my.pro.service;
 
 import com.my.pro.dto.BoardDto;
+import com.my.pro.dto.SearchCondition;
 import com.my.pro.dto.UserDto;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+import java.util.List;
 
 import static org.junit.Assert.*;
 
@@ -60,4 +63,22 @@ public class BoardServiceImplTest {
         int cnt2 = boardService.getCount();
         assertTrue(cnt2==1);
     }
+
+    @Test
+    public void searchcnt() throws Exception {
+        SearchCondition sc = new SearchCondition(1,10,"title2","T");
+        int cnt=boardService.getSearchResultCount(sc);
+        assertTrue(cnt==2);
+    }
+
+    @Test
+    public void searchlist() throws Exception {
+        SearchCondition sc = new SearchCondition(1,10,"title2","T");
+        List<BoardDto>list=boardService.getSearchResultPage(sc);
+        assertTrue(list.size()==2);
+    }
+
+
+
+
 }

@@ -1,11 +1,14 @@
 package com.my.pro.dao;
 
 import com.my.pro.dto.BoardDto;
+import com.my.pro.dto.SearchCondition;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+import java.util.List;
 
 import static org.junit.Assert.*;
 
@@ -33,7 +36,7 @@ public class BoardDaoImplTest {
     }
     @Test
     public void insert2() throws Exception {
-       for(int i=0; i<30; i++){
+       for(int i=0; i<50; i++){
            BoardDto boardDto = new BoardDto("title"+i, "no content", "asdf");
            boardDao.insert(boardDto);
        }
@@ -77,4 +80,35 @@ public class BoardDaoImplTest {
     @Test
     public void increaseViewCnt() {
     }
+
+    @Test
+    public void testsearchSelectPage() throws Exception {
+        boardDao.deleteAll();
+        for(int i=1; i<=20; i++){
+            BoardDto dto = new BoardDto("title"+i,"hi","asdf");
+            boardDao.insert(dto);
+        System.out.println(dto);
+        }
+
+        SearchCondition sc =new SearchCondition(1,10,"title2","T");
+        List<BoardDto> list = boardDao.searchSelectPage(sc);
+        assertTrue(list.size()==2);
+
+    }
+    @Test
+    public void TestsearchResultCount() throws Exception {
+        for(int i=1; i<=20; i++){
+            BoardDto dto = new BoardDto("title"+i,"hi","asdf");
+            boardDao.insert(dto);
+            System.out.println(dto);
+        }
+
+        SearchCondition sc = new SearchCondition(1,10,"title2","T");
+        int cnt = boardDao.searchResultCount(sc);
+        assertTrue(cnt==2);
+
+    }
+
+
+
 }

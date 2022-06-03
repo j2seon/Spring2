@@ -1,15 +1,23 @@
 package com.my.pro.dto;
 
+import org.springframework.web.util.UriComponentsBuilder;
+
 public class PageHandler {
 
+//    private int page; //현재 페이지
+//    private int rowCnt; // 한페이지에서 출력될 게시물의 수
+//    private String option; //검색할 옵션
+//    private String keyword; //검색하는 키워드
 
+
+    private  SearchCondition sc;
     private int totalCnt; // 출력될 게시글의 개수
-    private int rowCnt; // 한페이지에서 출력될 게시물의 수
+
     private int naviSize=10; // 네비게이션 크기
     private int startNavi; //네비게이션 시작
     private int endNavi; //네비게이션 끝
     private int totalPage; // 전체페이지 수 (네비게이션 총 수)
-    private int page; //현재 페이지
+
     private boolean showPrev; // 이전페이지 이동하는링크
     private boolean showNext; //다음페이지 이동하는 링크
 
@@ -21,13 +29,6 @@ public class PageHandler {
         this.totalCnt = totalCnt;
     }
 
-    public int getRowCnt() {
-        return rowCnt;
-    }
-
-    public void setRowCnt(int rowCnt) {
-        this.rowCnt = rowCnt;
-    }
 
     public int getNaviSize() {
         return naviSize;
@@ -43,6 +44,12 @@ public class PageHandler {
 
     public void setStartNavi(int startNavi) {
         this.startNavi = startNavi;
+    }
+    public SearchCondition getSc() {
+        return sc;
+    }
+    public void setSc(SearchCondition sc) {
+        this.sc = sc;
     }
 
     public int getEndNavi() {
@@ -61,13 +68,7 @@ public class PageHandler {
         this.totalPage = totalPage;
     }
 
-    public int getPage() {
-        return page;
-    }
 
-    public void setPage(int page) {
-        this.page = page;
-    }
 
     public boolean isShowPrev() {
         return showPrev;
@@ -85,18 +86,17 @@ public class PageHandler {
         this.showNext = showNext;
     }
 
-    public PageHandler(int totalCnt , int page){
-        this(totalCnt,page,10);
+
+    public PageHandler(int totalCnt, SearchCondition sc){
+        this.totalCnt=totalCnt;
+        this.sc=sc;
+        doPaging(totalCnt,sc);
     }
 
-    //페이지 계산하는데 필요한 생성자만들기
-    public PageHandler(int totalCnt,int page, int rowCnt){
-        this.totalCnt=totalCnt;
-        this.page=page;
-        this.rowCnt=rowCnt;
-
-        totalPage = (int)Math.ceil(totalCnt/(double)rowCnt); // 전체 페이지/출력될 게시물
-        startNavi = (page-1)/naviSize*naviSize+1;
+    //페이지 계산하는데 필요한 생성자만들기>>> 메소드로
+    public void doPaging(int totalCnt ,SearchCondition sc){
+        totalPage = (int)Math.ceil(totalCnt/(double)sc.getRowCnt()); // 전체 페이지/출력될 게시물
+        startNavi = (sc.getPage()-1)/naviSize*naviSize+1;
         //(endNavi-rowCnt)+1
         endNavi =Math.min(startNavi+naviSize-1,totalPage);
        // (int) (Math.ceil(page / (double)rowCnt) *rowCnt ); 올림하고 rowCnt 곱하는거
@@ -104,27 +104,30 @@ public class PageHandler {
         showNext =  endNavi != totalPage; // endNavi가 총페이지 수랑 같으면 false
 
     }
-    void print(){
-        System.out.println("page = "+ page);
-        System.out.print(showPrev? "<" : "");
-        for(int i=startNavi; i<=endNavi; i++){
-            System.out.print(i+ " ");
-        }
-        System.out.print(showNext? ">":"");
-    }
+//    void print(){
+//        System.out.println("page = "+ sc.getPage());
+//        System.out.print(showPrev? "<" : "");
+//        for(int i=startNavi; i<=endNavi; i++){
+//            System.out.print(i+ " ");
+//        }
+//        System.out.print(showNext? ">":"");
+//    }
 
-    @Override
+
     public String toString() {
         return "PageHandler{" +
-                "totalCnt=" + totalCnt +
-                ", rowCnt=" + rowCnt +
+                "sc=" + sc +
+                ", totalCnt=" + totalCnt +
                 ", naviSize=" + naviSize +
                 ", startNavi=" + startNavi +
                 ", endNavi=" + endNavi +
                 ", totalPage=" + totalPage +
-                ", page=" + page +
                 ", showPrev=" + showPrev +
                 ", showNext=" + showNext +
                 '}';
     }
+
+
+
+
 }

@@ -2,6 +2,7 @@ package com.my.pro.dao;
 
 
 import com.my.pro.dto.BoardDto;
+import com.my.pro.dto.SearchCondition;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -27,6 +28,16 @@ public class BoardDaoImpl implements BoardDao {
     public List<BoardDto> selectPage(Map map)throws Exception{
         return session.selectList(namespace+"selectPage",map);
 
+    }
+
+    @Override
+    public List<BoardDto> searchSelectPage(SearchCondition sc) throws Exception {
+        return session.selectList(namespace+"searchSelectPage",sc);
+    }
+
+    @Override
+    public int searchResultCount(SearchCondition sc) throws Exception {
+        return session.selectOne(namespace+"searchResultCount",sc);
     }
 
     @Override

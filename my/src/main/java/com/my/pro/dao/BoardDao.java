@@ -1,6 +1,7 @@
 package com.my.pro.dao;
 
 import com.my.pro.dto.BoardDto;
+import com.my.pro.dto.SearchCondition;
 
 import java.util.List;
 import java.util.Map;
@@ -24,4 +25,11 @@ public interface BoardDao {
 
     List<BoardDto> selectPage(Map map)throws Exception;
 
-    }
+    List<BoardDto> searchSelectPage (SearchCondition sc)throws Exception;
+
+    int searchResultCount(SearchCondition sc) throws Exception;
+
+
+
+
+}

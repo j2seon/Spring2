@@ -4959,7 +4959,7 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <Position>6</Position>
     </column>
     <column id="1099" parent="367" name="bno">
-      <AutoIncrement>1</AutoIncrement>
+      <AutoIncrement>108</AutoIncrement>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>

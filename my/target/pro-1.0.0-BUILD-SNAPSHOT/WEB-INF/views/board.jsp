@@ -186,7 +186,7 @@
 <form id="form" class="frm" action="" method="post">
     <input type="hidden" name="bno" value="${boardDto.bno}"  placeholder="  제목을 입력해 주세요." ${mode=="new" ? "" : "readonly='readonly'"}><br>
     <input type="text" name="title" value="${boardDto.title}" ${mode=="new" ? "" : "readonly='readonly'"}>
-    <textarea name="content" id="content" cols="300" rows="10"${mode=="new" ? "" : "readonly='readonly'"}>${boardDto.content}</textarea>
+    <textarea name="content" id="content" rows="20" placeholder=" 내용을 입력해 주세요." ${mode=="new" ? "" : "readonly='readonly'"}>${boardDto.content}</textarea>
     <c:if test="${mode=='new'}">
         <button type="button" id="writeBtn" class="btn">등록</button>
     </c:if>
@@ -210,13 +210,13 @@
    <!--목록 버튼 클릭시 이동(get) -->
     $(document).ready(function (){
         $('#listBtn').on("click",function (){ //클릭하면 무슨일을할지 적음
-            location.href="<c:url value="/board/list"/>?page=${page}&rowCnt=${rowCnt}";
+            location.href="<c:url value='/board/list${sc.queryString}'/>";
         });
     <!--삭제버튼 클릭 시 이동(post)-->
         $('#removeBtn').on("click",function (){ //클릭하면 무슨일을할지 적음
             if(!confirm("삭제하시겠습니까?")) return;
             let form = $('#form');
-            form.attr("action","<c:url value="/board/remove"/>?page=${page}&rowCnt=${rowCnt}"); //remove로 이동
+            form.attr("action", "<c:url value='/board/remove${sc.queryString}'/>");
             form.attr("method","post"); // 보내는 방식
             form.submit(); //제출
         });
@@ -240,7 +240,7 @@
                 return;
             }
             // 2. 수정 상태이면, 수정된 내용을 서버로 전송
-            form.attr("action", "<c:url value='/board/modify?page=${page}&rowCnt=${rowCnt}'/>");
+            form.attr("action", "<c:url value='/board/modify${sc.queryString}'/>");
             form.attr("method", "post");
                 form.submit();
         });

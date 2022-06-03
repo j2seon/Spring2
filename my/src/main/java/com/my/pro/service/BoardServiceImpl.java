@@ -2,6 +2,7 @@ package com.my.pro.service;
 
 import com.my.pro.dao.BoardDao;
 import com.my.pro.dto.BoardDto;
+import com.my.pro.dto.SearchCondition;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -49,6 +50,13 @@ public class BoardServiceImpl implements BoardService {
     public int remove(Integer bno, String writer)throws Exception{
         return boardDao.delete(bno,writer);
     }
-
+    @Override
+    public List<BoardDto> getSearchResultPage(SearchCondition sc) throws Exception {
+        return boardDao.searchSelectPage(sc);
+    }
+    @Override
+    public int getSearchResultCount(SearchCondition sc)throws Exception{
+        return boardDao.searchResultCount(sc);
+    }
 
 }
