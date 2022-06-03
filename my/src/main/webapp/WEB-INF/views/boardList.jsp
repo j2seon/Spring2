@@ -162,6 +162,8 @@
     let msg="${msg}" // get방식으로 전달되서 param쓰자
     if(msg=="OK") alert("게시글이 삭제되었습니다.");
     if(msg=="ERR") alert("게시글 삭제에 실패했습니다.");
+    if(msg=="WR_OK") alert("게시물이 등록됐습니다.");
+    if(msg=="MOD_OK") alert("성공적으로 수정되었습니다.");
 
 </script>
 
@@ -182,6 +184,8 @@
 
 <span class="sidbtn" style="font-size:40px;cursor:pointer"onclick="openNav()">&#9776;</span>
 
+
+<button type="button" id="writeBtn" onclick="location.href='<c:url value="/board/write"/>'">글쓰기</button>
 <table class="center" >
     <tr>
         <th class="no">번호</th>

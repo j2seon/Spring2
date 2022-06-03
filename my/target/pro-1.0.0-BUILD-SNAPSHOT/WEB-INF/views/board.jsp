@@ -2,7 +2,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@ page session="false"%>
-<%@ page import="java.net.URLDecoder"%>
 <c:set var="loginId" value="${pageContext.request.getSession(false)==null ? '' : pageContext.request.session.getAttribute('id')}"/>
 <c:set var="loginOutLink" value="${loginId=='' ? '/login/login' : '/login/logout'}"/>
 <c:set var="loginOut" value="${loginId=='' ? 'Login' : 'ID='+=loginId}"/>
@@ -102,14 +101,6 @@
                 display: block;
             }
         }
-        /* Add padding to containers */
-        .container {
-            padding: 16px;
-            background-color: white;
-        }
-
-
-
 
         /* Overwrite default styles of hr */
         hr {
@@ -153,9 +144,6 @@
             padding: 8px;
             outline-color: #e6e6e6;
         }
-        .frm {
-            width:100%;
-        }
         .btn {
             background-color: rgb(236, 236, 236); /* Blue background */
             border: none; /* Remove borders */
@@ -169,6 +157,7 @@
             text-decoration: underline;
         }
     </style>
+    <title> b</title>
 </head>
 <body>
 <div class="navbar">
@@ -184,17 +173,27 @@
     <a href="">Board</a>
     <a href="#">Contact</a>
 </div>
+<script>
+    let msg = "${msg}";
+    if(msg=="WRT_ERR") alert("게시물 등록에 실패하였습니다. 다시 시도해 주세요.");
+    if(msg=="MOD_ERR") alert("게시물 수정에 실패하였습니다. 다시 시도해 주세요.");
+
+</script>
 
 <span class="sidbtn" style="font-size:40px;cursor:pointer"onclick="openNav()">&#9776;</span>
 
-<h2>게시물 읽기</h2>
-<form id="form" action="">
-    <input type="text" name="bno" value="${boardDto.bno}"readonly>
-    <input type="text" name="title" value="${boardDto.title}" readonly>
-    <textarea name="content" id="content" cols="300" rows="10" readonly>${boardDto.content}</textarea>
-    <button type="button" id="writeBtn" class="btn">등록</button>
-    <button type="button" id="modifyBtn" class="btn">수정</button>
-    <button type="button" id="removeBtn" class="btn">삭제</button>
+<h2 class="writing-header">게시물 ${mode=="new"? "작성":"읽기"}</h2>
+<form id="form" class="frm" action="" method="post">
+    <input type="hidden" name="bno" value="${boardDto.bno}"  placeholder="  제목을 입력해 주세요." ${mode=="new" ? "" : "readonly='readonly'"}><br>
+    <input type="text" name="title" value="${boardDto.title}" ${mode=="new" ? "" : "readonly='readonly'"}>
+    <textarea name="content" id="content" cols="300" rows="10"${mode=="new" ? "" : "readonly='readonly'"}>${boardDto.content}</textarea>
+    <c:if test="${mode=='new'}">
+        <button type="button" id="writeBtn" class="btn">등록</button>
+    </c:if>
+    <c:if test="${boardDto.writer eq loginId}">
+        <button type="button" id="modifyBtn" class="btn btn-modify"><i class="fa fa-edit"></i> 수정</button>
+        <button type="button" id="removeBtn" class="btn btn-remove"><i class="fa fa-trash"></i> 삭제</button>
+    </c:if>
     <button type="button" id="listBtn" class="btn">목록</button>
 </form>
 
@@ -210,20 +209,43 @@
 
    <!--목록 버튼 클릭시 이동(get) -->
     $(document).ready(function (){
-       $('#listBtn').on("click",function (){ //클릭하면 무슨일을할지 적음
-           location.href="<c:url value="/board/list"/>?page=${page}&rowCnt=${rowCnt}";
-       });
-    });
+        $('#listBtn').on("click",function (){ //클릭하면 무슨일을할지 적음
+            location.href="<c:url value="/board/list"/>?page=${page}&rowCnt=${rowCnt}";
+        });
     <!--삭제버튼 클릭 시 이동(post)-->
-    $(document).ready(function (){
         $('#removeBtn').on("click",function (){ //클릭하면 무슨일을할지 적음
             if(!confirm("삭제하시겠습니까?")) return;
-           let form = $('#form');
-           form.attr("action","<c:url value="/board/remove"/>?page=${page}&rowCnt=${rowCnt}"); //remove로 이동
-           form.attr("method","post"); // 보내는 방식
-           form.submit(); //제출
+            let form = $('#form');
+            form.attr("action","<c:url value="/board/remove"/>?page=${page}&rowCnt=${rowCnt}"); //remove로 이동
+            form.attr("method","post"); // 보내는 방식
+            form.submit(); //제출
+        });
+        <!--등록버튼 누르면 게시글 등록(write)됨(post)-->
+        $('#writeBtn').on("click",function (){ //클릭하면 무슨일을할지 적음
+            let form = $('#form');
+            form.attr("action","<c:url value="/board/write"/>");
+            form.attr("method","post"); // 보내는 방식
+            form.submit(); //제출
+        });
+        <!--수정버튼 클릭시 읽기 상태로 변경 / 읽기상태에서 내용 전송-->
+        $("#modifyBtn").on("click", function(){
+            let form = $("#form");
+            let isReadonly = $("input[name=title]").attr('readonly');
+            // 1. 읽기 상태이면, 수정 상태로 변경
+            if(isReadonly) {
+                $(".writing-header").html("게시판 수정");
+                $("input[name=title]").attr('readonly', false);
+                $("textarea").attr('readonly', false);
+                $("#modifyBtn").html("<i class='fa fa-pencil'></i> 등록");
+                return;
+            }
+            // 2. 수정 상태이면, 수정된 내용을 서버로 전송
+            form.attr("action", "<c:url value='/board/modify?page=${page}&rowCnt=${rowCnt}'/>");
+            form.attr("method", "post");
+                form.submit();
         });
     });
+
 
 
 </script>

@@ -4,12 +4,12 @@ public class PageHandler {
 
 
     private int totalCnt; // 출력될 게시글의 개수
-    private int rowCnt=10; // 한페이지에서 출력될 게시물의 수
+    private int rowCnt; // 한페이지에서 출력될 게시물의 수
     private int naviSize=10; // 네비게이션 크기
     private int startNavi; //네비게이션 시작
     private int endNavi; //네비게이션 끝
     private int totalPage; // 전체페이지 수 (네비게이션 총 수)
-    private int page=1; //현재 페이지
+    private int page; //현재 페이지
     private boolean showPrev; // 이전페이지 이동하는링크
     private boolean showNext; //다음페이지 이동하는 링크
 
