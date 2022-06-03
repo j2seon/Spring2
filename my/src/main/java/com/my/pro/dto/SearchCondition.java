@@ -13,12 +13,19 @@ public class SearchCondition {
 
 
     public SearchCondition(){}
+    public SearchCondition(Integer page, Integer rowCnt) {
+        this(page, rowCnt, "", "");
+    }
     public SearchCondition(Integer page, Integer rowCnt, String keyword, String option) {
         this.page = page;
         this.rowCnt = rowCnt;
         this.keyword = keyword;
         this.option = option;
     }
+
+
+
+
 
     public Integer getPage() {
         return page;
@@ -37,7 +44,7 @@ public class SearchCondition {
     }
 
     public Integer getOffset() {
-        return offset;
+        return (page-1)*rowCnt;
     }
 
     public void setOffset(Integer offset) {
@@ -84,5 +91,5 @@ public class SearchCondition {
     public String getQueryString() {
         return getQueryString(page);
     }
-    
+
 }

@@ -13,13 +13,13 @@ public class PageHandler {
     private  SearchCondition sc;
     private int totalCnt; // 출력될 게시글의 개수
 
-    private int naviSize=10; // 네비게이션 크기
+    public final int naviSize=10; // 네비게이션 크기
     private int startNavi; //네비게이션 시작
     private int endNavi; //네비게이션 끝
     private int totalPage; // 전체페이지 수 (네비게이션 총 수)
 
-    private boolean showPrev; // 이전페이지 이동하는링크
-    private boolean showNext; //다음페이지 이동하는 링크
+    private boolean showPrev = false; // 이전페이지 이동하는링크
+    private boolean showNext = false; //다음페이지 이동하는 링크
 
     public int getTotalCnt() {
         return totalCnt;
@@ -34,9 +34,6 @@ public class PageHandler {
         return naviSize;
     }
 
-    public void setNaviSize(int naviSize) {
-        this.naviSize = naviSize;
-    }
 
     public int getStartNavi() {
         return startNavi;
@@ -86,7 +83,13 @@ public class PageHandler {
         this.showNext = showNext;
     }
 
+    public PageHandler(int totalCnt, Integer page) {
+        this(totalCnt, new SearchCondition(page, 10));
+    }
 
+    public PageHandler(int totalCnt, Integer page, Integer rowCnt) {
+        this(totalCnt, new SearchCondition(page, rowCnt));
+    }
     public PageHandler(int totalCnt, SearchCondition sc){
         this.totalCnt=totalCnt;
         this.sc=sc;
@@ -95,13 +98,13 @@ public class PageHandler {
 
     //페이지 계산하는데 필요한 생성자만들기>>> 메소드로
     public void doPaging(int totalCnt ,SearchCondition sc){
-        totalPage = (int)Math.ceil(totalCnt/(double)sc.getRowCnt()); // 전체 페이지/출력될 게시물
-        startNavi = (sc.getPage()-1)/naviSize*naviSize+1;
-        //(endNavi-rowCnt)+1
-        endNavi =Math.min(startNavi+naviSize-1,totalPage);
+        this.totalPage = totalCnt / sc.getRowCnt() + (totalCnt % sc.getRowCnt()==0? 0:1); // 전체 페이지/출력될 게시물
+        this.sc.setPage(Math.min(sc.getPage(), totalPage));
+        this.startNavi = (this.sc.getPage() -1) / naviSize * naviSize + 1; // 11 -> 11, 10 -> 1, 15->11. 따로 떼어내서 테스트
+        this.endNavi = Math.min(startNavi + naviSize - 1, totalPage);
        // (int) (Math.ceil(page / (double)rowCnt) *rowCnt ); 올림하고 rowCnt 곱하는거
-        showPrev = startNavi !=1; //1이 아니여야 보인다.
-        showNext =  endNavi != totalPage; // endNavi가 총페이지 수랑 같으면 false
+       this.showPrev = startNavi !=1; //1이 아니여야 보인다.
+        this.showNext =  endNavi != totalPage; // endNavi가 총페이지 수랑 같으면 false
 
     }
 //    void print(){
