@@ -15,6 +15,15 @@
     <link rel="stylesheet" href="<c:url value='/css/board.css'/>">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://code.jquery.com/jquery-1.11.3.js"></script>
+    <script>
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "250px";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
+    </script>
     <style>
         * {
             box-sizing: border-box;
@@ -188,9 +197,19 @@
         </c:if>
         <button type="button" id="listBtn" class="btn btn-list"><i class="fa fa-bars"></i> 목록</button>
     </form>
+    comment : <textarea name="comment"></textarea><br>
+    <button id="sendBtn" type="button">SEND</button>
+    <button id="modBtn" type="button">MOD</button>
+    <div id="commentList"></div>
+    <div id="relyForm" style="display: none">
+        <textarea  name="replyComment"> </textarea>
+        <button id="writeRepBtn" type="button">등록</button>
+    </div>
+</div>
 </div>
 <script>
     $(document).ready(function(){
+        let bno = ${boardDto.bno};
         let formCheck = function() {
             let form = document.getElementById("form");
             if(form.title.value=="") {

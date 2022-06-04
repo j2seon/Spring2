@@ -31,6 +31,7 @@ public class BoardServiceImpl implements BoardService {
 
     @Override
     public List<BoardDto> getList() throws Exception {
+//        throw new Exception("test");
         return boardDao.selectAll();
     } // 전체 게시물 출력
 

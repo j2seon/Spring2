@@ -34,9 +34,8 @@ public class CommentDaoImplTest {
 
     @Test
     public void insert() throws Exception {
-        CommentDto commentDto = new CommentDto(1, 0, "comment", "asdf");
+        CommentDto commentDto = new CommentDto(629, 0, "comment", "asdf");
         assertTrue(commentDao.insert(commentDto)==1);
-        assertTrue(commentDao.count(1)==2);
 
 //        commentDto = new CommentDto(1, 0, "comment", "asdf");
 //        assertTrue(commentDao.insert(commentDto)==1);

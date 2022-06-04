@@ -76,10 +76,10 @@
         <option value="spring-beans.schema" />
         <option value="CSS File" />
         <option value="JUnit3 Test Class" />
-        <option value="Jsp File" />
+        <option value="Interface" />
         <option value="JUnit4 Test Class" />
         <option value="Class" />
-        <option value="Interface" />
+        <option value="Jsp File" />
       </list>
     </option>
   </component>
@@ -104,7 +104,7 @@
     </option>
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="ProjectErrors" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="29nHiyfak6eaDDKFhWtG8yqhsOT" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -112,38 +112,38 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit4&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit3&quot;: &quot;junit.framework.TestCase&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4&quot;: &quot;&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/ddj04/IdeaProjects/my/src/main/resources/mapper&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.appearance&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;1f0f70bf2b5ad94c7387e64c16dc455a&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit4",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit3": "junit.framework.TestCase",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4": "",
+    "last_opened_file_path": "C:/Users/ddj04/IdeaProjects/ch4",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "configurable.group.appearance",
+    "spring.configuration.checksum": "1f0f70bf2b5ad94c7387e64c16dc455a"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mysql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
     ],
-    &quot;GitStage.ChangesTree.GroupingKeys&quot;: [
-      &quot;directory&quot;,
-      &quot;module&quot;,
-      &quot;repository&quot;
+    "GitStage.ChangesTree.GroupingKeys": [
+      "directory",
+      "module",
+      "repository"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.my.pro.dto" />
@@ -168,12 +168,12 @@
       <recent name="com.my.pro.dao" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.my.pro.service" />
       <recent name="com.my.pro.dao" />
       <recent name="com.my.pro.dto" />
-      <recent name="com.my.pro.service" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.CommentDaoImplTest">
+  <component name="RunManager" selected="Tomcat Server.Tomcat 9.0.52 2">
     <configuration name="BoardDaoImplTest.insert2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="pro" />
       <extension name="coverage">
@@ -190,55 +190,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BoardDaoImplTest.testsearchSelectPage" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="pro" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.my.pro.dao.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.my.pro.dao" />
-      <option name="MAIN_CLASS_NAME" value="com.my.pro.dao.BoardDaoImplTest" />
-      <option name="METHOD_NAME" value="testsearchSelectPage" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="BoardServiceImplTest.searchcnt" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="pro" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.my.pro.service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.my.pro.service" />
-      <option name="MAIN_CLASS_NAME" value="com.my.pro.service.BoardServiceImplTest" />
-      <option name="METHOD_NAME" value="searchcnt" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="BoardServiceImplTest.searchlist" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="pro" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.my.pro.service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.my.pro.service" />
-      <option name="MAIN_CLASS_NAME" value="com.my.pro.service.BoardServiceImplTest" />
-      <option name="METHOD_NAME" value="searchlist" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="CommentDaoImplTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CommentDaoImplTest.insert" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="pro" />
       <extension name="coverage">
         <pattern>
@@ -248,7 +200,55 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.my.pro.dao" />
       <option name="MAIN_CLASS_NAME" value="com.my.pro.dao.CommentDaoImplTest" />
+      <option name="METHOD_NAME" value="insert" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CommentServiceImplTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="pro" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.my.pro.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.my.pro.service" />
+      <option name="MAIN_CLASS_NAME" value="com.my.pro.service.CommentServiceImplTest" />
       <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CommentServiceImplTest.remove" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="pro" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.my.pro.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.my.pro.service" />
+      <option name="MAIN_CLASS_NAME" value="com.my.pro.service.CommentServiceImplTest" />
+      <option name="METHOD_NAME" value="remove" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CommentServiceImplTest.write" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="pro" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.my.pro.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.my.pro.service" />
+      <option name="MAIN_CLASS_NAME" value="com.my.pro.service.CommentServiceImplTest" />
+      <option name="METHOD_NAME" value="write" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -342,20 +342,20 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="JUnit.CommentDaoImplTest" />
-      <item itemvalue="JUnit.BoardServiceImplTest.searchcnt" />
-      <item itemvalue="JUnit.BoardServiceImplTest.searchlist" />
-      <item itemvalue="JUnit.BoardDaoImplTest.testsearchSelectPage" />
+      <item itemvalue="JUnit.CommentDaoImplTest.insert" />
+      <item itemvalue="JUnit.CommentServiceImplTest" />
+      <item itemvalue="JUnit.CommentServiceImplTest.remove" />
+      <item itemvalue="JUnit.CommentServiceImplTest.write" />
       <item itemvalue="JUnit.BoardDaoImplTest.insert2" />
       <item itemvalue="Tomcat Server.Tomcat 9.0.52 2" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.CommentDaoImplTest" />
         <item itemvalue="JUnit.BoardDaoImplTest.insert2" />
-        <item itemvalue="JUnit.BoardServiceImplTest.searchlist" />
-        <item itemvalue="JUnit.BoardServiceImplTest.searchcnt" />
-        <item itemvalue="JUnit.BoardDaoImplTest.testsearchSelectPage" />
+        <item itemvalue="JUnit.CommentDaoImplTest.insert" />
+        <item itemvalue="JUnit.CommentServiceImplTest.remove" />
+        <item itemvalue="JUnit.CommentServiceImplTest.write" />
+        <item itemvalue="JUnit.CommentServiceImplTest" />
       </list>
     </recent_temporary>
   </component>
@@ -400,7 +400,7 @@
       <workItem from="1654254426395" duration="15808000" />
       <workItem from="1654270433437" duration="147000" />
       <workItem from="1654270652115" duration="7401000" />
-      <workItem from="1654347532010" duration="1733000" />
+      <workItem from="1654347532010" duration="27662000" />
     </task>
     <servers />
   </component>

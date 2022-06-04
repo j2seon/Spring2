@@ -4985,10 +4985,12 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
     </column>
     <column id="1104" parent="367" name="view_cnt">
       <DataType>int|0s</DataType>
+      <DefaultExpression>0</DefaultExpression>
       <Position>5</Position>
     </column>
     <column id="1105" parent="367" name="comment_cnt">
       <DataType>int|0s</DataType>
+      <DefaultExpression>0</DefaultExpression>
       <Position>6</Position>
     </column>
     <column id="1106" parent="367" name="reg_date">
