@@ -23,10 +23,6 @@ public class SearchCondition {
         this.option = option;
     }
 
-
-
-
-
     public Integer getPage() {
         return page;
     }

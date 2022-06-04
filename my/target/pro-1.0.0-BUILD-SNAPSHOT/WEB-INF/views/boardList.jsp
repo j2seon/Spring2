@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ page session="false" %>
 <c:set var="loginId" value="${pageContext.request.getSession(false)==null ? '' : pageContext.request.session.getAttribute('id')}"/>
 <c:set var="loginOutLink" value="${loginId=='' ? '/login/login' : '/login/logout'}"/>
@@ -78,15 +79,13 @@
             width: 20%;
             height: 100%;
             background-color:#04AA6D;;
-            color: rgb(209, 209, 209);
+            color: #ffffff;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 15px;
         }
-        .search-button:hover {
-            color: rgb(165, 165, 165);
-        }
+
         table {
             border-collapse: collapse;
             width: 100%;
@@ -266,7 +265,7 @@
                     <option value="W" ${ph.sc.option=='W' ? "selected" : ""}>작성자</option>
                 </select>
 
-                <input type="text" name="keyword" class="search-input" type="text" value="${ph.sc.keyword}" placeholder="검색어를 입력해주세요">
+                <input type="text" name="keyword" class="search-input" type="text" value="<c:out value="${ph.sc.keyword}"/>" placeholder="검색어를 입력해주세요">
                 <input type="submit" class="search-button" value="검색">
             </form>
             <button id="writeBtn" class="btn-write" onclick="location.href='<c:url value="/board/write"/>'"><i class="fa fa-pencil"></i>작성</button>
@@ -282,7 +281,7 @@
             </tr>
             <c:forEach var="boardDto" items="${list}">
                 <tr>
-                    <td class="no">${boardDto.bno}</td>
+                    <td class="no"><c:out value="${boardDto.bno}"/> </td>
                     <td class="title"><a href="<c:url value="/board/read${ph.sc.queryString}&bno=${boardDto.bno}"/>">${boardDto.title}</a></td>
                     <td class="writer">${boardDto.writer}</td>
                     <c:choose>

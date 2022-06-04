@@ -194,7 +194,7 @@
                 <th class="regdate">등록일</th>
                 <th class="viewcnt">조회수</th>
             </tr>
-            <c:forEach var="boardDto" items="${list}">
+            <c:forEach var="boardDto" items="${li`  qxst}">
                 <tr>
                     <td class="no">${boardDto.bno}</td>
                     <td class="title"><a href="<c:url value="/board/read${ph.sc.queryString}&bno=${boardDto.bno}"/>"><c:out value="${boardDto.title}"/></a></td>

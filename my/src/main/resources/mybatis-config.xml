@@ -7,7 +7,7 @@
         <typeAlias alias ="UserDto" type="com.my.pro.dto.UserDto"/>
         <typeAlias alias="BoardDto" type="com.my.pro.dto.BoardDto"/>
         <typeAlias alias="SearchCondition" type="com.my.pro.dto.SearchCondition"/>
-<!--        <typeAlias alias="CommentDto" type="com.fastcampus.ch4.domain.CommentDto"/>-->
+        <typeAlias alias="CommentDto" type="com.my.pro.dto.CommentDto"/>
         <!--여러개 등록할 수 있다.-->
         <!--여러개 등록할 수 있다.-->
         <!--여러개 등록할 수 있다.-->

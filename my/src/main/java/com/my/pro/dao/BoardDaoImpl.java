@@ -41,6 +41,14 @@ public class BoardDaoImpl implements BoardDao {
     }
 
     @Override
+    public int updateCommentCnt(Integer bno, int cnt) {
+        Map map = new HashMap();
+        map.put("cnt",cnt);
+        map.put("bno",bno);
+        return session.update(namespace+"updateCommentCnt", map);
+    }
+
+    @Override
     public int count() throws Exception{
         return session.selectOne(namespace+"count");
     }
