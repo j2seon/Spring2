@@ -114,31 +114,7 @@
             $("#relyForm").css("display","block");
         });
 
-        $("#writeRepBtn").click(function(){
-            let comment=$("textarea[name=replyComment]").val();
-            let pcno = $("#relyForm").parent().attr("data-pcno");
 
-            if(comment.trim()==''){
-                alert("댓글을 입력해주세요");
-                $("input[name=replyComment]").focus();
-                return;
-            }
-
-            $.ajax({
-                type:'POST',       // 요청 메서드
-                url: '/pro/comments?bno='+bno,  // 요청 URI
-                headers : { "content-type": "application/json"}, // 요청 헤더
-                data : JSON.stringify({pcno:pcno, bno:bno, comment:comment }),  // 서버로 전송할 데이터. stringify()로 직렬화 필요.
-                success : function(result){
-                    alert(result);       // result는 서버가 전송한 데이터
-                    showList(bno);
-                },
-                error   : function(){ alert("error") } // 에러가 발생했을 때, 호출될 함수
-            }); // $.ajax()
-            $("#relyForm").css("display","none");
-            $("textarea[name=replyComment]").val('');
-            $("#relyForm").appendTo("body");
-        });
 
 
 

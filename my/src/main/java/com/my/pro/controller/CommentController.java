@@ -1,5 +1,6 @@
 package com.my.pro.controller;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.my.pro.dto.CommentDto;
 import com.my.pro.service.CommentService;
 import org.apache.ibatis.annotations.Delete;
@@ -39,8 +40,7 @@ public class CommentController {
     @ResponseBody
     public ResponseEntity<String> reomve(@PathVariable Integer cno, Integer bno, HttpSession session) {
         //댓글 번호, 게시글번호 작성자를 알아야 그 댓글을 없앤다  . 작성자일때만 없애도록 commenter을 가져오자
-//        String commenter = (String)session.getAttribute("id");
-        String commenter = "asdf";
+        String commenter = (String)session.getAttribute("id");
         try {
             int rowCnt = commentService.remove(cno, bno, commenter);
 
@@ -58,8 +58,8 @@ public class CommentController {
     @PostMapping("/comments") //어떤 게시글인지?
     @ResponseBody
     public ResponseEntity<String> write(@RequestBody CommentDto dto, Integer bno, HttpSession session) {
-        //String commenter = (String)session.getAttribute("id");
-        String commenter = "asdf";
+        String commenter = (String)session.getAttribute("id");
+//        String commenter = "asdf";
         //현재 세션가지고 있는애가 작성하는거니까 작성자를 setter로 지정/ 어떤 게시물인지 알아야하니까 ! bno도
         dto.setCommenter(commenter);
         dto.setBno(bno);
@@ -82,12 +82,13 @@ public class CommentController {
     @PatchMapping("/comments/{cno}") //어떤 댓글인지
     @ResponseBody
     public ResponseEntity<String> modify(@PathVariable Integer cno, @RequestBody CommentDto dto, HttpSession session) {
-        //String commenter = (String)session.getAttribute("id");
-        String commenter = "asdf";
+        String commenter = (String)session.getAttribute("id");
         dto.setCommenter(commenter);
         dto.setCno(cno);
 
+
         try {
+
             int rowCnt = commentService.modify(dto);
             if (rowCnt != 1)
                 throw new Exception("MOD Fail");

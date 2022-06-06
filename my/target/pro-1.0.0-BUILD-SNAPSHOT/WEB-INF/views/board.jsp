@@ -31,9 +31,12 @@
             padding: 0;
             font-family: "Noto Sans KR", sans-serif;
         }
-        .container {
+        .container ,#commstart{
             width : 50%;
             margin : auto;
+        }
+        #commstart{
+            margin-bottom: 50px;
         }
         .writing-header {
             position: relative;
@@ -62,6 +65,12 @@
         .frm {
             width:100%;
         }
+        .container{
+            margin-bottom: 30px;
+        }
+
+
+
         .btn {
             background-color: rgb(236, 236, 236); /* Blue background */
             border: none; /* Remove borders */
@@ -125,9 +134,6 @@
             background-color: #ffff;
             overflow: auto;
         }
-
-
-
         .navbar a {
             float: right;
             padding: 22px;
@@ -149,6 +155,93 @@
                 float: none;
                 display: block;
             }
+        }
+        #modify-writebox {
+            background-color: white;
+            border : 1px solid #e5e5e5;
+            border-radius: 5px;
+            margin : 10px;
+        }
+
+        #modify-writebox-bottom {
+            padding : 3px 10px 10px 10px;
+            min-height : 35px;
+        }
+
+        /* The Modal (background) */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            padding-top: 100px; /* Location of the box */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0,0,0); /* Fallback color */
+            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+        }
+
+        /* Modal Content */
+        .modal-content {
+            background-color: #fefefe;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 50%;
+        }
+
+        /* The Close Button */
+        .close {
+            color: #aaaaaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        ul {
+            border:  1px solid rgb(235,236,239);
+            border-bottom : 0;
+        }
+        li {
+            background-color: #f9f9fa;
+            list-style-type: none;
+            border-bottom : 1px solid rgb(235,236,239);
+            padding : 18px 18px 0 18px;
+            position: relative;
+        }
+        .comment-bott, .up_date{
+            font-size:9pt;
+            color : rgb(97,97,97);
+            padding: 8px 0 8px 0;
+        }
+
+        .comment-bott > a {
+            color : rgb(97,97,97);
+            text-decoration: none;
+            margin : 0 6px 0 0;
+        }
+
+        #comment-writeForm {
+            background-color: white;
+            border : 1px solid #e5e5e5;
+            border-radius: 5px;
+        }
+        #sendBtn, #writeRepBtn {
+            color : #009f47;
+            background-color: #e0f8eb;
+            text-decoration: none;
+            padding :5px;
+            border-radius: 5px;
+            border: none;
+            margin: 3px;
         }
 
 
@@ -197,19 +290,80 @@
         </c:if>
         <button type="button" id="listBtn" class="btn btn-list"><i class="fa fa-bars"></i> 목록</button>
     </form>
-    comment : <textarea name="comment"></textarea><br>
-    <button id="sendBtn" type="button">SEND</button>
-    <button id="modBtn" type="button">MOD</button>
-    <div id="commentList"></div>
+</div>
+
+<div id="commstart">
+    <div id="comment-writeForm">
+        comment : <textarea name="comment" placeholder="댓글을 입력하세요"></textarea><br>
+        <button id="sendBtn" type="button">SEND</button>
+        <button id="modBtn" style="display: none"  type="button">MOD</button>
+    </div>
+    <div id="commentList">
+    </div>
     <div id="relyForm" style="display: none">
-        <textarea  name="replyComment"> </textarea>
+        <textarea  name="replyComment"placeholder="댓글을 입력하세요"></textarea>
         <button id="writeRepBtn" type="button">등록</button>
     </div>
+
+    <div id="modalWin" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>
+                <h2>  댓글 수정</h2>
+                <div id="modify-writebox">
+                <div class="commenter commenter-writebox"></div>
+                        <div class="modify-writebox-content">
+                            <textarea name="comm" id="" cols="30" rows="5" placeholder="댓글을 남겨보세요"></textarea>
+                        </div>
+                    <div id="modify-writebox-bottom">
+                        <div class="register-box">
+                            <a href="#" class="btn" id="btn-write-modify">등록</a>
+                        </div>
+                    </div>
+                </div>
+            </p>
+        </div>
+     </div>
 </div>
-</div>
+
 <script>
-    $(document).ready(function(){
-        let bno = ${boardDto.bno};
+    let bno = <c:out value="${boardDto.bno}"/>;
+
+    let showList = function (bno) {
+        $.ajax({
+            type:'GET',       // 요청 메서드
+            url: '/pro/comments?bno='+ bno,  // 요청 UURI
+            success : function(result){
+                $("#commentList").html(toHTML(result));
+            },
+            error   : function(){ alert("error") } // 에러가 발생했을 때, 호출될 함수
+        }); // $.ajax()
+    }
+
+    let addZero = function(value=1){
+        return value > 9 ? value : "0"+value;
+    }
+
+    let dateToString = function(ms=0) {
+        let date = new Date(ms);
+
+        let yyyy = date.getFullYear();
+        let mm = addZero(date.getMonth() + 1);
+        let dd = addZero(date.getDate());
+
+        let HH = addZero(date.getHours());
+        let MM = addZero(date.getMinutes());
+        let ss = addZero(date.getSeconds());
+
+        return yyyy+"."+mm+"."+dd+ " " + HH + ":" + MM + ":" + ss;
+    }
+
+
+    $(document).ready(function() {
+        showList(bno);
+
+
         let formCheck = function() {
             let form = document.getElementById("form");
             if(form.title.value=="") {
@@ -234,6 +388,7 @@
             if(formCheck())
                 form.submit();
         });
+
         $("#modifyBtn").on("click", function(){
             let form = $("#form");
             let isReadonly = $("input[name=title]").attr('readonly');
@@ -261,7 +416,145 @@
         $("#listBtn").on("click", function(){
             location.href="<c:url value='/board/list${searchCondition.queryString}'/>";
         });
+
+
+        $("#sendBtn").click(function () {
+            let comment = $("textarea[name=comment]").val();
+            if (comment.trim() == '') {
+                alert("댓글을 입력해주세요");
+                $("textarea[name=comment]").focus();
+                return;
+            }
+            $.ajax({
+                type: 'POST',       // 요청 메서드
+                url: '/pro/comments?bno=' + bno,  // 요청 URI
+                headers: {"content-type": "application/json"}, // 요청 헤더
+                data: JSON.stringify({bno: bno, comment: comment}),  // 서버로 전송할 데이터. stringify()로 직렬화 필요.
+                success: function () {
+                    alert("등록되었습니다.");       // result는 서버가 전송한 데이터
+                    showList(bno);
+                },
+                error: function () {
+                    alert("error")
+                } // 에러가 발생했을 때, 호출될 함수
+            }); // $.ajax()
+        });
+
+        $("#commentList").on("click",".replyBtn",function() {
+            // 2.해당 댓글에 또 댓글다는거니까 바로 밑에 나올수 있도록 옮겨주기
+            $("#relyForm").appendTo($(this).parent());
+            //1.답글을 입력할 폼이 필요함. //폼을 만들어두고 속성값을 바꿔주자
+            $("#relyForm").css("display","block");
+        });
+
+        $("#writeRepBtn").click(function(){
+            let comment=$("textarea[name=replyComment]").val();
+            let pcno = $(".replyBtn").attr("data-pcno");
+            if(comment.trim()==''){
+                alert("댓글을 입력해주세요");
+                $("input[name=replyComment]").focus();
+                return;
+            }
+            $.ajax({
+                type:'POST',       // 요청 메서드
+                url: '/pro/comments?bno='+bno,  // 요청 URI
+                headers : { "content-type": "application/json"}, // 요청 헤더
+                data : JSON.stringify({pcno:pcno, bno:bno, comment:comment }),  // 서버로 전송할 데이터. stringify()로 직렬화 필요.
+                success : function(result){
+                    alert(result);       // result는 서버가 전송한 데이터
+                    showList(bno);
+                },
+                error   : function(){ alert("error") } // 에러가 발생했을 때, 호출될 함수
+            }); // $.ajax()
+            $("#relyForm").css("display","none");
+            $("textarea[name=replyComment]").val('');
+            $("#relyForm").appendTo("body");
+        });
+
+
+
+        $("#commentList").on("click",".delBtn",function(){
+            let cno= $(this).attr("data-cno");
+            let bno= $(this).attr("data-bno");
+            $.ajax({ //삭제버튼 누르면 넘어가는 데이터~
+                type:'DELETE',       // 요청 메서드
+                url: '/pro/comments/'+cno+'?bno='+ bno,  // 요청 URI
+                success : function(){//삭제되고 목록을 새로가져온다.
+                    alert("삭제되었습니다.")
+                    showList(bno);
+                },
+                error   : function(){ alert("error") } // 에러가 발생했을 때, 호출될 함수
+            }); // $.ajax()
+        });
+
+        $("#commentList").on("click",".modBtn",function() {
+            let cno = $(this).attr("data-cno");
+            let comment = $("div[name=comment]").val();
+            let bno = $(this).attr("data-bno");
+            let pcno = $(this).attr("data-pcno");
+            let commenter = $("div[name=commenter]").val();
+
+            $("#modalWin .commenter").text(commenter);
+            $("#modalWin textarea").text(comment);
+            $("#btn-write-modify").attr("data-cno", cno);
+            $("#btn-write-modify").attr("data-pcno", pcno);
+            $("#btn-write-modify").attr("data-bno", bno);
+
+            // 팝업창을 열고 내용을 보여준다.
+            $("#modalWin").css("display","block");
+        });
+
+        $("#btn-write-modify").click(function(){
+            let comment = $("textarea[name=comm]").val();
+            let cno = $("#btn-write-modify").attr("data-cno");
+            $.ajax({
+                type:'PATCH',       // 요청 메서드
+                url: '/pro/comments/'+cno,  // 요청 URI
+                headers : { "content-type": "application/json"}, // 요청 헤더
+                data : JSON.stringify({cno:cno, comment:comment }),  // 서버로 전송할 데이터. stringify()로 직렬화 필요.
+                success : function(result){
+                    alert(result);       // result는 서버가 전송한 데이터
+                    showList(bno);
+                },
+                error   : function(){ alert("error") } // 에러가 발생했을 때, 호출될 함수
+            }); // $.ajax()
+        });
+
+        $(".close").click(function(){
+            $("#modalWin").css("display","none");
+        });
+
     });
+
+    let toHTML = function (comments) {
+        let tmp = "<ul>";
+
+        comments.forEach(function (comment){
+            tmp +='<li data-cno='+comment.cno
+            tmp +=' data-pcno='+comment.pcno
+            tmp +=' data-bno='+comment.bno +'>'
+            tmp += '<div id="com-commenter" name="commenter" class="commenter">'+comment.commenter+'</div>'
+            tmp += '<div id="com-comment" name="comment" class="comment">'+comment.comment+'</div>'
+            tmp += '<div class="comment-bott">'
+            tmp +='<a href="#" class="delBtn" data-cno='+comment.cno
+            tmp +=' data-pcno='+comment.pcno
+            tmp +=' data-bno='+comment.bno +'>삭제</a>'
+            tmp +='<a href="#" class="modBtn" data-cno='+comment.cno
+            tmp +=' data-pcno='+comment.pcno
+            tmp +=' data-bno='+comment.bno +'>수정</a>'
+            tmp +='<a href="#" class="replyBtn" data-cno='+comment.cno
+            tmp +=' data-pcno='+comment.pcno
+            tmp +=' data-bno='+comment.bno +'>답글</a>'
+            tmp += '<span class="up_date">'+comment.up_date+'</span>'
+            tmp +='</div>'
+            tmp += '</li>'
+        })
+        return tmp+"</ul>"
+    }
+
+
+
+
 </script>
 </body>
 </html>

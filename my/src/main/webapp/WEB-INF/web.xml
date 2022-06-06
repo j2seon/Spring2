@@ -23,12 +23,22 @@
 			<param-value>/WEB-INF/spring/appServlet/servlet-context.xml</param-value>
 		</init-param>
 		<load-on-startup>1</load-on-startup>
+		<multipart-config>
+			<!-- 용량이 적으면 Main Memory 사용. 용량이 커지면 파일 사용 -->
+			<location>c:\\upload\\temp</location>
+			<max-file-size>20971520</max-file-size><!-- 1024*1024*20 : 파일 한개의 용량 제한 : 20MB-->
+			<max-request-size>41943040</max-request-size> <!-- 전체 파일 사이즈 -->
+			<file-size-threshold>20971520</file-size-threshold><!-- 20M 이하면 메모리 / 초과하면 파일 -->
+		</multipart-config>
 	</servlet>
 		
 	<servlet-mapping>
 		<servlet-name>appServlet</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
+
+
+
 
 	<!-- 한글 변환 필터 시작 -->
 	<filter>
@@ -49,5 +59,6 @@
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
 	<!-- 한글 변환 필터 끝 -->
+
 
 </web-app>
