@@ -24,12 +24,12 @@
 		</init-param>
 		<load-on-startup>1</load-on-startup>
 		<multipart-config>
-			<!-- 용량이 적으면 Main Memory 사용. 용량이 커지면 파일 사용 -->
-			<location>c:\\upload\\temp</location>
-			<max-file-size>20971520</max-file-size><!-- 1024*1024*20 : 파일 한개의 용량 제한 : 20MB-->
-			<max-request-size>41943040</max-request-size> <!-- 전체 파일 사이즈 -->
-			<file-size-threshold>20971520</file-size-threshold><!-- 20M 이하면 메모리 / 초과하면 파일 -->
+			<location>/Users/chars/Documents/TestDir</location><!-- 업로드 파일 저장되는 기본 경로 -->
+			<max-file-size>20971520</max-file-size> <!-- 한파일: 1mb * 20 -->
+			<max-request-size>41943040</max-request-size> <!-- 한번에 여러개올리는데 전체가 40mb -->
+			<file-size-threshold>20971520</file-size-threshold> <!-- 넘으면 temp에 넣고 업로드에 들어가지 않는다 : 20mb -->
 		</multipart-config>
+
 	</servlet>
 		
 	<servlet-mapping>

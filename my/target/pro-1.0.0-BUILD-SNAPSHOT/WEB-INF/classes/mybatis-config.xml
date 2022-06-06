@@ -8,6 +8,7 @@
         <typeAlias alias="BoardDto" type="com.my.pro.dto.BoardDto"/>
         <typeAlias alias="SearchCondition" type="com.my.pro.dto.SearchCondition"/>
         <typeAlias alias="CommentDto" type="com.my.pro.dto.CommentDto"/>
+        <typeAlias alias="CateDto" type="com.my.pro.dto.CateDto"/>
         <!--여러개 등록할 수 있다.-->
         <!--여러개 등록할 수 있다.-->
         <!--여러개 등록할 수 있다.-->
