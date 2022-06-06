@@ -15,7 +15,39 @@
         <select class="cate2">
             <option value="">전체</option>
         </select>
+        <div class="inputArea">
+            <label for="gdsName">상품명</label>
+            <input type="text" id="gdsName" name="gdsName" />
+        </div>
+
+        <div class="inputArea">
+            <label for="gdsPrice">상품가격</label>
+            <input type="text" id="gdsPrice" name="gdsPrice" />
+        </div>
+
+        <div class="inputArea">
+            <label for="gdsStock">상품수량</label>
+            <input type="text" id="gdsStock" name="gdsStock" />
+        </div>
+
+        <div class="inputArea">
+            <label for="gdsDes">상품소개</label>
+            <textarea rows="5" cols="50" id="gdsDes" name="gdsDes"></textarea>
+        </div>
+
+        <div class="inputArea">
+            <button type="submit" id="register_Btn" class="btn btn-primary">등록</button>
+        </div>
+
     </form>
+
+    <form action="fileupload", method="post" enctype="multipart/form-data">
+        <input type="file", name="uploadfile" placeholder="파일 선택" /><br/>
+        <input type="submit" value="업로드">
+    </form>
+
+
+
 
 </body>
 

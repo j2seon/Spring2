@@ -9,6 +9,7 @@
         <typeAlias alias="SearchCondition" type="com.my.pro.dto.SearchCondition"/>
         <typeAlias alias="CommentDto" type="com.my.pro.dto.CommentDto"/>
         <typeAlias alias="CateDto" type="com.my.pro.dto.CateDto"/>
+        <typeAlias alias="ProductDto" type="com.my.pro.dto.ProductDto"/>
         <!--여러개 등록할 수 있다.-->
         <!--여러개 등록할 수 있다.-->
         <!--여러개 등록할 수 있다.-->

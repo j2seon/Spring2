@@ -28,8 +28,8 @@
         <option value="JUnit3 Test Class" />
         <option value="Jsp File" />
         <option value="JUnit4 Test Class" />
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -117,18 +117,21 @@
       <recent name="com.my.pro.service" />
       <recent name="com.my.pro.dao" />
     </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.my.pro.service" />
+    </key>
     <key name="CreateTestDialog.RecentsKey">
       <recent name="com.my.pro.dao" />
       <recent name="com.my.pro.service" />
       <recent name="com.my.pro.dto" />
     </key>
   </component>
-  <component name="RunManager" selected="Tomcat Server.Tomcat 9.0.52 2">
+  <component name="RunManager" selected="JUnit.ProductDaoImplTest.insert">
     <configuration name="BoardDaoImplTest.insert2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="pro" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.my.pro.dao.*" />
+          <option name="PATTERN" value="com.my.pro.service.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -144,7 +147,7 @@
       <module name="pro" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.my.pro.dao.*" />
+          <option name="PATTERN" value="com.my.pro.service.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -160,7 +163,7 @@
       <module name="pro" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.my.pro.dao.*" />
+          <option name="PATTERN" value="com.my.pro.service.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -188,7 +191,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CommentServiceImplTest.write" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ProductDaoImplTest.insert" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="pro" />
       <extension name="coverage">
         <pattern>
@@ -196,9 +199,9 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.my.pro.service" />
-      <option name="MAIN_CLASS_NAME" value="com.my.pro.service.CommentServiceImplTest" />
-      <option name="METHOD_NAME" value="write" />
+      <option name="PACKAGE_NAME" value="com.my.pro.dao" />
+      <option name="MAIN_CLASS_NAME" value="com.my.pro.dao.ProductDaoImplTest" />
+      <option name="METHOD_NAME" value="insert" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -294,19 +297,19 @@
     </configuration>
     <list>
       <item itemvalue="JUnit.CateDaoImpleTest.selectAll" />
+      <item itemvalue="JUnit.ProductDaoImplTest.insert" />
       <item itemvalue="JUnit.CommentDaoImplTest.insert" />
       <item itemvalue="JUnit.CommentServiceImplTest.remove" />
-      <item itemvalue="JUnit.CommentServiceImplTest.write" />
       <item itemvalue="JUnit.BoardDaoImplTest.insert2" />
       <item itemvalue="Tomcat Server.Tomcat 9.0.52 2" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ProductDaoImplTest.insert" />
         <item itemvalue="JUnit.CateDaoImpleTest.selectAll" />
         <item itemvalue="JUnit.BoardDaoImplTest.insert2" />
         <item itemvalue="JUnit.CommentDaoImplTest.insert" />
         <item itemvalue="JUnit.CommentServiceImplTest.remove" />
-        <item itemvalue="JUnit.CommentServiceImplTest.write" />
       </list>
     </recent_temporary>
   </component>
@@ -354,7 +357,7 @@
       <workItem from="1654347532010" duration="27662000" />
       <workItem from="1654390533832" duration="30983000" />
       <workItem from="1654489311260" duration="4284000" />
-      <workItem from="1654493655388" duration="26114000" />
+      <workItem from="1654493655388" duration="33656000" />
     </task>
     <servers />
   </component>

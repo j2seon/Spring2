@@ -2,7 +2,9 @@ package com.my.pro.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.my.pro.dto.CateDto;
+import com.my.pro.dto.ProductDto;
 import com.my.pro.service.CateService;
+import com.my.pro.service.ProductServie;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpSession;
 import java.util.List;
@@ -22,6 +25,9 @@ public class ProductController {
     private Logger logger= LoggerFactory.getLogger(ProductController.class);
     @Autowired
     CateService cateService;
+
+    @Autowired
+    ProductServie productServie;
 
     @GetMapping("/add")
     public String goodAdd(HttpSession session, Model m){
@@ -45,8 +51,24 @@ public class ProductController {
     }
 
     @PostMapping("/add")
-        public String goodAdd(Model m){
-        return "";
+        public String goodAdd(ProductDto dto, Model m, RedirectAttributes rattr){
+        try {
+            int rowCnt=productServie.add(dto);
+
+            if(rowCnt!=1)
+                throw new Exception("ADD_Fail");
+
+            rattr.addFlashAttribute("msg", "ADD_OK");
+            //상품리스트로이동하도록 수정 >아직안만듬
+            return "redirect:/board/list";
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            m.addAttribute(dto);
+            m.addAttribute("msg", "ADD_Fail");
+            return "productRegister";
+        }
+
     }
 
 

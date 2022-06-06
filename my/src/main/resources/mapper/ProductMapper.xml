@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.my.pro.dao.ProductMapper">
+    <select id="count" resultType="int">
+        SELECT count() FROM goods
+    </select>
+
+    <insert id="insert" parameterType="CateDto">
+        INSERT INTO goods
+        (price,goodsName,subName,stock,content,cateCode,cateCodeRef,energy,protein,per,sodium,suger,fat,reg_date,up_date)
+        VALUES
+        (#{price},#{goodsName},#{subName},#{stock},#{content},#{cateCode},#{cateCodeRef},#{energy},#{protein},#{per},#{sodium},#{suger},#{fat},now(),now())
+    </insert>
+
+
+
+
+<!--   <update id="update" parameterType="BoardDto">-->
+<!--        UPDATE goodcate-->
+<!--        SET   tier = #{tier}-->
+<!--        , cateName = #{cateName}-->
+<!--        , cateCode = #{cateCode}-->
+<!--        , cateCodeRef = #{cateCodeRef}-->
+<!--        WHERE bno = #{bno} And writer=#{writer}-->
+<!--    </update>-->
+
+
+<!--    <select id="searchResultCount" parameterType="SearchCondition" resultType="int">-->
+<!--        SELECT count(*)-->
+<!--        FROM board-->
+<!--        WHERE true-->
+<!--        <include refid="searchCondition"/>-->
+<!--    </select>-->
+
+
+
+<!--    <sql id="searchCondition">-->
+<!--        <choose>-->
+<!--            <when test='option=="T"'>-->
+<!--                AND title LIKE concat('%', #{keyword}, '%')-->
+<!--            </when>-->
+<!--            <when test='option=="W"'>-->
+<!--                AND writer LIKE concat('%', #{keyword}, '%')-->
+<!--            </when>-->
+<!--            <otherwise>-->
+<!--                AND (title   LIKE concat('%', #{keyword}, '%')-->
+<!--                OR   content LIKE concat('%', #{keyword}, '%'))-->
+<!--            </otherwise>-->
+<!--        </choose>-->
+<!--    </sql>-->
+
+<!--    <select id="searchSelectPage" parameterType="SearchCondition" resultType="BoardDto">-->
+<!--        SELECT bno, title, content, writer, view_cnt, comment_cnt, reg_date-->
+<!--        FROM  board-->
+<!--        WHERE true-->
+<!--        <include refid="searchCondition"/>-->
+<!--        ORDER BY reg_date DESC, bno DESC-->
+<!--        LIMIT #{offset}, #{pageSize}-->
+<!--    </select>-->
+
+<!--    <select id="searchResultCnt" parameterType="SearchCondition" resultType="int">-->
+<!--        SELECT count(*)-->
+<!--        FROM  board-->
+<!--        WHERE true-->
+<!--        <include refid="searchCondition"/>-->
+<!--    </select>-->
+</mapper>

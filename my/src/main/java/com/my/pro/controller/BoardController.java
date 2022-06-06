@@ -62,8 +62,6 @@ public class BoardController {
                 throw new Exception("Write failed.");
 
             rattr.addFlashAttribute("msg", "WRT_OK");
-            System.out.println("write:"+boardDto);
-            System.out.println("write model:"+m);
             return "redirect:/board/list";
         } catch (Exception e) {
             e.printStackTrace();
@@ -124,9 +122,6 @@ public class BoardController {
             m.addAttribute("list", list);
             m.addAttribute("ph", pageHandler);
 
-            System.out.println("list list:"+list);
-            System.out.println("리스트의:"+sc);
-            System.out.println("리스트의모델"+m);
             Instant startOfToday = LocalDate.now().atStartOfDay(ZoneId.systemDefault()).toInstant();
             m.addAttribute("startOfToday", startOfToday.toEpochMilli());
         } catch (Exception e) {
