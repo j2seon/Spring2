@@ -40,7 +40,6 @@ public class ProductController {
             //카테고리 페이지 누르면 카테고리의 값을 받아야하니까!
             List<CateDto> list = cateService.categoryList();
             String category = objm.writeValueAsString(list);
-            logger.info("category"+category );
             m.addAttribute("category",category);
             return "productRegister";
 
@@ -54,21 +53,21 @@ public class ProductController {
         public String goodAdd(ProductDto dto, Model m, RedirectAttributes rattr){
         try {
             int rowCnt=productServie.add(dto);
+            System.out.println(dto);
 
             if(rowCnt!=1)
                 throw new Exception("ADD_Fail");
 
-            rattr.addFlashAttribute("msg", "ADD_OK");
+            m.addAttribute(dto);
+            m.addAttribute("msg", "ADD_OK");
             //상품리스트로이동하도록 수정 >아직안만듬
-            return "redirect:/board/list";
+            return "redirect:/";
 
         } catch (Exception e) {
             e.printStackTrace();
-            m.addAttribute(dto);
             m.addAttribute("msg", "ADD_Fail");
             return "productRegister";
         }
-
     }
 
 

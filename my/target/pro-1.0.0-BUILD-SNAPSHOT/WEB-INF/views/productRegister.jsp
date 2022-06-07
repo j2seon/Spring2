@@ -1,120 +1,196 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<%@ page session="false"%>
 <html>
 <head>
     <script src="https://code.jquery.com/jquery-1.11.3.js"></script>
     <title>상품등록</title>
 </head>
+<style>
+    /* Style inputs, select elements and textareas */
+    input[type=text], select, textarea{
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        resize: vertical;
+    }
+
+    /* Style the label to display next to the inputs */
+    label {
+        padding: 12px 12px 12px 0;
+        display: inline-block;
+    }
+
+    /* Style the submit button */
+    input[type=submit] {
+        background-color: #04AA6D;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        float: right;
+    }
+
+    /* Style the container */
+    .container {
+        border-radius: 5px;
+        background-color: #f2f2f2;
+        position: relative;
+        padding: 20px;
+    }
+
+    /* Floating column for labels: 25% width */
+    .col-25 {
+        float: left;
+        width: 25%;
+        margin-top: 6px;
+    }
+
+    /* Floating column for inputs: 75% width */
+    .col-75 {
+        float: left;
+        width: 75%;
+        margin-top: 6px;
+    }
+
+    /* Clear floats after the columns */
+    .row:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+    @media screen and (max-width: 600px) {
+        .col-25, .col-75, input[type=submit] {
+            width: 50%;
+            margin-top: 0;
+        }
+    }
+    .vertical-center {
+        margin: 0;
+        position: absolute;
+
+    }
+
+
+
+</style>
 <body>
-    <form>
-        <label>1차분류</label>
-        <select class="cate1">
-            <option value="">전체</option>
-        </select>
+    <div class="container">
+        <div class="vertical-center">
+            <form action="<c:url value='/product/add'/>" method="post" id="addForm">
+                <div class="inputArea">
+                    <label for="goodsNum">상품명</label>
+                    <input type="text" id="goodsNum" name="goodsNum" />
+                </div>
+                <div class="inputArea">
+                    <label for="subName">sub상품명</label>
+                    <input type="text" id="subName" name="subName" />
+                </div>
+                <div class="inputArea">
+                    <label for="price">상품가격</label>
+                    <input type="text" id="price" name="price" />
+                </div>
+                <div class="inputArea">
+                    <label for="content">상품소개</label>
+                    <textarea rows="5" cols="50" id="content" name="content"></textarea>
+                </div>
+                <div class="inputArea">
+                    <label for="energy">열량</label>
+                    <input type="text" id="energy" name="energy" />
+                </div>
+                <div class="inputArea">
+                    <label for="per">중량</label>
+                    <input type="text" id="per" name="per" />
+                </div>
+                <div class="inputArea">
+                    <label for="protein">단백질</label>
+                    <input type="text" id="protein" name="protein" />
+                </div>
+                <div class="inputArea">
+                    <label for="fat">지방</label>
+                    <input type="text" id="fat" name="fat" />
+                </div>
+                <div class="inputArea">
+                    <label for="sodium">나트륨</label>
+                    <input type="text" id="sodium" name="sodium" />
+                </div>
+                <div class="inputArea">
+                    <label for="protein">당류</label>
+                    <input type="text" id="suger" name="suger" />
+                </div>
+                <label>1차분류</label>
+                <select class="cate1">
+                    <option value="" >전체</option>
+                </select>
 
-        <label>2차분류</label>
-        <select class="cate2">
-            <option value="">전체</option>
-        </select>
-        <div class="inputArea">
-            <label for="gdsName">상품명</label>
-            <input type="text" id="gdsName" name="gdsName" />
+                <label>2차분류</label>
+                <select class="cate2">
+                    <option value="" name="cateCode">전체</option>
+                </select>
+
+                <div class="inputArea">
+                    <button type="submit" id="add_Btn" class="">등록</button>
+                    <button type="cancle" id="cancle_Btn" class="">취소</button>
+                </div>
+            </form>
         </div>
-
-        <div class="inputArea">
-            <label for="gdsPrice">상품가격</label>
-            <input type="text" id="gdsPrice" name="gdsPrice" />
-        </div>
-
-        <div class="inputArea">
-            <label for="gdsStock">상품수량</label>
-            <input type="text" id="gdsStock" name="gdsStock" />
-        </div>
-
-        <div class="inputArea">
-            <label for="gdsDes">상품소개</label>
-            <textarea rows="5" cols="50" id="gdsDes" name="gdsDes"></textarea>
-        </div>
-
-        <div class="inputArea">
-            <button type="submit" id="register_Btn" class="btn btn-primary">등록</button>
-        </div>
-
-    </form>
-
-    <form action="fileupload", method="post" enctype="multipart/form-data">
-        <input type="file", name="uploadfile" placeholder="파일 선택" /><br/>
-        <input type="submit" value="업로드">
-    </form>
-
-
-
-
+    </div>
 </body>
 
 <script>
+
+
     // 컨트롤러에서 데이터 받기
-    var jsonData = JSON.parse('${category}');
+    var cateList = JSON.parse('${category}');
 
-    var cate1Arr = new Array();
-    var cate1Obj = new Object();
-    var select1 = $(".cate1");
+    let cate1Arr = new Array();
+    let cate1Object = new Object();
+    let cateSelect1 = $(".cate1");
 
-    // 1차 분류 셀렉트 박스에 삽입할 데이터 준비
-    for(var i = 0; i < jsonData.length; i++) {
-
-        if(jsonData[i].tier === 1) {
-            cate1Obj = new Object();  //초기화
-            cate1Obj.cateCode = jsonData[i].cateCode;
-            cate1Obj.cateName = jsonData[i].cateName;
-            cate1Obj.cateCodeRef = jsonData[i].cateCodeRef;
-            cate1Arr.push(cate1Obj);
+    for (let i=0; i<cateList.length; i++){
+        if(cateList[i].tier === 1){
+            cate1Object = new Object();
+            cate1Object.cateName =cateList[i].cateName;
+            cate1Object.cateCode =cateList[i].cateCode;
+            cate1Object.cateCodeRef =cateList[i].cateCodeRef;
+            cate1Arr.push(cate1Object);
         }
     }
 
-    for(var i = 0; i < cate1Arr.length; i++) {
-        select1.append("<option value='"+cate1Arr[i].cateCode+"'>" + cate1Arr[i].cateName + "</option>");
+    let cate2Arr = new Array();
+    let cate2Object = new Object();
+    let cateSelect2 = $(".cate2");
+    for (let i=0; i<cateList.length; i++){
+        if(cateList[i].tier === 2){
+            cate2Object = new Object();
+            cate2Object.cateName = cateList[i].cateName;
+            cate2Object.cateCode = cateList[i].cateCode;
+            cate2Object.cateCodeRef = cateList[i].cateCodeRef;
+            cate2Arr.push(cate2Object);
+        }
     }
-    // for(var i = 0; i < cate2Arr.length; i++) {
-    //     select2.append("<option value='"+cate2Arr[i].cateCode+"'>" + cate2Arr[i].cateName + "</option>");
-    // }
+    for(let i=0; i<cate1Arr.length;i++){
+        cateSelect1.append("<option value='"+cate1Arr[i].cateCode+"'>"+cate1Arr[i].cateName+"</option>");
+    }
+    $(cateSelect1).on("change",function (){
+        let selectVal1 = $(this).find("option:selected").val();
+        cateSelect2.children().remove();
+        cateSelect2.append("option value=''>선택</option>");
 
-
-    $(document).on("change", "select.cate1", function(){
-
-        var cate2Arr = new Array();
-        var cate2Obj = new Object();
-
-        // 2차 분류 셀렉트 박스에 삽입할 데이터 준비
-        for(var i = 0; i < jsonData.length; i++) {
-
-            if(jsonData[i].tier === 2) {
-                cate2Obj = new Object();  //초기화
-                cate2Obj.cateCode = jsonData[i].cateCode;
-                cate2Obj.cateName = jsonData[i].cateName;
-                cate2Obj.cateCodeRef = jsonData[i].cateCodeRef;
-
-                cate2Arr.push(cate2Obj);
+        for(let i=0; cate2Arr.length; i++){
+            if(selectVal1 === cate2Arr[i].cateCodeRef){
+                cateSelect2.append("<option value='"+cate2Arr[i].cateCode+"'>"+cate2Arr[i].cateName+"</option>");
             }
         }
-
-        var select2 = $("select.cate2");
-        select2.children().remove();
-
-        $("option:selected", this).each(function(){
-
-            var selectVal = $(this).val();
-            select2.append("<option value=''>전체</option>");
-
-            for(var i = 0; i < cate2Arr.length; i++) {
-                if(selectVal == cate2Arr[i].cateCodeRef) {
-                    select2.append("<option value='" + cate2Arr[i].cateCode + "'>"
-                        + cate2Arr[i].cateName + "</option>");
-                }
-            }
-
-        });
-
     });
+
+
 </script>
 
 </html>

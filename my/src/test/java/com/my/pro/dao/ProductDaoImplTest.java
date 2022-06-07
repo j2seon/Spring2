@@ -18,7 +18,7 @@ public class ProductDaoImplTest {
 
     @Test
     public void insert() throws Exception {
-        ProductDto dto = new ProductDto(1,"에그마요","egg",0,"에그마요","100","100101",100,100,100,100,100,100);
+        ProductDto dto = new ProductDto(1,"에그마요","egg","에그마요","100",100,100,100,100,100,100);
         int c=productDao.insert(dto);
         assertTrue(c==1);
 

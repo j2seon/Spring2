@@ -9,9 +9,9 @@
 
     <insert id="insert" parameterType="CateDto">
         INSERT INTO goods
-        (price,goodsName,subName,stock,content,cateCode,cateCodeRef,energy,protein,kcal,per,sodium,suger,fat,reg_date,up_date)
+        (price,goodsName,subName,content,cateCode,energy,protein,per,sodium,suger,fat,reg_date,up_date)
         VALUES
-        (#{price},#{goodsName},#{subName},#{stock},#{content},#{cateCode},#{cateCodeRef},#{energy},#{protein},#{kcal},#{per},#{sodium},#{suger},#{fat},now(),now())
+        (#{price},#{goodsName},#{subName},#{content},#{cateCode},#{energy},#{protein},#{per},#{sodium},#{suger},#{fat},now(),now())
     </insert>
 
 
