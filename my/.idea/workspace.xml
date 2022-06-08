@@ -10,28 +10,67 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="520e26e4-e609-45b9-891e-7adfefaf6d89" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/my/pro/service/ProductServieImpleTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/c4f9fffd-4e2e-40e0-95dd-327735e9a098.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/c4f9fffd-4e2e-40e0-95dd-327735e9a098.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/pro/controller/BoardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/my/pro/controller/BoardController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/pro/controller/CommentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/my/pro/controller/CommentController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/my/pro/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/my/pro/controller/ProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/pro/dao/ProductDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/my/pro/dao/ProductDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/pro/dao/ProductDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/my/pro/dao/ProductDaoImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/my/pro/dto/ProductDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/my/pro/dto/ProductDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/pro/service/CommentServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/my/pro/service/CommentServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/ProductMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/ProductMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/boardList.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/boardList.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/main.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/main.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/product.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/product.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/productRegister.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/productRegister.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/register.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/register.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/registerForm.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/registerForm.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/test2.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/test2.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/my/pro/dao/ProductDaoImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/my/pro/dao/ProductDaoImplTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/my/pro/service/ProductServieImpleTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/my/pro/service/ProductServieImpleTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/my/pro/controller/BoardController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/my/pro/controller/BoardController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/my/pro/controller/CommentController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/my/pro/controller/CommentController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/my/pro/controller/ProductController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/my/pro/controller/ProductController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/my/pro/dao/ProductDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/my/pro/dao/ProductDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/my/pro/dao/ProductDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/my/pro/dao/ProductDaoImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/my/pro/dto/ProductDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/my/pro/dto/ProductDto.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/mapper/ProductMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/ProductMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/views/board.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/views/board.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/views/boardList.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/views/boardList.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/views/main.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/views/main.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/views/product.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/views/product.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/views/productRegister.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/views/productRegister.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/views/register.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/views/register.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/views/registerForm.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/views/registerForm.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/views/test2.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/views/test2.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/pro-1.0.0-BUILD-SNAPSHOT.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/pro-1.0.0-BUILD-SNAPSHOT.war" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/pro-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/my/pro/controller/BoardController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/pro-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/my/pro/controller/BoardController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/pro-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/my/pro/controller/CommentController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/pro-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/my/pro/controller/CommentController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/pro-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/my/pro/controller/ProductController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/pro-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/my/pro/controller/ProductController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/pro-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/mybatis-config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/pro-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/mybatis-config.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/pro-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/my/pro/dao/ProductDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/pro-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/my/pro/dao/ProductDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/pro-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/my/pro/dao/ProductDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/pro-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/my/pro/dao/ProductDaoImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/pro-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/my/pro/dto/ProductDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/pro-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/my/pro/dto/ProductDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/pro-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/mapper/ProductMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/pro-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/mapper/ProductMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/pro-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/views/board.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/pro-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/views/board.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/pro-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/views/boardList.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/pro-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/views/boardList.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/pro-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/views/main.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/pro-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/views/main.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/pro-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/views/product.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/pro-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/views/product.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/pro-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/views/productRegister.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/pro-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/views/productRegister.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/pro-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/pro-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/pro-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/views/register.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/pro-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/views/register.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/pro-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/views/registerForm.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/pro-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/views/registerForm.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/pro-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/views/test2.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/pro-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/views/test2.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/pro-1.0.0-BUILD-SNAPSHOT/WEB-INF/views/board.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/pro-1.0.0-BUILD-SNAPSHOT/WEB-INF/views/board.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/pro-1.0.0-BUILD-SNAPSHOT/WEB-INF/views/boardList.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/pro-1.0.0-BUILD-SNAPSHOT/WEB-INF/views/boardList.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/pro-1.0.0-BUILD-SNAPSHOT/WEB-INF/views/main.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/pro-1.0.0-BUILD-SNAPSHOT/WEB-INF/views/main.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/pro-1.0.0-BUILD-SNAPSHOT/WEB-INF/views/product.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/pro-1.0.0-BUILD-SNAPSHOT/WEB-INF/views/product.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/pro-1.0.0-BUILD-SNAPSHOT/WEB-INF/views/productRegister.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/pro-1.0.0-BUILD-SNAPSHOT/WEB-INF/views/productRegister.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/pro-1.0.0-BUILD-SNAPSHOT/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/pro-1.0.0-BUILD-SNAPSHOT/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/pro-1.0.0-BUILD-SNAPSHOT/WEB-INF/views/register.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/pro-1.0.0-BUILD-SNAPSHOT/WEB-INF/views/register.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/pro-1.0.0-BUILD-SNAPSHOT/WEB-INF/views/registerForm.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/pro-1.0.0-BUILD-SNAPSHOT/WEB-INF/views/registerForm.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/pro-1.0.0-BUILD-SNAPSHOT/WEB-INF/views/test2.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/pro-1.0.0-BUILD-SNAPSHOT/WEB-INF/views/test2.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/com/my/pro/dao/ProductDaoImplTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/my/pro/dao/ProductDaoImplTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/my/pro/service/ProductServieImpleTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/my/pro/service/ProductServieImpleTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,9 +83,9 @@
         <option value="spring-beans.schema" />
         <option value="CSS File" />
         <option value="JUnit3 Test Class" />
-        <option value="Jsp File" />
         <option value="Class" />
         <option value="Interface" />
+        <option value="Jsp File" />
         <option value="JUnit4 Test Class" />
       </list>
     </option>
@@ -139,13 +178,13 @@
       <recent name="com.my.pro.service" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
-      <recent name="com.my.pro.service" />
       <recent name="com.my.pro.dao" />
+      <recent name="com.my.pro.service" />
       <recent name="com.my.pro.dto" />
     </key>
   </component>
   <component name="RunManager" selected="Tomcat Server.Tomcat 9.0.52 2">
-    <configuration name="BoardDaoImplTest.insert2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CommentServiceImplTest.remove" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="pro" />
       <extension name="coverage">
         <pattern>
@@ -153,57 +192,57 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.my.pro.dao" />
-      <option name="MAIN_CLASS_NAME" value="com.my.pro.dao.BoardDaoImplTest" />
-      <option name="METHOD_NAME" value="insert2" />
+      <option name="PACKAGE_NAME" value="com.my.pro.service" />
+      <option name="MAIN_CLASS_NAME" value="com.my.pro.service.CommentServiceImplTest" />
+      <option name="METHOD_NAME" value="remove" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CateDaoImpleTest.selectAll" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ProductDaoImplTest.select" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="pro" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.my.pro.service.*" />
+          <option name="PATTERN" value="com.my.pro.dao.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.my.pro.dao" />
-      <option name="MAIN_CLASS_NAME" value="com.my.pro.dao.CateDaoImpleTest" />
+      <option name="MAIN_CLASS_NAME" value="com.my.pro.dao.ProductDaoImplTest" />
+      <option name="METHOD_NAME" value="select" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ProductDaoImplTest.selectAll" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="pro" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.my.pro.dao.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.my.pro.dao" />
+      <option name="MAIN_CLASS_NAME" value="com.my.pro.dao.ProductDaoImplTest" />
       <option name="METHOD_NAME" value="selectAll" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CommentDaoImplTest.insert" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ProductDaoImplTest.selectCateCode" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="pro" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.my.pro.service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.my.pro.dao" />
-      <option name="MAIN_CLASS_NAME" value="com.my.pro.dao.CommentDaoImplTest" />
-      <option name="METHOD_NAME" value="insert" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ProductDaoImplTest.insert" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="pro" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.my.pro.service.*" />
+          <option name="PATTERN" value="com.my.pro.dao.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.my.pro.dao" />
       <option name="MAIN_CLASS_NAME" value="com.my.pro.dao.ProductDaoImplTest" />
-      <option name="METHOD_NAME" value="insert" />
+      <option name="METHOD_NAME" value="selectCateCode" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -314,20 +353,20 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="JUnit.CateDaoImpleTest.selectAll" />
-      <item itemvalue="JUnit.ProductDaoImplTest.insert" />
+      <item itemvalue="JUnit.CommentServiceImplTest.remove" />
+      <item itemvalue="JUnit.ProductDaoImplTest.select" />
+      <item itemvalue="JUnit.ProductDaoImplTest.selectAll" />
+      <item itemvalue="JUnit.ProductDaoImplTest.selectCateCode" />
       <item itemvalue="JUnit.ProductServieImpleTest.add" />
-      <item itemvalue="JUnit.CommentDaoImplTest.insert" />
-      <item itemvalue="JUnit.BoardDaoImplTest.insert2" />
       <item itemvalue="Tomcat Server.Tomcat 9.0.52 2" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ProductDaoImplTest.selectCateCode" />
+        <item itemvalue="JUnit.CommentServiceImplTest.remove" />
+        <item itemvalue="JUnit.ProductDaoImplTest.select" />
+        <item itemvalue="JUnit.ProductDaoImplTest.selectAll" />
         <item itemvalue="JUnit.ProductServieImpleTest.add" />
-        <item itemvalue="JUnit.ProductDaoImplTest.insert" />
-        <item itemvalue="JUnit.CateDaoImpleTest.selectAll" />
-        <item itemvalue="JUnit.BoardDaoImplTest.insert2" />
-        <item itemvalue="JUnit.CommentDaoImplTest.insert" />
       </list>
     </recent_temporary>
   </component>
@@ -376,7 +415,11 @@
       <workItem from="1654390533832" duration="30983000" />
       <workItem from="1654489311260" duration="4284000" />
       <workItem from="1654493655388" duration="40905000" />
-      <workItem from="1654561138452" duration="11872000" />
+      <workItem from="1654561138452" duration="20935000" />
+      <workItem from="1654601946340" duration="21265000" />
+      <workItem from="1654648937596" duration="8436000" />
+      <workItem from="1654665232623" duration="3898000" />
+      <workItem from="1654669459179" duration="17005000" />
     </task>
     <servers />
   </component>
@@ -401,11 +444,6 @@
           <properties class="java.lang.NullPointerException" package="java.lang" />
           <option name="timeStamp" value="1" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/product.jsp</url>
-          <line>250</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

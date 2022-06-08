@@ -1,196 +1,136 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<c:set var="loginId" value="${pageContext.request.getSession(false)==null ? '' : pageContext.request.session.getAttribute('id')}"/>
+<c:set var="loginOutLink" value="${loginId=='' ? '/login/login' : '/login/logout'}"/>
+<c:set var="loginOut" value="${loginId=='' ? 'Login' : loginId}"/>
+<c:set var="RegisterLink" value="${loginId==''? '/register/add' : ''}"/>
+<c:set var="Registercheck" value="${loginId=='' ? 'Sign Up' : 'My Cart'}"/>
 <!DOCTYPE html>
 <html>
-<title></title>
+<title>product</title>
 <head>
-  <script src="https://code.jquery.com/jquery-1.11.3.js"></script>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style>
-    body, html {
-      height: 100%;
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-    }
 
-    .navbar {
-      width: 100%;
-      background-color: #555;
-      overflow: auto;
-    }
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  body, html {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+  }
 
-    .navbar a {
-      float: right;
-      padding: 12px;
-      color: white;
-      text-decoration: none;
-      font-size: 17px;
-    }
+  .menu-image {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url("/pro/img/main_PC_1920x440_20201006040046969.jpg");
+    height: 50%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+  }
 
-    .navbar a:hover {
-      background-color: #000;
-    }
+  .menu-text {
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+  }
+  .tablink {
+    background-color: white;
+    color: green;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    font-size: 17px ;
+    width: 20%;
+  }
 
-    .active {
-      background-color: #04AA6D;
-    }
+  .tablink:hover {
+    background-color: #777;
+  }
+  /* Float four columns side by side */
+  .column {
+    float: left;
+    width: 25%;
+    padding: 0 10px;
+  }
 
-    @media screen and (max-width: 500px) {
-      .navbar a {
-        float: none;
-        display: block;
-      }
-    }
+  /* Remove extra left and right margins, due to padding */
+  .row {margin: 0 -5px;}
 
-    .sidbtn{
-      position:fixed;
-      top:20px;
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
 
-      left:20px;
 
-    }
-    .sidenav {
-      height: 100%;
-      width: 0;
-      position: fixed;
-      z-index: 1;
-      top: 0;
-      left: 0;
-      background-color: #111;
-      overflow-x: hidden;
-      transition: 0.5s;
-      padding-top: 60px;
-    }
-
-    .sidenav a {
-      padding: 8px 8px 8px 32px;
-      text-decoration: none;
-      font-size: 30px;
-      color: #818181;
-      display: block;
-      transition: 0.3s;
-    }
-
-    .sidenav a:hover {
-      color: #f1f1f1;
-    }
-
-    .sidenav .closebtn {
-      position: absolute;
-      top: 0;
-      right: 25px;
-      font-size: 36px;
-      margin-left: 50px;
-    }
-
-    .menu-image {
-      background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url("<c:url value="/resources/image/productmain.jpg"/>");
-      height: 50%;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: cover;
-      position: relative;
-    }
-
-    .menu-text {
-      text-align: center;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      color: white;
-    }
-    .tablink {
-      background-color: white;
-      color: green;
-      float: left;
-      border: none;
-      outline: none;
-      cursor: pointer;
-      padding: 14px 16px;
-      font-size: 17px ;
-      width: 20%;
-    }
-
-    .tablink:hover {
-      background-color: #777;
-    }
-    /* Float four columns side by side */
+  /* Responsive columns */
+  @media screen and (max-width: 600px) {
     .column {
-      float: left;
-      width: 25%;
-      padding: 0 10px;
+      width: 100%;
+      display: block;
+      margin-bottom: 20px;
     }
+  }
 
-    /* Remove extra left and right margins, due to padding */
-    .row {margin: 0 -5px;}
+  .container{
+    height: 100%;
+    position: relative;
+  }
 
-    /* Clear floats after the columns */
-    .row:after {
-      content: "";
-      display: table;
-      clear: both;
-    }
+  .topnav a{
+    text-decoration: none;
+    color: #f1f1f1;
+    font-size: 20px;
+    padding: 20px;
+    background-color: black;
+    border-radius :10px;
+    margin: 10px;
+  }
+  #con-menu{
+    height: 100%;
+  }
 
 
-    /* Responsive columns */
-    @media screen and (max-width: 600px) {
-      .column {
-        width: 100%;
-        display: block;
-        margin-bottom: 20px;
-      }
-    }
+  /* Style the
 
-    /* Style the counter cards */
-    .card {
-      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-      padding: 16px;
-      text-align: center;
-      background-color: #f1f1f1;
-    }
-    /* Style the tab content (and add height:100% for full page content) */
-    .tabcontent {
-      color: white;
-      display: none;
-      padding: 100px 20px;
-      height: 100%;
-    }
+  counter cards */
+  .card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    padding: 16px;
+    text-align: center;
+    background-color: #f1f1f1;
+  }
+  /* Style the tab content (and add height:100% for full page content) */
+  .tabcontent {
+    color: white;
+    display: none;
+    padding: 100px 20px;
+    height: 100%;
+  }
 
-    #Home {background-color: red;}
-    #News {background-color: green;}
-    #Contact {background-color: blue;}
-    #About {background-color: orange;}
-  </style>
+  #Home {background-color: red;}
+  #News {background-color: green;}
+  #Contact {background-color: blue;}
+  #About {background-color: orange;}
+</style>
 </head>
+<jsp:include page="head.jsp" flush="false"/>
 <body>
-
-<div class="navbar">
-  <a class="active" href="<c:url value='/'/>"><i class="fa fa-fw fa-user"></i> Home</a>
-  <a href="<c:url value='${loginOutLink}'/>"><i class="fa fa-fw fa-envelope"></i>${loginOut}</a>
-  <a href="#"><i class="fa fa-fw fa-home"></i> My Page</a>
-</div>
-
-<div id="mySidenav" class="sidenav">
-  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-  <a href="#">About</a>
-  <a href="#">Product</a>
-  <a href="#">Board</a>
-  <a href="#">Contact</a>
-</div>
-
-<span class="sidbtn" style="font-size:40px;cursor:pointer"onclick="openNav()">&#9776;</span>
-
-
-
-
-
 <div class="container">
   <div class="menu-image">
     <div class="menu-text">
       <h1 style="font-size:50px">product</h1>
-      <p>ssssssssss</p>
+      <div class="topnav">
+        <a href="#home">샌드위치</a>
+        <a href="#news">샐러드</a>
+        <a href="#contact">랩/기타</a>
+      </div>
     </div>
   </div>
   <div id="con-menu">
@@ -201,43 +141,44 @@
     <button class="tablink" onclick="openPage('About', this, 'pink')">신제품</button>
 
     <div id="Home" class="tabcontent">
-      <h3>Home</h3>
-      <p>Home is where the heart is..</p>
+      <h3>ppp</h3>
+      <div>
+        <table>
+          <thead>
+          <tr>
+            <th>상품명</th>
+            <th>sub상품명</th>
+            <th>가격</th>
+            <th>중량</th>
+            <th>열량</th>
+            <th>단백질</th>
+            <th>지방</th>
+            <th>당류</th>
+            <th>나트륨</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          </tbody>
+
+        </table>
+      </div>
     </div>
 
     <div id="News" class="tabcontent">
       <h3>News</h3>
-      <div class="row">
-        <div class="column">
-          <div class="card flip-horizontal-bottom">
-            <h3>Card 1</h3>
-            <p>Some text</p>
-            <p>Some text</p>
-          </div>
-        </div>
-
-        <div class="column">
-          <div class="card">
-            <h3>Card 2</h3>
-            <p>Some text</p>
-            <p>Some text</p>
-          </div>
-        </div>
-
-        <div class="column">
-          <div class="card">
-            <h3>Card 3</h3>
-            <p>Some text</p>
-          </div>
-        </div>
-
-        <div class="column">
-          <div class="card">
-            <h3>Card 4</h3>
-          </div>
-        </div>
-      </div>
     </div>
+
     <div id="Contact" class="tabcontent">
       <h3>Contact</h3>
       <p>Get in touch, or swing by for a cup of coffee.</p>
@@ -271,6 +212,4 @@
   // Get the element with id="defaultOpen" and click on it
   document.getElementById("defaultOpen").click();
 </script>
-
-
 </html>

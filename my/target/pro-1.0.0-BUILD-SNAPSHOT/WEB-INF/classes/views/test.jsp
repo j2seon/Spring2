@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -15,6 +16,7 @@ comment : <input type="text" name="comment"><br>
     <button id="writeRepBtn" type="button">등록</button>
 </div>
 <script>
+
     let bno = 629;
     //댓글목록을 가져와서 보여주자 게시물 번호에
     let showList = function (bno) {

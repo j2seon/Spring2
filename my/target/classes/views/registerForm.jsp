@@ -118,11 +118,6 @@
         return true;
     }
 
-
-
-
-
-
     function setMessage(msg, element){
         document.getElementById("msg").innerHTML = `<i class="fa fa-exclamation-circle"> ${'${msg}'}</i>`;
 

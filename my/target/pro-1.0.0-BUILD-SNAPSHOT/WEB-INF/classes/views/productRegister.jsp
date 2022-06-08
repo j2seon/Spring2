@@ -1,7 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
-<%@ page session="false"%>
 <html>
 <head>
     <script src="https://code.jquery.com/jquery-1.11.3.js"></script>
@@ -80,13 +79,15 @@
 
 
 </style>
+<jsp:include page="head.jsp" flush="false"/>
+
 <body>
     <div class="container">
         <div class="vertical-center">
             <form action="<c:url value='/product/add'/>" method="post" id="addForm">
                 <div class="inputArea">
-                    <label for="goodsNum">상품명</label>
-                    <input type="text" id="goodsNum" name="goodsNum" />
+                    <label for="goodsName">상품명</label>
+                    <input type="text" id="goodsName" name="goodsName" />
                 </div>
                 <div class="inputArea">
                     <label for="subName">sub상품명</label>
@@ -125,13 +126,13 @@
                     <input type="text" id="suger" name="suger" />
                 </div>
                 <label>1차분류</label>
-                <select class="cate1">
+                <select class="cate1" name="cateCodeRef">
                     <option value="" >전체</option>
                 </select>
 
                 <label>2차분류</label>
-                <select class="cate2">
-                    <option value="" name="cateCode">전체</option>
+                <select class="cate2" name="cateCode">
+                    <option value="">전체</option>
                 </select>
 
                 <div class="inputArea">

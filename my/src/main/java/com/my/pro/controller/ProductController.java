@@ -29,6 +29,17 @@ public class ProductController {
     @Autowired
     ProductServie productServie;
 
+
+    @GetMapping("/list")
+    public String goodslist(){
+        return "product";
+    }
+
+
+
+
+
+
     @GetMapping("/add")
     public String goodAdd(HttpSession session, Model m){
         //상품등록화면 보이게하기

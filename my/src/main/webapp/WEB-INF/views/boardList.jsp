@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-<%@ page session="false" %>
 <c:set var="loginId" value="${pageContext.request.getSession(false)==null ? '' : pageContext.request.session.getAttribute('id')}"/>
 <c:set var="loginOutLink" value="${loginId=='' ? '/login/login' : '/login/logout'}"/>
 <c:set var="loginOut" value="${loginId=='' ? 'Login' : loginId}"/>
@@ -239,9 +238,10 @@
 <div id="mySidenav" class="sidenav">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
     <a href="#">About</a>
-    <a href="">Product</a>
+    <a href="<c:url value="/product/list"/>">Product</a>
     <a href="<c:url value="/board/list"/>">Board</a>
     <a href="#">Contact</a>
+    <a href="<c:url value="/product/add"/>">Add</a>
 </div>
 
 <span class="sidbtn" style="font-size:40px;cursor:pointer"onclick="openNav()">&#9776;</span>

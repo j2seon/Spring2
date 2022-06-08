@@ -1,11 +1,10 @@
-<%@ page contentType="text/html;charset=utf-8" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
-<%@ page session="false"%>
-<%@ page import="java.net.URLDecoder"%>
 <c:set var="loginId" value="${pageContext.request.getSession(false)==null ? '' : pageContext.request.session.getAttribute('id')}"/>
 <c:set var="loginOutLink" value="${loginId=='' ? '/login/login' : '/login/logout'}"/>
-<c:set var="loginOut" value="${loginId=='' ? 'Login' : 'ID='+=loginId}"/>
+<c:set var="loginOut" value="${loginId=='' ? 'Login' : loginId}"/>
+<c:set var="RegisterLink" value="${loginId==''? '/register/add' : ''}"/>
+<c:set var="Registercheck" value="${loginId=='' ? 'Sign Up' : 'My Cart'}"/>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -202,21 +201,8 @@
     </style>
 </head>
 <body>
-<div class="navbar">
-    <a class="active" href="<c:url value='/'/>"><i class="fa fa-fw fa-user"></i> Home</a>
-    <a href="<c:url value='${loginOutLink}'/>"><i class="fa fa-fw fa-envelope"></i>${loginOut}</a>
-    <a href="#"><i class="fa fa-fw fa-home"></i> My Page</a>
-</div>
+<jsp:include page="head.jsp" flush="false"/>
 
-<div id="mySidenav" class="sidenav">
-    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-    <a href="#">About</a>
-    <a href="#">Product</a>
-    <a href="#">Board</a>
-    <a href="#">Contact</a>
-</div>
-
-<span class="sidbtn" style="font-size:40px;cursor:pointer"onclick="openNav()">&#9776;</span>
 
 <section class="regi">
     <form class=form method="post" action="<c:url value='/register/add'/>" onsubmit="return checkIt()" >

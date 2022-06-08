@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-<%@ page session="false" %>
 <c:set var="loginId" value="${pageContext.request.getSession(false)==null ? '' : pageContext.request.session.getAttribute('id')}"/>
 <c:set var="loginOutLink" value="${loginId=='' ? '/login/login' : '/login/logout'}"/>
 <c:set var="loginOut" value="${loginId=='' ? 'Login' : loginId}"/>
@@ -12,7 +11,6 @@
 <head>
     <meta charset="UTF-8">
     <title>BOARD</title>
-    <link rel="stylesheet" href="<c:url value='/css/board.css'/>">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://code.jquery.com/jquery-1.11.3.js"></script>
     <script>
@@ -31,7 +29,7 @@
             padding: 0;
             font-family: "Noto Sans KR", sans-serif;
         }
-        .container ,#commstart{
+        .container {
             width : 50%;
             margin : auto;
         }
@@ -79,6 +77,9 @@
             font-size: 16px; /* Set a font size */
             cursor: pointer; /* Mouse pointer on hover */
             border-radius: 5px;
+            display: inline-block;
+            margin-top: 5px;
+            text-decoration: none;
         }
         .btn:hover {
             text-decoration: underline;
@@ -234,7 +235,7 @@
             border : 1px solid #e5e5e5;
             border-radius: 5px;
         }
-        #sendBtn, #writeRepBtn {
+        #sendBtn, #writeRepBtn, #writeRepCan {
             color : #009f47;
             background-color: #e0f8eb;
             text-decoration: none;
@@ -249,19 +250,22 @@
 </head>
 <body>
 <div class="navbar">
-    <a class="active" href="<c:url value='${loginOutLink}'/>"><i class="fa fa-fw fa-user"></i>${loginOut}</a>
-    <a href="<c:url value='${RegisterLink}'/>">${Registercheck}</a>
-    <a href="#"><i class="fa fa-fw fa-home"></i>My Page</a>
-    <a class="logo" style="margin-right: 18%; padding: 15px;" href="<c:url value='/'/>"><img src="/resources/image/logo_w.png" ></a>
+  <a class="active" href="<c:url value='${loginOutLink}'/>"><i class="fa fa-fw fa-user"></i>${loginOut}</a>
+  <a href="<c:url value='${RegisterLink}'/>">${Registercheck}</a>
+  <a href="#"><i class="fa fa-fw fa-home"></i>My Page</a>
+  <a class="logo" style="margin-right: 18%; padding: 15px;" href="<c:url value='/'/>"><img src="./image/logo_w.png"></a>
 </div>
 
 <div id="mySidenav" class="sidenav">
-    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-    <a href="#">About</a>
-    <a href="">Product</a>
-    <a href="<c:url value="/board/list"/>">Board</a>
-    <a href="#">Contact</a>
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a href="#">About</a>
+  <a href="<c:url value="/product/list"/>">Product</a>
+  <a href="<c:url value="/board/list"/>">Board</a>
+  <a href="#">Contact</a>
+  <a href="<c:url value="/product/add"/>">Add</a>
 </div>
+
+<%--<!--버튼-->--%>
 <span class="sidbtn" style="font-size:40px;cursor:pointer"onclick="openNav()">&#9776;</span>
 
 
@@ -271,65 +275,67 @@
     if(msg=="MOD_ERR") alert("게시물 수정에 실패하였습니다. 다시 시도해 주세요.");
 </script>
 <div class="container">
-    <h2 class="writing-header">게시판 ${mode=="new" ? "글쓰기" : "읽기"}</h2>
-    <form id="form" class="frm" action="" method="post">
-        <input type="hidden" name="bno" value="${boardDto.bno}">
+        <h2 class="writing-header">게시판 ${mode=="new" ? "글쓰기" : "읽기"}</h2>
+        <form id="form" class="frm" action="" method="post">
+            <input type="hidden" name="bno" value="${boardDto.bno}">
 
-        <input name="title" type="text" value="<c:out value="${boardDto.title}"/> " placeholder="  제목을 입력해 주세요." ${mode=="new" ? "" : "readonly='readonly'"}><br>
-        <textarea name="content" rows="20" placeholder=" 내용을 입력해 주세요." ${mode=="new" ? "" : "readonly='readonly'"}><c:out value="${boardDto.content}"/> </textarea><br>
+            <input name="title" type="text" value="<c:out value="${boardDto.title}"/> " placeholder="  제목을 입력해 주세요." ${mode=="new" ? "" : "readonly='readonly'"}><br>
+            <textarea name="content" rows="20" placeholder=" 내용을 입력해 주세요." ${mode=="new" ? "" : "readonly='readonly'"}><c:out value="${boardDto.content}"/> </textarea><br>
 
-        <c:if test="${mode eq 'new'}">
-            <button type="button" id="writeBtn" class="btn btn-write"><i class="fa fa-pencil"></i> 등록</button>
-        </c:if>
-        <c:if test="${mode ne 'new'}">
-            <button type="button" id="writeNewBtn" class="btn btn-write"><i class="fa fa-pencil"></i> 글쓰기</button>
-        </c:if>
-        <c:if test="${boardDto.writer eq loginId}">
-            <button type="button" id="modifyBtn" class="btn btn-modify"><i class="fa fa-edit"></i> 수정</button>
-            <button type="button" id="removeBtn" class="btn btn-remove"><i class="fa fa-trash"></i> 삭제</button>
-        </c:if>
-        <button type="button" id="listBtn" class="btn btn-list"><i class="fa fa-bars"></i> 목록</button>
-    </form>
-</div>
+            <c:if test="${mode eq 'new'}">
+                <button type="button" id="writeBtn" class="btn btn-write"><i class="fa fa-pencil"></i> 등록</button>
+            </c:if>
+            <c:if test="${mode ne 'new'}">
+                <button type="button" id="writeNewBtn" class="btn btn-write"><i class="fa fa-pencil"></i> 글쓰기</button>
+            </c:if>
+            <c:if test="${boardDto.writer eq loginId}">
+                <button type="button" id="modifyBtn" class="btn btn-modify"><i class="fa fa-edit"></i> 수정</button>
+                <button type="button" id="removeBtn" class="btn btn-remove"><i class="fa fa-trash"></i> 삭제</button>
+            </c:if>
+            <button type="button" id="listBtn" class="btn btn-list"><i class="fa fa-bars"></i> 목록</button>
+        </form>
 
-<div id="commstart">
-    <div id="comment-writeForm">
-        comment : <textarea name="comment" placeholder="댓글을 입력하세요"></textarea><br>
-        <button id="sendBtn" type="button">SEND</button>
-        <button id="modBtn" style="display: none"  type="button">MOD</button>
-    </div>
-    <div id="commentList">
-    </div>
-    <div id="relyForm" style="display: none">
-        <textarea  name="replyComment"placeholder="댓글을 입력하세요"></textarea>
-        <button id="writeRepBtn" type="button">등록</button>
-    </div>
+    <div id="commstart">
+        <div id="comment-writeForm">
+            comment : <textarea name="comment" placeholder="댓글을 입력하세요"></textarea><br>
+            <button id="sendBtn" type="button">SEND</button>
+            <button id="modBtn" style="display: none"  type="button">MOD</button>
+        </div>
+        <div id="commentList">
+        </div>
+        <div id="relyForm" style="display: none">
+            <textarea  name="replyComment"placeholder="댓글을 입력하세요"></textarea>
+            <button id="writeRepBtn" type="button">등록</button>
+            <button id="writeRepCan" type="button">취소</button>
+        </div>
 
-    <div id="modalWin" class="modal">
-        <!-- Modal content -->
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <p>
-                <h2>  댓글 수정</h2>
-                <div id="modify-writebox">
-                <div class="commenter commenter-writebox"></div>
-                        <div class="modify-writebox-content">
-                            <textarea name="comm" id="" cols="30" rows="5" placeholder="댓글을 남겨보세요"></textarea>
-                        </div>
-                    <div id="modify-writebox-bottom">
-                        <div class="register-box">
-                            <a href="#" class="btn" id="btn-write-modify">등록</a>
+        <div id="modalWin" class="modal">
+            <!-- Modal content -->
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <p>
+                    <h2>  댓글 수정</h2>
+                    <div id="modify-writebox">
+                    <div class="commenter commenter-writebox"><i class="fa fa-user-circle" aria-hidden="true"></i></div>
+                            <div class="modify-writebox-content">
+                                <textarea name="comm" id="comm" cols="30" rows="5" placeholder="댓글을 남겨보세요"></textarea>
+                            </div>
+                        <div id="modify-writebox-bottom">
+                            <div class="register-box">
+                                <a href="#" class="btn" id="btn-write-modify">등록</a>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </p>
-        </div>
-     </div>
+                </p>
+            </div>
+         </div>
+    </div>
 </div>
 
 <script>
+    <c:if test="${mode ne 'new'}">
     let bno = <c:out value="${boardDto.bno}"/>;
-
+    </c:if>
     let showList = function (bno) {
         $.ajax({
             type:'GET',       // 요청 메서드
@@ -341,43 +347,24 @@
         }); // $.ajax()
     }
 
-    let addZero = function(value=1){
-        return value > 9 ? value : "0"+value;
-    }
-
-    let dateToString = function(ms=0) {
-        let date = new Date(ms);
-
-        let yyyy = date.getFullYear();
-        let mm = addZero(date.getMonth() + 1);
-        let dd = addZero(date.getDate());
-
-        let HH = addZero(date.getHours());
-        let MM = addZero(date.getMinutes());
-        let ss = addZero(date.getSeconds());
-
-        return yyyy+"."+mm+"."+dd+ " " + HH + ":" + MM + ":" + ss;
-    }
 
 
     $(document).ready(function() {
-        showList(bno);
-
-
         let formCheck = function() {
             let form = document.getElementById("form");
-            if(form.title.value=="") {
+            if($('input[name=title]').val().trim()=='') {
                 alert("제목을 입력해 주세요.");
                 form.title.focus();
                 return false;
             }
-            if(form.content.value=="") {
+            if(form.content.length==0) {
                 alert("내용을 입력해 주세요.");
                 form.content.focus();
                 return false;
             }
             return true;
         }
+
         $("#writeNewBtn").on("click", function(){
             location.href="<c:url value='/board/write'/>";
         });
@@ -406,6 +393,7 @@
             if(formCheck())
                 form.submit();
         });
+
         $("#removeBtn").on("click", function(){
             if(!confirm("정말로 삭제하시겠습니까?")) return;
             let form = $("#form");
@@ -413,10 +401,12 @@
             form.attr("method", "post");
             form.submit();
         });
+
         $("#listBtn").on("click", function(){
-            location.href="<c:url value='/board/list${searchCondition.queryString}'/>";
+            location.href="<c:url value='/board/list${searchCondition.queryString}'/>"
         });
 
+        showList(bno);
 
         $("#sendBtn").click(function () {
             let comment = $("textarea[name=comment]").val();
@@ -438,6 +428,7 @@
                     alert("error")
                 } // 에러가 발생했을 때, 호출될 함수
             }); // $.ajax()
+            $("input[name=comment]").val('');
         });
 
         $("#commentList").on("click",".replyBtn",function() {
@@ -446,6 +437,11 @@
             //1.답글을 입력할 폼이 필요함. //폼을 만들어두고 속성값을 바꿔주자
             $("#relyForm").css("display","block");
         });
+
+        $("#writeRepCan").click(function (){
+            $("#relyForm").css("display","none");
+        });
+
 
         $("#writeRepBtn").click(function(){
             let comment=$("textarea[name=replyComment]").val();
@@ -476,7 +472,7 @@
         $("#commentList").on("click",".delBtn",function(){
             let cno= $(this).attr("data-cno");
             let bno= $(this).attr("data-bno");
-            $.ajax({ //삭제버튼 누르면 넘어가는 데이터~
+            $.ajax({ //삭제버튼 누르면 넘어가는 데이터~f
                 type:'DELETE',       // 요청 메서드
                 url: '/pro/comments/'+cno+'?bno='+ bno,  // 요청 URI
                 success : function(){//삭제되고 목록을 새로가져온다.
@@ -489,10 +485,10 @@
 
         $("#commentList").on("click",".modBtn",function() {
             let cno = $(this).attr("data-cno");
-            let comment = $("div[name=comment]").val();
+            let comment = $("#com-comment").text();
             let bno = $(this).attr("data-bno");
             let pcno = $(this).attr("data-pcno");
-            let commenter = $("div[name=commenter]").val();
+            let commenter = $("#com-commenter").text();
 
             $("#modalWin .commenter").text(commenter);
             $("#modalWin textarea").text(comment);
@@ -533,8 +529,14 @@
             tmp +='<li data-cno='+comment.cno
             tmp +=' data-pcno='+comment.pcno
             tmp +=' data-bno='+comment.bno +'>'
-            tmp += '<div id="com-commenter" name="commenter" class="commenter">'+comment.commenter+'</div>'
+            if(comment.cno!=comment.pcno){
+            tmp += '<div style="background-color: azure" id="com-commenter" name="commenter" class="commenter"><i class="fa fa-user-circle" aria-hidden="true"></i>&ensp;'+comment.commenter+'님의 답글</div>'
             tmp += '<div id="com-comment" name="comment" class="comment">'+comment.comment+'</div>'
+            }else{
+            tmp += '<div id="com-commenter" name="commenter" class="commenter"><i class="fa fa-user-circle" aria-hidden="true"></i>&ensp;'+comment.commenter+'</div>'
+            tmp += '<div id="com-comment" name="comment" class="comment">'+comment.comment+'</div>'
+            }
+            // tmp += '<div id="com-comment" name="comment" class="comment">'+comment.comment+'</div>'
             tmp += '<div class="comment-bott">'
             tmp +='<a href="#" class="delBtn" data-cno='+comment.cno
             tmp +=' data-pcno='+comment.pcno

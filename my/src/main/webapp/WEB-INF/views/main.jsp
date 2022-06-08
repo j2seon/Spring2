@@ -11,9 +11,9 @@
 <head>
   <title>Page Title</title>
   <meta charset="UTF-8">
-  <link rel="stylesheet" href="<c:url value="./css/main.css"/>">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" >
   <style>
 
     * {box-sizing: border-box}
@@ -239,25 +239,26 @@
   </style>
 </head>
 <body>
-<!--네비게이션-->
-<div class="navbar">
-  <a class="active" href="<c:url value='${loginOutLink}'/>"><i class="fa fa-fw fa-user"></i>${loginOut}</a>
-  <a href="<c:url value='${RegisterLink}'/>">${Registercheck}</a>
-  <a href="#"><i class="fa fa-fw fa-home"></i>My Page</a>
-  <a class="logo" style="margin-right: 18%; padding: 15px;" href="<c:url value='/'/>"><img src="./image/logo_w.png"></a>
-</div>
+<%--<!--네비게이션-->--%>
+<%--<div class="navbar">--%>
+<%--  <a class="active" href="<c:url value='${loginOutLink}'/>"><i class="fa fa-fw fa-user"></i>${loginOut}</a>--%>
+<%--  <a href="<c:url value='${RegisterLink}'/>">${Registercheck}</a>--%>
+<%--  <a href="#"><i class="fa fa-fw fa-home"></i>My Page</a>--%>
+<%--  <a class="logo" style="margin-right: 18%; padding: 15px;" href="<c:url value='/'/>"><img src="./image/logo_w.png"></a>--%>
+<%--</div>--%>
 
-<div id="mySidenav" class="sidenav">
-  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-  <a href="#">About</a>
-  <a href="">Product</a>
-  <a href="<c:url value="/board/list"/>">Board</a>
-  <a href="#">Contact</a>
-</div>
+<%--<div id="mySidenav" class="sidenav">--%>
+<%--  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>--%>
+<%--  <a href="#">About</a>--%>
+<%--  <a href="<c:url value="/product/list"/>">Product</a>--%>
+<%--  <a href="<c:url value="/board/list"/>">Board</a>--%>
+<%--  <a href="#">Contact</a>--%>
+<%--</div>--%>
 
-<!--버튼-->
-<span class="sidbtn" style="font-size:40px;cursor:pointer"onclick="openNav()">&#9776;</span>
+<%--&lt;%&ndash;<!--버튼-->&ndash;%&gt;--%>
+<%--<span class="sidbtn" style="font-size:40px;cursor:pointer"onclick="openNav()">&#9776;</span>--%>
 
+<jsp:include page="head.jsp" flush="false"/>
 
 <!--슬라이드 -->
 

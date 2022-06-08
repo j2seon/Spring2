@@ -46,6 +46,7 @@ public class CommentController {
 
             if (rowCnt != 1)
                 throw new Exception("Delete Fail");
+
             return new ResponseEntity<String>("Del_OK", HttpStatus.OK);
         } catch (Exception e) {
             e.printStackTrace();

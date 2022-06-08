@@ -62,6 +62,7 @@ public class BoardController {
                 throw new Exception("Write failed.");
 
             rattr.addFlashAttribute("msg", "WRT_OK");
+            m.addAttribute(boardDto);
             return "redirect:/board/list";
         } catch (Exception e) {
             e.printStackTrace();

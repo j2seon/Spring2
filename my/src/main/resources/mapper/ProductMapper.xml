@@ -3,17 +3,66 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.my.pro.dao.ProductMapper">
-    <select id="count" resultType="int">
-        SELECT count() FROM goods
-    </select>
 
     <insert id="insert" parameterType="CateDto">
         INSERT INTO goods
-        (price,goodsName,subName,content,cateCode,energy,protein,per,sodium,suger,fat,reg_date,up_date)
+        (price,goodsName,subName,content,cateCode,cateCodeRef,energy,protein,per,sodium,suger,fat,reg_date,up_date)
         VALUES
-        (#{price},#{goodsName},#{subName},#{content},#{cateCode},#{energy},#{protein},#{per},#{sodium},#{suger},#{fat},now(),now())
+        (#{price},#{goodsName},#{subName},#{content},#{cateCode},#{cateCodeRef},#{energy},#{protein},#{per},#{sodium},#{suger},#{fat},now(),now())
     </insert>
 
+    <sql id="selectFromPro">
+        SELECT goodsNum, price ,goodsName,subName,content,cateCode,cateCodeRef,energy,protein,per,sodium,suger,fat,reg_date,up_date
+        FROM goods
+    </sql>
+
+<!--    <select id="selectAll" resultType="ProductDto">-->
+<!--        <include refid="selectFromPro"/>-->
+<!--        ORDER BY cateCodeRef asc-->
+<!--    </select>-->
+
+<!--    <select id="select" parameterType="String" resultType="ProductDto">-->
+<!--        select g.price,g.goodsName,g.subName,g.content,g.energy,g.protein,g.per,g.sodium,g.suger,g.fat,c.cateCode,c.cateCodeRef,c.cateName-->
+<!--        from goods g-->
+<!--        inner join goodcate c-->
+<!--        on g.cateCode = c.cateCode-->
+<!--        where g.cateCode = #{cateCode}-->
+<!--    </select>-->
+
+    <select id="count" resultType="int">
+        SELECT count(*)
+        FROM goods
+    </select>
+
+    <resultMap id="goods" type="ProductDto" >
+        <result column="goodsNum" property="goodsNum"/>
+        <result column="price" property="price"/>
+        <result column="goodName" property="goodName"/>
+        <result column="subName" property="subName"/>
+        <result column="content" property="content"/>
+        <result column="energy" property="energy"/>
+        <result column="protein" property="protein"/>
+        <result column="sodium" property="sodium"/>
+        <result column="suger" property="suger"/>
+        <result column="fat" property="fat"/>
+        <result column="cateCode" property="cateCode"/>
+        <result column="cateCodeRef" property="cateCodeRef"/>
+    </resultMap>
+    
+    <resultMap id="goodcate" type="CateDto">
+        <result column="cateName" property="cateName"/>
+        <result column="cateCode" property="cateCode"/>
+        <result column="cateCodeRef" property="cateCodeRef"/>
+    </resultMap>
+    
+    <select id="selectCateCode" parameterType="String" resultType="ProductDto">
+        select g.price,g.goodsName,g.subName,g.content,g.energy,g.protein,g.per,g.sodium,g.suger,g.fat,c.cateCode,c.cateCodeRef,c.cateName
+        from goods g
+        inner join goodcate c
+        on g.cateCode = c.cateCode
+        where g.cateCode=#{cateCode};
+    </select>
+    
 
 
 

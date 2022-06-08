@@ -99,7 +99,7 @@
             let bno= $(this).parent().attr("data-bno");
             $.ajax({ //삭제버튼 누르면 넘어가는 데이터~
                 type:'DELETE',       // 요청 메서드
-                url: '/pro/comments/'+cno+'?bno='+ bno,  // 요청 URI
+                url: '/pro/comments/'+ cno +'?bno='+ bno,  // 요청 URI
                 success : function(result){//삭제되고 목록을 새로가져온다.
                     showList(bno);
                 },
