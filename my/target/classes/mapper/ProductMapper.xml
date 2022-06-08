@@ -6,13 +6,13 @@
 
     <insert id="insert" parameterType="CateDto">
         INSERT INTO goods
-        (price,goodsName,subName,content,cateCode,cateCodeRef,energy,protein,per,sodium,suger,fat,reg_date,up_date)
+        (price,goodsName,subName,content,gdImg,cateCode,cateCodeRef,energy,protein,per,sodium,suger,fat,reg_date,up_date)
         VALUES
-        (#{price},#{goodsName},#{subName},#{content},#{cateCode},#{cateCodeRef},#{energy},#{protein},#{per},#{sodium},#{suger},#{fat},now(),now())
+        (#{price},#{goodsName},#{subName},#{content},#{gdImg},#{cateCode},#{cateCodeRef},#{energy},#{protein},#{per},#{sodium},#{suger},#{fat},now(),now())
     </insert>
 
     <sql id="selectFromPro">
-        SELECT goodsNum, price ,goodsName,subName,content,cateCode,cateCodeRef,energy,protein,per,sodium,suger,fat,reg_date,up_date
+        SELECT goodsNum, price ,goodsName,subName,content,gdImg,cateCode,cateCodeRef,energy,protein,per,sodium,suger,fat,reg_date,up_date
         FROM goods
     </sql>
 
@@ -40,6 +40,7 @@
         <result column="goodName" property="goodName"/>
         <result column="subName" property="subName"/>
         <result column="content" property="content"/>
+        <result column="gdImg" property="gdImg"/>
         <result column="energy" property="energy"/>
         <result column="protein" property="protein"/>
         <result column="sodium" property="sodium"/>
@@ -56,7 +57,7 @@
     </resultMap>
     
     <select id="selectCateCode" parameterType="String" resultType="ProductDto">
-        select g.price,g.goodsName,g.subName,g.content,g.energy,g.protein,g.per,g.sodium,g.suger,g.fat,c.cateCode,c.cateCodeRef,c.cateName
+        select g.price,g.goodsName,g.subName,g.content,g.gdImg,g.energy,g.protein,g.per,g.sodium,g.suger,g.fat,c.cateCode,c.cateCodeRef,c.cateName
         from goods g
         inner join goodcate c
         on g.cateCode = c.cateCode

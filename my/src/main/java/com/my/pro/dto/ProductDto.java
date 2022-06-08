@@ -11,6 +11,7 @@ public class ProductDto {
     private String content; // 내용
     private String cateCode; //카테고리 코드
     private String cateCodeRef;
+    private String gdImg;
     private int energy; // 열랑
     private int protein; //단백질
     private int per; //중량
@@ -45,19 +46,26 @@ public class ProductDto {
         this.fat = fat;
     }
 
+    public String getGdImg() {
+        return gdImg;
+    }
+
+    public void setGdImg(String gdImg) {
+        this.gdImg = gdImg;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof ProductDto)) return false;
         ProductDto that = (ProductDto) o;
-        return goodsNum == that.goodsNum && price == that.price && energy == that.energy && protein == that.protein && per == that.per && sodium == that.sodium && suger == that.suger && fat == that.fat && Objects.equals(goodsName, that.goodsName) && Objects.equals(subName, that.subName) && Objects.equals(content, that.content) && Objects.equals(cateCode, that.cateCode) && Objects.equals(cateCodeRef, that.cateCodeRef) && Objects.equals(reg_date, that.reg_date) && Objects.equals(up_date, that.up_date);
+        return goodsNum == that.goodsNum && price == that.price && energy == that.energy && protein == that.protein && per == that.per && sodium == that.sodium && suger == that.suger && fat == that.fat && Objects.equals(goodsName, that.goodsName) && Objects.equals(subName, that.subName) && Objects.equals(content, that.content) && Objects.equals(cateCode, that.cateCode) && Objects.equals(cateCodeRef, that.cateCodeRef) && Objects.equals(gdImg, that.gdImg) && Objects.equals(reg_date, that.reg_date) && Objects.equals(up_date, that.up_date) && Objects.equals(cateName, that.cateName);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(goodsNum, price, goodsName, subName, content, cateCode, cateCodeRef, energy, protein, per, sodium, suger, fat, reg_date, up_date);
+        return Objects.hash(goodsNum, price, goodsName, subName, content, cateCode, cateCodeRef, gdImg, energy, protein, per, sodium, suger, fat, reg_date, up_date, cateName);
     }
-
 
     @Override
     public String toString() {
@@ -69,6 +77,7 @@ public class ProductDto {
                 ", content='" + content + '\'' +
                 ", cateCode='" + cateCode + '\'' +
                 ", cateCodeRef='" + cateCodeRef + '\'' +
+                ", gdImg='" + gdImg + '\'' +
                 ", energy=" + energy +
                 ", protein=" + protein +
                 ", per=" + per +

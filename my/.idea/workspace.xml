@@ -83,10 +83,10 @@
         <option value="spring-beans.schema" />
         <option value="CSS File" />
         <option value="JUnit3 Test Class" />
-        <option value="Class" />
         <option value="Interface" />
-        <option value="Jsp File" />
         <option value="JUnit4 Test Class" />
+        <option value="Class" />
+        <option value="Jsp File" />
       </list>
     </option>
   </component>
@@ -184,6 +184,9 @@
     </key>
   </component>
   <component name="RunManager" selected="Tomcat Server.Tomcat 9.0.52 2">
+    <configuration name="generated-requests | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" requestIdentifier="#1" runType="Run single request">
+      <method v="2" />
+    </configuration>
     <configuration name="CommentServiceImplTest.remove" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="pro" />
       <extension name="coverage">
@@ -243,22 +246,6 @@
       <option name="PACKAGE_NAME" value="com.my.pro.dao" />
       <option name="MAIN_CLASS_NAME" value="com.my.pro.dao.ProductDaoImplTest" />
       <option name="METHOD_NAME" value="selectCateCode" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ProductServieImpleTest.add" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="pro" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.my.pro.service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.my.pro.service" />
-      <option name="MAIN_CLASS_NAME" value="com.my.pro.service.ProductServieImpleTest" />
-      <option name="METHOD_NAME" value="add" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -353,20 +340,20 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="HTTP Request.generated-requests | #1" />
       <item itemvalue="JUnit.CommentServiceImplTest.remove" />
       <item itemvalue="JUnit.ProductDaoImplTest.select" />
       <item itemvalue="JUnit.ProductDaoImplTest.selectAll" />
       <item itemvalue="JUnit.ProductDaoImplTest.selectCateCode" />
-      <item itemvalue="JUnit.ProductServieImpleTest.add" />
       <item itemvalue="Tomcat Server.Tomcat 9.0.52 2" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="HTTP Request.generated-requests | #1" />
         <item itemvalue="JUnit.ProductDaoImplTest.selectCateCode" />
         <item itemvalue="JUnit.CommentServiceImplTest.remove" />
         <item itemvalue="JUnit.ProductDaoImplTest.select" />
         <item itemvalue="JUnit.ProductDaoImplTest.selectAll" />
-        <item itemvalue="JUnit.ProductServieImpleTest.add" />
       </list>
     </recent_temporary>
   </component>
@@ -419,7 +406,7 @@
       <workItem from="1654601946340" duration="21265000" />
       <workItem from="1654648937596" duration="8436000" />
       <workItem from="1654665232623" duration="3898000" />
-      <workItem from="1654669459179" duration="17005000" />
+      <workItem from="1654669459179" duration="40595000" />
     </task>
     <servers />
   </component>

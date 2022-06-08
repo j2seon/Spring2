@@ -31,6 +31,9 @@
   .menu-text {
     text-align: center;
     position: absolute;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -83,6 +86,11 @@
     position: relative;
   }
 
+  .topnav{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
   .topnav a{
     text-decoration: none;
     color: #f1f1f1;

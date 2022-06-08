@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<%@page session="false" %>
 <html>
 <head>
     <script src="https://code.jquery.com/jquery-1.11.3.js"></script>
@@ -8,6 +9,8 @@
 </head>
 <style>
     /* Style inputs, select elements and textareas */
+
+
     input[type=text], select, textarea{
         width: 100%;
         padding: 12px;
@@ -34,8 +37,11 @@
         float: right;
     }
 
+
     /* Style the container */
     .container {
+        display: flex;
+        justify-content: center;
         border-radius: 5px;
         background-color: #f2f2f2;
         position: relative;
@@ -72,7 +78,7 @@
     }
     .vertical-center {
         margin: 0;
-        position: absolute;
+        position: relative;
 
     }
 
@@ -122,7 +128,7 @@
                     <input type="text" id="sodium" name="sodium" />
                 </div>
                 <div class="inputArea">
-                    <label for="protein">당류</label>
+                    <label for="suger">당류</label>
                     <input type="text" id="suger" name="suger" />
                 </div>
                 <label>1차분류</label>
@@ -136,6 +142,22 @@
                 </select>
 
                 <div class="inputArea">
+                    <label for="gdImg">이미지</label>
+                    <input type="file" id="gdImg" name="uploadFile" />
+<%--                    <script>--%>
+<%--                        $("#gdImg").change(function (){--%>
+<%--                           if(this.files && this.files[0]){--%>
+<%--                               let reader = new FileReader;--%>
+<%--                               reader.onload=function (data){--%>
+<%--                                   $(".select_img img").attr("src", data.target.result).width(500);--%>
+<%--                               }--%>
+<%--                               reader.readAsDataURL(this.files[0]);--%>
+<%--                           }--%>
+<%--                        });--%>
+<%--                    </script>--%>
+                </div>
+
+                <div class="inputArea">
                     <button type="submit" id="add_Btn" class="">등록</button>
                     <button type="cancle" id="cancle_Btn" class="">취소</button>
                 </div>
@@ -145,9 +167,7 @@
 </body>
 
 <script>
-
-
-    // 컨트롤러에서 데이터 받기
+    // 컨트롤러에서 데이터 받기 배열로 옴!!!
     var cateList = JSON.parse('${category}');
 
     let cate1Arr = new Array();
@@ -190,6 +210,57 @@
             }
         }
     });
+
+    $("input[type='file']").on("change",function (e){
+        let fileInput = $('input[name="uploadFile"]');
+        let fileList = fileInput[0].files;
+        let fileobj = fileList[0];
+        let formData = new FormData();
+        // console.log("fileList"+fileList); //확인용!
+        // console.log("fileobj"+fileobj);
+        // console.log("fileName"+fileobj.name);
+        // console.log("filesize"+fileobj.size);
+        // console.log("filetype"+fileobj.type);
+
+        if(!fileCheck(fileobj.name, fileobj.size)){
+            return false;
+        }
+
+        formData.append("uploadFile",fileobj); //한개! 여러개하고싶은면 for문으로 배열로 저장하기
+                                                    // for(let i=0; i<fileList.length; i++){
+                                             //  formData.append("uploadFile",fileList[i]);
+                                                    // }
+        $.ajax({
+           url:'<c:url value="/product/uploadAction"/>',
+            processData : false,
+            contentType : false,
+            data : formData,
+            type : 'POST',
+            dataType : 'json',
+            success :function () {
+                alert("ddddd");
+            }
+        });
+    });
+
+    let regex = new RegExp("(.?)\.(jpg|png)$");
+    let maxSize = 1048576;
+
+    function fileCheck(fileName, fileSize){
+        if(fileSize>=maxSize){
+            alert("파일 용량 초과");
+            return false;
+        }
+        if(!regex.test(fileName)){
+            alert("jpg,png 이미지만 업로드가능합니다.");
+            return false;
+        }
+        return true;
+    }
+
+
+
+
 
 
 </script>
