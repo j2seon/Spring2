@@ -9,7 +9,7 @@ import com.my.pro.util.UploadFileUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,6 +18,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.io.IOException;
+import java.util.*;
 import javax.imageio.ImageIO;
 import javax.servlet.http.HttpSession;
 import java.awt.*;
@@ -39,8 +41,9 @@ public class ProductController {
     @Autowired
     ProductServie productServie;
 
-    @Autowired
-    private UploadFileUtils fileUtils;
+   @Autowired
+   UploadFileUtils uploadFileUtils;
+
 
 
     @GetMapping("/list")
@@ -70,24 +73,46 @@ public class ProductController {
     }
 
     @PostMapping("/add")
-        public String goodAdd(ProductDto dto, Model m, RedirectAttributes rattr, MultipartFile file){
+        public String goodAdd(ProductDto dto, Model m, RedirectAttributes rattr, MultipartFile file) throws Exception {
 
-        try {
-            int rowCnt=productServie.add(dto);
+        String path = "C:\\Users\\ddj04\\IdeaProjects\\my\\src\\main\\webapp\\resources";
+        String imgUploadPath = path + File.separator+"upload";
+        String ymdPath = UploadFileUtils.calcPath(imgUploadPath);
+        String fileName = null;
 
-            if(rowCnt!=1)
-            throw new Exception("ADD_Fail");
-            System.out.println(dto);
-            m.addAttribute(dto);
-            m.addAttribute("msg", "ADD_OK");
-            return "product";
-        } catch (Exception e) {
-            e.printStackTrace();
-            m.addAttribute("msg", "ADD_Fail");
-            return "productRegister";
+        if(file != null){
+            fileName = UploadFileUtils.fileUpload(imgUploadPath,file.getOriginalFilename(),file.getBytes(),ymdPath);
+        }else{
+            fileName = path+File.separator + "upload" + File.separator+"none.png";
         }
+        dto.setGdImg(File.separator + "path" + ymdPath + File.separator + fileName);
+        dto.setGdThum(File.separator + "upload" + ymdPath + File.separator + "s" + File.separator + "s_"+fileName);
+
+        int rowcnt = productServie.add(dto);
+        if(rowcnt != 1) {
+            rattr.addFlashAttribute("msg", "File_Upload_Fail");
+            throw new Exception("File_Upload_Fail");
+        }else{
+            rattr.addFlashAttribute("msg", "File_Upload_Success");
+        }
+        return "redirect:/product/list";
+
     }
-    
+//        try {
+//            int rowCnt=productServie.add(dto);
+//
+//            if(rowCnt!=1)
+//            throw new Exception("ADD_Fail");
+//            System.out.println(dto);
+//            m.addAttribute(dto);
+//            m.addAttribute("msg", "ADD_OK");
+//            return "product";
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//            m.addAttribute("msg", "ADD_Fail");
+//            return "productRegister";
+//        }
+
 //    @PostMapping("/uploadAction")
 //        public void uploadfilePost(MultipartFile[] uploadFile){
 //

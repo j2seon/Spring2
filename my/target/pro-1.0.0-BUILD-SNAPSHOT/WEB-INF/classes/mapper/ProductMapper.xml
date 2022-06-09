@@ -4,7 +4,7 @@
 
 <mapper namespace="com.my.pro.dao.ProductMapper">
 
-    <insert id="insert" parameterType="CateDto">
+    <insert id="insert"  parameterType="ProductDto" >
         INSERT INTO goods
         (price,goodsName,subName,content,gdImg,gdThum,cateCode,cateCodeRef,energy,protein,per,sodium,suger,fat,reg_date,up_date)
         VALUES

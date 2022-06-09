@@ -141,7 +141,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ProductDaoImplTest.select" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ProductDaoImplTest.insert" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="pro" />
       <extension name="coverage">
         <pattern>
@@ -151,23 +151,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.my.pro.dao" />
       <option name="MAIN_CLASS_NAME" value="com.my.pro.dao.ProductDaoImplTest" />
-      <option name="METHOD_NAME" value="select" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ProductDaoImplTest.selectAll" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="pro" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.my.pro.dao.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.my.pro.dao" />
-      <option name="MAIN_CLASS_NAME" value="com.my.pro.dao.ProductDaoImplTest" />
-      <option name="METHOD_NAME" value="selectAll" />
+      <option name="METHOD_NAME" value="insert" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -184,6 +168,22 @@
       <option name="PACKAGE_NAME" value="com.my.pro.dao" />
       <option name="MAIN_CLASS_NAME" value="com.my.pro.dao.ProductDaoImplTest" />
       <option name="METHOD_NAME" value="selectCateCode" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ProductServieImpleTest.add" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="pro" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.my.pro.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.my.pro.service" />
+      <option name="MAIN_CLASS_NAME" value="com.my.pro.service.ProductServieImpleTest" />
+      <option name="METHOD_NAME" value="add" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -279,19 +279,19 @@
     </configuration>
     <list>
       <item itemvalue="HTTP Request.generated-requests | #1" />
+      <item itemvalue="JUnit.ProductDaoImplTest.insert" />
+      <item itemvalue="JUnit.ProductServieImpleTest.add" />
       <item itemvalue="JUnit.CommentServiceImplTest.remove" />
-      <item itemvalue="JUnit.ProductDaoImplTest.select" />
-      <item itemvalue="JUnit.ProductDaoImplTest.selectAll" />
       <item itemvalue="JUnit.ProductDaoImplTest.selectCateCode" />
       <item itemvalue="Tomcat Server.Tomcat 9.0.52 2" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="HTTP Request.generated-requests | #1" />
+        <item itemvalue="JUnit.ProductServieImpleTest.add" />
+        <item itemvalue="JUnit.ProductDaoImplTest.insert" />
         <item itemvalue="JUnit.ProductDaoImplTest.selectCateCode" />
+        <item itemvalue="HTTP Request.generated-requests | #1" />
         <item itemvalue="JUnit.CommentServiceImplTest.remove" />
-        <item itemvalue="JUnit.ProductDaoImplTest.select" />
-        <item itemvalue="JUnit.ProductDaoImplTest.selectAll" />
       </list>
     </recent_temporary>
   </component>
@@ -345,7 +345,7 @@
       <workItem from="1654648937596" duration="8436000" />
       <workItem from="1654665232623" duration="3898000" />
       <workItem from="1654669459179" duration="40595000" />
-      <workItem from="1654734838320" duration="41748000" />
+      <workItem from="1654734838320" duration="50758000" />
     </task>
     <servers />
   </component>

@@ -9,7 +9,7 @@ import java.text.DecimalFormat;
 import java.util.Calendar;
 import java.util.UUID;
 
-@Component
+@Component("UploadFileUtils")
 public class UploadFileUtils {
     static final int THUMB_WIDTH = 300;
     static final int THUMB_HEIGHT = 250;

@@ -20,9 +20,10 @@ public class ProductDaoImplTest {
 
     @Test
     public void insert() throws Exception {
-        ProductDto dto = new ProductDto(1,"에그마요","egg","에그마요","102","100",100,100,100,100,100,100);
+        ProductDto dto = new ProductDto(11231, "DD", "sdf", "asd", "101", "100", "sd", "sd",1, 1, 1, 1, 1,1);
+
         int c=productDao.insert(dto);
-        assertTrue(c==1);
+        assertTrue(c == 1);
 
     }
 //    @Test

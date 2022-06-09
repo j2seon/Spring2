@@ -91,7 +91,7 @@
 <body>
     <div class="container">
         <div class="vertical-center">
-            <form action="<c:url value='/product/add'/>" method="post" id="addForm" enctype="multipart/form-data">
+            <form action="<c:url value='/product/add'/>" method="post" autocomplete="off" id="addForm" enctype="multipart/form-data">
                 <div class="inputArea">
                     <label for="goodsName">상품명</label>
                     <input type="text" id="goodsName" name="goodsName" />
@@ -150,7 +150,7 @@
 
                     <div class="inputArea">
                         <label for="gdImg">이미지</label>
-                        <input type="file" id="gdImg" name="gdImg" />
+                        <input type="file" id="gdImg" name="file" />
                     <div class="select_img"><img src="" /></div>
 
                         <script>
@@ -164,7 +164,6 @@
                                }
                             });
                         </script>
-                        <%=request.getRealPath("/")%>
                     </div>
 
                 <div class="inputArea">

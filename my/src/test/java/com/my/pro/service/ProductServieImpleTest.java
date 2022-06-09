@@ -19,7 +19,7 @@ public class ProductServieImpleTest {
 
     @Test
     public void add()throws Exception {
-        ProductDto dto = new ProductDto(100,"ss","ss","sss","101","100",1,2,3,4,5,6);
+        ProductDto dto = new ProductDto();
         int c=productServie.add(dto);
         assertTrue(c==1);
     }
