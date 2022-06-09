@@ -4,6 +4,7 @@
 <%@page session="false" %>
 <html>
 <head>
+    <meta charset="UTF-8">
     <script src="https://code.jquery.com/jquery-1.11.3.js"></script>
     <title>상품등록</title>
 </head>
@@ -90,7 +91,7 @@
 <body>
     <div class="container">
         <div class="vertical-center">
-            <form action="<c:url value='/product/add'/>" method="post" id="addForm">
+            <form action="<c:url value='/product/add'/>" method="post" id="addForm" enctype="multipart/form-data">
                 <div class="inputArea">
                     <label for="goodsName">상품명</label>
                     <input type="text" id="goodsName" name="goodsName" />
@@ -141,21 +142,30 @@
                     <option value="">전체</option>
                 </select>
 
-                <div class="inputArea">
-                    <label for="gdImg">이미지</label>
-                    <input type="file" id="gdImg" name="uploadFile" />
-<%--                    <script>--%>
-<%--                        $("#gdImg").change(function (){--%>
-<%--                           if(this.files && this.files[0]){--%>
-<%--                               let reader = new FileReader;--%>
-<%--                               reader.onload=function (data){--%>
-<%--                                   $(".select_img img").attr("src", data.target.result).width(500);--%>
-<%--                               }--%>
-<%--                               reader.readAsDataURL(this.files[0]);--%>
-<%--                           }--%>
-<%--                        });--%>
-<%--                    </script>--%>
-                </div>
+
+<%--                <div class="inputArea">--%>
+<%--                    <label for="uploadFile">이미지</label>--%>
+<%--                    <input type="file" id="uploadFile" name="uploadFile" />--%>
+<%--                </div>--%>
+
+                    <div class="inputArea">
+                        <label for="gdImg">이미지</label>
+                        <input type="file" id="gdImg" name="gdImg" />
+                    <div class="select_img"><img src="" /></div>
+
+                        <script>
+                            $("#gdImg").change(function (){
+                               if(this.files && this.files[0]){
+                                   let reader = new FileReader;
+                                   reader.onload=function (data){
+                                       $(".select_img img").attr("src", data.target.result).width(500);
+                                   }
+                                   reader.readAsDataURL(this.files[0]);
+                               }
+                            });
+                        </script>
+                        <%=request.getRealPath("/")%>
+                    </div>
 
                 <div class="inputArea">
                     <button type="submit" id="add_Btn" class="">등록</button>
@@ -169,11 +179,9 @@
 <script>
     // 컨트롤러에서 데이터 받기 배열로 옴!!!
     var cateList = JSON.parse('${category}');
-
     let cate1Arr = new Array();
     let cate1Object = new Object();
     let cateSelect1 = $(".cate1");
-
     for (let i=0; i<cateList.length; i++){
         if(cateList[i].tier === 1){
             cate1Object = new Object();
@@ -183,7 +191,6 @@
             cate1Arr.push(cate1Object);
         }
     }
-
     let cate2Arr = new Array();
     let cate2Object = new Object();
     let cateSelect2 = $(".cate2");
@@ -202,61 +209,60 @@
     $(cateSelect1).on("change",function (){
         let selectVal1 = $(this).find("option:selected").val();
         cateSelect2.children().remove();
-        cateSelect2.append("option value=''>선택</option>");
-
-        for(let i=0; cate2Arr.length; i++){
+        cateSelect2.append("<option value=''>선택</option>");
+        for(let i=0; i<cate2Arr.length; i++){
             if(selectVal1 === cate2Arr[i].cateCodeRef){
                 cateSelect2.append("<option value='"+cate2Arr[i].cateCode+"'>"+cate2Arr[i].cateName+"</option>");
             }
+
         }
     });
+    <%--$("input[type='file']").on("change",function (e){--%>
+    <%--    let fileInput = $('input[name="uploadFile"]');--%>
+    <%--    let fileList = fileInput[0].files;--%>
+    <%--    let fileobj = fileList[0];--%>
+    <%--    let formData = new FormData();--%>
+    <%--    // console.log("fileList"+fileList); //확인용!--%>
+    <%--    // console.log("fileobj"+fileobj);--%>
+    <%--    // console.log("fileName"+fileobj.name);--%>
+    <%--    // console.log("filesize"+fileobj.size);--%>
+    <%--    // console.log("filetype"+fileobj.type);--%>
 
-    $("input[type='file']").on("change",function (e){
-        let fileInput = $('input[name="uploadFile"]');
-        let fileList = fileInput[0].files;
-        let fileobj = fileList[0];
-        let formData = new FormData();
-        // console.log("fileList"+fileList); //확인용!
-        // console.log("fileobj"+fileobj);
-        // console.log("fileName"+fileobj.name);
-        // console.log("filesize"+fileobj.size);
-        // console.log("filetype"+fileobj.type);
+    <%--    if(!fileCheck(fileobj.name, fileobj.size)){--%>
+    <%--        return false;--%>
+    <%--    }--%>
 
-        if(!fileCheck(fileobj.name, fileobj.size)){
-            return false;
-        }
+    <%--    formData.append("uploadFile",fileobj); //한개! 여러개하고싶은면 for문으로 배열로 저장하기--%>
+    <%--                                                // for(let i=0; i<fileList.length; i++){--%>
+    <%--                                         //  formData.append("uploadFile",fileList[i]);--%>
+    <%--                                                // }--%>
+    <%--    $.ajax({--%>
+    <%--       url:'<c:url value="/product/uploadAction"/>',--%>
+    <%--        processData : false,--%>
+    <%--        contentType : false,--%>
+    <%--        data : formData,--%>
+    <%--        type : 'POST',--%>
+    <%--        dataType : 'json',--%>
+    <%--        success :function () {--%>
+    <%--            alert("ddddd");--%>
+    <%--        }--%>
+    <%--    });--%>
+    <%--});--%>
 
-        formData.append("uploadFile",fileobj); //한개! 여러개하고싶은면 for문으로 배열로 저장하기
-                                                    // for(let i=0; i<fileList.length; i++){
-                                             //  formData.append("uploadFile",fileList[i]);
-                                                    // }
-        $.ajax({
-           url:'<c:url value="/product/uploadAction"/>',
-            processData : false,
-            contentType : false,
-            data : formData,
-            type : 'POST',
-            dataType : 'json',
-            success :function () {
-                alert("ddddd");
-            }
-        });
-    });
+    <%--let regex = new RegExp("(.?)\.(jpg|png)$");--%>
+    <%--let maxSize = 1048576;--%>
 
-    let regex = new RegExp("(.?)\.(jpg|png)$");
-    let maxSize = 1048576;
-
-    function fileCheck(fileName, fileSize){
-        if(fileSize>=maxSize){
-            alert("파일 용량 초과");
-            return false;
-        }
-        if(!regex.test(fileName)){
-            alert("jpg,png 이미지만 업로드가능합니다.");
-            return false;
-        }
-        return true;
-    }
+    <%--function fileCheck(fileName, fileSize){--%>
+    <%--    if(fileSize>=maxSize){--%>
+    <%--        alert("파일 용량 초과");--%>
+    <%--        return false;--%>
+    <%--    }--%>
+    <%--    if(!regex.test(fileName)){--%>
+    <%--        alert("jpg,png 이미지만 업로드가능합니다.");--%>
+    <%--        return false;--%>
+    <%--    }--%>
+    <%--    return true;--%>
+    <%--}--%>
 
 
 

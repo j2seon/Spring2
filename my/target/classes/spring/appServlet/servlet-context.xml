@@ -27,9 +27,14 @@
 	<beans:bean id="multipartResolver"
 				class="org.springframework.web.multipart.support.StandardServletMultipartResolver">
 	</beans:bean>
+<!--	<beans:bean id="multipartResolver"-->
+<!--				class="org.springframework.web.multipart.commons.CommonsMultipartResolver">-->
+<!--	</beans:bean>-->
+
+
+
 
 	<context:component-scan base-package="com.my.pro" />
-
 	<view-controller path="/" view-name="main"/> <!--/f로 방문하면 index.jsp를 가져온다-->
 <!--	<view-controller path="/register/add" view-name="registerForm"/>-->
 </beans:beans>
