@@ -3,6 +3,7 @@ package com.my.pro.controller;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.my.pro.dto.CateDto;
 import com.my.pro.dto.ProductDto;
+import com.my.pro.dto.SearchCondition;
 import com.my.pro.service.CateService;
 import com.my.pro.service.ProductServie;
 import com.my.pro.util.UploadFileUtils;
@@ -53,37 +54,32 @@ public class ProductController {
     //3. 상세페이지 에서 수정페이지 이동 write //
     //4. 상세페이지에서 수정/삭제 구현 >> 필요한거 상품,상품번호,상품페이지?
 
-    //등록된 상품 리스트
+    //등록된 상품 리스트 페이징할수있을가.....
     @GetMapping("/list")
-    public String goodstotallist(Model m,HttpServletRequest request,RedirectAttributes rattr){
-        String msg="Access_Ok";
+    public String goodslist(SearchCondition sc, Model m, HttpServletRequest request, RedirectAttributes rattr){
+        if(!adminCheck(request))
+            return "redirect:/login/login?toURL=" + request.getRequestURL();
 
         try {
-        if(!adminCheck(request))
-            throw new Exception("Access_Fail");
-
             List<ProductDto> list = productServie.selectAll();
             Instant startOfToday = LocalDate.now().atStartOfDay(ZoneId.systemDefault()).toInstant();
             m.addAttribute("startOfToday", startOfToday.toEpochMilli());
             m.addAttribute("list",list);
-            return "productList";
-            
+
         } catch (Exception e) {
             e.printStackTrace();
-            msg = "Access_ERR";
         }
-        rattr.addFlashAttribute("msg",msg);
-        return "redirect:/login/login?toURL="+request.getRequestURL();
+        return "productList";
     }
 
 
     // 상품등록 화면이동 //
     @GetMapping("/add")
-    public String goodAdd(HttpServletRequest request, Model m){
-        //일단 로그인 안하면 이동하도록 조치 >> 추후 관리자만!으로 변경예정
-            if(!adminCheck(request))
-                return "redirect:/login/login?toURL="+request.getRequestURL();
-            
+    public String goodAdd(HttpServletRequest request, Model m,HttpSession session){
+        //일단 asdf로 지정
+//            if(!adminCheck(request))
+//                return "redirect:/login/login?toURL="+request.getRequestURL();
+//
         //카테고리 정보받는 객체만들기 등록할때 카테고리 select 때문
             ObjectMapper objm = new ObjectMapper();
         try {
@@ -91,6 +87,8 @@ public class ProductController {
             List<CateDto> list = cateService.categoryList();
             String category = objm.writeValueAsString(list);
             m.addAttribute("category",category);
+            m.addAttribute("mode","new");
+            
             
             return "productRegister"; //뷰페이지로 이동하게!
 
@@ -102,33 +100,57 @@ public class ProductController {
     
     //상품등록 >> 등록후에 리스트 페이지로 이동
     @PostMapping("/add")
-        public String goodAdd(ProductDto dto, Model m, RedirectAttributes rattr, MultipartFile file,HttpServletRequest request) throws Exception {
+        public String goodAdd(ProductDto productDto, Model m, RedirectAttributes rattr, MultipartFile file,HttpServletRequest request) {
         if(!adminCheck(request))
             return "redirect:/login/login?toURL="+request.getRequestURL();
+        try{
+            String path = "C:\\Users\\ddj04\\IdeaProjects\\my\\src\\main\\webapp\\resources";
+            String imgUploadPath = path + File.separator+"upload";
+            String ymdPath = UploadFileUtils.calcPath(imgUploadPath);
+            String fileName = null;
 
-        String path = "C:\\Users\\ddj04\\IdeaProjects\\my\\src\\main\\webapp\\resources";
-        String imgUploadPath = path + File.separator+"upload";
-        String ymdPath = UploadFileUtils.calcPath(imgUploadPath);
-        String fileName = null;
+            if(file != null){
+                fileName = UploadFileUtils.fileUpload(imgUploadPath,file.getOriginalFilename(),file.getBytes(),ymdPath);
+            }else{
+                fileName = path+File.separator + "upload" + File.separator+"none.png";
+            }
+            productDto.setGdImg(File.separator + "path" + ymdPath + File.separator + fileName);
+            productDto.setGdThum(File.separator + "upload" + ymdPath + File.separator + "s" + File.separator + "s_"+fileName);
 
-        if(file != null){
-            fileName = UploadFileUtils.fileUpload(imgUploadPath,file.getOriginalFilename(),file.getBytes(),ymdPath);
-        }else{
-            fileName = path+File.separator + "upload" + File.separator+"none.png";
-        }
-        dto.setGdImg(File.separator + "path" + ymdPath + File.separator + fileName);
-        dto.setGdThum(File.separator + "upload" + ymdPath + File.separator + "s" + File.separator + "s_"+fileName);
+            if(productServie.add(productDto)!=1)
+                throw new Exception();
 
-        int rowcnt = productServie.add(dto);
-        if(rowcnt != 1) {
-            rattr.addFlashAttribute("msg", "File_Upload_Fail");
-            throw new Exception("File_Upload_Fail");
-        }else{
             rattr.addFlashAttribute("msg", "File_Upload_Success");
+            m.addAttribute(productDto);
+            return "redirect:/product/list";
+
+        }catch (Exception e) {
+            m.addAttribute("msg", "File_Upload_Fail");
+            m.addAttribute("mode", "new");
+            m.addAttribute(productDto);
+            return "productRegister";
         }
-        return "redirect:/product/list";
+    }
+
+    @GetMapping("/read")
+    public String read(Integer goodsNum,Model m,RedirectAttributes ratt){
+        try {
+            ProductDto productDto = productServie.read(goodsNum);
+            m.addAttribute(productDto);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "redirect:/product/list";
+        }
+        return "productRegistercopy";
 
     }
+
+
+
+
+
+
+
     //관리자만...
     private boolean adminCheck(HttpServletRequest request) {
         // 1. 세션을 얻어서(false는 session이 없어도 새로 생성하지 않는다. 반환값 null)

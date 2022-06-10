@@ -16,6 +16,11 @@
         FROM goods
     </sql>
 
+    <select id="select" parameterType="int" resultType="ProductDto">
+        <include refid="selectFromPro"/>
+        WHERE goodsNum = #{goodsNum}
+    </select>
+
 
     <select id="selectAll" resultType="ProductDto">
         SELECT
@@ -24,6 +29,63 @@
             order by goodsNum asc
     </select>
 
+
+    <select id="searchSelectPage" parameterType="SearchCondition" resultType="ProductDto">
+        <include refid="selectFromPro"/>
+        WHERE true
+        <include refid="searchCondition"/>
+        ORDER BY reg_date DESC
+        LIMIT #{offset}, #{rowCnt}
+    </select>
+
+    <select id="searchResultCount" parameterType="SearchCondition" resultType="int">
+        SELECT count(*)
+        FROM goods
+        WHERE true
+        <include refid="searchCondition"/>
+    </select>
+
+
+    <sql id="searchCondition">
+        <choose>
+            <when test='option=="T"'>
+                AND goodsName LIKE concat('%', #{keyword},'%')
+            </when>
+            <when test='option=="W"'>
+                AND cateCode LIKE concat('%', #{keyword},'%')
+            </when>
+            <otherwise>
+                AND (cateCode LIKE concat('%', #{keyword},'%')
+                OR cateCodeRef LIKE concat('%', #{keyword},'%'))
+            </otherwise>
+        </choose>
+    </sql>
+
+    <update id="update" parameterType="ProductDto">
+        UPDATE goods
+        SET price = #{price},
+            goodsName = #{goodsName},
+            subName = #{subName},
+            content = #{content},
+            gdImg = #{gdImg},
+            gdThum = #{gdThum},
+            cateCode = #{cateCode},
+            cateCodeRef = #{cateCodeRef},
+            energy = #{energy},
+            protein = #{protein},
+            per = #{per},
+            sodium = #{sodium},
+            suger = #{suger},
+            fat = #{fat},
+            reg_date = now(),
+            up_date = now()
+        WHERE bno = #{bno}
+    </update>
+
+    <delete id="delete" parameterType="int">
+        DELETE FROM goods
+        WHERE goodsNum = #{goodsNum}
+    </delete>
 
 <!--    <select id="selectAll" resultType="ProductDto">-->
 <!--        <include refid="selectFromPro"/>-->
@@ -59,13 +121,13 @@
         <result column="cateCode" property="cateCode"/>
         <result column="cateCodeRef" property="cateCodeRef"/>
     </resultMap>
-    
+
     <resultMap id="goodcate" type="CateDto">
         <result column="cateName" property="cateName"/>
         <result column="cateCode" property="cateCode"/>
         <result column="cateCodeRef" property="cateCodeRef"/>
     </resultMap>
-    
+
     <select id="selectCateCode" parameterType="String" resultType="ProductDto">
         select g.goodsNum, g.price,g.goodsName,g.subName,g.content,g.gdImg,g.gdThum,g.energy,g.protein,g.per,g.sodium,g.suger,g.fat,c.cateCode,c.cateCodeRef,c.cateName
         from goods g
@@ -73,18 +135,11 @@
         on g.cateCode = c.cateCode
         where g.cateCode=#{cateCode};
     </select>
-    
 
 
 
-<!--   <update id="update" parameterType="BoardDto">-->
-<!--        UPDATE goodcate-->
-<!--        SET   tier = #{tier}-->
-<!--        , cateName = #{cateName}-->
-<!--        , cateCode = #{cateCode}-->
-<!--        , cateCodeRef = #{cateCodeRef}-->
-<!--        WHERE bno = #{bno} And writer=#{writer}-->
-<!--    </update>-->
+
+
 
 
 <!--    <select id="searchResultCount" parameterType="SearchCondition" resultType="int">-->

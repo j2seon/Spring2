@@ -78,7 +78,6 @@ public class BoardController {
         try {
             BoardDto boardDto = boardService.read(bno);
             m.addAttribute(boardDto);
-            System.out.println("read sc:"+sc);
         } catch (Exception e) {
             e.printStackTrace();
             rattr.addFlashAttribute("msg", "READ_ERR");

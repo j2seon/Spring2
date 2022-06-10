@@ -7,14 +7,12 @@ import java.util.List;
 public interface ProductDao {
     int insert(ProductDto dto) throws Exception;
 
-   // List<ProductDto> selectAll()throws Exception;
-
     int count() throws Exception;
 
     List<ProductDto> selectAll() throws Exception;
 
-
     List<ProductDto> selectCateCode(String cateCode)throws Exception;
 
+    ProductDto select(Integer goodsNum)throws Exception;
 
     }

@@ -39,6 +39,10 @@ public class ProductDaoImpl implements ProductDao {
     public List<ProductDto> selectCateCode(String cateCode)throws Exception{
         return session.selectList(namespace+"selectCateCode",cateCode);
     }
+    @Override
+    public ProductDto select(Integer goodsNum)throws Exception{
+        return session.selectOne(namespace+"select",goodsNum);
+    }
 
 
 }

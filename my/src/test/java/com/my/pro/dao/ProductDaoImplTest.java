@@ -35,13 +35,16 @@ public class ProductDaoImplTest {
 
     @Test
     public void select()throws Exception{
+        Integer num=3;
 
+        ProductDto dto=productDao.select(num);
+        System.out.println(dto);
+        assertTrue(dto.getGoodsNum()==3);
     }
     @Test
     public void count()throws Exception{
 
     }
-
 
     @Test
     public void selectCateCode()throws Exception{

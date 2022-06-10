@@ -30,6 +30,10 @@ public class ProductServieImple implements ProductServie {
  public List<ProductDto> selectAll() throws Exception {
     return productDao.selectAll();
  }
+ @Override
+ public ProductDto read(Integer goodsNum)throws Exception{
+   return productDao.select(goodsNum);
+ }
 
 
 }

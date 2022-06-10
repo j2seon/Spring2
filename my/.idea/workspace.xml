@@ -213,9 +213,6 @@
     </key>
   </component>
   <component name="RunManager" selected="Tomcat Server.Tomcat 9.0.52 2">
-    <configuration name="generated-requests | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" requestIdentifier="#1" runType="Run single request">
-      <method v="2" />
-    </configuration>
     <configuration name="ProductDaoImplTest.insert" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="pro" />
       <extension name="coverage">
@@ -227,6 +224,22 @@
       <option name="PACKAGE_NAME" value="com.my.pro.dao" />
       <option name="MAIN_CLASS_NAME" value="com.my.pro.dao.ProductDaoImplTest" />
       <option name="METHOD_NAME" value="insert" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ProductDaoImplTest.select" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="pro" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.my.pro.dao.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.my.pro.dao" />
+      <option name="MAIN_CLASS_NAME" value="com.my.pro.dao.ProductDaoImplTest" />
+      <option name="METHOD_NAME" value="select" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -369,7 +382,7 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="HTTP Request.generated-requests | #1" />
+      <item itemvalue="JUnit.ProductDaoImplTest.select" />
       <item itemvalue="JUnit.ProductDaoImplTest.selectAll" />
       <item itemvalue="JUnit.ProductDaoImplTest.insert" />
       <item itemvalue="JUnit.ProductServieImpleTest.add" />
@@ -378,11 +391,11 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ProductDaoImplTest.select" />
         <item itemvalue="JUnit.ProductDaoImplTest.selectAll" />
         <item itemvalue="JUnit.ProductServieImpleTest.add" />
         <item itemvalue="JUnit.ProductDaoImplTest.insert" />
         <item itemvalue="JUnit.ProductDaoImplTest.selectCateCode" />
-        <item itemvalue="HTTP Request.generated-requests | #1" />
       </list>
     </recent_temporary>
   </component>
@@ -441,7 +454,7 @@
       <workItem from="1654821018535" duration="1698000" />
       <workItem from="1654824140264" duration="17704000" />
       <workItem from="1654844556981" duration="9565000" />
-      <workItem from="1654860631148" duration="12503000" />
+      <workItem from="1654860631148" duration="23651000" />
     </task>
     <servers />
   </component>

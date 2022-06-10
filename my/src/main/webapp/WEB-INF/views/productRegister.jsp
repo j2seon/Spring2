@@ -94,14 +94,17 @@
 
 </style>
 <jsp:include page="head.jsp" flush="false"/>
-
+<script>
+</script>
 <body>
     <div class="container">
         <div class="vertical-center">
+            <h2>상품 ${mode=="new" ? "등록" :" 조회"}</h2>
             <form method="post" autocomplete="off" name="addForm" id="addForm" enctype="multipart/form-data">
+                <input type="hidden" name="goodsNum" value="${productDto.goodsNum}">
                 <div class="inputArea">
                     <label for="goodsName">상품명</label>
-                    <input type="text" id="goodsName" name="goodsName" />
+                    <input type="text" id="goodsName" name="goodsName" value="<c:out value="${productDto.goodsName}"/>" ${mode=="new"? "" : "readonly='readonly'"}>
                     <span class="ckeck_warn goodsN_warn">상품명을 입력해주세요(영문)</span>
                 </div>
                 <div class="inputArea">

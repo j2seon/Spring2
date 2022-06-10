@@ -9,5 +9,7 @@ public interface ProductServie {
     List<ProductDto> selectCateCode(String cateCode)throws Exception;
     List<ProductDto> selectAll() throws Exception ; //상품목록
 
+    ProductDto read(Integer goodsNum)throws Exception;
+
 
     }
