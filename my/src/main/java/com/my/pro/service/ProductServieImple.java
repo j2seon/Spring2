@@ -21,11 +21,15 @@ public class ProductServieImple implements ProductServie {
  public int add(ProductDto dto)throws Exception{
      return productDao.insert(dto);
  }
+ @Override
  public List<ProductDto> selectCateCode(String cateCode)throws Exception{
      return productDao.selectCateCode(cateCode);
  }
 
-
-
-
+ @Override
+ public List<ProductDto> selectAll() throws Exception {
+    return productDao.selectAll();
  }
+
+
+}

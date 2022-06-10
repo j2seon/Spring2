@@ -9,7 +9,6 @@ import com.my.pro.util.UploadFileUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,17 +17,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import java.io.IOException;
-import java.util.*;
-import javax.imageio.ImageIO;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.awt.*;
-import java.awt.image.BufferedImage;
 import java.io.File;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
-import java.util.UUID;
 
 @Controller
 @RequestMapping("/product")
@@ -44,36 +39,72 @@ public class ProductController {
    @Autowired
    UploadFileUtils uploadFileUtils;
 
+   // 상품리스트 보여주기
+//    @GetMapping("/list")
+//    public String goodslist(HttpServletRequest request){
+//
+//        HttpSession session = request.getSession(false);
+//
+//        return "product";
+//    }
+    // 하고싶은 거
+    //1. 등록된 상품전체 출력(list) 가능하면 페이징.......
+    //2. 등록된 상품 선택시 해당 상세페이지로 이동(read)
+    //3. 상세페이지 에서 수정페이지 이동 write //
+    //4. 상세페이지에서 수정/삭제 구현 >> 필요한거 상품,상품번호,상품페이지?
 
-
+    //등록된 상품 리스트
     @GetMapping("/list")
-    public String goodslist(){
-        return "product";
+    public String goodstotallist(Model m,HttpServletRequest request,RedirectAttributes rattr){
+        String msg="Access_Ok";
+
+        try {
+        if(!adminCheck(request))
+            throw new Exception("Access_Fail");
+
+            List<ProductDto> list = productServie.selectAll();
+            Instant startOfToday = LocalDate.now().atStartOfDay(ZoneId.systemDefault()).toInstant();
+            m.addAttribute("startOfToday", startOfToday.toEpochMilli());
+            m.addAttribute("list",list);
+            return "productList";
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+            msg = "Access_ERR";
+        }
+        rattr.addFlashAttribute("msg",msg);
+        return "redirect:/login/login?toURL="+request.getRequestURL();
     }
 
 
+    // 상품등록 화면이동 //
     @GetMapping("/add")
-    public String goodAdd(HttpSession session, Model m){
-        //상품등록화면 보이게하기
-        //추후 관리자만 등록할 수 있도록 바꾸기(세션이용하면 될듯)
-
-        ObjectMapper objm = new ObjectMapper();
-
+    public String goodAdd(HttpServletRequest request, Model m){
+        //일단 로그인 안하면 이동하도록 조치 >> 추후 관리자만!으로 변경예정
+            if(!adminCheck(request))
+                return "redirect:/login/login?toURL="+request.getRequestURL();
+            
+        //카테고리 정보받는 객체만들기 등록할때 카테고리 select 때문
+            ObjectMapper objm = new ObjectMapper();
         try {
             //카테고리 페이지 누르면 카테고리의 값을 받아야하니까!
             List<CateDto> list = cateService.categoryList();
             String category = objm.writeValueAsString(list);
             m.addAttribute("category",category);
-            return "productRegister";
+            
+            return "productRegister"; //뷰페이지로 이동하게!
 
         } catch (Exception e) {
             e.printStackTrace();
             return "main";
         }
     }
-
+    
+    //상품등록 >> 등록후에 리스트 페이지로 이동
     @PostMapping("/add")
-        public String goodAdd(ProductDto dto, Model m, RedirectAttributes rattr, MultipartFile file) throws Exception {
+        public String goodAdd(ProductDto dto, Model m, RedirectAttributes rattr, MultipartFile file,HttpServletRequest request) throws Exception {
+        if(!adminCheck(request))
+            return "redirect:/login/login?toURL="+request.getRequestURL();
 
         String path = "C:\\Users\\ddj04\\IdeaProjects\\my\\src\\main\\webapp\\resources";
         String imgUploadPath = path + File.separator+"upload";
@@ -98,63 +129,14 @@ public class ProductController {
         return "redirect:/product/list";
 
     }
-//        try {
-//            int rowCnt=productServie.add(dto);
-//
-//            if(rowCnt!=1)
-//            throw new Exception("ADD_Fail");
-//            System.out.println(dto);
-//            m.addAttribute(dto);
-//            m.addAttribute("msg", "ADD_OK");
-//            return "product";
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//            m.addAttribute("msg", "ADD_Fail");
-//            return "productRegister";
-//        }
+    //관리자만...
+    private boolean adminCheck(HttpServletRequest request) {
+        // 1. 세션을 얻어서(false는 session이 없어도 새로 생성하지 않는다. 반환값 null)
+        HttpSession session = request.getSession(false);
+        // 2. 세션이 null이 아니고 id 값이 asdf일때 true
+        return session!=null && session.getAttribute("id").equals("asdf");
 
-//    @PostMapping("/uploadAction")
-//        public void uploadfilePost(MultipartFile[] uploadFile){
-//
-//
-//        String uploadFolder = "C:\\upload";
-////        //날짜가져와서 설정하기 위함.
-//        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-//        Date date = new Date();
-//        String str = sdf.format(date); //- 를 기준으로 잘라서 폴더만들거임.
-//        String dataPath = str.replace("-", File.separator);
-//
-//        File uploadPath = new File(uploadFolder,dataPath);
-//
-//        if(uploadPath.exists()==false){
-//            uploadPath.mkdirs();
-//        }
-//
-//        for(MultipartFile multipartFile : uploadFile) {
-//            //파일이름
-//            String uploadFileName = multipartFile.getOriginalFilename();
-//            String uuid = UUID.randomUUID().toString();
-//            uploadFileName =uuid + "_" + uploadFileName; //동일한 이름이면 덮어쓰기 때문에 식별자지정!
-//            //파일 위치,이름
-//            File saveFile = new File(uploadPath,uploadFileName);
-//            //파일 저장함.transferTo
-//            try {
-//                multipartFile.transferTo(saveFile);
-//                //썸네일로 이미지 추가저장!!! try catch 안에 적는게 좋다.
-//                //File BufferdImage ImageIo를 상ㅅㅇ한다.
-//                File thumbnailFile = new File(uploadPath,"s_"+uploadFileName);
-//                BufferedImage im = ImageIO.read(saveFile); //버파로 한번 감싸줘야함
-//                //썸네일 사이스 생각해서 적기
-//                BufferedImage bff_image= new BufferedImage(300,250,BufferedImage.TYPE_3BYTE_BGR);
-//                Graphics2D graphic = bff_image.createGraphics(); // 섬네일 을 그림
-//                graphic.drawImage(im,0,0,300,250,null);
-//                //생성한 썸네일을 파일로 저장하자
-//                ImageIO.write(bff_image,"jpg",thumbnailFile);//이미지,형식,경로/이름적힌 파일객체
-//
-//
-//            }catch (Exception e){
-//                e.printStackTrace();
-//            }
-//        }
-//    }
+
+    }
+
 }

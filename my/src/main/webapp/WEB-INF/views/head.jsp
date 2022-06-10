@@ -52,7 +52,7 @@
         }
 
         .sidenav a:hover {
-            color: #f1f1f1;
+            color: #ffffff;
         }
 
         .sidenav .closebtn {
@@ -70,7 +70,7 @@
 
         .navbar {
             width: 100%;
-            background-color: #ffff;
+            background-color: #04AA6D;
             overflow: auto;
         }
 
@@ -96,14 +96,22 @@
                 display: block;
             }
         }
+        .logo{
+            display: flex;
+            justify-content: center;
+            padding: 15px;
+        }
     </style>
 </head>
 <body>
+<div>
+    <a class="logo"  href="<c:url value='/'/>"><img src="${pageContext.request.contextPath}/image/logo_w.png"></a>
+</div>
+
 <div class="navbar">
     <a class="active" href="<c:url value='${loginOutLink}'/>"><i class="fa fa-fw fa-user"></i>${loginOut}</a>
     <a href="<c:url value='${RegisterLink}'/>">${Registercheck}</a>
     <a href="#"><i class="fa fa-fw fa-home"></i>My Page</a>
-    <a class="logo" style="margin-right: 18%; padding: 15px;" href="<c:url value='/'/>"><img src="./image/logo_w.png"></a>
 </div>
 
 <div id="mySidenav" class="sidenav">

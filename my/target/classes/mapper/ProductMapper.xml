@@ -16,6 +16,15 @@
         FROM goods
     </sql>
 
+
+    <select id="selectAll" resultType="ProductDto">
+        SELECT
+            goodsNum, price ,goodsName,subName,content,cateCode,cateCodeRef,energy,protein,per,sodium,suger,fat,reg_date,up_date
+            From goods
+            order by goodsNum asc
+    </select>
+
+
 <!--    <select id="selectAll" resultType="ProductDto">-->
 <!--        <include refid="selectFromPro"/>-->
 <!--        ORDER BY cateCodeRef asc-->

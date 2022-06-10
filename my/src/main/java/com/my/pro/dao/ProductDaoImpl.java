@@ -31,6 +31,11 @@ public class ProductDaoImpl implements ProductDao {
         return session.selectOne(namespace+"count");
     }
     @Override
+    public List<ProductDto> selectAll() throws Exception{
+        return session.selectList(namespace+"selectAll");
+    }
+
+    @Override
     public List<ProductDto> selectCateCode(String cateCode)throws Exception{
         return session.selectList(namespace+"selectCateCode",cateCode);
     }

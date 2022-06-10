@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
-<%@page session="false" %>
+<%@ page session="false" %>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -82,6 +82,13 @@
         position: relative;
 
     }
+    .ckeck_warn{						/* 입력란 공란 경고 태그 */
+        display: none;
+        padding-top: 10px;
+        text-align: center;
+        color: red;
+        font-weight: 300;
+    }
 
 
 
@@ -91,56 +98,72 @@
 <body>
     <div class="container">
         <div class="vertical-center">
-            <form action="<c:url value='/product/add'/>" method="post" autocomplete="off" id="addForm" enctype="multipart/form-data">
+            <form method="post" autocomplete="off" name="addForm" id="addForm" enctype="multipart/form-data">
                 <div class="inputArea">
                     <label for="goodsName">상품명</label>
                     <input type="text" id="goodsName" name="goodsName" />
+                    <span class="ckeck_warn goodsN_warn">상품명을 입력해주세요(영문)</span>
                 </div>
                 <div class="inputArea">
-                    <label for="subName">sub상품명</label>
+                    <label for="subName">서브상품명(영문)</label>
                     <input type="text" id="subName" name="subName" />
+                    <span class="ckeck_warn subGdN_warn">서브상품명(영문)을 입력해주세요(영문)</span>
                 </div>
                 <div class="inputArea">
-                    <label for="price">상품가격</label>
-                    <input type="text" id="price" name="price" />
+                    <label for="price">상품가격(숫자만)</label>
+                    <input type="text" id="price" name="price" placeholder="숫자만 입력"/>
+                    <span class="ckeck_warn price_warn">상품가격을 입력해주세요(숫자)</span>
                 </div>
                 <div class="inputArea">
                     <label for="content">상품소개</label>
                     <textarea rows="5" cols="50" id="content" name="content"></textarea>
+                    <span class="ckeck_warn content_warn">상품내용을 입력해주세요(숫자)</span>
                 </div>
                 <div class="inputArea">
                     <label for="energy">열량</label>
-                    <input type="text" id="energy" name="energy" />
+                    <input type="text" id="energy" name="energy" placeholder="숫자만 입력" />
+                    <span class="ckeck_warn energy_warn">열량을 입력해주세요(숫자)</span>
                 </div>
                 <div class="inputArea">
                     <label for="per">중량</label>
-                    <input type="text" id="per" name="per" />
+                    <input type="text" id="per" name="per" placeholder="숫자만 입력" />
+                    <span class="ckeck_warn per_warn">중량을 입력해주세요(숫자)</span>
                 </div>
                 <div class="inputArea">
                     <label for="protein">단백질</label>
-                    <input type="text" id="protein" name="protein" />
+                    <input type="text" id="protein" name="protein" placeholder="숫자만 입력" />
+                    <span class="ckeck_warn protein_warn">단백질을 입력해주세요(숫자)</span>
                 </div>
                 <div class="inputArea">
                     <label for="fat">지방</label>
-                    <input type="text" id="fat" name="fat" />
+                    <input type="text" id="fat" name="fat" placeholder="숫자만 입력" />
+                    <span class="ckeck_warn fat_warn">지방을 입력해주세요(숫자)</span>
                 </div>
                 <div class="inputArea">
                     <label for="sodium">나트륨</label>
-                    <input type="text" id="sodium" name="sodium" />
+                    <input type="text" id="sodium" name="sodium" placeholder="숫자만 입력" />
+                    <span class="ckeck_warn sodium_warn">나트륨을 입력해주세요(숫자)</span>
                 </div>
                 <div class="inputArea">
                     <label for="suger">당류</label>
-                    <input type="text" id="suger" name="suger" />
+                    <input type="text" id="suger" name="suger" placeholder="숫자만 입력" />
+                    <span class="ckeck_warn suger_warn">댱류을 입력해주세요(숫자)</span>
                 </div>
-                <label>1차분류</label>
-                <select class="cate1" name="cateCodeRef">
-                    <option value="" >전체</option>
-                </select>
+                <div class="selectArea">
+                    <span class="ckeck_warn select1_warn">1차분류를 선택해주세요</span><br>
+                    <label>1차분류</label>
+                    <select class="cate1" name="cateCodeRef" id="cateCode">
+                        <option value="" >전체</option>
+                    </select>
+                </div>
 
-                <label>2차분류</label>
-                <select class="cate2" name="cateCode">
-                    <option value="">전체</option>
-                </select>
+                <div class="selectArea">
+                    <span class="ckeck_warn select2_warn">2차분류를 선택해주세요</span><br>
+                    <label>2차분류</label>
+                    <select class="cate2" name="cateCode" id="cateCodeRef">
+                        <option value="">전체</option>
+                    </select>
+                </div>
 
 
 <%--                <div class="inputArea">--%>
@@ -149,6 +172,7 @@
 <%--                </div>--%>
 
                     <div class="inputArea">
+                        <span class="ckeck_warn gdImg_warn">이미지파일을 업로드해주세요</span><br>
                         <label for="gdImg">이미지</label>
                         <input type="file" id="gdImg" name="file" />
                     <div class="select_img"><img src="" /></div>
@@ -167,7 +191,7 @@
                     </div>
 
                 <div class="inputArea">
-                    <button type="submit" id="add_Btn" class="">등록</button>
+                    <button type="submit" id="add_Btn" class="" onsubmit="formCheck()">등록</button>
                     <button type="cancle" id="cancle_Btn" class="">취소</button>
                 </div>
             </form>
@@ -216,6 +240,114 @@
 
         }
     });
+
+    $(document).ready(function (){
+        $("#add_Btn").click(function (){
+            let goodsNum = $("#goodsName").val();
+            let subNum = $("#subName").val();
+            let price = $("#price").val();
+            let content = $("#content").val();
+            let energy = $("#energy").val();
+            let protein = $("#protein").val();
+            let per = $("#per").val();
+            let sodium = $("#sodium").val();
+            let suger = $("#suger").val();
+            let fat = $("#fat").val();
+            let cateCode = $("#cateCode").val();
+            let cateCodRef = $("#cateCodeRef").val();
+            let gdImg = $("#gdImg").val();
+
+
+            if(goodsNum == ""){
+                $(".goodsN_warn").css('display','block');
+                alert("상풍명을 입력해주세요");
+                document.addForm.goodsName.focus();
+                return false;
+            }
+            if(subNum == ""){
+                $(".subGdN_warn").css('display','block');
+                alert("서브상품명(영어)을 입력해주세요");
+                document.addForm.subName.focus();
+                return false;
+            }
+            if(price == ""){
+                $(".price_warn").css('display','block');
+                alert("가격을 입력해주세요");
+                document.addForm.price.focus();
+                return false;
+            }
+            if(content == ""){
+                $(".content_warn").css('display','block');
+                alert("상세내용을 입력해주세요");
+                document.addForm.content.focus();
+                return false;
+            }
+            if(energy == ""){
+                $(".energy_warn").css('display','block');
+                alert("열량(kcal)을 입력해주세요");
+                document.addForm.price.focus();
+                return false;
+            }
+            if(protein == ""){
+                $(".protein_warn").css('display','block');
+                alert("단백질 (g) 을 입력해주세요");
+                document.addForm.protein.focus();
+                return false;
+
+            }
+            if(per == ""){
+                $(".per_warn").css('display','block');
+                alert("중량(g)을 입력해주세요");
+                document.addForm.per.focus();
+                return false;
+
+            }
+            if(sodium == ""){
+                $(".sodium_warn").css('display','block');
+                alert("나트륨(mg)을 입력해주세요");
+                document.addForm.sodium.focus();
+                return false;
+
+            }
+            if(suger == ""){
+                $(".suger_warn").css('display','block');
+                alert("당류(g)을 입력해주세요");
+                document.addForm.suger.focus();
+                return false;
+
+            }
+            if(fat ==""){
+                $(".fat_warn").css('display','block');
+                alert("지방(g)을 입력해주세요");
+                document.addForm.fat.focus();
+                return false;
+
+            }
+            if(cateCodeRef ==""){
+                $(".select1_warn").css('display','block');
+                alert("1차분류를 입력해주세요");
+                document.addForm.cateCodeRef.focus();
+                return false;
+            }
+            if(cateCode == ""){
+                $(".select2_warn").css('display','block');
+                alert("2차분류를 입력해주세요");
+                document.addForm.cateCodeRef.focus();
+                return false;
+            }
+            if(gdImg == ""){
+                $(".gdImg_warn").css('display','block');
+                alert("이미지를 추가해주세요");
+                document.addForm.file.focus();
+                return false;
+            }
+            document.addForm.action ="<c:url value="/product/add"/>";
+            document.addForm.submit();
+        });
+
+    });
+
+
     <%--$("input[type='file']").on("change",function (e){--%>
     <%--    let fileInput = $('input[name="uploadFile"]');--%>
     <%--    let fileList = fileInput[0].files;--%>
@@ -262,11 +394,6 @@
     <%--    }--%>
     <%--    return true;--%>
     <%--}--%>
-
-
-
-
-
 
 </script>
 

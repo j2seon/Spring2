@@ -16,7 +16,6 @@
   <link rel="stylesheet" >
   <style>
 
-    * {box-sizing: border-box}
     body {font-family: Verdana, sans-serif; margin:0}
     .mySlides {display: none}
     img {vertical-align: middle;}
@@ -107,91 +106,6 @@
       .prev, .next,.text {font-size: 11px}
     }
 
-    * {
-      box-sizing: border-box;
-    }
-
-    /* Style the body */
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      margin: 0;
-    }
-
-    .sidbtn{
-      position:fixed;
-      top:0px;
-      left:20px;
-
-    }
-    .sidenav {
-      height: 100%;
-      width: 0;
-      position: fixed;
-      z-index: 1;
-      top: 0;
-      left: 0;
-      background-color: #111;
-      overflow-x: hidden;
-      transition: 0.5s;
-      padding-top: 60px;
-    }
-
-    .sidenav a {
-      padding: 8px 8px 8px 32px;
-      text-decoration: none;
-      font-size: 30px;
-      color: #818181;
-      display: block;
-      transition: 0.3s;
-    }
-
-    .sidenav a:hover {
-      color: #f1f1f1;
-    }
-
-    .sidenav .closebtn {
-      position: absolute;
-      top: 0;
-      right: 25px;
-      font-size: 36px;
-      margin-left: 50px;
-    }
-
-    @media screen and (max-height: 450px) {
-      .sidenav {padding-top: 15px;}
-      .sidenav a {font-size: 18px;}
-    }
-
-    .navbar {
-      width: 100%;
-      background-color: #ffff;
-      overflow: auto;
-    }
-
-
-
-    .navbar a {
-      float: right;
-      padding: 22px;
-      color:black;
-      text-decoration: none;
-      font-size: 17px;
-    }
-
-    .navbar a:hover {
-      background-color: #04AA6D;
-    }
-
-    .active  {
-      /* background-color: #04AA6D; */
-    }
-
-    @media screen and (max-width: 500px) {
-      .navbar a {
-        float: none;
-        display: block;
-      }
-    }
     /* Column container */
     .row {
       display: -ms-flexbox; /* IE10 */
@@ -239,25 +153,6 @@
   </style>
 </head>
 <body>
-<%--<!--네비게이션-->--%>
-<%--<div class="navbar">--%>
-<%--  <a class="active" href="<c:url value='${loginOutLink}'/>"><i class="fa fa-fw fa-user"></i>${loginOut}</a>--%>
-<%--  <a href="<c:url value='${RegisterLink}'/>">${Registercheck}</a>--%>
-<%--  <a href="#"><i class="fa fa-fw fa-home"></i>My Page</a>--%>
-<%--  <a class="logo" style="margin-right: 18%; padding: 15px;" href="<c:url value='/'/>"><img src="./image/logo_w.png"></a>--%>
-<%--</div>--%>
-
-<%--<div id="mySidenav" class="sidenav">--%>
-<%--  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>--%>
-<%--  <a href="#">About</a>--%>
-<%--  <a href="<c:url value="/product/list"/>">Product</a>--%>
-<%--  <a href="<c:url value="/board/list"/>">Board</a>--%>
-<%--  <a href="#">Contact</a>--%>
-<%--</div>--%>
-
-<%--&lt;%&ndash;<!--버튼-->&ndash;%&gt;--%>
-<%--<span class="sidbtn" style="font-size:40px;cursor:pointer"onclick="openNav()">&#9776;</span>--%>
-
 <jsp:include page="head.jsp" flush="false"/>
 
 <!--슬라이드 -->

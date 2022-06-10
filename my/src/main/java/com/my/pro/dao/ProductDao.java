@@ -11,6 +11,9 @@ public interface ProductDao {
 
     int count() throws Exception;
 
+    List<ProductDto> selectAll() throws Exception;
+
+
     List<ProductDto> selectCateCode(String cateCode)throws Exception;
 
 

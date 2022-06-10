@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ page session="false" %>
 <c:set var="loginId" value="${pageContext.request.getSession(false)==null ? '' : pageContext.request.session.getAttribute('id')}"/>
 <c:set var="loginOutLink" value="${loginId=='' ? '/login/login' : '/login/logout'}"/>
 <c:set var="loginOut" value="${loginId=='' ? 'Login' : loginId}"/>
@@ -11,7 +12,6 @@
 <head>
     <meta charset="UTF-8">
     <title>BOARD LIST</title>
-    <link rel="stylesheet" href="<c:url value='/css/boardList.css'/>">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://code.jquery.com/jquery-1.11.3.js"></script>
     <style>
@@ -228,11 +228,12 @@
     </style>
 </head>
 <body>
+
 <div class="navbar">
     <a class="active" href="<c:url value='${loginOutLink}'/>"><i class="fa fa-fw fa-user"></i>${loginOut}</a>
     <a href="<c:url value='${RegisterLink}'/>">${Registercheck}</a>
     <a href="#"><i class="fa fa-fw fa-home"></i>My Page</a>
-    <a class="logo" style="margin-right: 18%; padding: 15px;" href="<c:url value='/'/>"><img src="resources/image/logo_w.png"></a>
+    <a class="logo" style="margin-right: 18%; padding: 15px;" href="<c:url value='/'/>"><img src="${pageContext.request.contextPath}/image/logo_w.png"></a>
 </div>
 
 <div id="mySidenav" class="sidenav">
@@ -255,7 +256,9 @@
     if(msg=="WRT_OK")    alert("성공적으로 등록되었습니다.");
     if(msg=="MOD_OK")    alert("성공적으로 수정되었습니다.");
 </script>
+
 <div style="text-align:center">
+
     <div class="board-container">
         <div class="search-container">
             <form action="<c:url value="/board/list"/>" class="search-form" method="get">

@@ -26,12 +26,12 @@ public class ProductDaoImplTest {
         assertTrue(c == 1);
 
     }
-//    @Test
-//    public void selectAll()throws Exception{
-//        List<ProductDto> list = productDao.selectAll();
-//        System.out.println(list);
-//        assertTrue(list.size()==4);
-//    }
+    @Test
+    public void selectAll()throws Exception{
+        List<ProductDto> list = productDao.selectAll();
+        System.out.println(list);
+        assertTrue(list.size()==5);
+    }
 
     @Test
     public void select()throws Exception{

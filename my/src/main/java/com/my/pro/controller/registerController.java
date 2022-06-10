@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 @Controller
 @RequestMapping("/register")
@@ -19,8 +20,9 @@ public class registerController {
 
 
     @GetMapping("/add")
-    public String register(){
+    public String register(HttpServletRequest request){
         //화면보여주기
+        HttpSession session=request.getSession(false);
 
         return "register";
     }
