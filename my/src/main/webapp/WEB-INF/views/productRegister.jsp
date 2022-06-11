@@ -99,63 +99,63 @@
 <body>
     <div class="container">
         <div class="vertical-center">
-            <h2>상품 ${mode=="new" ? "등록" :" 조회"}</h2>
+            <h2 class="addFromBox">상품 ${mode=="new"? "등록":"조회"}</h2>
             <form method="post" autocomplete="off" name="addForm" id="addForm" enctype="multipart/form-data">
                 <input type="hidden" name="goodsNum" value="${productDto.goodsNum}">
                 <div class="inputArea">
                     <label for="goodsName">상품명</label>
-                    <input type="text" id="goodsName" name="goodsName" value="<c:out value="${productDto.goodsName}"/>" ${mode=="new"? "" : "readonly='readonly'"}>
+                    <input type="text" id="goodsName" name="goodsName" value="${productDto.goodsName}" ${mode=="new" ? "" : "readonly='readonly'"} >
                     <span class="ckeck_warn goodsN_warn">상품명을 입력해주세요(영문)</span>
                 </div>
                 <div class="inputArea">
                     <label for="subName">서브상품명(영문)</label>
-                    <input type="text" id="subName" name="subName" />
+                    <input type="text" id="subName" name="subName" value="${productDto.subName}" ${mode=="new" ? "" : "readonly='readonly'"} />
                     <span class="ckeck_warn subGdN_warn">서브상품명(영문)을 입력해주세요(영문)</span>
                 </div>
                 <div class="inputArea">
                     <label for="price">상품가격(숫자만)</label>
-                    <input type="text" id="price" name="price" placeholder="숫자만 입력"/>
+                    <input type="text" id="price" name="price" placeholder="숫자만 입력" value="${productDto.price}" ${mode=="new" ? "" : "readonly='readonly'"}/>
                     <span class="ckeck_warn price_warn">상품가격을 입력해주세요(숫자)</span>
                 </div>
                 <div class="inputArea">
                     <label for="content">상품소개</label>
-                    <textarea rows="5" cols="50" id="content" name="content"></textarea>
+                    <textarea rows="5" cols="50" id="content" name="content" ${mode=="new"? "":"readonly='readonly'"} ><c:out value="${productDto.content}"/></textarea>
                     <span class="ckeck_warn content_warn">상품내용을 입력해주세요(숫자)</span>
                 </div>
                 <div class="inputArea">
                     <label for="energy">열량</label>
-                    <input type="text" id="energy" name="energy" placeholder="숫자만 입력" />
+                    <input type="text" id="energy" name="energy" placeholder="숫자만 입력" value="${productDto.energy}" ${mode=="new" ? "" : "readonly='readonly'"} />
                     <span class="ckeck_warn energy_warn">열량을 입력해주세요(숫자)</span>
                 </div>
                 <div class="inputArea">
                     <label for="per">중량</label>
-                    <input type="text" id="per" name="per" placeholder="숫자만 입력" />
+                    <input type="text" id="per" name="per" placeholder="숫자만 입력" value="${productDto.per}" ${mode=="new" ? "" : "readonly='readonly'"} />
                     <span class="ckeck_warn per_warn">중량을 입력해주세요(숫자)</span>
                 </div>
                 <div class="inputArea">
                     <label for="protein">단백질</label>
-                    <input type="text" id="protein" name="protein" placeholder="숫자만 입력" />
+                    <input type="text" id="protein" name="protein" placeholder="숫자만 입력"  value="${productDto.protein}" ${mode=="new" ? "" : "readonly='readonly'"} />
                     <span class="ckeck_warn protein_warn">단백질을 입력해주세요(숫자)</span>
                 </div>
                 <div class="inputArea">
                     <label for="fat">지방</label>
-                    <input type="text" id="fat" name="fat" placeholder="숫자만 입력" />
+                    <input type="text" id="fat" name="fat" placeholder="숫자만 입력"  value="${productDto.fat}" ${mode=="new" ? "" : "readonly='readonly'"} />
                     <span class="ckeck_warn fat_warn">지방을 입력해주세요(숫자)</span>
                 </div>
                 <div class="inputArea">
                     <label for="sodium">나트륨</label>
-                    <input type="text" id="sodium" name="sodium" placeholder="숫자만 입력" />
+                    <input type="text" id="sodium" name="sodium" placeholder="숫자만 입력"  value="${productDto.sodium}" ${mode=="new" ? "" : "readonly='readonly'"} />
                     <span class="ckeck_warn sodium_warn">나트륨을 입력해주세요(숫자)</span>
                 </div>
                 <div class="inputArea">
                     <label for="suger">당류</label>
-                    <input type="text" id="suger" name="suger" placeholder="숫자만 입력" />
+                    <input type="text" id="suger" name="suger" placeholder="숫자만 입력"  value="${productDto.suger}" ${mode=="new" ? "" : "readonly='readonly'"}/>
                     <span class="ckeck_warn suger_warn">댱류을 입력해주세요(숫자)</span>
                 </div>
                 <div class="selectArea">
                     <span class="ckeck_warn select1_warn">1차분류를 선택해주세요</span><br>
                     <label>1차분류</label>
-                    <select class="cate1" name="cateCodeRef" id="cateCode">
+                    <select class="cate1" name="cateCodeRef" id="cateCodeRef">
                         <option value="" >전체</option>
                     </select>
                 </div>
@@ -163,39 +163,45 @@
                 <div class="selectArea">
                     <span class="ckeck_warn select2_warn">2차분류를 선택해주세요</span><br>
                     <label>2차분류</label>
-                    <select class="cate2" name="cateCode" id="cateCodeRef">
+                    <select class="cate2" name="cateCode" id="cateCode">
                         <option value="">전체</option>
                     </select>
                 </div>
 
 
-<%--                <div class="inputArea">--%>
-<%--                    <label for="uploadFile">이미지</label>--%>
-<%--                    <input type="file" id="uploadFile" name="uploadFile" />--%>
-<%--                </div>--%>
-
-                    <div class="inputArea">
-                        <span class="ckeck_warn gdImg_warn">이미지파일을 업로드해주세요</span><br>
-                        <label for="gdImg">이미지</label>
-                        <input type="file" id="gdImg" name="file" />
-                    <div class="select_img"><img src="" /></div>
-
-                        <script>
-                            $("#gdImg").change(function (){
-                               if(this.files && this.files[0]){
-                                   let reader = new FileReader;
-                                   reader.onload=function (data){
-                                       $(".select_img img").attr("src", data.target.result).width(500);
-                                   }
-                                   reader.readAsDataURL(this.files[0]);
-                               }
-                            });
-                        </script>
-                    </div>
+                <%--                <div class="inputArea">--%>
+                <%--                    <label for="uploadFile">이미지</label>--%>
+                <%--                    <input type="file" id="uploadFile" name="uploadFile" />--%>
+                <%--                </div>--%>
 
                 <div class="inputArea">
-                    <button type="submit" id="add_Btn" class="" onsubmit="formCheck()">등록</button>
-                    <button type="cancle" id="cancle_Btn" class="">취소</button>
+                    <span class="ckeck_warn gdImg_warn">이미지파일을 업로드해주세요</span><br>
+                    <label for="gdImg">이미지</label>
+                    <input type="file" id="gdImg" name="file" />
+                    <div class="select_img"><img src="" /></div>
+
+                    <script>
+                        $("#gdImg").change(function (){
+                            if(this.files && this.files[0]){
+                                let reader = new FileReader;
+                                reader.onload=function (data){
+                                    $(".select_img img").attr("src", data.target.result).width(500);
+                                }
+                                reader.readAsDataURL(this.files[0]);
+                            }
+                        });
+                    </script>
+                </div>
+
+                <div class="inputArea">
+                    <c:if test="${mode eq 'new'}">
+                        <button type="submit" id="add_Btn" class="" onsubmit="formCheck()">등록</button>
+                    </c:if>
+                    <c:if test="${mode ne 'new'}">
+                        <button type="button" id="modi_Btn" class="">수정</button>
+                        <button type="button" id="del_Btn" class="">삭제</button>
+                    </c:if>
+                    <button type="button" id="back_Btn" class="">목록</button>
                 </div>
             </form>
         </div>
@@ -230,7 +236,7 @@
         }
     }
     for(let i=0; i<cate1Arr.length;i++){
-        cateSelect1.append("<option value='"+cate1Arr[i].cateCode+"'>"+cate1Arr[i].cateName+"</option>");
+        cateSelect1.append("<option value='"+cate1Arr[i].cateCodeRef+"'>"+cate1Arr[i].cateName+"</option>");
     }
     $(cateSelect1).on("change",function (){
         let selectVal1 = $(this).find("option:selected").val();
@@ -240,14 +246,12 @@
             if(selectVal1 === cate2Arr[i].cateCodeRef){
                 cateSelect2.append("<option value='"+cate2Arr[i].cateCode+"'>"+cate2Arr[i].cateName+"</option>");
             }
-
         }
     });
-
     $(document).ready(function (){
-        $("#add_Btn").click(function (){
-            let goodsNum = $("#goodsName").val();
-            let subNum = $("#subName").val();
+        let formCheck = function (){
+            let goodsName = $("#goodsName").val();
+            let subName = $("#subName").val();
             let price = $("#price").val();
             let content = $("#content").val();
             let energy = $("#energy").val();
@@ -257,82 +261,75 @@
             let suger = $("#suger").val();
             let fat = $("#fat").val();
             let cateCode = $("#cateCode").val();
-            let cateCodRef = $("#cateCodeRef").val();
+            let cateCodeRef =$("#cateCodeRef").val();
             let gdImg = $("#gdImg").val();
-
-
-            if(goodsNum == ""){
+            if(goodsName === ""){
                 $(".goodsN_warn").css('display','block');
                 alert("상풍명을 입력해주세요");
                 document.addForm.goodsName.focus();
                 return false;
             }
-            if(subNum == ""){
+            if(subName === ""){
                 $(".subGdN_warn").css('display','block');
                 alert("서브상품명(영어)을 입력해주세요");
                 document.addForm.subName.focus();
                 return false;
             }
-            if(price == ""){
+            if(price === ""){
                 $(".price_warn").css('display','block');
                 alert("가격을 입력해주세요");
                 document.addForm.price.focus();
                 return false;
             }
-            if(content == ""){
+            if(content === ""){
                 $(".content_warn").css('display','block');
                 alert("상세내용을 입력해주세요");
                 document.addForm.content.focus();
                 return false;
             }
-            if(energy == ""){
+            if(energy === ""){
                 $(".energy_warn").css('display','block');
                 alert("열량(kcal)을 입력해주세요");
                 document.addForm.price.focus();
                 return false;
             }
-            if(protein == ""){
+            if(protein === ""){
                 $(".protein_warn").css('display','block');
                 alert("단백질 (g) 을 입력해주세요");
                 document.addForm.protein.focus();
                 return false;
-
             }
-            if(per == ""){
+            if(per === ""){
                 $(".per_warn").css('display','block');
                 alert("중량(g)을 입력해주세요");
                 document.addForm.per.focus();
                 return false;
-
             }
-            if(sodium == ""){
+            if(sodium === ""){
                 $(".sodium_warn").css('display','block');
                 alert("나트륨(mg)을 입력해주세요");
                 document.addForm.sodium.focus();
                 return false;
-
             }
-            if(suger == ""){
+            if(suger === ""){
                 $(".suger_warn").css('display','block');
                 alert("당류(g)을 입력해주세요");
                 document.addForm.suger.focus();
                 return false;
-
             }
-            if(fat ==""){
+            if(fat ===""){
                 $(".fat_warn").css('display','block');
                 alert("지방(g)을 입력해주세요");
                 document.addForm.fat.focus();
                 return false;
-
             }
-            if(cateCodeRef ==""){
+            if(cateCodeRef === ""){
                 $(".select1_warn").css('display','block');
                 alert("1차분류를 입력해주세요");
                 document.addForm.cateCodeRef.focus();
                 return false;
             }
-            if(cateCode == ""){
+            if(cateCode === ""){
                 $(".select2_warn").css('display','block');
                 alert("2차분류를 입력해주세요");
                 document.addForm.cateCodeRef.focus();
@@ -344,59 +341,52 @@
                 document.addForm.file.focus();
                 return false;
             }
-            document.addForm.action ="<c:url value="/product/add"/>";
-            document.addForm.submit();
+            return true;
+        }
+
+
+        //등록
+        $("#add_Btn").on("click",function (){
+           let form=$("#addForm");
+           form.attr("action","<c:url value="/product/add"/>");
+           form.attr("method","post");
+           if(formCheck())
+               form.submit();
         });
+        //목록 이동
+        $("#back_Btn").on("click", function (){
+           location.href="<c:url value='/product/list'/>"
+        });
+
+        //수정>>select 이미지 변경 추가해야됨.
+        $("#modi_Btn").on("click",function (){
+            let form=$("#addForm");
+            let isReadonly = $("input[name=subName]").attr('readonly');
+            if(isReadonly=='readonly') {
+                $("input[type=text]").attr('readonly', false);
+                $(".addFromBox").html("상품 수정");
+                $("textarea").attr('readonly',false);
+                return;
+            }
+            form.attr("action", "<c:url value="/product/modify"/>");
+            form.attr("method", "post");
+            if(formCheck())
+                form.submit();
+        });
+
+        //삭제
+        $("#del_Btn").on("click",function (){
+           if(!confirm("삭제하시겠습니까?")) return;
+            let form=$("#addForm");
+            form.attr("action", "<c:url value='/product/remove'/>");
+            form.attr("method", "post");
+            form.submit();
+        });
+
 
     });
 
 
-    <%--$("input[type='file']").on("change",function (e){--%>
-    <%--    let fileInput = $('input[name="uploadFile"]');--%>
-    <%--    let fileList = fileInput[0].files;--%>
-    <%--    let fileobj = fileList[0];--%>
-    <%--    let formData = new FormData();--%>
-    <%--    // console.log("fileList"+fileList); //확인용!--%>
-    <%--    // console.log("fileobj"+fileobj);--%>
-    <%--    // console.log("fileName"+fileobj.name);--%>
-    <%--    // console.log("filesize"+fileobj.size);--%>
-    <%--    // console.log("filetype"+fileobj.type);--%>
-
-    <%--    if(!fileCheck(fileobj.name, fileobj.size)){--%>
-    <%--        return false;--%>
-    <%--    }--%>
-
-    <%--    formData.append("uploadFile",fileobj); //한개! 여러개하고싶은면 for문으로 배열로 저장하기--%>
-    <%--                                                // for(let i=0; i<fileList.length; i++){--%>
-    <%--                                         //  formData.append("uploadFile",fileList[i]);--%>
-    <%--                                                // }--%>
-    <%--    $.ajax({--%>
-    <%--       url:'<c:url value="/product/uploadAction"/>',--%>
-    <%--        processData : false,--%>
-    <%--        contentType : false,--%>
-    <%--        data : formData,--%>
-    <%--        type : 'POST',--%>
-    <%--        dataType : 'json',--%>
-    <%--        success :function () {--%>
-    <%--            alert("ddddd");--%>
-    <%--        }--%>
-    <%--    });--%>
-    <%--});--%>
-
-    <%--let regex = new RegExp("(.?)\.(jpg|png)$");--%>
-    <%--let maxSize = 1048576;--%>
-
-    <%--function fileCheck(fileName, fileSize){--%>
-    <%--    if(fileSize>=maxSize){--%>
-    <%--        alert("파일 용량 초과");--%>
-    <%--        return false;--%>
-    <%--    }--%>
-    <%--    if(!regex.test(fileName)){--%>
-    <%--        alert("jpg,png 이미지만 업로드가능합니다.");--%>
-    <%--        return false;--%>
-    <%--    }--%>
-    <%--    return true;--%>
-    <%--}--%>
 
 </script>
 

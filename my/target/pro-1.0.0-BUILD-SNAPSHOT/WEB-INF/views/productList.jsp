@@ -121,7 +121,7 @@
                 </thead>
                 <tbody>
                     <c:forEach items="${list}" var="productdto">
-                        <tr>/product/read?goodsNum=${productdto.goodsNum}
+                        <tr>
                             <td>${productdto.goodsNum}</td>
                             <td><a href="<c:url value="/product/read?goodsNum=${productdto.goodsNum}"/>">${productdto.goodsName}</a></td>
                             <td><a href="<c:url value="/product/read?goodsNum=${productdto.goodsNum}"/>">${productdto.subName}</a></td>

@@ -33,8 +33,7 @@ public class BoardController {
         try {
             if (boardService.modify(boardDto)!= 1)
                 throw new Exception("Modify failed.");
-            System.out.println("modify:" +sc);
-            System.out.println("modify:" +boardDto);
+
             rattr.addFlashAttribute("msg", "MOD_OK");
             return "redirect:/board/list"+sc.getQueryString();
         } catch (Exception e) {
@@ -96,8 +95,6 @@ public class BoardController {
             if(boardService.remove(bno, writer)!=1)
                 throw new Exception("Delete failed.");
 
-            System.out.println("remove sc "+sc);
-            System.out.println();
         } catch (Exception e) {
             e.printStackTrace();
             msg = "DEL_ERR";

@@ -22,18 +22,26 @@ public class ProductServieImple implements ProductServie {
      return productDao.insert(dto);
  }
  @Override
- public List<ProductDto> selectCateCode(String cateCode)throws Exception{
-     return productDao.selectCateCode(cateCode);
+ public ProductDto read(Integer goodsNum)throws Exception{
+     return productDao.selectNum(goodsNum);
  }
 
  @Override
  public List<ProductDto> selectAll() throws Exception {
     return productDao.selectAll();
  }
- @Override
- public ProductDto read(Integer goodsNum)throws Exception{
-   return productDao.select(goodsNum);
+@Override
+ public int modify(ProductDto dto)throws Exception{
+  return productDao.update(dto);
  }
+// @Override
+// public ProductDto read(Integer goodsNum)throws Exception{
+//   return productDao.select(goodsNum);
+// }
+@Override
+public int remove(Integer goodsNum)throws Exception{
+  return productDao.delete(goodsNum);
+}
 
 
 }

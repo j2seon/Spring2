@@ -77,9 +77,9 @@ public class ProductController {
     @GetMapping("/add")
     public String goodAdd(HttpServletRequest request, Model m,HttpSession session){
         //일단 asdf로 지정
-//            if(!adminCheck(request))
-//                return "redirect:/login/login?toURL="+request.getRequestURL();
-//
+            if(!adminCheck(request))
+                return "redirect:/login/login?toURL="+request.getRequestURL();
+
         //카테고리 정보받는 객체만들기 등록할때 카테고리 select 때문
             ObjectMapper objm = new ObjectMapper();
         try {
@@ -101,8 +101,9 @@ public class ProductController {
     //상품등록 >> 등록후에 리스트 페이지로 이동
     @PostMapping("/add")
         public String goodAdd(ProductDto productDto, Model m, RedirectAttributes rattr, MultipartFile file,HttpServletRequest request) {
-        if(!adminCheck(request))
-            return "redirect:/login/login?toURL="+request.getRequestURL();
+//        if(!adminCheck(request))
+//            return "redirect:/login/login?toURL="+request.getRequestURL();
+
         try{
             String path = "C:\\Users\\ddj04\\IdeaProjects\\my\\src\\main\\webapp\\resources";
             String imgUploadPath = path + File.separator+"upload";
@@ -120,9 +121,8 @@ public class ProductController {
             if(productServie.add(productDto)!=1)
                 throw new Exception();
 
-            rattr.addFlashAttribute("msg", "File_Upload_Success");
             m.addAttribute(productDto);
-            return "redirect:/product/list";
+            return "redirect:/";
 
         }catch (Exception e) {
             m.addAttribute("msg", "File_Upload_Fail");
@@ -135,14 +135,51 @@ public class ProductController {
     @GetMapping("/read")
     public String read(Integer goodsNum,Model m,RedirectAttributes ratt){
         try {
+            //카테고리 정보받는 객체만들기 등록할때 카테고리 select 때문
+            ObjectMapper objm = new ObjectMapper();
+            //카테고리 페이지 누르면 카테고리의 값을 받아야하니까!
+            List<CateDto> list = cateService.categoryList();
+            String category = objm.writeValueAsString(list);
             ProductDto productDto = productServie.read(goodsNum);
+            System.out.println(productDto);
+            m.addAttribute("category",category);
             m.addAttribute(productDto);
+
         } catch (Exception e) {
             e.printStackTrace();
             return "redirect:/product/list";
         }
-        return "productRegistercopy";
+        return "productRegister";
+    }
 
+    @PostMapping("/modify")
+    public String modify(ProductDto productDto,Integer goodsNum, Model m){
+        try {
+            if(productServie.modify(productDto) != 1)
+            throw new Exception("MOD_Fail");
+
+            return "redirect:/product/list";
+        } catch (Exception e) {
+            e.printStackTrace();
+            m.addAttribute(productDto);
+            return "productRegister";
+        }
+    }
+
+    @PostMapping("/remove")
+    public String remove(Integer goodsNum, RedirectAttributes rattr){
+        String msg = "DEL_OK";
+        try {
+            if(productServie.remove(goodsNum)!=1)
+                throw new Exception("Dele_Fail");
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            msg = "DEL_ERR";
+        }
+
+        rattr.addFlashAttribute("msg",msg);
+        return "redirect:/product/list";
     }
 
 
@@ -157,7 +194,6 @@ public class ProductController {
         HttpSession session = request.getSession(false);
         // 2. 세션이 null이 아니고 id 값이 asdf일때 true
         return session!=null && session.getAttribute("id").equals("asdf");
-
 
     }
 

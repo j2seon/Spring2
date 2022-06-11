@@ -11,8 +11,12 @@ public interface ProductDao {
 
     List<ProductDto> selectAll() throws Exception;
 
-    List<ProductDto> selectCateCode(String cateCode)throws Exception;
+    ProductDto selectNum(Integer goodsNum)throws Exception;
 
-    ProductDto select(Integer goodsNum)throws Exception;
+//    ProductDto select(Integer goodsNum)throws Exception;
+     int update(ProductDto dto)throws Exception;
+     int delete(Integer goodsNum)throws Exception;
+
+
 
     }

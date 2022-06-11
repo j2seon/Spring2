@@ -94,14 +94,17 @@
 
 </style>
 <jsp:include page="head.jsp" flush="false"/>
-
+<script>
+</script>
 <body>
     <div class="container">
         <div class="vertical-center">
+            <h2 class="writing-header">상품 등록</h2>
             <form method="post" autocomplete="off" name="addForm" id="addForm" enctype="multipart/form-data">
+                <input type="hidden" name="goodsNum" >
                 <div class="inputArea">
                     <label for="goodsName">상품명</label>
-                    <input type="text" id="goodsName" name="goodsName" />
+                    <input type="text" id="goodsName" name="goodsName" >
                     <span class="ckeck_warn goodsN_warn">상품명을 입력해주세요(영문)</span>
                 </div>
                 <div class="inputArea">
@@ -152,7 +155,7 @@
                 <div class="selectArea">
                     <span class="ckeck_warn select1_warn">1차분류를 선택해주세요</span><br>
                     <label>1차분류</label>
-                    <select class="cate1" name="cateCodeRef" id="cateCode">
+                    <select class="cate1" name="cateCodeRef" id="cateCodeRef">
                         <option value="" >전체</option>
                     </select>
                 </div>
@@ -160,39 +163,39 @@
                 <div class="selectArea">
                     <span class="ckeck_warn select2_warn">2차분류를 선택해주세요</span><br>
                     <label>2차분류</label>
-                    <select class="cate2" name="cateCode" id="cateCodeRef">
+                    <select class="cate2" name="cateCode" id="cateCode">
                         <option value="">전체</option>
                     </select>
                 </div>
 
 
-<%--                <div class="inputArea">--%>
-<%--                    <label for="uploadFile">이미지</label>--%>
-<%--                    <input type="file" id="uploadFile" name="uploadFile" />--%>
-<%--                </div>--%>
+                <%--                <div class="inputArea">--%>
+                <%--                    <label for="uploadFile">이미지</label>--%>
+                <%--                    <input type="file" id="uploadFile" name="uploadFile" />--%>
+                <%--                </div>--%>
 
-                    <div class="inputArea">
-                        <span class="ckeck_warn gdImg_warn">이미지파일을 업로드해주세요</span><br>
-                        <label for="gdImg">이미지</label>
-                        <input type="file" id="gdImg" name="file" />
+                <div class="inputArea">
+                    <span class="ckeck_warn gdImg_warn">이미지파일을 업로드해주세요</span><br>
+                    <label for="gdImg">이미지</label>
+                    <input type="file" id="gdImg" name="file" />
                     <div class="select_img"><img src="" /></div>
 
-                        <script>
-                            $("#gdImg").change(function (){
-                               if(this.files && this.files[0]){
-                                   let reader = new FileReader;
-                                   reader.onload=function (data){
-                                       $(".select_img img").attr("src", data.target.result).width(500);
-                                   }
-                                   reader.readAsDataURL(this.files[0]);
-                               }
-                            });
-                        </script>
-                    </div>
+                    <script>
+                        $("#gdImg").change(function (){
+                            if(this.files && this.files[0]){
+                                let reader = new FileReader;
+                                reader.onload=function (data){
+                                    $(".select_img img").attr("src", data.target.result).width(500);
+                                }
+                                reader.readAsDataURL(this.files[0]);
+                            }
+                        });
+                    </script>
+                </div>
 
                 <div class="inputArea">
                     <button type="submit" id="add_Btn" class="" onsubmit="formCheck()">등록</button>
-                    <button type="cancle" id="cancle_Btn" class="">취소</button>
+                    <button type="button" id="cancle_Btn" class="">취소</button>
                 </div>
             </form>
         </div>
@@ -227,7 +230,7 @@
         }
     }
     for(let i=0; i<cate1Arr.length;i++){
-        cateSelect1.append("<option value='"+cate1Arr[i].cateCode+"'>"+cate1Arr[i].cateName+"</option>");
+        cateSelect1.append("<option value='"+cate1Arr[i].cateCodeRef+"'>"+cate1Arr[i].cateName+"</option>");
     }
     $(cateSelect1).on("change",function (){
         let selectVal1 = $(this).find("option:selected").val();
@@ -237,14 +240,12 @@
             if(selectVal1 === cate2Arr[i].cateCodeRef){
                 cateSelect2.append("<option value='"+cate2Arr[i].cateCode+"'>"+cate2Arr[i].cateName+"</option>");
             }
-
         }
     });
-
     $(document).ready(function (){
         $("#add_Btn").click(function (){
-            let goodsNum = $("#goodsName").val();
-            let subNum = $("#subName").val();
+            let goodsName = $("#goodsName").val();
+            let subName = $("#subName").val();
             let price = $("#price").val();
             let content = $("#content").val();
             let energy = $("#energy").val();
@@ -254,82 +255,77 @@
             let suger = $("#suger").val();
             let fat = $("#fat").val();
             let cateCode = $("#cateCode").val();
-            let cateCodRef = $("#cateCodeRef").val();
+            let cateCodeRef =$("#cateCodeRef").val();
             let gdImg = $("#gdImg").val();
 
 
-            if(goodsNum == ""){
+            if(goodsName === ""){
                 $(".goodsN_warn").css('display','block');
                 alert("상풍명을 입력해주세요");
                 document.addForm.goodsName.focus();
                 return false;
             }
-            if(subNum == ""){
+            if(subName === ""){
                 $(".subGdN_warn").css('display','block');
                 alert("서브상품명(영어)을 입력해주세요");
                 document.addForm.subName.focus();
                 return false;
             }
-            if(price == ""){
+            if(price === ""){
                 $(".price_warn").css('display','block');
                 alert("가격을 입력해주세요");
                 document.addForm.price.focus();
                 return false;
             }
-            if(content == ""){
+            if(content === ""){
                 $(".content_warn").css('display','block');
                 alert("상세내용을 입력해주세요");
                 document.addForm.content.focus();
                 return false;
             }
-            if(energy == ""){
+            if(energy === ""){
                 $(".energy_warn").css('display','block');
                 alert("열량(kcal)을 입력해주세요");
                 document.addForm.price.focus();
                 return false;
             }
-            if(protein == ""){
+            if(protein === ""){
                 $(".protein_warn").css('display','block');
                 alert("단백질 (g) 을 입력해주세요");
                 document.addForm.protein.focus();
                 return false;
-
             }
-            if(per == ""){
+            if(per === ""){
                 $(".per_warn").css('display','block');
                 alert("중량(g)을 입력해주세요");
                 document.addForm.per.focus();
                 return false;
-
             }
-            if(sodium == ""){
+            if(sodium === ""){
                 $(".sodium_warn").css('display','block');
                 alert("나트륨(mg)을 입력해주세요");
                 document.addForm.sodium.focus();
                 return false;
-
             }
-            if(suger == ""){
+            if(suger === ""){
                 $(".suger_warn").css('display','block');
                 alert("당류(g)을 입력해주세요");
                 document.addForm.suger.focus();
                 return false;
-
             }
-            if(fat ==""){
+            if(fat ===""){
                 $(".fat_warn").css('display','block');
                 alert("지방(g)을 입력해주세요");
                 document.addForm.fat.focus();
                 return false;
-
             }
-            if(cateCodeRef ==""){
+            if(cateCodeRef === ""){
                 $(".select1_warn").css('display','block');
                 alert("1차분류를 입력해주세요");
                 document.addForm.cateCodeRef.focus();
                 return false;
             }
-            if(cateCode == ""){
+            if(cateCode === ""){
                 $(".select2_warn").css('display','block');
                 alert("2차분류를 입력해주세요");
                 document.addForm.cateCodeRef.focus();
@@ -344,9 +340,7 @@
             document.addForm.action ="<c:url value="/product/add"/>";
             document.addForm.submit();
         });
-
     });
-
 
     <%--$("input[type='file']").on("change",function (e){--%>
     <%--    let fileInput = $('input[name="uploadFile"]');--%>

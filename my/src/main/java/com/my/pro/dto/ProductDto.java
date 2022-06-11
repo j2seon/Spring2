@@ -4,8 +4,8 @@ import java.util.Date;
 import java.util.Objects;
 
 public class ProductDto {
-    private int goodsNum; //번호 자동증가.
-    private int price; //가격
+    private Integer goodsNum; //번호 자동증가.
+    private Integer price; //가격
     private String goodsName; // 이름
     private String subName; //영어이름
     private String content; // 내용
@@ -14,12 +14,12 @@ public class ProductDto {
     private String gdImg;
 
     private String gdThum;
-    private int energy; // 열랑
-    private int protein; //단백질
-    private int per; //중량
-    private int sodium; // 나트륨
-    private int suger; //당류
-    private int fat; //지방
+    private Integer energy; // 열랑
+    private Integer protein; //단백질
+    private Integer per; //중량
+    private Integer sodium; // 나트륨
+    private Integer suger; //당류
+    private Integer fat; //지방
     private Date reg_date;
     private Date up_date;
 
@@ -34,15 +34,16 @@ public class ProductDto {
     }
 
 
-    public ProductDto(){}
-
-    public ProductDto(int goodsNum,String cateCode,String cateCodeRef){
-        this.goodsNum=goodsNum;
-        this.cateCode=cateCode;
-        this.cateCodeRef=cateCodeRef;
+    public ProductDto() {
     }
 
-    public ProductDto(int price, String goodsName, String subName, String content, String cateCode, String cateCodeRef, String gdImg, String gdThum, int energy, int protein, int per, int sodium, int suger, int fat) {
+    public ProductDto(int goodsNum, String cateCode, String cateCodeRef) {
+        this.goodsNum = goodsNum;
+        this.cateCode = cateCode;
+        this.cateCodeRef = cateCodeRef;
+    }
+
+    public ProductDto(Integer price, String goodsName, String subName, String content, String cateCode, String cateCodeRef, String gdImg, String gdThum, Integer energy, Integer protein, Integer per, Integer sodium, Integer suger, Integer fat) {
         this.price = price;
         this.goodsName = goodsName;
         this.subName = subName;
@@ -59,7 +60,7 @@ public class ProductDto {
         this.fat = fat;
     }
 
-    public ProductDto(int goodsNum, String goodsName, String gdImg , String gdThum, String cateCode, String cateCodeRef, String content){
+    public ProductDto(Integer goodsNum, String goodsName, String gdImg, String gdThum, String cateCode, String cateCodeRef, String content) {
         this.goodsNum = goodsNum;
         this.goodsName = goodsName;
         this.gdImg = gdImg;
@@ -69,56 +70,19 @@ public class ProductDto {
         this.content = content;
     }
 
-    @Override
-    public String toString() {
-        return "ProductDto{" +
-                "goodsNum=" + goodsNum +
-                ", price=" + price +
-                ", goodsName='" + goodsName + '\'' +
-                ", subName='" + subName + '\'' +
-                ", content='" + content + '\'' +
-                ", cateCode='" + cateCode + '\'' +
-                ", cateCodeRef='" + cateCodeRef + '\'' +
-                ", gdImg='" + gdImg + '\'' +
-                ", gdThum='" + gdThum + '\'' +
-                ", energy=" + energy +
-                ", protein=" + protein +
-                ", per=" + per +
-                ", sodium=" + sodium +
-                ", suger=" + suger +
-                ", fat=" + fat +
-                ", reg_date=" + reg_date +
-                ", up_date=" + up_date +
-                ", cateName='" + cateName + '\'' +
-                '}';
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof ProductDto)) return false;
-        ProductDto that = (ProductDto) o;
-        return goodsNum == that.goodsNum && price == that.price && energy == that.energy && protein == that.protein && per == that.per && sodium == that.sodium && suger == that.suger && fat == that.fat && Objects.equals(goodsName, that.goodsName) && Objects.equals(subName, that.subName) && Objects.equals(content, that.content) && Objects.equals(cateCode, that.cateCode) && Objects.equals(cateCodeRef, that.cateCodeRef) && Objects.equals(gdImg, that.gdImg) && Objects.equals(gdThum, that.gdThum) && Objects.equals(reg_date, that.reg_date) && Objects.equals(up_date, that.up_date) && Objects.equals(cateName, that.cateName);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(goodsNum, price, goodsName, subName, content, cateCode, cateCodeRef, gdImg, gdThum, energy, protein, per, sodium, suger, fat, reg_date, up_date, cateName);
-    }
-
-    public int getGoodsNum() {
+    public Integer getGoodsNum() {
         return goodsNum;
     }
 
-    public void setGoodsNum(int goodsNum) {
+    public void setGoodsNum(Integer goodsNum) {
         this.goodsNum = goodsNum;
     }
 
-    public int getPrice() {
+    public Integer getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(Integer price) {
         this.price = price;
     }
 
@@ -178,51 +142,51 @@ public class ProductDto {
         this.gdThum = gdThum;
     }
 
-    public int getEnergy() {
+    public Integer getEnergy() {
         return energy;
     }
 
-    public void setEnergy(int energy) {
+    public void setEnergy(Integer energy) {
         this.energy = energy;
     }
 
-    public int getProtein() {
+    public Integer getProtein() {
         return protein;
     }
 
-    public void setProtein(int protein) {
+    public void setProtein(Integer protein) {
         this.protein = protein;
     }
 
-    public int getPer() {
+    public Integer getPer() {
         return per;
     }
 
-    public void setPer(int per) {
+    public void setPer(Integer per) {
         this.per = per;
     }
 
-    public int getSodium() {
+    public Integer getSodium() {
         return sodium;
     }
 
-    public void setSodium(int sodium) {
+    public void setSodium(Integer sodium) {
         this.sodium = sodium;
     }
 
-    public int getSuger() {
+    public Integer getSuger() {
         return suger;
     }
 
-    public void setSuger(int suger) {
+    public void setSuger(Integer suger) {
         this.suger = suger;
     }
 
-    public int getFat() {
+    public Integer getFat() {
         return fat;
     }
 
-    public void setFat(int fat) {
+    public void setFat(Integer fat) {
         this.fat = fat;
     }
 
@@ -241,4 +205,15 @@ public class ProductDto {
     public void setUp_date(Date up_date) {
         this.up_date = up_date;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof ProductDto)) return false;
+        ProductDto dto = (ProductDto) o;
+        return goodsNum == dto.goodsNum && Objects.equals(price, dto.price) && Objects.equals(goodsName, dto.goodsName) && Objects.equals(subName, dto.subName) && Objects.equals(content, dto.content) && Objects.equals(cateCode, dto.cateCode) && Objects.equals(cateCodeRef, dto.cateCodeRef) && Objects.equals(gdImg, dto.gdImg) && Objects.equals(gdThum, dto.gdThum) && Objects.equals(energy, dto.energy) && Objects.equals(protein, dto.protein) && Objects.equals(per, dto.per) && Objects.equals(sodium, dto.sodium) && Objects.equals(suger, dto.suger) && Objects.equals(fat, dto.fat) && Objects.equals(reg_date, dto.reg_date) && Objects.equals(up_date, dto.up_date) && Objects.equals(cateName, dto.cateName);
+    }
+
 }
+
+

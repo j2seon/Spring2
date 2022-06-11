@@ -77,9 +77,8 @@
             sodium = #{sodium},
             suger = #{suger},
             fat = #{fat},
-            reg_date = now(),
             up_date = now()
-        WHERE bno = #{bno}
+        WHERE goodsNum = #{goodsNum}
     </update>
 
     <delete id="delete" parameterType="int">
@@ -120,6 +119,8 @@
         <result column="fat" property="fat"/>
         <result column="cateCode" property="cateCode"/>
         <result column="cateCodeRef" property="cateCodeRef"/>
+        <result column="reg_date" property="reg_date"/>
+        <result column="up_date" property="up_date"/>
     </resultMap>
 
     <resultMap id="goodcate" type="CateDto">
@@ -128,12 +129,12 @@
         <result column="cateCodeRef" property="cateCodeRef"/>
     </resultMap>
 
-    <select id="selectCateCode" parameterType="String" resultType="ProductDto">
-        select g.goodsNum, g.price,g.goodsName,g.subName,g.content,g.gdImg,g.gdThum,g.energy,g.protein,g.per,g.sodium,g.suger,g.fat,c.cateCode,c.cateCodeRef,c.cateName
+    <select id="selectNum" parameterType="int" resultType="ProductDto">
+        select g.goodsNum, g.price,g.goodsName,g.subName,g.content,g.gdImg,g.gdThum,g.energy,g.protein,g.per,g.sodium,g.suger,g.fat,g.reg_date,g.up_date,c.cateCode,c.cateCodeRef,c.cateName
         from goods g
         inner join goodcate c
         on g.cateCode = c.cateCode
-        where g.cateCode=#{cateCode};
+        where g.goodsNum = #{goodsNum};
     </select>
 
 

@@ -20,10 +20,8 @@ public class ProductDaoImplTest {
 
     @Test
     public void insert() throws Exception {
-        ProductDto dto = new ProductDto(11231, "DD", "sdf", "asd", "101", "100", "sd", "sd",1, 1, 1, 1, 1,1);
-
-        int c=productDao.insert(dto);
-        assertTrue(c == 1);
+        ProductDto dto = new ProductDto(1,"a","aa","aa","101","100","asdf","asdf",1,1,1,1,1,1);
+        productDao.insert(dto);
 
     }
     @Test
@@ -32,15 +30,15 @@ public class ProductDaoImplTest {
         System.out.println(list);
         assertTrue(list.size()==5);
     }
-
     @Test
-    public void select()throws Exception{
-        Integer num=3;
+    public void delete()throws Exception{
+        Integer c = 11;
+        int cc = productDao.delete(c);
 
-        ProductDto dto=productDao.select(num);
-        System.out.println(dto);
-        assertTrue(dto.getGoodsNum()==3);
+        assertTrue(cc==1);
+
     }
+
     @Test
     public void count()throws Exception{
 
@@ -48,9 +46,9 @@ public class ProductDaoImplTest {
 
     @Test
     public void selectCateCode()throws Exception{
-        String a = "101";
-        List<ProductDto> li =productDao.selectCateCode(a);
-        assertTrue(li.size()==2);
+        Integer goodsNum=3;
+        ProductDto dto =productDao.selectNum(goodsNum);
+        assertTrue(dto.getGoodsNum()==3);
     }
 
 
