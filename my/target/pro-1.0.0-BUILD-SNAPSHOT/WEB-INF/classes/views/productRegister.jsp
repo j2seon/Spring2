@@ -177,8 +177,20 @@
                 <div class="inputArea">
                     <span class="ckeck_warn gdImg_warn">이미지파일을 업로드해주세요</span><br>
                     <label for="gdImg">이미지</label>
-                    <input type="file" id="gdImg" name="file" />
-                    <div class="select_img"><img src="" /></div>
+                        <input type="file" id="gdImg" name="file"/>
+                    <div class="select_img">
+                        <c:if test="${mode ne 'new'}">
+                        <img src="${pageContext.request.contextPath}${productDto.gdThum}"/>
+                        <img src="${pageContext.request.contextPath}${productDto.gdImg}"/>
+                        <input type="hidden" name="gdImg" value="${productDto.gdImg}"/>
+                        <input type="hidden" name="gdThum" value="${productDto.gdThum}"/>
+                        </c:if>
+                        <c:if test="${mode eq 'new'}">
+                            <img src=""/>
+                        </c:if>
+
+                    </div>
+                    </div>
 
                     <script>
                         $("#gdImg").change(function (){
@@ -335,12 +347,15 @@
                 document.addForm.cateCodeRef.focus();
                 return false;
             }
+            <c:if test="${mode eq 'new'}">
             if(gdImg == ""){
                 $(".gdImg_warn").css('display','block');
                 alert("이미지를 추가해주세요");
                 document.addForm.file.focus();
                 return false;
             }
+            </c:if>
+            
             return true;
         }
 
@@ -358,7 +373,7 @@
            location.href="<c:url value='/product/list'/>"
         });
 
-        //수정
+        //수정>>select 이미지 변경 추가해야됨.
         $("#modi_Btn").on("click",function (){
             let form=$("#addForm");
             let isReadonly = $("input[name=subName]").attr('readonly');
@@ -386,52 +401,7 @@
 
     });
 
-    <%--$("input[type='file']").on("change",function (e){--%>
-    <%--    let fileInput = $('input[name="uploadFile"]');--%>
-    <%--    let fileList = fileInput[0].files;--%>
-    <%--    let fileobj = fileList[0];--%>
-    <%--    let formData = new FormData();--%>
-    <%--    // console.log("fileList"+fileList); //확인용!--%>
-    <%--    // console.log("fileobj"+fileobj);--%>
-    <%--    // console.log("fileName"+fileobj.name);--%>
-    <%--    // console.log("filesize"+fileobj.size);--%>
-    <%--    // console.log("filetype"+fileobj.type);--%>
 
-    <%--    if(!fileCheck(fileobj.name, fileobj.size)){--%>
-    <%--        return false;--%>
-    <%--    }--%>
-
-    <%--    formData.append("uploadFile",fileobj); //한개! 여러개하고싶은면 for문으로 배열로 저장하기--%>
-    <%--                                                // for(let i=0; i<fileList.length; i++){--%>
-    <%--                                         //  formData.append("uploadFile",fileList[i]);--%>
-    <%--                                                // }--%>
-    <%--    $.ajax({--%>
-    <%--       url:'<c:url value="/product/uploadAction"/>',--%>
-    <%--        processData : false,--%>
-    <%--        contentType : false,--%>
-    <%--        data : formData,--%>
-    <%--        type : 'POST',--%>
-    <%--        dataType : 'json',--%>
-    <%--        success :function () {--%>
-    <%--            alert("ddddd");--%>
-    <%--        }--%>
-    <%--    });--%>
-    <%--});--%>
-
-    <%--let regex = new RegExp("(.?)\.(jpg|png)$");--%>
-    <%--let maxSize = 1048576;--%>
-
-    <%--function fileCheck(fileName, fileSize){--%>
-    <%--    if(fileSize>=maxSize){--%>
-    <%--        alert("파일 용량 초과");--%>
-    <%--        return false;--%>
-    <%--    }--%>
-    <%--    if(!regex.test(fileName)){--%>
-    <%--        alert("jpg,png 이미지만 업로드가능합니다.");--%>
-    <%--        return false;--%>
-    <%--    }--%>
-    <%--    return true;--%>
-    <%--}--%>
 
 </script>
 

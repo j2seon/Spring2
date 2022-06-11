@@ -43,6 +43,30 @@ public class ProductDto {
         this.cateCodeRef = cateCodeRef;
     }
 
+    @Override
+    public String toString() {
+        return "ProductDto{" +
+                "goodsNum=" + goodsNum +
+                ", price=" + price +
+                ", goodsName='" + goodsName + '\'' +
+                ", subName='" + subName + '\'' +
+                ", content='" + content + '\'' +
+                ", cateCode='" + cateCode + '\'' +
+                ", cateCodeRef='" + cateCodeRef + '\'' +
+                ", gdImg='" + gdImg + '\'' +
+                ", gdThum='" + gdThum + '\'' +
+                ", energy=" + energy +
+                ", protein=" + protein +
+                ", per=" + per +
+                ", sodium=" + sodium +
+                ", suger=" + suger +
+                ", fat=" + fat +
+                ", reg_date=" + reg_date +
+                ", up_date=" + up_date +
+                ", cateName='" + cateName + '\'' +
+                '}';
+    }
+
     public ProductDto(Integer price, String goodsName, String subName, String content, String cateCode, String cateCodeRef, String gdImg, String gdThum, Integer energy, Integer protein, Integer per, Integer sodium, Integer suger, Integer fat) {
         this.price = price;
         this.goodsName = goodsName;

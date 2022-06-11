@@ -177,8 +177,20 @@
                 <div class="inputArea">
                     <span class="ckeck_warn gdImg_warn">이미지파일을 업로드해주세요</span><br>
                     <label for="gdImg">이미지</label>
-                    <input type="file" id="gdImg" name="file" />
-                    <div class="select_img"><img src="" /></div>
+                        <input type="file" id="gdImg" name="file"/>
+                    <div class="select_img">
+                        <c:if test="${mode ne 'new'}">
+                        <img src="${pageContext.request.contextPath}${productDto.gdThum}"/>
+                        <img src="${pageContext.request.contextPath}${productDto.gdImg}"/>
+                        <input type="hidden" name="gdImg" value="${productDto.gdImg}"/>
+                        <input type="hidden" name="gdThum" value="${productDto.gdThum}"/>
+                        </c:if>
+                        <c:if test="${mode eq 'new'}">
+                            <img src=""/>
+                        </c:if>
+
+                    </div>
+                    </div>
 
                     <script>
                         $("#gdImg").change(function (){
@@ -335,12 +347,15 @@
                 document.addForm.cateCodeRef.focus();
                 return false;
             }
+            <c:if test="${mode eq 'new'}">
             if(gdImg == ""){
                 $(".gdImg_warn").css('display','block');
                 alert("이미지를 추가해주세요");
                 document.addForm.file.focus();
                 return false;
             }
+            </c:if>
+
             return true;
         }
 

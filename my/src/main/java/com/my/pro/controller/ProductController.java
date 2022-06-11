@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.io.IOException;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.ZoneId;
@@ -40,7 +41,11 @@ public class ProductController {
    @Autowired
    UploadFileUtils uploadFileUtils;
 
-   // 상품리스트 보여주기
+
+   final String path = "C://Users//ddj04//IdeaProjects//my//src//main//webapp//resources";
+
+
+    // 상품리스트 보여주기
 //    @GetMapping("/list")
 //    public String goodslist(HttpServletRequest request){
 //
@@ -88,8 +93,8 @@ public class ProductController {
             String category = objm.writeValueAsString(list);
             m.addAttribute("category",category);
             m.addAttribute("mode","new");
-            
-            
+
+
             return "productRegister"; //뷰페이지로 이동하게!
 
         } catch (Exception e) {
@@ -97,7 +102,7 @@ public class ProductController {
             return "main";
         }
     }
-    
+
     //상품등록 >> 등록후에 리스트 페이지로 이동
     @PostMapping("/add")
         public String goodAdd(ProductDto productDto, Model m, RedirectAttributes rattr, MultipartFile file,HttpServletRequest request) {
@@ -105,7 +110,6 @@ public class ProductController {
 //            return "redirect:/login/login?toURL="+request.getRequestURL();
 
         try{
-            String path = "C:\\Users\\ddj04\\IdeaProjects\\my\\src\\main\\webapp\\resources";
             String imgUploadPath = path + File.separator+"upload";
             String ymdPath = UploadFileUtils.calcPath(imgUploadPath);
             String fileName = null;
@@ -113,9 +117,9 @@ public class ProductController {
             if(file != null){
                 fileName = UploadFileUtils.fileUpload(imgUploadPath,file.getOriginalFilename(),file.getBytes(),ymdPath);
             }else{
-                fileName = path+File.separator + "upload" + File.separator+"none.png";
+                fileName = path + File.separator + "upload" + File.separator+"none.png";
             }
-            productDto.setGdImg(File.separator + "path" + ymdPath + File.separator + fileName);
+            productDto.setGdImg(File.separator + "upload" + ymdPath + File.separator + fileName);
             productDto.setGdThum(File.separator + "upload" + ymdPath + File.separator + "s" + File.separator + "s_"+fileName);
 
             if(productServie.add(productDto)!=1)
@@ -153,10 +157,30 @@ public class ProductController {
     }
 
     @PostMapping("/modify")
-    public String modify(ProductDto productDto,Integer goodsNum, Model m){
+    public String modify(ProductDto productDto,MultipartFile file,HttpServletRequest request,Integer goodsNum, Model m){
         try {
+
+            if (file.getOriginalFilename() != null && file.getOriginalFilename() != "") {
+                new File(path + request.getParameter("gdImg")).delete();
+                new File(path + request.getParameter("gdThum")).delete();
+            String imgUploadPath = path + File.separator + "upload";
+                System.out.println(imgUploadPath+"imgpath");
+            String ymdPath = UploadFileUtils.calcPath(imgUploadPath);
+            String fileName = UploadFileUtils.fileUpload(imgUploadPath, file.getOriginalFilename(), file.getBytes(), ymdPath);
+                System.out.println(fileName+"filename");
+                System.out.println(ymdPath+"ymddddd");
+            productDto.setGdImg(File.separator + "upload" + ymdPath + File.separator + fileName);
+            productDto.setGdThum(File.separator + "upload" + ymdPath + File.separator + "s" + File.separator + "s_" + fileName);
+            }else {
+                productDto.setGdImg(request.getParameter("gdImg"));
+                productDto.setGdThum(request.getParameter("gdThum"));
+
+            }
+
             if(productServie.modify(productDto) != 1)
             throw new Exception("MOD_Fail");
+
+            System.out.println(productDto);
 
             return "redirect:/product/list";
         } catch (Exception e) {
@@ -181,11 +205,6 @@ public class ProductController {
         rattr.addFlashAttribute("msg",msg);
         return "redirect:/product/list";
     }
-
-
-
-
-
 
 
     //관리자만...
