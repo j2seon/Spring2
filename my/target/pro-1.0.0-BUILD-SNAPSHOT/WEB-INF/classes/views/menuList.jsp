@@ -143,44 +143,16 @@
     </div>
   </div>
   <div id="con-menu">
-    <button class="tablink" onclick="openPage('Home', this, 'red')">전체</button>
-    <button class="tablink" onclick="openPage('News', this, 'green')" id="defaultOpen">클래식</button>
-    <button class="tablink" onclick="openPage('Contact', this, 'blue')">프레쉬&라이트</button>
-    <button class="tablink" onclick="openPage('About', this, 'pink')">프리미엄</button>
-    <button class="tablink" onclick="openPage('About', this, 'pink')">신제품</button>
+    <button class="tablink" onclick="openPage('Home', this, 'red')"><a href="">전체</a></button>
+    <button class="tablink" onclick="openPage('News', this, 'green')" id="defaultOpen"><a href="">클래식</a></button>
+    <button class="tablink" onclick="openPage('Contact', this, 'blue')"><a href="">프레쉬&라이트</a></button>
+    <button class="tablink" onclick="openPage('About', this, 'pink')"><a href="">프리미엄</a></button>
+    <button class="tablink" onclick="openPage('About', this, 'pink')"><a href="">신제품</a></button>
 
     <div id="Home" class="tabcontent">
       <h3>ppp</h3>
       <div>
-        <table>
-          <thead>
-          <tr>
-            <th>상품명</th>
-            <th>sub상품명</th>
-            <th>가격</th>
-            <th>중량</th>
-            <th>열량</th>
-            <th>단백질</th>
-            <th>지방</th>
-            <th>당류</th>
-            <th>나트륨</th>
-          </tr>
-          </thead>
-          <tbody>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          </tbody>
 
-        </table>
       </div>
     </div>
 

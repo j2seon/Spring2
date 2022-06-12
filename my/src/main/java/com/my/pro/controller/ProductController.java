@@ -45,14 +45,7 @@ public class ProductController {
    final String path = "C://Users//ddj04//IdeaProjects//my//src//main//webapp//resources";
 
 
-    // 상품리스트 보여주기
-//    @GetMapping("/list")
-//    public String goodslist(HttpServletRequest request){
-//
-//        HttpSession session = request.getSession(false);
-//
-//        return "product";
-//    }
+
     // 하고싶은 거
     //1. 등록된 상품전체 출력(list) 가능하면 페이징.......
     //2. 등록된 상품 선택시 해당 상세페이지로 이동(read)
@@ -126,7 +119,8 @@ public class ProductController {
                 throw new Exception();
 
             m.addAttribute(productDto);
-            return "redirect:/";
+            m.addAttribute("msg","ADD_OK");
+            return "redirect:/product/list";
 
         }catch (Exception e) {
             m.addAttribute("msg", "File_Upload_Fail");
@@ -151,13 +145,14 @@ public class ProductController {
 
         } catch (Exception e) {
             e.printStackTrace();
+            ratt.addFlashAttribute("READ_ERR");
             return "redirect:/product/list";
         }
         return "productRegister";
     }
 
     @PostMapping("/modify")
-    public String modify(ProductDto productDto,MultipartFile file,HttpServletRequest request,Integer goodsNum, Model m){
+    public String modify(ProductDto productDto,MultipartFile file,HttpServletRequest request,RedirectAttributes rattr, Model m){
         try {
 
             if (file.getOriginalFilename() != null && file.getOriginalFilename() != "") {
@@ -180,12 +175,12 @@ public class ProductController {
             if(productServie.modify(productDto) != 1)
             throw new Exception("MOD_Fail");
 
-            System.out.println(productDto);
-
+            rattr.addFlashAttribute("msg","MOD_OK");
             return "redirect:/product/list";
         } catch (Exception e) {
             e.printStackTrace();
             m.addAttribute(productDto);
+            m.addAttribute("msg", "MOD_ERR");
             return "productRegister";
         }
     }

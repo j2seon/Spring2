@@ -9,34 +9,33 @@
 <head>
     <meta charset="UTF-8">
     <title>regsiter</title>
-    <link rel="stylesheet" href="<c:url value="./css/menu.css"/>">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"/>
     <style>
         * { box-sizing:border-box; }
         a { text-decoration: none; }
+        body{height: auto; display: flex; flex-direction: column;}
         form {
             width:400px;
             height:500px;
             display : flex;
             flex-direction: column;
             align-items:center;
-            position : absolute;
-            top:50%;
+            position : relative;
             left:50%;
-            transform: translate(-50%, -50%) ;
-            border: 1px solid rgb(89,117,196);
+            transform: translate(-50%, 10%) ;
+            border: 1px solid #04AA6D;;
             border-radius: 10px;
         }
         input[type='text'], input[type='password'] {
             width: 300px;
             height: 40px;
-            border : 1px solid rgb(89,117,196);
+            border : solid #04AA6D;;
             border-radius:5px;
             padding: 0 10px;
             margin-bottom: 10px;
         }
         button {
-            background-color: rgb(89,117,196);
+            background-color: #04AA6D;;
             color : white;
             width:300px;
             height:50px;
@@ -59,16 +58,17 @@
     </style>
 </head>
 <body>
-<div id="menu">
-    <ul>
-        <li id="logo">logo</li>
-        <li><a href="<c:url value='/'/>">Home</a></li>
-        <li><a href="<c:url value='/board/list'/>">Board</a></li>
-        <li><a href="<c:url value='${loginOutLink}'/>">${loginOut}</a></li>
-        <li><a href="<c:url value='/register/add'/>">Sign in</a></li>
-        <li><a href=""><i class="fa fa-search"></i></a></li>
-    </ul>
-</div>    <!--c;url 사용 이유 쿠키를 사용하지 않는 애들은 세션이 와야하기때문 : 쿠키차단하고 c url 없으면 세션이 계속 바뀜 서버부담 증가-->
+<jsp:include page="head.jsp" flush="false"/>
+<%--<div id="menu">--%>
+<%--    <ul>--%>
+<%--        <li id="logo">logo</li>--%>
+<%--        <li><a href="<c:url value='/'/>">Home</a></li>--%>
+<%--        <li><a href="<c:url value='/board/list'/>">Board</a></li>--%>
+<%--        <li><a href="<c:url value='${loginOutLink}'/>">${loginOut}</a></li>--%>
+<%--        <li><a href="<c:url value='/register/add'/>">Sign in</a></li>--%>
+<%--        <li><a href=""><i class="fa fa-search"></i></a></li>--%>
+<%--    </ul>--%>
+<%--</div>    <!--c;url 사용 이유 쿠키를 사용하지 않는 애들은 세션이 와야하기때문 : 쿠키차단하고 c url 없으면 세션이 계속 바뀜 서버부담 증가-->--%>
 <form action="<c:url value="/login/login"/>" method="post" onsubmit="return formCheck(this);">
     <h3 id="title">Login</h3>
     <div id="msg">
@@ -83,7 +83,7 @@
     <div>
         <label><input type="checkbox" name="rememberId" value="on" ${empty cookie.id.value ? "":"checked"}> 아이디 기억</label> |
         <a href="">비밀번호 찾기</a> |
-        <a href="">회원가입</a>
+        <a href="<c:url value='/register/add'/>">회원가입</a>
     </div>
     <script>
         function formCheck(frm) {

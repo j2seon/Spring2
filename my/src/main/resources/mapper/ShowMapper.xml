@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.my.pro.dao.ShowMapper">
+
+
+
+
+<!--    <select id="searchSelectPage" parameterType="SearchCondition" resultType="ProductDto">-->
+<!--        <include refid="selectFromPro"/>-->
+<!--        WHERE true-->
+<!--        <include refid="searchCondition"/>-->
+<!--        ORDER BY reg_date DESC-->
+<!--        LIMIT #{offset}, #{rowCnt}-->
+<!--    </select>-->
+
+<!--    <select id="searchResultCount" parameterType="SearchCondition" resultType="int">-->
+<!--        SELECT count(*)-->
+<!--        FROM goods-->
+<!--        WHERE true-->
+<!--        <include refid="searchCondition"/>-->
+<!--    </select>-->
+
+
+    <sql id="searchCondition">
+        <choose>
+            <when test='option=="T"'>
+                AND goodsName LIKE concat('%', #{keyword},'%')
+            </when>
+            <when test='option=="W"'>
+                AND cateCode LIKE concat('%', #{keyword},'%')
+            </when>
+            <otherwise>
+                AND (cateCode LIKE concat('%', #{keyword},'%')
+                OR cateCodeRef LIKE concat('%', #{keyword},'%'))
+            </otherwise>
+        </choose>
+    </sql>
+
+
+    <resultMap id="goods" type="ProductDto" >
+        <result column="goodsNum" property="goodsNum"/>
+        <result column="price" property="price"/>
+        <result column="goodName" property="goodName"/>
+        <result column="subName" property="subName"/>
+        <result column="content" property="content"/>
+        <result column="gdImg" property="gdImg"/>
+        <result column="gdThum" property="gdThum"/>
+        <result column="energy" property="energy"/>
+        <result column="protein" property="protein"/>
+        <result column="sodium" property="sodium"/>
+        <result column="suger" property="suger"/>
+        <result column="fat" property="fat"/>
+        <result column="cateCode" property="cateCode"/>
+        <result column="cateCodeRef" property="cateCodeRef"/>
+        <result column="reg_date" property="reg_date"/>
+        <result column="up_date" property="up_date"/>
+    </resultMap>
+
+    <resultMap id="goodcate" type="CateDto">
+        <result column="cateName" property="cateName"/>
+        <result column="cateCode" property="cateCode"/>
+        <result column="cateCodeRef" property="cateCodeRef"/>
+        <result column="tier" property="tier"/>
+    </resultMap>
+
+    <!--1차분류-->
+    <select id="listFirst" parameterType="String" resultType="ProductDto">
+        select g.goodsNum, g.price,g.goodsName,g.subName,g.content,g.gdImg,g.gdThum,g.energy,g.protein,g.per,g.sodium,g.suger,g.fat,g.reg_date,g.up_date,g.cateCode,c.cateCodeRef,c.cateName,c.tier
+        from goods g
+        inner join goodcate c
+        on g.cateCode = c.cateCode
+        where c.cateCodeRef=#{cateCodeRef};
+    </select>
+
+    <!--2차분류-->
+    <select id="listSec" parameterType="String" resultType="ProductDto">
+        select g.goodsNum, g.price,g.goodsName,g.subName,g.content,g.gdImg,g.gdThum,g.energy,g.protein,g.per,g.sodium,g.suger,g.fat,g.reg_date,g.up_date,c.cateCode,c.cateCodeRef,c.cateName,c.tier
+        from goods g
+        inner join goodcate c
+        on g.cateCode = c.cateCode
+        where c.cateCode = #{cateCode};
+    </select>
+
+</mapper>

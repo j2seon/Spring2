@@ -12,7 +12,6 @@ public class ProductDto {
     private String cateCode; //카테고리 코드
     private String cateCodeRef;
     private String gdImg;
-
     private String gdThum;
     private Integer energy; // 열랑
     private Integer protein; //단백질
@@ -22,7 +21,7 @@ public class ProductDto {
     private Integer fat; //지방
     private Date reg_date;
     private Date up_date;
-
+    private Integer tier; //등급
     private String cateName; // 받을거....
 
     public String getCateName() {
@@ -58,6 +57,7 @@ public class ProductDto {
                 ", energy=" + energy +
                 ", protein=" + protein +
                 ", per=" + per +
+                ", tier=" + tier +
                 ", sodium=" + sodium +
                 ", suger=" + suger +
                 ", fat=" + fat +
@@ -92,6 +92,13 @@ public class ProductDto {
         this.cateCode = cateCode;
         this.cateCodeRef = cateCodeRef;
         this.content = content;
+    }
+    public Integer getTier() {
+        return tier;
+    }
+
+    public void setTier(Integer tier) {
+        this.tier = tier;
     }
 
     public Integer getGoodsNum() {
@@ -235,7 +242,7 @@ public class ProductDto {
         if (this == o) return true;
         if (!(o instanceof ProductDto)) return false;
         ProductDto dto = (ProductDto) o;
-        return goodsNum == dto.goodsNum && Objects.equals(price, dto.price) && Objects.equals(goodsName, dto.goodsName) && Objects.equals(subName, dto.subName) && Objects.equals(content, dto.content) && Objects.equals(cateCode, dto.cateCode) && Objects.equals(cateCodeRef, dto.cateCodeRef) && Objects.equals(gdImg, dto.gdImg) && Objects.equals(gdThum, dto.gdThum) && Objects.equals(energy, dto.energy) && Objects.equals(protein, dto.protein) && Objects.equals(per, dto.per) && Objects.equals(sodium, dto.sodium) && Objects.equals(suger, dto.suger) && Objects.equals(fat, dto.fat) && Objects.equals(reg_date, dto.reg_date) && Objects.equals(up_date, dto.up_date) && Objects.equals(cateName, dto.cateName);
+        return goodsNum == dto.goodsNum && Objects.equals(price, dto.price) && Objects.equals(goodsName, dto.goodsName) && Objects.equals(subName, dto.subName) && Objects.equals(content, dto.content) && Objects.equals(cateCode, dto.cateCode) && Objects.equals(cateCodeRef, dto.cateCodeRef) && Objects.equals(gdImg, dto.gdImg) && Objects.equals(gdThum, dto.gdThum) && Objects.equals(energy, dto.energy) && Objects.equals(protein, dto.protein) && Objects.equals(per, dto.per) && Objects.equals(sodium, dto.sodium) && Objects.equals(suger, dto.suger) && Objects.equals(fat, dto.fat) && Objects.equals(reg_date, dto.reg_date) && Objects.equals(up_date, dto.up_date) && Objects.equals(cateName, dto.cateName)&&Objects.equals(tier, dto.tier);
     }
 
 }

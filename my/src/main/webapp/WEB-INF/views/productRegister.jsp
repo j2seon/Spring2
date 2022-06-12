@@ -95,6 +95,9 @@
 </style>
 <jsp:include page="head.jsp" flush="false"/>
 <script>
+    let msg = "${msg}";
+    if(msg=="File_Upload_Fail") alert("상품 등록에 실패했습니다.");
+    if(msg=="MOD_ERR") alert("상품수정에 실패했습니다.");
 </script>
 <body>
     <div class="container">
@@ -156,7 +159,12 @@
                     <span class="ckeck_warn select1_warn">1차분류를 선택해주세요</span><br>
                     <label>1차분류</label>
                     <select class="cate1" name="cateCodeRef" id="cateCodeRef">
+                        <c:if test="${mode eq 'new'}">
                         <option value="" >전체</option>
+                        </c:if>
+                        <c:if test="${mode ne 'new'}">
+                            <option value="${productDto.cateCodeRef}"></option>
+                        </c:if>
                     </select>
                 </div>
 
@@ -164,7 +172,12 @@
                     <span class="ckeck_warn select2_warn">2차분류를 선택해주세요</span><br>
                     <label>2차분류</label>
                     <select class="cate2" name="cateCode" id="cateCode">
+                        <c:if test="${mode eq 'new'}">
                         <option value="">전체</option>
+                        </c:if>
+                        <c:if test="${mode ne 'new'}">
+                        <option value="${productDto.cateCode}">${productDto.cateName}</option>
+                        </c:if>
                     </select>
                 </div>
 
@@ -188,9 +201,8 @@
                         <c:if test="${mode eq 'new'}">
                             <img src=""/>
                         </c:if>
-
                     </div>
-                    </div>
+                </div>
 
                     <script>
                         $("#gdImg").change(function (){
@@ -203,8 +215,6 @@
                             }
                         });
                     </script>
-                </div>
-
                 <div class="inputArea">
                     <c:if test="${mode eq 'new'}">
                         <button type="submit" id="add_Btn" class="" onsubmit="formCheck()">등록</button>
@@ -347,14 +357,13 @@
                 document.addForm.cateCodeRef.focus();
                 return false;
             }
-            <c:if test="${mode eq 'new'}">
-            if(gdImg == ""){
+
+            if(gdImg == "" && ${mode eq 'new'}){
                 $(".gdImg_warn").css('display','block');
                 alert("이미지를 추가해주세요");
                 document.addForm.file.focus();
                 return false;
             }
-            </c:if>
 
             return true;
         }

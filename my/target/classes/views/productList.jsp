@@ -11,7 +11,25 @@
 </head>
 <style>
     /* Style inputs, select elements and textareas */
+    table {
+        border-collapse: collapse;
+        border-spacing: 0;
+        width: 100%;
+        border: 1px solid #ddd;
+    }
 
+    /* Style table headers and table data */
+    th, td {
+        text-align: center;
+        padding: 16px;
+    }
+    tr:nth-child(even) {
+        background-color: #f2f2f2
+    }
+
+    th:first-child, td:first-child {
+        text-align: left;
+    }
 
     input[type=text], select, textarea{
         width: 100%;
@@ -83,23 +101,52 @@
         position: relative;
 
     }
-    .ckeck_warn{						/* 입력란 공란 경고 태그 */
+    .ckeck_warn{
         display: none;
         padding-top: 10px;
         text-align: center;
         color: red;
         font-weight: 300;
     }
-
-
+    form.example{
+        float: right;
+        display: inline-flex;
+    }
+    form.example button {
+        float: right;
+        padding: 10px;
+        background: #04AA6D;
+        color: white;
+        font-size: 17px;
+        border: 1px solid grey;
+        border-left: none; /* Prevent double borders */
+        cursor: pointer;
+    }
+    form.example::after {
+        content: "";
+        clear: both;
+        display: table;
+    }
 
 </style>
 <jsp:include page="head.jsp" flush="false"/>
 
 <body>
+<script>
+    let msg = "${msg}";
+    if(msg=="ADD_OK") alert("상품등록을 완료했습니다.");
+    if(msg=="READ_ERR") alert("상품조회에 실패했습니다.");
+    if(msg=="MOD_OK") alert("상품수정을 완료했습니다.");
+    if(msg=="DEL_OK") alert("상품을 삭제했습니다.");
+</script>
     <div class="container">
         <div class="vertical-center">
-            <table>
+            <h2>상품 목록</h2>
+            <form class="example" action="">
+                <input type="text" placeholder="Search.." name="search">
+                <button type="submit"><i class="fa fa-search"></i></button>
+            </form>
+            <table class="st">
                 <thead>
                     <tr>
                         <th>번호</th>
@@ -115,7 +162,6 @@
                         <th>나트륨</th>
                         <th>카테고리1</th>
                         <th>카테고리2</th>
-                        <th>카테고리이름</th>
                         <th>등록일</th>
                         <th>업데이트</th>
                     </tr>
