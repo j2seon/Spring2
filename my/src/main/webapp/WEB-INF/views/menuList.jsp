@@ -130,32 +130,38 @@
 </style>
 </head>
 <jsp:include page="head.jsp" flush="false"/>
+
 <body>
 <div class="container">
   <div class="menu-image">
     <div class="menu-text">
       <h1 style="font-size:50px">product</h1>
       <div class="topnav">
-        <a href="<c:url value="/show/list?tier=1&cateCodeRef=100"/>">샌드위치</a>
-        <a href="<c:url value="/show/list?tier=1&cateCodeRef=200"/>">샐러드</a>
-        <a href="<c:url value="/show/list?tier=1&cateCodeRef=300"/>">랩/기타</a>
+
+        <a href="<c:url value="/show/list?tier=1&cateCode=100"/>">샌드위치</a>
+        <a href="<c:url value="/show/list?tier=1&cateCode=200"/>">샐러드</a>
+        <a href="<c:url value="/show/list?tier=1&cateCode=300"/>">랩/기타</a>
       </div>
     </div>
   </div>
   <div id="con-menu">
-    <button class="tablink" onclick="openPage('Home', this, 'red')"><a href="<c:url value="/show/list?cateCodeRef=100"/>">전체</a></button>
-    <button class="tablink" onclick="openPage('News', this, 'green')" id="defaultOpen"><a href="<c:url value="/show/list?tier=2&cateCodeRef=100&cateCode=101"/>">클래식</a></button>
-    <button class="tablink" onclick="openPage('Contact', this, 'blue')"><a href="<c:url value="/show/list?tier=2&cateCodeRef=100&cateCode=102"/>">프레쉬&라이트</a></button>
-    <button class="tablink" onclick="openPage('About', this, 'pink')"><a href="<c:url value="/show/list?tier=2&cateCodeRef=100&cateCode=103"/>">프리미엄</a></button>
-    <button class="tablink" onclick="openPage('About', this, 'pink')"><a href="<c:url value="/show/list?tier=2&cateCodeRef=100&cateCode=104"/>">신제품</a></button>
-
-    <div id="Home" class="tabcontent">
-      <h3>ppp</h3>
-      <div>
-
-      </div>
+    <c:forEach items="${list}" var="productDto">
+      <c:if test="${productDto.cateCodeRef eq '100'}">
+    <button class="tablink" onclick="openPage('Home', this, 'red')"><a href="<c:url value="/show/list?tier=1&cateCode=100"/>">전체</a></button>
+    <button class="tablink" onclick="openPage('News', this, 'green')" id="defaultOpen"><a href="<c:url value="/show/list?tier=2&cateCode=101"/>">클래식</a></button>
+    <button class="tablink" onclick="openPage('Contact', this, 'blue')"><a href="<c:url value="/show/list?tier=2&cateCode=102"/>">프레쉬&라이트</a></button>
+    <button class="tablink" onclick="openPage('About', this, 'pink')"><a href="<c:url value="/show/list?tier=2&cateCode=103"/>">프리미엄</a></button>
+    <button class="tablink" onclick="openPage('About', this, 'pink')"><a href="<c:url value="/show/list?tier=2&cateCode=104"/>">신제품</a></button>
+      </c:if>
+      <div id="Home" class="tabcontent">
+        <ul>
+          <li>
+            <div><a href=""><img src=""></a></div>
+            <div><a href=""></a></div>
+          </li>
+        </ul>
     </div>
-
+    </c:forEach>
     <div id="News" class="tabcontent">
       <h3>News</h3>
     </div>
