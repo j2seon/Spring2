@@ -1,6 +1,6 @@
 package com.my.pro.dao;
 
-import com.my.pro.dto.CateDto;
+import com.my.pro.domain.CateDto;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -20,5 +20,4 @@ public class CateDaoImple implements CateDao {
     public List<CateDto> selectAll()throws Exception{
         return session.selectList(namespace+"selectAll");
     }
-
 }

@@ -1,7 +1,7 @@
 package com.my.pro.service;
 
 import com.my.pro.dao.ShowDao;
-import com.my.pro.dto.ProductDto;
+import com.my.pro.domain.ProductDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,12 +13,15 @@ public class ShowServiceImpl implements ShowService {
     @Autowired
     ShowDao showDao;
 
-    public List<ProductDto> list(String code, Integer tier) throws Exception {
-        if(tier == 1){
-            return showDao.listFirst(code);
-        }else{
-            return showDao.listSec(code);
+    public List<ProductDto>getList(int tier, String cateCode) throws Exception {
+
+        if(tier==1){
+              String cateCodeRef = cateCode;
+              return showDao.listFirst(cateCodeRef);
+        }else {
+            return showDao.listSec(cateCode);
         }
+
     }
 
 

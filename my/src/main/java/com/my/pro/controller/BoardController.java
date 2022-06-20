@@ -1,9 +1,9 @@
 package com.my.pro.controller;
 
 
-import com.my.pro.dto.BoardDto;
-import com.my.pro.dto.PageHandler;
-import com.my.pro.dto.SearchCondition;
+import com.my.pro.domain.BoardDto;
+import com.my.pro.domain.PageHandler;
+import com.my.pro.domain.SearchCondition;
 import com.my.pro.service.BoardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -106,8 +106,10 @@ public class BoardController {
 
     @GetMapping("/list")
     public String list(Model m, SearchCondition sc, HttpServletRequest request) {
+
         if(!loginCheck(request))
             return "redirect:/login/login?toURL="+request.getRequestURL();  // 로그인을 안했으면 로그인 화면으로 이동
+
 
         try {
             int totalCnt = boardService.getSearchResultCount(sc);
@@ -126,8 +128,8 @@ public class BoardController {
             m.addAttribute("msg", "LIST_ERR");
             m.addAttribute("totalCnt", 0);
         }
-
         return "boardList"; // 로그인을 한 상태이면, 게시판 화면으로 이동
+
     }
 
     private boolean loginCheck(HttpServletRequest request) {

@@ -1,7 +1,7 @@
 package com.my.pro.service;
 
 import com.my.pro.dao.CateDao;
-import com.my.pro.dto.CateDto;
+import com.my.pro.domain.CateDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

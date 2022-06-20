@@ -1,11 +1,12 @@
 package com.my.pro.service;
 
-import com.my.pro.dto.ProductDto;
+import com.my.pro.domain.ProductDto;
 
 import java.util.List;
 
 public interface ShowService {
-       List<ProductDto> list(String code, Integer tier) throws Exception;
+
+    List<ProductDto>getList (int tier, String cateCode) throws Exception;
 
 
     }

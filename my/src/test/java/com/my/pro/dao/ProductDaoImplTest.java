@@ -1,6 +1,6 @@
 package com.my.pro.dao;
 
-import com.my.pro.dto.ProductDto;
+import com.my.pro.domain.ProductDto;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

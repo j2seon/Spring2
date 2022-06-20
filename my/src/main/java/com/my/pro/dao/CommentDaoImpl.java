@@ -1,6 +1,6 @@
 package com.my.pro.dao;
 
-import com.my.pro.dto.CommentDto;
+import com.my.pro.domain.CommentDto;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;

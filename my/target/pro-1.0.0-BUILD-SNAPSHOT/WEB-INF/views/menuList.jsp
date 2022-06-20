@@ -12,185 +12,129 @@
 <title>product</title>
 <head>
 
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-  body, html {
-    height: 100%;
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-  }
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .menu-image {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url("${pageContext.request.contextPath}/image/productmain.jpg");
+            height: 50%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
+        }
+        .menu-text {
+            text-align: center;
+            position: absolute;
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: column;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+        }
 
-  .menu-image {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url("${pageContext.request.contextPath}/image/productmain.jpg");
-    height: 50%;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;
-  }
-
-  .menu-text {
-    text-align: center;
-    position: absolute;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: white;
-  }
-  .tablink {
-    background-color: white;
-    color: green;
-    float: left;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    padding: 14px 16px;
-    font-size: 17px ;
-    width: 20%;
-  }
-
-  .tablink:hover {
-    background-color: #777;
-  }
-  /* Float four columns side by side */
-  .column {
-    float: left;
-    width: 25%;
-    padding: 0 10px;
-  }
-
-  /* Remove extra left and right margins, due to padding */
-  .row {margin: 0 -5px;}
-
-  /* Clear floats after the columns */
-  .row:after {
-    content: "";
-    display: table;
-    clear: both;
-  }
+        @media screen and (max-width: 600px) {
+            .column {
+                width: 100%;
+                display: block;
+                margin-bottom: 20px;
+            }
+        }
+        .container{
+            height: 100%;
+            position: relative;
+        }
+        .topnav{
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+        .topnav a{
+            text-decoration: none;
+            color: #f1f1f1;
+            font-size: 20px;
+            padding: 20px;
+            background-color: black;
+            border-radius :10px;
+            margin: 10px;
+        }
 
 
-  /* Responsive columns */
-  @media screen and (max-width: 600px) {
-    .column {
-      width: 100%;
-      display: block;
-      margin-bottom: 20px;
-    }
-  }
+        #tab {height: 50px; width: 100%; }
+        #tab ul a{text-decoration: none; color: #111111;}
+        #tab ul { list-style: none; margin: 0px auto; padding: 0px; width: 100%; height: 50px;}
+        #tab .meumain > li  {background-color: orange; float: left; width: 33%; height: 50px; line-height: 50px; text-align: center; position: relative;}
+        #tab .meumain > li > a{ display:block; text-decoration: none; color: #ffffff}
+        #tab .meumain>li:hover .sub {display: block;}
+        #tab .meumain>li >a {display: block;}
+        #tab .sub {position: absolute; display: none; z-index: 100;}
+        #tab .meumain .sub li {background-color: whitesmoke}
+        #tab .meumain .sub li a{display: block}
 
-  .container{
-    height: 100%;
-    position: relative;
-  }
-
-  .topnav{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-  }
-  .topnav a{
-    text-decoration: none;
-    color: #f1f1f1;
-    font-size: 20px;
-    padding: 20px;
-    background-color: black;
-    border-radius :10px;
-    margin: 10px;
-  }
-  #con-menu{
-    height: 100%;
-  }
-
-
-  /* Style the
-
-  counter cards */
-  .card {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    padding: 16px;
-    text-align: center;
-    background-color: #f1f1f1;
-  }
-  /* Style the tab content (and add height:100% for full page content) */
-  .tabcontent {
-    color: white;
-    display: none;
-    padding: 100px 20px;
-    height: 100%;
-  }
-
-  #Home {background-color: red;}
-  #News {background-color: green;}
-  #Contact {background-color: blue;}
-  #About {background-color: orange;}
-</style>
+        section#itemMain{position: absolute}
+        section#items{position: relative}
+        section#item-contents ul {display: flex; flex-wrap: wrap; justify-content: center; padding: 0;}
+        section#item-contents ul li{list-style: none; position: relative; text-align: center; float:left; text-decoration: none; margin: 10px; width: 370px; height: 330px}
+        section#item-contents div.goodsImg{position: relative; margin: 20px auto 0; z-index: 1;}
+        section#item-contents div.goodsName {text-align: center; text-decoration:none; margin:10px 0 6px;}
+        section#item-contents div.goodsName a{ color: #111111; text-decoration: none; font-size: 22px; font-weight: bold;position: relative; }
+        section#item-contents span.subName{margin: 0 0 13px; display: block; font-size: 16px; letter-spacing: -0.06em;}
+        section#item-contents span.energy{display: block; font-size: 16px; letter-spacing: -0.06em; color:#ffc300;}
+        section#item-contents div.summary{opacity: 0}
+        section#item-contents div.summary div.summary > i{position: absolute; top:30%}
+        section#item-contents ul li:hover div.goodsName{position: absolute; z-index: 5; transform: translate(-50%,-50%); width:100%; top: 50%; left: 50%;}
+        section#item-contents ul li:hover div.summary {transition: all 0.6s ease 0.2s;position: absolute; top: 0; width: 100%; height: 100%; opacity: 1; background-color: #04AA6D; z-index: 2; text-align: center}
+        section#item-contents ul li:hover div.summary > p{position: absolute; top: 60%;text-align: center}
+    </style>
 </head>
 <jsp:include page="head.jsp" flush="false"/>
 
 <body>
 <div class="container">
-  <div class="menu-image">
-    <div class="menu-text">
-      <h1 style="font-size:50px">product</h1>
-      <div class="topnav">
+    <div class="menu-image">
+        <div class="menu-text">
 
-        <a href="<c:url value="/show/list?tier=1&cateCode=100"/>">샌드위치</a>
-        <a href="<c:url value="/show/list?tier=1&cateCode=200"/>">샐러드</a>
-        <a href="<c:url value="/show/list?tier=1&cateCode=300"/>">랩/기타</a>
-      </div>
+        </div>
     </div>
-  </div>
-  <div id="con-menu">
+    <jsp:include page="list/list.jsp" flush="false"/>
 
-    <button class="tablink" onclick="openPage('Home', this, 'red')"><a href="<c:url value="/show/list?tier=1&cateCode=100"/>">전체</a></button>
-    <button class="tablink" onclick="openPage('News', this, 'green')" id="defaultOpen"><a href="<c:url value="/show/list?tier=2&cateCode=101"/>">클래식</a></button>
-    <button class="tablink" onclick="openPage('Contact', this, 'blue')"><a href="<c:url value="/show/list?tier=2&cateCode=102"/>">프레쉬&라이트</a></button>
-    <button class="tablink" onclick="openPage('About', this, 'pink')"><a href="<c:url value="/show/list?tier=2&cateCode=103"/>">프리미엄</a></button>
-    <button class="tablink" onclick="openPage('About', this, 'pink')"><a href="<c:url value="/show/list?tier=2&cateCode=104"/>">신제품</a></button>
+    <section id="itemMain">
+        <div id="items">
+            <section id="item-contents">
+                <ul>
+                <c:forEach items="${list}" var="list">
+                    <li>
+                        <c:if test="${list==null}">
+                            <div> 게시물이 없습니다. </div>
+                        </c:if>
+                        <div class="goodsImg"><a href=""><img src="${pageContext.request.contextPath}${list.gdThum}"></a></div>
+                        <div class="goodsName"><a href=""><strong>${list.goodsName}</strong></a></div>
+                        <span class="subName">${list.subName}</span>
+                        <span class="energy">${list.energy}kcal</span>
+                        <div class="summary">
+                            <p>${list.content}</p>
+                            <i class="fa fa-search-plus fa-3x" style="color: yellow; position: absolute;top: 24%;left: 43% " aria-hidden="true"><a href=""></a> </i>
+                        </div>
+                    </li>
+                </c:forEach>
+                </ul>
+            </section>
+        </div>
+    </section>
 
-    <div id="Home" class="tabcontent">
 
-    </div>
-
-    <div id="News" class="tabcontent">
-      <h3>News</h3>
-    </div>
-
-    <div id="Contact" class="tabcontent">
-      <h3>Contact</h3>
-      <p>Get in touch, or swing by for a cup of coffee.</p>
-    </div>
-
-    <div id="About" class="tabcontent">
-      <h3>About</h3>
-      <p>Who we are and what we do.</p>
-    </div>
-  </div>
 </div>
 
 
 
 </body>
 <script>
-  function openPage(pageName,elmnt,color) {
-    var i, tabcontent, tablinks;
-    tabcontent = document.getElementsByClassName("tabcontent");
-    for (i = 0; i < tabcontent.length; i++) {
-      tabcontent[i].style.display = "none";
-    }
-    tablinks = document.getElementsByClassName("tablink");
-    for (i = 0; i < tablinks.length; i++) {
-      tablinks[i].style.backgroundColor = "";
-    }
-    document.getElementById(pageName).style.display = "block";
-    elmnt.style.backgroundColor = color;
-  }
 
-  // Get the element with id="defaultOpen" and click on it
-  document.getElementById("defaultOpen").click();
 </script>
 </html>

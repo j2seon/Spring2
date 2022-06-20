@@ -1,6 +1,6 @@
 package com.my.pro.service;
 
-import com.my.pro.dto.ProductDto;
+import com.my.pro.domain.ProductDto;
 
 import java.util.List;
 

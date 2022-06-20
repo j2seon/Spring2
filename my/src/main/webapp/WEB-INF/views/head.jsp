@@ -33,13 +33,14 @@
             height: 100%;
             width: 0;
             position: fixed;
-            z-index: 1;
+            /*z-index: 1;*/
             top: 0;
             left: 0;
             background-color: #111;
             overflow-x: hidden;
             transition: 0.5s;
             padding-top: 60px;
+            z-index: 500;
         }
 
         .sidenav a {
@@ -83,7 +84,7 @@
         }
 
         .navbar a:hover {
-            background-color: #04AA6D;
+            background-color: #ffffff;
         }
 
         .active  {
@@ -101,6 +102,11 @@
             justify-content: center;
             padding: 15px;
         }
+        .footer {
+            padding: 20px; /* Some padding */
+            text-align: center; /* Center text*/
+            background: #ddd; /* Grey background */
+        }
     </style>
 </head>
 <body>
@@ -111,16 +117,18 @@
 <div class="navbar">
     <a class="active" href="<c:url value='${loginOutLink}'/>"><i class="fa fa-fw fa-user"></i>${loginOut}</a>
     <a href="<c:url value='${RegisterLink}'/>">${Registercheck}</a>
-    <a href="#"><i class="fa fa-fw fa-home"></i>My Page</a>
+    <c:if test="${loginId!=null}">
+    <a href="<c:url value="/show/mypage"/>"><i class="fa fa-fw fa-home"></i>My Page</a>
+    </c:if>
 </div>
 
 <div id="mySidenav" class="sidenav">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
     <a href="#">About</a>
-    <a href="<c:url value="/product/list"/>">Product</a>
+    <a href="<c:url value="/show/list/"/>">Product</a>
     <a href="<c:url value="/board/list"/>"> Board </a>
     <a href="#">Contact</a>
-    <a href="<c:url value="/product/add"/>">Add</a>
+    <a href="<c:url value="/product/list"/>">Add List</a>
 </div>
 
 <!--버튼-->

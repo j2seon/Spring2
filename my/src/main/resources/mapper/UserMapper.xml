@@ -28,6 +28,7 @@
             email = #{email},
             phone = #{phone},
             address =#{address}
+        WHERE id = #{id} AND pwd=#{pwd}
     </update>
     <delete id="delete" parameterType="String">
         DELETE from users

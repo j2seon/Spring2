@@ -80,7 +80,10 @@
         from goods g
         inner join goodcate c
         on g.cateCode = c.cateCode
-        where c.cateCode = #{cateCode};
+        where c.cateCode = #{cateCode}
     </select>
+
+
+
 
 </mapper>

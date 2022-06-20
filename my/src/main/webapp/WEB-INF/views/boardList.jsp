@@ -177,7 +177,7 @@
         }
 
         .sidenav a:hover {
-            color: #f1f1f1;
+            color: #ffffff;
         }
 
         .sidenav .closebtn {
@@ -195,11 +195,9 @@
 
         .navbar {
             width: 100%;
-            background-color: #ffff;
+            background-color: #04AA6D;
             overflow: auto;
         }
-
-
 
         .navbar a {
             float: right;
@@ -210,8 +208,9 @@
         }
 
         .navbar a:hover {
-            background-color: #04AA6D;
+            background-color: #ffffff;
         }
+
 
         .active  {
             /* background-color: #04AA6D; */
@@ -223,28 +222,37 @@
                 display: block;
             }
         }
+        .logo{
+            display: flex;
+            justify-content: center;
+            padding: 15px;
+        }
 
 
     </style>
 </head>
 <body>
 
+<div>
+    <a class="logo"  href="<c:url value='/'/>"><img src="${pageContext.request.contextPath}/image/logo_w.png"></a>
+</div>
+
 <div class="navbar">
     <a class="active" href="<c:url value='${loginOutLink}'/>"><i class="fa fa-fw fa-user"></i>${loginOut}</a>
     <a href="<c:url value='${RegisterLink}'/>">${Registercheck}</a>
-    <a href="#"><i class="fa fa-fw fa-home"></i>My Page</a>
-    <a class="logo" style="margin-right: 18%; padding: 15px;" href="<c:url value='/'/>"><img src="${pageContext.request.contextPath}/image/logo_w.png"></a>
+    <a href="<c:url value="/show/mypage"/>"><i class="fa fa-fw fa-home"></i>My Page</a>
 </div>
 
 <div id="mySidenav" class="sidenav">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
     <a href="#">About</a>
-    <a href="<c:url value="/product/list"/>">Product</a>
-    <a href="<c:url value="/board/list"/>">Board</a>
+    <a href="<c:url value="/show/list/"/>">Product</a>
+    <a href="<c:url value="/board/list"/>"> Board </a>
     <a href="#">Contact</a>
-    <a href="<c:url value="/product/add"/>">Add</a>
+    <a href="<c:url value="/product/list"/>">Add List</a>
 </div>
 
+<!--버튼-->
 <span class="sidbtn" style="font-size:40px;cursor:pointer"onclick="openNav()">&#9776;</span>
 
 <script>
@@ -320,6 +328,7 @@
         </div>
     </div>
 </div>
+
 <script>
     function openNav() {
         document.getElementById("mySidenav").style.width = "250px";

@@ -25,16 +25,25 @@
         ORDER BY cateCode asc, tier asc;
     </select>
 
+    <select id="select" parameterType="int" resultType="CateDto">
+        SELECT tier, cateName, cateCode, cateCodeRef
+        FROM goodcate
+        where tier =#{tier}
+    </select>
+
+<!--    <select id="main" parameterType="String" resultType="cateDto">-->
+<!--        SELECT tier, cateName, cateCode, cateCodeRef-->
+<!--        FROM goodcate-->
+<!--        where cateCodeRef =#{cateCodeRef}-->
+<!--    </select>-->
+
+<!--    <select id="sub" parameterType="Map" resultType="cateDto">-->
+<!--        SELECT tier, cateName, cateCode, cateCodeRef-->
+
+<!--    </select>-->
 
 
-<!--   <update id="update" parameterType="BoardDto">-->
-<!--        UPDATE goodcate-->
-<!--        SET   tier = #{tier}-->
-<!--        , cateName = #{cateName}-->
-<!--        , cateCode = #{cateCode}-->
-<!--        , cateCodeRef = #{cateCodeRef}-->
-<!--        WHERE bno = #{bno} And writer=#{writer}-->
-<!--    </update>-->
+
 
 
 <!--    <select id="searchResultCount" parameterType="SearchCondition" resultType="int">-->

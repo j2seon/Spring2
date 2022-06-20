@@ -1,6 +1,6 @@
 package com.my.pro.service;
 
-import com.my.pro.dto.UserDto;
+import com.my.pro.domain.UserDto;
 
 public interface UserService {
 
@@ -9,6 +9,7 @@ public interface UserService {
     UserDto login(UserDto dto) throws Exception;
 
     int idCheck(String id) throws Exception;
+     int userModify(UserDto dto)throws Exception;
 
 
 }

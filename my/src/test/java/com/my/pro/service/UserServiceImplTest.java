@@ -1,7 +1,7 @@
 package com.my.pro.service;
 
 import com.my.pro.dao.UserDao;
-import com.my.pro.dto.UserDto;
+import com.my.pro.domain.UserDto;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,7 +38,17 @@ public class UserServiceImplTest {
         String id = "asdf";
         int cnt=userService.idCheck(id);
         assertTrue(cnt==0);
-
-
+    }
+    @Test
+    public void userModify() throws Exception {
+        UserDto dto = new UserDto();
+        dto.setPwd("qwer");
+        dto.setId("qwer");
+        UserDto dto2=userService.login(dto);
+        dto2.setAddress("qwer");
+        dto2.setPhone("1111111");
+        int c = userService.userModify(dto2);
+        System.out.println(dto2);
+        assertTrue(c==1);
     }
 }

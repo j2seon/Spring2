@@ -1,6 +1,6 @@
 package com.my.pro.dao;
 
-import com.my.pro.dto.UserDto;
+import com.my.pro.domain.UserDto;
 
 import java.util.List;
 
@@ -24,5 +24,7 @@ public interface UserDao {
     UserDto check(UserDto dto) throws Exception;
 
     int checkid(String id)throws Exception;
+
+    int update(UserDto dto)throws Exception;
 
     }

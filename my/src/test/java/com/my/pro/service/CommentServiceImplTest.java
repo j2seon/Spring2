@@ -2,8 +2,8 @@ package com.my.pro.service;
 
 import com.my.pro.dao.BoardDao;
 import com.my.pro.dao.CommentDao;
-import com.my.pro.dto.BoardDto;
-import com.my.pro.dto.CommentDto;
+import com.my.pro.domain.BoardDto;
+import com.my.pro.domain.CommentDto;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

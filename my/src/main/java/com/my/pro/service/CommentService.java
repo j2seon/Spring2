@@ -1,6 +1,6 @@
 package com.my.pro.service;
 
-import com.my.pro.dto.CommentDto;
+import com.my.pro.domain.CommentDto;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;

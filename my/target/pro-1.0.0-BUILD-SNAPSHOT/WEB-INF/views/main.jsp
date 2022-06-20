@@ -1,19 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page session="false" %>
-<c:set var="loginId" value="${pageContext.request.getSession(false)==null ? '' : pageContext.request.session.getAttribute('id')}"/>
-<c:set var="loginOutLink" value="${loginId=='' ? '/login/login' : '/login/logout'}"/>
-<c:set var="loginOut" value="${loginId=='' ? 'Login' : loginId}"/>
+<c:set var="loginId" value="${pageContext.request.getSession(false)==null ? 'null' : pageContext.request.session.getAttribute('id')}"/>
+<c:set var="loginOutLink" value="${loginId=='null' ? '/login/login' : '/login/logout'}"/>
+<c:set var="loginOut" value="${loginId=='null' ? 'Login' : loginId}"/>
 <c:set var="RegisterLink" value="${loginId==''? '/register/add' : ''}"/>
 <c:set var="Registercheck" value="${loginId=='' ? 'Sign Up' : 'My Cart'}"/>
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <title>Page Title</title>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" >
+
   <style>
 
     body {font-family: Verdana, sans-serif; margin:0}
@@ -129,12 +124,7 @@
       padding: 20px;
     }
 
-    /* Footer */
-    .footer {
-      padding: 20px;
-      text-align: center;
-      background: #ddd;
-    }
+
 
     /* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
     @media screen and (max-width: 700px) {
@@ -153,6 +143,10 @@
   </style>
 </head>
 <body>
+<script>
+  let msg = "${msg}";
+  if(msg=="Access_Fail") alert("접근불가한 회원입니다.");
+</script>
 <jsp:include page="head.jsp" flush="false"/>
 
 <!--슬라이드 -->
@@ -207,12 +201,7 @@
 
 
 <!--footer-->
-
-<div class="footer">
-  <h2>Footer</h2>
-</div>
-
-
+<jsp:include page="footer.jsp" flush="false"/>
 
 
 <script>

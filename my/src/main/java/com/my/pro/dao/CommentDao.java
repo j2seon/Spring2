@@ -1,6 +1,6 @@
 package com.my.pro.dao;
 
-import com.my.pro.dto.CommentDto;
+import com.my.pro.domain.CommentDto;
 
 import java.util.List;
 

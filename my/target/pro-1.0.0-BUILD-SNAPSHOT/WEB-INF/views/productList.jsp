@@ -127,6 +127,15 @@
         clear: both;
         display: table;
     }
+    .regiBtn{
+        text-decoration: none;
+        padding: 9px;
+        color: #111111;
+        border: 1px solid;
+        margin-left: 5px;
+        float: right;
+        background-color: #04AA6D;
+    }
 
 </style>
 <jsp:include page="head.jsp" flush="false"/>
@@ -142,6 +151,7 @@
     <div class="container">
         <div class="vertical-center">
             <h2>상품 목록</h2>
+            <a class="regiBtn" href="<c:url value="/product/add"/> ">상품 등록</a>
             <form class="example" action="">
                 <input type="text" placeholder="Search.." name="search">
                 <button type="submit"><i class="fa fa-search"></i></button>
@@ -205,6 +215,8 @@
 
         </div>
     </div>
+<jsp:include page="footer.jsp" flush="false"/>
+
 </body>
 
 <script>

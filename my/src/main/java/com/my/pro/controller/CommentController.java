@@ -1,9 +1,7 @@
 package com.my.pro.controller;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-import com.my.pro.dto.CommentDto;
+import com.my.pro.domain.CommentDto;
 import com.my.pro.service.CommentService;
-import org.apache.ibatis.annotations.Delete;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

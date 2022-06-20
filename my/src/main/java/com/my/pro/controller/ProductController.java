@@ -1,9 +1,9 @@
 package com.my.pro.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.my.pro.dto.CateDto;
-import com.my.pro.dto.ProductDto;
-import com.my.pro.dto.SearchCondition;
+import com.my.pro.domain.CateDto;
+import com.my.pro.domain.ProductDto;
+import com.my.pro.domain.SearchCondition;
 import com.my.pro.service.CateService;
 import com.my.pro.service.ProductServie;
 import com.my.pro.util.UploadFileUtils;
@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import java.io.IOException;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.ZoneId;
@@ -55,44 +54,44 @@ public class ProductController {
     //등록된 상품 리스트 페이징할수있을가.....
     @GetMapping("/list")
     public String goodslist(SearchCondition sc, Model m, HttpServletRequest request, RedirectAttributes rattr){
-        if(!adminCheck(request))
-            return "redirect:/login/login?toURL=" + request.getRequestURL();
-
         try {
+            if(!adminCheck(request))
+                throw new Exception("Access_Fail");
+
             List<ProductDto> list = productServie.selectAll();
             Instant startOfToday = LocalDate.now().atStartOfDay(ZoneId.systemDefault()).toInstant();
             m.addAttribute("startOfToday", startOfToday.toEpochMilli());
             m.addAttribute("list",list);
 
+        return "productList";
         } catch (Exception e) {
             e.printStackTrace();
+            rattr.addFlashAttribute("msg","Access_Fail");
+            return "redirect:/";
         }
-        return "productList";
     }
 
 
     // 상품등록 화면이동 //
     @GetMapping("/add")
     public String goodAdd(HttpServletRequest request, Model m,HttpSession session){
+        //카테고리 정보받는 객체만들기 등록할때 카테고리 select 때문
+        try {
         //일단 asdf로 지정
             if(!adminCheck(request))
-                return "redirect:/login/login?toURL="+request.getRequestURL();
-
-        //카테고리 정보받는 객체만들기 등록할때 카테고리 select 때문
-            ObjectMapper objm = new ObjectMapper();
-        try {
+                    throw new Exception("Access_Fail");
             //카테고리 페이지 누르면 카테고리의 값을 받아야하니까!
+            ObjectMapper objm = new ObjectMapper();
             List<CateDto> list = cateService.categoryList();
             String category = objm.writeValueAsString(list);
             m.addAttribute("category",category);
             m.addAttribute("mode","new");
 
-
             return "productRegister"; //뷰페이지로 이동하게!
 
         } catch (Exception e) {
             e.printStackTrace();
-            return "main";
+            return "redirect:/login/login?toURL="+request.getRequestURL();
         }
     }
 
@@ -126,6 +125,7 @@ public class ProductController {
             m.addAttribute("msg", "File_Upload_Fail");
             m.addAttribute("mode", "new");
             m.addAttribute(productDto);
+            //return "redirect:/product/add";
             return "productRegister";
         }
     }
@@ -159,11 +159,8 @@ public class ProductController {
                 new File(path + request.getParameter("gdImg")).delete();
                 new File(path + request.getParameter("gdThum")).delete();
             String imgUploadPath = path + File.separator + "upload";
-                System.out.println(imgUploadPath+"imgpath");
             String ymdPath = UploadFileUtils.calcPath(imgUploadPath);
             String fileName = UploadFileUtils.fileUpload(imgUploadPath, file.getOriginalFilename(), file.getBytes(), ymdPath);
-                System.out.println(fileName+"filename");
-                System.out.println(ymdPath+"ymddddd");
             productDto.setGdImg(File.separator + "upload" + ymdPath + File.separator + fileName);
             productDto.setGdThum(File.separator + "upload" + ymdPath + File.separator + "s" + File.separator + "s_" + fileName);
             }else {

@@ -1,14 +1,11 @@
 package com.my.pro.dao;
 
-import com.my.pro.dto.UserDto;
-import com.my.pro.service.UserService;
+import com.my.pro.domain.UserDto;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @Repository
 public class UserDaoImpl implements UserDao {
@@ -55,6 +52,11 @@ public class UserDaoImpl implements UserDao {
     @Override
     public int checkid(String id)throws Exception{
         return session.selectOne(namespace+"checkid",id);
+    }
+
+    @Override
+    public int update(UserDto dto)throws Exception{
+        return session.update(namespace+"update",dto);
     }
 
 }

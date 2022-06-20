@@ -217,7 +217,7 @@
                     </script>
                 <div class="inputArea">
                     <c:if test="${mode eq 'new'}">
-                        <button type="submit" id="add_Btn" class="" onsubmit="formCheck()">등록</button>
+                        <button type="button" id="add_Btn" class="" onsubmit="formCheck()">등록</button>
                     </c:if>
                     <c:if test="${mode ne 'new'}">
                         <button type="button" id="modi_Btn" class="">수정</button>
@@ -228,6 +228,8 @@
             </form>
         </div>
     </div>
+    <jsp:include page="footer.jsp" flush="false"/>
+
 </body>
 
 <script>
@@ -287,7 +289,7 @@
             let gdImg = $("#gdImg").val();
             if(goodsName === ""){
                 $(".goodsN_warn").css('display','block');
-                alert("상풍명을 입력해주세요");
+                alert("상품명을 입력해주세요");
                 document.addForm.goodsName.focus();
                 return false;
             }
@@ -358,7 +360,7 @@
                 return false;
             }
 
-            if(gdImg == "" && ${mode eq 'new'}){
+            if(gdImg === "" && ${mode eq 'new'}){
                 $(".gdImg_warn").css('display','block');
                 alert("이미지를 추가해주세요");
                 document.addForm.file.focus();
@@ -368,7 +370,6 @@
             return true;
         }
 
-
         //등록
         $("#add_Btn").on("click",function (){
            let form=$("#addForm");
@@ -377,6 +378,7 @@
            if(formCheck())
                form.submit();
         });
+
         //목록 이동
         $("#back_Btn").on("click", function (){
            location.href="<c:url value='/product/list'/>"

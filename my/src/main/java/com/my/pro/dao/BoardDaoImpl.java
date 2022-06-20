@@ -1,8 +1,8 @@
 package com.my.pro.dao;
 
 
-import com.my.pro.dto.BoardDto;
-import com.my.pro.dto.SearchCondition;
+import com.my.pro.domain.BoardDto;
+import com.my.pro.domain.SearchCondition;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;

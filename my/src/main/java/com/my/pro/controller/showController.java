@@ -1,15 +1,13 @@
 package com.my.pro.controller;
 
-import com.my.pro.dto.ProductDto;
+import com.my.pro.domain.CateDto;
+import com.my.pro.domain.ProductDto;
 import com.my.pro.service.CateService;
-import com.my.pro.service.ProductServie;
 import com.my.pro.service.ShowService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -27,21 +25,34 @@ public class showController {
 
     // 상품리스트 보여주기
     @GetMapping("/list")
-    public String menuList(String cateCode, Integer tier, Model m, HttpServletRequest request){
+    public String menuList(@RequestParam(value = "code", defaultValue ="100")String cateCode, @RequestParam(value = "t",required = false, defaultValue ="1") Integer tier, Model m, HttpServletRequest request){
+        HttpSession session= request.getSession(false);
+        if(session.getAttribute("id")==null){
+            session.invalidate();
+        }
+
 
         try {
-            List<ProductDto> list = showService.list(cateCode,tier);
+            List<CateDto> category = cateService.categoryList();
+            List<ProductDto> list = showService.getList(tier,cateCode);
             m.addAttribute("list",list);
-
+            m.addAttribute("category",category);
 
 
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-
         return "menuList";
 
     }
 
+    @GetMapping("/mypage")
+    public String myPage(){
+        return "myPage";
+    }
+
+    @GetMapping("/map")
+    public String map(){
+        return "map";
+    }
 }

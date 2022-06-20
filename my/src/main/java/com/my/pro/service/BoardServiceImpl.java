@@ -1,8 +1,8 @@
 package com.my.pro.service;
 
 import com.my.pro.dao.BoardDao;
-import com.my.pro.dto.BoardDto;
-import com.my.pro.dto.SearchCondition;
+import com.my.pro.domain.BoardDto;
+import com.my.pro.domain.SearchCondition;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

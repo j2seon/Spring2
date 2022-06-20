@@ -4,7 +4,7 @@
 <%@ page session="false" %>
 <c:set var="loginId" value="${pageContext.request.getSession(false)==null ? '' : pageContext.request.session.getAttribute('id')}"/>
 <c:set var="loginOutLink" value="${loginId=='' ? '/login/login' : '/login/logout'}"/>
-<c:set var="loginOut" value="${loginId=='' ? 'Login' : loginId}"/>
+<c:set var="loginOut" value="${loginId==''  ? 'Login' : loginId}"/>
 <c:set var="RegisterLink" value="${loginId==''? '/register/add' : ''}"/>
 <c:set var="Registercheck" value="${loginId=='' ? 'Sign Up' : 'My Cart'}"/>
 <!DOCTYPE html>
@@ -252,6 +252,7 @@
          </div>
     </div>
 </div>
+<jsp:include page="footer.jsp" flush="false"/>
 
 <script>
     <c:if test="${mode ne 'new'}">

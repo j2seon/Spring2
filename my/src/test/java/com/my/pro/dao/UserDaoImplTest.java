@@ -1,6 +1,6 @@
 package com.my.pro.dao;
 
-import com.my.pro.dto.UserDto;
+import com.my.pro.domain.UserDto;
 import junit.framework.TestCase;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -84,7 +84,19 @@ public class UserDaoImplTest extends TestCase {
         int cnt2 = userDao.checkid(id2);
         assertTrue(cnt2==0);
     }
+    @Test
+    public void update()throws Exception {
+        UserDto dto = new UserDto();
+        dto.setPwd("aaaa");
+        dto.setId("aaaa");
 
+        UserDto dto2 = userDao.check(dto);
+        dto2.setEmail("ddsd");
+        dto2.setPhone("101010");
+        int c = userDao.update(dto2);
+        assertTrue(c == 1);
+
+    }
 
 
 }

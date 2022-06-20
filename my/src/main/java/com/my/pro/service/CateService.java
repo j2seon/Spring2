@@ -1,6 +1,6 @@
 package com.my.pro.service;
 
-import com.my.pro.dto.CateDto;
+import com.my.pro.domain.CateDto;
 
 import java.util.List;
 

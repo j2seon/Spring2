@@ -1,6 +1,6 @@
 package com.my.pro.controller;
 
-import com.my.pro.dto.UserDto;
+import com.my.pro.domain.UserDto;
 import com.my.pro.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,7 +13,6 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.net.URLEncoder;
 
 
 @Controller
@@ -25,8 +24,12 @@ public class LoginController {
 
     //1.로그인 화면으로 이동함.
     @GetMapping("/login")
-    public String loginForm(){
-        return "loginForm";
+    public String loginForm(HttpServletRequest request) {
+        if(request.getSession(false)!=null){
+            request.getSession(false).invalidate();
+        }
+            return "loginForm";
+//        session.invalidate();
     }
 
     //2.로그인 화면에서 데이터를 전송
@@ -71,6 +74,9 @@ public class LoginController {
         // 2. 홈으로 이동
         return "redirect:/";
     }
+
+
+
 }
 
 

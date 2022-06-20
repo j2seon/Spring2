@@ -1,8 +1,7 @@
 package com.my.pro.service;
 
-import com.my.pro.dto.BoardDto;
-import com.my.pro.dto.SearchCondition;
-import com.my.pro.dto.UserDto;
+import com.my.pro.domain.BoardDto;
+import com.my.pro.domain.SearchCondition;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
