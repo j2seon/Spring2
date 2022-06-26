@@ -59,4 +59,7 @@ public class UserDaoImpl implements UserDao {
         return session.update(namespace+"update",dto);
     }
 
+
+
+
 }

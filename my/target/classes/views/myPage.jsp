@@ -199,7 +199,7 @@
 <div class="wrap">
   <div class="greenContainer">
     <div>
-      <div class="name">${loginOut}</div>
+      <div class="name"></div>
     </div>
     <div class="modify"><a href="">수정하기</a></div>
   </div>

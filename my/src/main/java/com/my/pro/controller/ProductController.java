@@ -97,7 +97,7 @@ public class ProductController {
 
     //상품등록 >> 등록후에 리스트 페이지로 이동
     @PostMapping("/add")
-        public String goodAdd(ProductDto productDto, Model m, RedirectAttributes rattr, MultipartFile file,HttpServletRequest request) {
+        public String goodAdd(ProductDto productDto, Model m, MultipartFile file,HttpServletRequest request) {
 //        if(!adminCheck(request))
 //            return "redirect:/login/login?toURL="+request.getRequestURL();
 

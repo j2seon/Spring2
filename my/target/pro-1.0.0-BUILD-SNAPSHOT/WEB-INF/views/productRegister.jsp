@@ -102,7 +102,9 @@
 <body>
     <div class="container">
         <div class="vertical-center">
-            <h2 class="addFromBox">상품 ${mode=="new"? "등록":"조회"}</h2>
+            <h2 class="addFromBox">상품 ${mode=="new"? "등록":"조회"}
+            <%=application.getRealPath("/resources")%>
+            </h2>
             <form method="post" autocomplete="off" name="addForm" id="addForm" enctype="multipart/form-data">
                 <input type="hidden" name="goodsNum" value="${productDto.goodsNum}">
                 <div class="inputArea">

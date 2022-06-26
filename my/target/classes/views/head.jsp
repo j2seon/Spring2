@@ -117,9 +117,7 @@
 <div class="navbar">
     <a class="active" href="<c:url value='${loginOutLink}'/>"><i class="fa fa-fw fa-user"></i>${loginOut}</a>
     <a href="<c:url value='${RegisterLink}'/>">${Registercheck}</a>
-    <c:if test="${loginId!=null}">
     <a href="<c:url value="/show/mypage"/>"><i class="fa fa-fw fa-home"></i>My Page</a>
-    </c:if>
 </div>
 
 <div id="mySidenav" class="sidenav">

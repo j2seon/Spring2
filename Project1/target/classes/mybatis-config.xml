@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <typeAliases>
+        <typeAlias type="com.my.project"/>
+        <typeAlias alias ="UserDto" type="com.my.project.domain.UserDto"/>
+
+        <!--여러개 등록할 수 있다.-->
+        <!--여러개 등록할 수 있다.-->
+    </typeAliases>
+</configuration>

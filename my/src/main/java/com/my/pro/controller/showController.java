@@ -25,18 +25,17 @@ public class showController {
 
     // 상품리스트 보여주기
     @GetMapping("/list")
-    public String menuList(@RequestParam(value = "code", defaultValue ="100")String cateCode, @RequestParam(value = "t",required = false, defaultValue ="1") Integer tier, Model m, HttpServletRequest request){
-        HttpSession session= request.getSession(false);
-        if(session.getAttribute("id")==null){
+    public String menuList(@RequestParam(value = "code", defaultValue = "100") String cateCode, @RequestParam(value = "t", required = false, defaultValue = "1") Integer tier, Model m, HttpServletRequest request) {
+        HttpSession session = request.getSession(false);
+        if (session.getAttribute("id") == null) {
             session.invalidate();
         }
 
-
         try {
             List<CateDto> category = cateService.categoryList();
-            List<ProductDto> list = showService.getList(tier,cateCode);
-            m.addAttribute("list",list);
-            m.addAttribute("category",category);
+            List<ProductDto> list = showService.getList(tier, cateCode);
+            m.addAttribute("list", list);
+            m.addAttribute("category", category);
 
 
         } catch (Exception e) {
@@ -47,12 +46,27 @@ public class showController {
     }
 
     @GetMapping("/mypage")
-    public String myPage(){
+    public String myPage() {
         return "myPage";
     }
 
     @GetMapping("/map")
-    public String map(){
+    public String map() {
         return "map";
     }
+
+
+    @GetMapping("/map1")
+    public String map1() {
+        return "map1";
+    }
+    @GetMapping("/map2")
+    public String map2() {
+        return "map2";
+    }
+    @GetMapping("/map3")
+    public String map3() {
+        return "map3";
+    }
 }
+
