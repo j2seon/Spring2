@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="joinMapper">
+
+    <resultMap type="EmployeeDto" id="empMap">
+        <id property="empno" column = "EMPNO"/>
+        <result property="ename" column = "ENAME"/>
+        <result property="sal" column = "SAL"/>
+        <result property="deptno" column = "DEPTNO"/>
+    </resultMap>
+
+    <resultMap type="DepartmentDto" id="deptMap">
+        <id property="deptno" column="DEPTNO" />
+        <result property="dname" column="DNAME" />
+        <result property="loc" column="LOC" />
+    </resultMap>
+
+    <resultMap type="JoinDto" id="joinMap">
+        <collection property="emp" resultMap="empMap" />
+        <collection property="dept" resultMap="deptMap" />
+    </resultMap>
+
+    <resultMap type="JoinDto2" id="joinMap2">
+        <id property="empno" column = "EMPNO"/>
+        <result property="ename" column = "ENAME"/>
+        <result property="sal" column = "SAL"/>
+        <result property="deptno" column = "DEPTNO"/>
+        <result property="deptno" column="DEPTNO" />
+        <result property="dname" column="DNAME" />
+        <result property="loc" column="LOC" />
+    </resultMap>
+
+
+    <select id="selectOneJoin" resultType="JoinDto">
+	<![CDATA[
+
+        ]]>
+</select>
+
+    <select id="selectAll" resultMap="joinMap">
+	<![CDATA[
+        SELECT E.EMPNO, E.ENAME, E.SAL,
+               D.DEPTNO, D.DNAME, D.LOC
+        FROM SPRING_EMPLOYMENT E, SPRING_DEPARTMENT D
+        WHERE E.DEPTNO = D.DEPTNO
+        ]]>
+</select>
+
+    <select id="selectAll2" resultType="JoinDto2">
+	<![CDATA[
+        SELECT E.EMPNO, E.ENAME, E.SAL,
+               D.DEPTNO, D.DNAME, D.LOC
+        FROM SPRING_EMPLOYMENT E, SPRING_DEPARTMENT D
+        WHERE E.DEPTNO = D.DEPTNO
+        ]]>
+</select>
+
+
+
+</mapper>

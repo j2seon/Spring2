@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <typeAliases>
+        <typeAlias alias ="DepartmentDto" type="com.test.test.domain.DepartmentDto"/>
+        <typeAlias alias ="EmployeeDto" type="com.test.test.domain.EmployeeDto"/>
+        <typeAlias alias ="JoinDto" type="com.test.test.domain.JoinDto"/>
+        <typeAlias alias ="JoinDto2" type="com.test.test.domain.JoinDto2"/>
+    </typeAliases>
+</configuration>
