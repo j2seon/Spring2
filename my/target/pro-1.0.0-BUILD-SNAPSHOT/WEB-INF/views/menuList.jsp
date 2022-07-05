@@ -93,7 +93,7 @@
         section#item-contents ul li:hover div.summary > p{position: absolute; top: 60%;text-align: center}
     </style>
 </head>
-<jsp:include page="head.jsp" flush="false"/>
+<jsp:include page="test/head.jsp" flush="false"/>
 
 <body>
 <div class="container">
@@ -102,8 +102,8 @@
 
         </div>
     </div>
-    <jsp:include page="list/list.jsp" flush="false"/>
-
+<%--    <jsp:include page="list/list.jsp" flush="false"/>--%>
+    <%@ include file="list/list.jsp"%>
     <section id="itemMain">
         <div id="items">
             <section id="item-contents">

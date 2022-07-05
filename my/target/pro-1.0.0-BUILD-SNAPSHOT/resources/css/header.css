@@ -1,0 +1,10 @@
+#header {width: 100%; background-color: #b2defe; position: relative;}
+#header .logo{display: flex; justify-content: center; }
+#header .logo a{display: block; background: url(../image/logo_w.png) 0 0 no-repeat; width: 200px; height: 40px; margin: 30px 0px 10px 0px;}
+#header .right_menu{display: flex; justify-content: right;}
+#header .right_menu ul{display: flex; margin-bottom: 20px;}
+#header .right_menu ul li{margin-right: 20px;}
+#header .right_menu ul li a{font-size: 18px;}
+#topmenu {display: flex; width: 100%; top: 110px; background: #fff; justify-content: space-evenly;}
+#topmenu a{font-size: 22px; padding: 10px; font-weight: 600;}
+#topmenu a:hover {color:#04AA6D; transition: 0.3s ease-out;}

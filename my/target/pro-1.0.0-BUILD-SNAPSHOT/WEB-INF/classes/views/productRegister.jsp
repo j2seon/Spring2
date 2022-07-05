@@ -93,7 +93,7 @@
 
 
 </style>
-<jsp:include page="head.jsp" flush="false"/>
+<jsp:include page="test/head.jsp" flush="false"/>
 <script>
     let msg = "${msg}";
     if(msg=="File_Upload_Fail") alert("상품 등록에 실패했습니다.");
@@ -230,7 +230,6 @@
             </form>
         </div>
     </div>
-    <jsp:include page="footer.jsp" flush="false"/>
 
 </body>
 

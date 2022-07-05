@@ -25,11 +25,8 @@ public class LoginController {
     //1.로그인 화면으로 이동함.
     @GetMapping("/login")
     public String loginForm(HttpServletRequest request) {
-        if(request.getSession(false)!=null){
-            request.getSession(false).invalidate();
-        }
+
             return "loginForm";
-//        session.invalidate();
     }
 
     //2.로그인 화면에서 데이터를 전송

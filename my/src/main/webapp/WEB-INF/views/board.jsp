@@ -188,7 +188,7 @@
     </style>
 </head>
 <body>
-<jsp:include page="head.jsp" flush="false"/>
+<jsp:include page="test/head.jsp" flush="false"/>
 
 <script>
     let msg = "${msg}";
@@ -222,8 +222,7 @@
             <button id="sendBtn" type="button">SEND</button>
             <button id="modBtn" style="display: none"  type="button">MOD</button>
         </div>
-        <div id="commentList">
-        </div>
+        <div id="commentList"></div>
         <div id="relyForm" style="display: none">
             <textarea  name="replyComment"placeholder="댓글을 입력하세요"></textarea>
             <button id="writeRepBtn" type="button">등록</button>
@@ -252,7 +251,6 @@
          </div>
     </div>
 </div>
-<jsp:include page="footer.jsp" flush="false"/>
 
 <script>
     <c:if test="${mode ne 'new'}">

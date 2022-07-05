@@ -4975,7 +4975,7 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <Position>6</Position>
     </column>
     <column id="1103" parent="367" name="bno">
-      <AutoIncrement>743</AutoIncrement>
+      <AutoIncrement>744</AutoIncrement>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>
@@ -5021,7 +5021,7 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <Primary>1</Primary>
     </key>
     <column id="1112" parent="368" name="cno">
-      <AutoIncrement>145</AutoIncrement>
+      <AutoIncrement>148</AutoIncrement>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>
@@ -5092,7 +5092,7 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <Primary>1</Primary>
     </key>
     <column id="1127" parent="370" name="goodsNum">
-      <AutoIncrement>19</AutoIncrement>
+      <AutoIncrement>20</AutoIncrement>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>

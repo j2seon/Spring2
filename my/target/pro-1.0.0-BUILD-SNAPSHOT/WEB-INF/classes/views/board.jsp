@@ -188,7 +188,7 @@
     </style>
 </head>
 <body>
-<jsp:include page="head.jsp" flush="false"/>
+<jsp:include page="test/head.jsp" flush="false"/>
 
 <script>
     let msg = "${msg}";

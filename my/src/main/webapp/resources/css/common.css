@@ -1,0 +1,20 @@
+* {margin: 0; padding: 0; list-style: none; text-decoration: none;}
+a { color: black;}
+body {background-color: #e3f2fd; height: 100%;}
+#wrap {width: 100%; margin: 0 auto;}
+#topmenu .icon { display: none;}
+@media (max-width: 1240px) {
+    #wrap {width: 100%;}
+}
+@media screen and (max-width: 845px){
+    #topmenu a {display: none;}
+    #topmenu .icon{display: block;}
+}
+@media screen and (max-width: 845px){
+    #topmenu.responsive{display: flex; flex-direction: column;}
+    #topmenu.responsive .icon{position: relative; }
+    #topmenu.responsive a{display: flex; justify-content: center; }
+}
+@media (max-width: 768px){
+    #topmenu ul{display: block; }
+}

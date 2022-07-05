@@ -1,7 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
 <div id="tab">
     <ul class="meumain">
         <li><a href="<c:url value="/show/list?t=1&code=100"/>">샌드위치</a>

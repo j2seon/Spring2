@@ -9,25 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="520e26e4-e609-45b9-891e-7adfefaf6d89" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../Project1/src/main/java/com/my/project/Controller/RegisterController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project1/src/main/java/com/my/project/dao/UserDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project1/src/main/java/com/my/project/dao/UserDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project1/src/main/java/com/my/project/service/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project1/src/main/java/com/my/project/service/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project1/src/main/resources/mybatis-config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Project1/src/main/resources/mybatis-config.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project1/src/main/webapp/WEB-INF/spring/root-context.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Project1/src/main/webapp/WEB-INF/spring/root-context.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project1/src/main/webapp/WEB-INF/views/register.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../Project1/src/main/webapp/WEB-INF/views/register.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project1/target/classes/mybatis-config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Project1/target/classes/mybatis-config.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project1/target/project-1.0.0-BUILD-SNAPSHOT.war" beforeDir="false" afterPath="$PROJECT_DIR$/../Project1/target/project-1.0.0-BUILD-SNAPSHOT.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project1/target/project-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/my/project/Controller/ExceptionController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Project1/target/project-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/my/project/Controller/ExceptionController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project1/target/project-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/my/project/Controller/ExceptionController2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project1/target/project-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/my/project/HomeController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project1/target/project-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/my/project/domain/UserDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Project1/target/project-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/my/project/domain/UserDto.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project1/target/project-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/mybatis-config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Project1/target/project-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/mybatis-config.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project1/target/project-1.0.0-BUILD-SNAPSHOT/WEB-INF/spring/root-context.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Project1/target/project-1.0.0-BUILD-SNAPSHOT/WEB-INF/spring/root-context.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project1/target/project-1.0.0-BUILD-SNAPSHOT/WEB-INF/views/error.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../Project1/target/project-1.0.0-BUILD-SNAPSHOT/WEB-INF/views/error.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project1/target/project-1.0.0-BUILD-SNAPSHOT/WEB-INF/views/home.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="520e26e4-e609-45b9-891e-7adfefaf6d89" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -40,9 +22,9 @@
         <option value="JUnit3 Test Class" />
         <option value="Interface" />
         <option value="JUnit4 Test Class" />
-        <option value="CSS File" />
         <option value="Class" />
         <option value="Jsp File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -86,38 +68,38 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit4&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit3&quot;: &quot;junit.framework.TestCase&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4&quot;: &quot;&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/ddj04/IdeaProjects/my&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.appearance&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;1f0f70bf2b5ad94c7387e64c16dc455a&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit4",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit3": "junit.framework.TestCase",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4": "",
+    "last_opened_file_path": "C:/Users/ddj04/IdeaProjects/test",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "configurable.group.appearance",
+    "spring.configuration.checksum": "1f0f70bf2b5ad94c7387e64c16dc455a"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mysql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
     ],
-    &quot;GitStage.ChangesTree.GroupingKeys&quot;: [
-      &quot;directory&quot;,
-      &quot;module&quot;,
-      &quot;repository&quot;
+    "GitStage.ChangesTree.GroupingKeys": [
+      "directory",
+      "module",
+      "repository"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.my.pro.dto" />
@@ -134,6 +116,7 @@
       <recent name="junit.framework.TestCase" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\ddj04\IdeaProjects\my\src\main\webapp\WEB-INF\views\test" />
       <recent name="C:\Users\ddj04\IdeaProjects\my\src\main\webapp\resources\image" />
       <recent name="C:\Users\ddj04\IdeaProjects\my\src\main\webapp\resources\css" />
     </key>
@@ -150,7 +133,7 @@
       <recent name="com.my.pro.dto" />
     </key>
   </component>
-  <component name="RunManager" selected="Tomcat Server.Tomcat 9.0.52 2">
+  <component name="RunManager" selected="Tomcat Server.Tomcat 9.0.52 ">
     <configuration name="CateDaoImpleTest.selectAll" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="pro" />
       <extension name="coverage">
@@ -231,7 +214,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Tomcat 9.0.52 2" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.52 2" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
+    <configuration name="Tomcat 9.0.52 " type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.52 " ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
       <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
         <artifact name="pro:war">
@@ -325,7 +308,7 @@
       <item itemvalue="JUnit.CateDaoImpleTest.selectAll" />
       <item itemvalue="JUnit.ShowDaoImplTest.listFirst" />
       <item itemvalue="JUnit.ShowServiceImplTest.list" />
-      <item itemvalue="Tomcat Server.Tomcat 9.0.52 2" />
+      <item itemvalue="Tomcat Server.Tomcat 9.0.52 " />
     </list>
     <recent_temporary>
       <list>
@@ -430,6 +413,21 @@
       <workItem from="1656216439709" duration="11416000" />
       <workItem from="1656250262521" duration="2106000" />
       <workItem from="1656253893974" duration="1634000" />
+      <workItem from="1656595962359" duration="3782000" />
+      <workItem from="1656636693746" duration="5957000" />
+      <workItem from="1656680632750" duration="4788000" />
+      <workItem from="1656700178796" duration="1025000" />
+      <workItem from="1656737423711" duration="2036000" />
+      <workItem from="1656928820636" duration="2927000" />
+      <workItem from="1656934535301" duration="26000" />
+      <workItem from="1656938494871" duration="8444000" />
+      <workItem from="1656956971254" duration="229000" />
+      <workItem from="1656957227377" duration="925000" />
+      <workItem from="1656958174369" duration="155000" />
+      <workItem from="1656980789103" duration="4219000" />
+      <workItem from="1656985834034" duration="3477000" />
+      <workItem from="1656990311400" duration="767000" />
+      <workItem from="1656991224806" duration="20764000" />
     </task>
     <servers />
   </component>

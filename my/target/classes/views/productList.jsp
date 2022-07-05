@@ -2,13 +2,9 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
-<%@ page session="false" %>
 <html>
-<head>
-    <meta charset="UTF-8">
-    <script src="https://code.jquery.com/jquery-1.11.3.js"></script>
-    <title>상품등록</title>
-</head>
+<head lang="ko">
+    <%@ include file="include/head.jsp"%>
 <style>
     /* Style inputs, select elements and textareas */
     table {
@@ -138,7 +134,8 @@
     }
 
 </style>
-<jsp:include page="head.jsp" flush="false"/>
+</head>
+<jsp:include page="test/head.jsp" flush="false"/>
 
 <body>
 <script>

@@ -201,7 +201,7 @@
 
 
 <!--footer-->
-<jsp:include page="footer.jsp" flush="false"/>
+<jsp:include page="../footer.jsp" flush="false"/>
 
 
 <script>

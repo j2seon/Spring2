@@ -27,9 +27,9 @@ public class showController {
     @GetMapping("/list")
     public String menuList(@RequestParam(value = "code", defaultValue = "100") String cateCode, @RequestParam(value = "t", required = false, defaultValue = "1") Integer tier, Model m, HttpServletRequest request) {
         HttpSession session = request.getSession(false);
-        if (session.getAttribute("id") == null) {
-            session.invalidate();
-        }
+//        if (session.getAttribute("id") == null) {
+//            session.invalidate();
+//        }
 
         try {
             List<CateDto> category = cateService.categoryList();
@@ -52,21 +52,21 @@ public class showController {
 
     @GetMapping("/map")
     public String map() {
-        return "map";
+        return "test/map";
     }
 
 
     @GetMapping("/map1")
     public String map1() {
-        return "map1";
+        return "test/map1";
     }
     @GetMapping("/map2")
     public String map2() {
-        return "map2";
+        return "test/map2";
     }
     @GetMapping("/map3")
     public String map3() {
-        return "map3";
+        return "test/map3";
     }
 }
 
