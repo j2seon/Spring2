@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-<%@ page session="false" %>
 <c:set var="loginId" value="${pageContext.request.getSession(false)==null ? '' : pageContext.request.session.getAttribute('id')}"/>
 <c:set var="loginOutLink" value="${loginId=='' ? '/login/login' : '/login/logout'}"/>
 <c:set var="loginOut" value="${loginId=='' ? 'Login' : loginId}"/>
@@ -9,10 +8,8 @@
 <c:set var="Registercheck" value="${loginId=='' ? 'Sign Up' : 'My Cart'}"/>
 <!DOCTYPE html>
 <html>
-<title>product</title>
 <head>
-
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <%@ include file="include/head.jsp"%>
     <style>
         body, html {
             height: 100%;
@@ -93,16 +90,14 @@
         section#item-contents ul li:hover div.summary > p{position: absolute; top: 60%;text-align: center}
     </style>
 </head>
-<jsp:include page="test/head.jsp" flush="false"/>
+<%@ include file="header.jsp"%>
 
 <body>
 <div class="container">
     <div class="menu-image">
         <div class="menu-text">
-
         </div>
     </div>
-<%--    <jsp:include page="list/list.jsp" flush="false"/>--%>
     <%@ include file="list/list.jsp"%>
     <section id="itemMain">
         <div id="items">

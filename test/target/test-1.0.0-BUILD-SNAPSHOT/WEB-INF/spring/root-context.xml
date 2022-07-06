@@ -5,26 +5,20 @@
 	   xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
 	<!-- Root Context: defines shared resources visible to all other web components -->
-	<bean id= "dataSource" class = "org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
-		<property name = "driverClassName" value = "oracle.jdbc.driver.OracleDriver" />
-		<property name = "url" value = "jdbc:oracle:thin:@localhost:1521:XE" />
-		<property name = "username" value= "hr2" />
-		<property name = "password" value= "1234" />
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>
+		<property name="url" value="jdbc:oracle:thin:@localhost:1521:xe"/>
+		<property name="username" value="hr2"/>
+		<property name="password" value="1234"/>
 	</bean>
 
-	<!-- Spring JDBC 설정 : JDBCTemplate 객체생성해서 DI   -->
-	<bean id = "jdbcTemplate" class = "org.springframework.jdbc.core.JdbcTemplate">
-		<property name = "dataSource" ref = "dataSource" />
-	</bean>
-
-	<!--  MyBatis 설정 : SQL SessionFactory 생성 , DB 연결 설정 까지 구성됨.  -->
-	<bean id="sqlSessionFactory" class = "org.mybatis.spring.SqlSessionFactoryBean">
-		<property name="dataSource" ref="dataSource" />
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"/>
 		<property name="configLocation"  value="classpath:mybatis-config.xml"/>
 		<property name="mapperLocations" value="classpath*:mapper/*Mapper.xml"/>
 	</bean>
 
-	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate" destroy-method="clearCache">
 		<constructor-arg ref="sqlSessionFactory"/>
 	</bean>
 

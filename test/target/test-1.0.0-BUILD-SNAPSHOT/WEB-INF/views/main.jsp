@@ -18,6 +18,9 @@
 </h1>
 
 <a href="<c:url value="/bread/map"/>"> map 이동</a>
+<a href="<c:url value="/bread/api"/>"> api 이동</a>
+<a href="<c:url value="/bread/tour"/>"> bread tour이동</a>
+<a href="<c:url value="/bread/search"/>"> keyword</a>
 <p></p>
 </body>
 </html>

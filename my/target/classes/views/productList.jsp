@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
@@ -6,136 +6,20 @@
 <head lang="ko">
     <%@ include file="include/head.jsp"%>
 <style>
-    /* Style inputs, select elements and textareas */
-    table {
-        border-collapse: collapse;
-        border-spacing: 0;
-        width: 100%;
-        border: 1px solid #ddd;
-    }
-
-    /* Style table headers and table data */
-    th, td {
-        text-align: center;
-        padding: 16px;
-    }
-    tr:nth-child(even) {
-        background-color: #f2f2f2
-    }
-
-    th:first-child, td:first-child {
-        text-align: left;
-    }
-
-    input[type=text], select, textarea{
-        width: 100%;
-        padding: 12px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        box-sizing: border-box;
-        resize: vertical;
-    }
-
-    /* Style the label to display next to the inputs */
-    label {
-        padding: 12px 12px 12px 0;
-        display: inline-block;
-    }
-
-    /* Style the submit button */
-    input[type=submit] {
-        background-color: #04AA6D;
-        color: white;
-        padding: 12px 20px;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-        float: right;
-    }
-
-
-    /* Style the container */
-    .container {
-        display: flex;
-        justify-content: center;
-        border-radius: 5px;
-        background-color: #f2f2f2;
-        position: relative;
-        padding: 20px;
-    }
-
-    /* Floating column for labels: 25% width */
-    .col-25 {
-        float: left;
-        width: 25%;
-        margin-top: 6px;
-    }
-
-    /* Floating column for inputs: 75% width */
-    .col-75 {
-        float: left;
-        width: 75%;
-        margin-top: 6px;
-    }
-
-    /* Clear floats after the columns */
-    .row:after {
-        content: "";
-        display: table;
-        clear: both;
-    }
-
-    /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
-    @media screen and (max-width: 600px) {
-        .col-25, .col-75, input[type=submit] {
-            width: 50%;
-            margin-top: 0;
-        }
-    }
-    .vertical-center {
-        margin: 0;
-        position: relative;
-
-    }
-    .ckeck_warn{
-        display: none;
-        padding-top: 10px;
-        text-align: center;
-        color: red;
-        font-weight: 300;
-    }
-    form.example{
-        float: right;
-        display: inline-flex;
-    }
-    form.example button {
-        float: right;
-        padding: 10px;
-        background: #04AA6D;
-        color: white;
-        font-size: 17px;
-        border: 1px solid grey;
-        border-left: none; /* Prevent double borders */
-        cursor: pointer;
-    }
-    form.example::after {
-        content: "";
-        clear: both;
-        display: table;
-    }
-    .regiBtn{
-        text-decoration: none;
-        padding: 9px;
-        color: #111111;
-        border: 1px solid;
-        margin-left: 5px;
-        float: right;
-        background-color: #04AA6D;
-    }
+    #producTb{display: flex; flex-direction: column;}
+    #producTb .producttop {display: flex; flex-direction: column;}
+    h2{padding: 12px; margin-top: 15px;}
+    #producTb span{display: flex; justify-content: flex-end;}
+    #producTb .regiBtn{padding: 9px; border: 1px solid;margin-left: 5px;background-color: #04AA6D;margin-right: 10px; color: white; font-size: 15pt;}
+    #producTb .example{display: flex; justify-content: center; margin-bottom: 15px;}
+    #producTb .example input{width: 30%;}
+    #producTb .example button {margin-left:10px; padding: 10px; background: #04AA6D; color: white; font-size: 17px; border: 1px solid grey; cursor: pointer;}
+    table{margin: 20px; border: 1px solid #04AA6D;}
+    th, td {text-align: center;padding: 16px; border: #04AA6D 1px solid;}
+    tr:nth-child(even) {background-color: #f2f2f2}
 
 </style>
 </head>
-<jsp:include page="test/head.jsp" flush="false"/>
 
 <body>
 <script>
@@ -145,14 +29,17 @@
     if(msg=="MOD_OK") alert("상품수정을 완료했습니다.");
     if(msg=="DEL_OK") alert("상품을 삭제했습니다.");
 </script>
-    <div class="container">
-        <div class="vertical-center">
-            <h2>상품 목록</h2>
-            <a class="regiBtn" href="<c:url value="/product/add"/> ">상품 등록</a>
-            <form class="example" action="">
-                <input type="text" placeholder="Search.." name="search">
-                <button type="submit"><i class="fa fa-search"></i></button>
-            </form>
+    <div id="wrap">
+        <%@ include file="header.jsp"%>
+        <section id="producTb">
+            <div class="producttop">
+                <h2>상품 목록</h2>
+                <span><a class="regiBtn" href="<c:url value="/product/add"/> ">상품 등록</a></span>
+                <form class="example" action="">
+                    <input type="text" placeholder="Search.." name="search">
+                    <button type="submit"><i class="fa fa-search"></i></button>
+                </form>
+            </div>
             <table class="st">
                 <thead>
                     <tr>
@@ -209,11 +96,27 @@
                     </c:forEach>
                 </tbody>
             </table>
-
-        </div>
+<%--            <div class="paging-container">--%>
+<%--                <div class="paging">--%>
+<%--                    <c:if test="${totalCnt==null || totalCnt==0}">--%>
+<%--                        <div> 게시물이 없습니다. </div>--%>
+<%--                    </c:if>--%>
+<%--                    <c:if test="${totalCnt!=null && totalCnt!=0}">--%>
+<%--                        <c:if test="${ph.showPrev}">--%>
+<%--                            <a class="page" href="<c:url value="/board/list${ph.sc.getQueryString(ph.startNavi-1)}"/>">&lt;</a>--%>
+<%--                        </c:if>--%>
+<%--                        <c:forEach var="i" begin="${ph.startNavi}" end="${ph.endNavi}">--%>
+<%--                            <a class="page ${i==ph.sc.page? "paging-active" : ""}" href="<c:url value="/board/list${ph.sc.getQueryString(i)}"/>">${i}</a>--%>
+<%--                        </c:forEach>--%>
+<%--                        <c:if test="${ph.showNext}">--%>
+<%--                            <a class="page" href="<c:url value="/board/list${ph.sc.getQueryString(ph.endNavi+1)}"/>">&gt;</a>--%>
+<%--                        </c:if>--%>
+<%--                    </c:if>--%>
+<%--                </div>--%>
+<%--            </div>--%>
+        </section>
     </div>
-<jsp:include page="footer.jsp" flush="false"/>
-
+    <footer id="footer"></footer>
 </body>
 
 <script>

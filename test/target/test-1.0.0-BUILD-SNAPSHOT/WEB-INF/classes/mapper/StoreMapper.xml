@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.test.test.dao.StoreMapper">
+
+    <sql id="stores">
+        SELECT ID,GU,REG_DATE,GOOD,HOLIDAY,LAT,LON,ADDRESS,POST_NUM,STORENAME,FRANCHISE,MASTER,EAT,CORPS,MAINIMG,MAINMENU
+        FROM STORE
+    </sql>
+
+    <!--등록-->
+<!--    <insert id="insert" parameterType="StoreDto">-->
+
+<!--        INSERT INTO STORE-->
+<!--        (STORENAME,MAINIMG,MAINMENU,FRANCHISE,MASTER,EAT,CORPS,CITY,GU,LON,LAT,HODLIDAY,REG_DATE)-->
+<!--        VALUES-->
+<!--        (#{gu},#{reg_date},#{holiday},#{master},#{eat},#{corps},#{city},#{gu},#{lon},#{lat},#{holiday},#{reg_date})-->
+<!--    </insert>-->
+
+    <!--전체가게 목록 정렬 id 순-->
+    <select id="selectAll" resultType="StoreDto">
+        SELECT ID,GU,REG_DATE,GOOD,HOLIDAY,LAT,LON,ADDRESS,POST_NUM,STORENAME,FRANCHISE,MASTER,EAT,CORPS,MAINMENU,ID
+        FROM STORE
+        ORDER BY ID ASC
+    </select>
+
+<!--    &lt;!&ndash;가게 수정&ndash;&gt;-->
+<!--    <update id="update" parameterType="int">-->
+<!--         <![CDATA[-->
+<!--        UPDATE STORE-->
+<!--        SET STORENAME = #{storeName},-->
+<!--            MAINIMG = #{mainImg},-->
+<!--            MAINMENU = #{mainMenu},-->
+<!--            FRANCHISE = #{franchise},-->
+<!--            MASTER = #{master},-->
+<!--            EAT = #{eat},-->
+<!--            CORPS = #{corps},-->
+<!--            CITY = #{city},-->
+<!--            GU = #{GU},-->
+<!--            LON = #{LON},-->
+<!--            LAT = #{lat},-->
+<!--            HODLIDAY = #{holiday},-->
+<!--            REG_DATE = #{reg_date}-->
+<!--            WHERE ID = #{id}-->
+<!--        ]]>-->
+<!--    </update>-->
+
+<!--    &lt;!&ndash;가게 삭제&ndash;&gt;-->
+<!--    <delete id="delete" parameterType="int">-->
+<!--        DELETE FROM STORE-->
+<!--        WHERE ID = #{id}-->
+<!--    </delete>-->
+
+<!--    &lt;!&ndash;좋아요 1증가 (유저랑 상의 필요)&ndash;&gt;-->
+<!--    <update id="goodCnt" parameterType="int">-->
+<!--        UPDATE STORE-->
+<!--        SET   good = good + 1-->
+<!--        WHERE id = #{id}-->
+<!--    </update>-->
+
+
+
+</mapper>

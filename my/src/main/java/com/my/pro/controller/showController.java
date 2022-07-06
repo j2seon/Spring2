@@ -27,9 +27,6 @@ public class showController {
     @GetMapping("/list")
     public String menuList(@RequestParam(value = "code", defaultValue = "100") String cateCode, @RequestParam(value = "t", required = false, defaultValue = "1") Integer tier, Model m, HttpServletRequest request) {
         HttpSession session = request.getSession(false);
-//        if (session.getAttribute("id") == null) {
-//            session.invalidate();
-//        }
 
         try {
             List<CateDto> category = cateService.categoryList();

@@ -13,12 +13,21 @@ public class breadController {
     public String breadMain(){
          return "main";
     }
-
-    @RequestMapping(method = RequestMethod.GET, value = "/map")
-    public String breadmap(){
+    @RequestMapping(method = RequestMethod.GET,value = "/map")
+    public String breadmap() {
         return "map";
     }
+    @RequestMapping(method = RequestMethod.GET,value = "/api")
+    public String breadApi() {
+        return "api1";
+    }
+    @RequestMapping(method = RequestMethod.GET,value = "/tour")
+    public String breadTourApi() {
+        return "api2";
+    }
 
-
-
+    @RequestMapping(method = RequestMethod.GET,value = "/search")
+    public String search() {
+        return "search";
+    }
 }

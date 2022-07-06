@@ -13,31 +13,16 @@
         #container {display: block}
         #container .form{display: flex; justify-content: center; margin: 25px;}
         #container .register{display: flex; flex-direction: column; margin:50px 0px; padding: 45px;}
-        input[type=text], input[type=password],input[type=email] {
-            width: 100%;
-            margin: 5px 0 5px 0;
-            display: inline-block;
-            border: none;
-            background: #f1f1f1;
-        }
-        input[type=text]:focus, input[type=password]:focus {
-            background-color: #ddd;
-            outline: none;
-        }
+        h1{margin-bottom: 20px; font-size: 27pt;}
+        p{font-size: 15pt;}
+        .register span{display: flex; justify-content: flex-end;}
+        .register span button{border:none; font-size: 12pt; padding: 5px; background-color: #04AA6D; color: white;}
+        .register label b{font-size: 15pt;}
+        input[type=text], input[type=password],input[type=email] {width: 100%;margin: 10px 0 5px 0;display: inline-block;border: none;padding: 10px 0px;background: #f1f1f1;}
+        input[type=text]:focus, input[type=password]:focus {background-color: #ddd;outline: none;}
         .btn{display: flex; flex-direction: column; justify-content: center; align-items: center;}
-        .registerbtn, .cancel {
-            background-color: #04AA6D;
-            color: white;
-            padding: 16px 20px;
-            margin: 8px 3px;
-            border: none;
-            cursor: pointer;
-            width: 180px;
-            opacity: 0.9;
-        }
-        .registerbtn,.cancel:hover {
-            opacity: 1;
-        }
+        .registerbtn, .cancel {background-color: #04AA6D; color: white; padding: 16px 20px;margin: 8px 3px;border: none;font-size: 12pt;cursor: pointer;width: 180px;opacity: 0.9;}
+        .registerbtn,.cancel:hover {opacity: 1;}
     </style>
 </head>
 <body>
@@ -48,10 +33,10 @@
                 <div class="register">
                     <h1>Register</h1>
                     <p>Please fill in this form to create an account.</p>
-                    <hr>
+                    <br>
         <%--            <div id="msg" class="msg"><form:errors path="id"/></div>--%>
                     <label for="id"><b>ID</b></label>
-                    <button id="checkId">CHECK ID</button>
+                    <span><button id="checkId">CHECK ID</button></span>
                     <input type="text" placeholder="Enter ID" name="id" id="id" required>
                     <label for="pwd"><b>PASSWORD</b></label>
                     <input type="password" placeholder="Enter PASSWORD" name="pwd" id="pwd" required>
@@ -65,7 +50,7 @@
                     <input type="text" placeholder="Enter phone" name="phone" id="phone" required>
                     <label for="address"><b>address</b></label>
                     <input type="text" placeholder="Enter address" name="address" id="address" required>
-                    <hr>
+                    <br>
                 </div>
                 <div class="btn">
                     <button id="process" type="" class="registerbtn">Register</button>

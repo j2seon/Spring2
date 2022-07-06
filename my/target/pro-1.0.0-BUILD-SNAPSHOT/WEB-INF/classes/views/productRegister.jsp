@@ -1,107 +1,27 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
-<%@ page session="false" %>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <script src="https://code.jquery.com/jquery-1.11.3.js"></script>
-    <title>상품등록</title>
+    <%@ include file="include/head.jsp"%>
 </head>
 <style>
-    /* Style inputs, select elements and textareas */
-
-
-    input[type=text], select, textarea{
-        width: 100%;
-        padding: 12px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        box-sizing: border-box;
-        resize: vertical;
-    }
-
-    /* Style the label to display next to the inputs */
-    label {
-        padding: 12px 12px 12px 0;
-        display: inline-block;
-    }
-
-    /* Style the submit button */
-    input[type=submit] {
-        background-color: #04AA6D;
-        color: white;
-        padding: 12px 20px;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-        float: right;
-    }
-
-
-    /* Style the container */
-    .container {
-        display: flex;
-        justify-content: center;
-        border-radius: 5px;
-        background-color: #f2f2f2;
-        position: relative;
-        padding: 20px;
-    }
-
-    /* Floating column for labels: 25% width */
-    .col-25 {
-        float: left;
-        width: 25%;
-        margin-top: 6px;
-    }
-
-    /* Floating column for inputs: 75% width */
-    .col-75 {
-        float: left;
-        width: 75%;
-        margin-top: 6px;
-    }
-
-    /* Clear floats after the columns */
-    .row:after {
-        content: "";
-        display: table;
-        clear: both;
-    }
-
-    /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
-    @media screen and (max-width: 600px) {
-        .col-25, .col-75, input[type=submit] {
-            width: 50%;
-            margin-top: 0;
-        }
-    }
-    .vertical-center {
-        margin: 0;
-        position: relative;
-
-    }
-    .ckeck_warn{						/* 입력란 공란 경고 태그 */
-        display: none;
-        padding-top: 10px;
-        text-align: center;
-        color: red;
-        font-weight: 300;
-    }
-
-
+    #productAdd{display: flex; justify-content: center; flex-direction: column; align-items: center; border-radius: 5px; padding: 20px; }
+    .ckeck_warn{display: none; padding-top: 10px; text-align: center; color: red; font-weight: 300;}
+    input[type=text], select, textarea{width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; resize: vertical;}
+    label {padding: 12px 12px 12px 0; display: inline-block;}
+    button {padding: 10px; background: #04AA6D; color: white; font-size: 12px; border: 1px solid grey; cursor: pointer; margin-top: 5px;}
 
 </style>
-<jsp:include page="test/head.jsp" flush="false"/>
 <script>
     let msg = "${msg}";
     if(msg=="File_Upload_Fail") alert("상품 등록에 실패했습니다.");
     if(msg=="MOD_ERR") alert("상품수정에 실패했습니다.");
 </script>
 <body>
-    <div class="container">
-        <div class="vertical-center">
+    <%@ include file="header.jsp"%>
+    <div class="wrap">
+        <section id="productAdd">
             <h2 class="addFromBox">상품 ${mode=="new"? "등록":"조회"}
             <%=application.getRealPath("/resources")%>
             </h2>
@@ -228,11 +148,9 @@
                     <button type="button" id="back_Btn" class="">목록</button>
                 </div>
             </form>
-        </div>
+        </section>
     </div>
-
 </body>
-
 <script>
     // 컨트롤러에서 데이터 받기 배열로 옴!!!
     var cateList = JSON.parse('${category}');

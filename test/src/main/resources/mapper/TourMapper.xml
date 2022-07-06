@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.test.test.dao.TourMapper">
+
+
+    <!--등록-->
+<!--    <insert id="insert" parameterType="StoreDto">-->
+<!--        <![CDATA[-->
+<!--        INSERT INTO TOUR-->
+<!--        ()-->
+<!--        VALUES-->
+<!--        ()-->
+<!--        ]]>-->
+<!--    </insert>-->
+
+<!--    &lt;!&ndash;전체투어 목록 정렬 id 순&ndash;&gt;-->
+<!--    <select id="seleteAll" resultType="StoreDto">-->
+<!--        <![CDATA[-->
+<!--        <include refid="stores"/>-->
+<!--        ORDER BY id ASC-->
+<!--        ]]>-->
+<!--    </select>-->
+
+    <!--가게 수정-->
+    <update id="update" parameterType="int">
+         <![CDATA[
+        UPDATE STORE
+        SET STORENAME = #{storeName},
+            MAINIMG = #{mainImg},
+            MAINMENU = #{mainMenu},
+            FRANCHISE = #{franchise},
+            MASTER = #{master},
+            EAT = #{eat},
+            CORPS = #{corps},
+            CITY = #{city},
+            GU = #{GU},
+            LON = #{LON},
+            LAT = #{lat},
+            HODLIDAY = #{holiday},
+            REG_DATE = #{reg_date}
+            WHERE ID = #{id}
+        ]]>
+    </update>
+
+    <!--가게 삭제-->
+    <delete id="delete" parameterType="int">
+        DELETE FROM STORE
+        WHERE ID = #{id}
+    </delete>
+
+    <!--좋아요 1증가 (유저랑 상의 필요)-->
+    <update id="goodCnt" parameterType="int">
+        UPDATE STORE
+        SET   good = good + 1
+        WHERE id = #{id}
+    </update>
+
+
+
+<!--    <select id="selectOneJoin" resultType="JoinDto">-->
+<!--	<![CDATA[-->
+
+<!--        ]]>-->
+<!--    </select>-->
+
+<!--    <select id="selectAll" resultMap="joinMap">-->
+<!--	<![CDATA[-->
+<!--        SELECT E.EMPNO, E.ENAME, E.SAL,-->
+<!--               D.DEPTNO, D.DNAME, D.LOC-->
+<!--        FROM SPRING_EMPLOYMENT E, SPRING_DEPARTMENT D-->
+<!--        WHERE E.DEPTNO = D.DEPTNO-->
+<!--        ]]>-->
+<!--    </select>-->
+
+<!--    <select id="selectAll2" resultType="JoinDto2">-->
+<!--	<![CDATA[-->
+<!--        SELECT E.EMPNO, E.ENAME, E.SAL,-->
+<!--               D.DEPTNO, D.DNAME, D.LOC-->
+<!--        FROM SPRING_EMPLOYMENT E, SPRING_DEPARTMENT D-->
+<!--        WHERE E.DEPTNO = D.DEPTNO-->
+<!--        ]]>-->
+<!--</select>-->
+
+
+
+</mapper>

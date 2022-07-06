@@ -12,7 +12,6 @@
 </h1>
 
 <P>  The time on the server is ${serverTime}. </P>
-<a href = "<c:url value="/bread"/>"> 방 메인뷰이동
-	 </a>
+<a href = "<c:url value="/bread"/>"> bread 메인뷰이동 </a>
 </body>
 </html>

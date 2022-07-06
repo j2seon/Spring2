@@ -33,11 +33,11 @@
     </resultMap>
 
 
-    <select id="selectOneJoin" resultType="JoinDto">
-	<![CDATA[
+<!--    <select id="selectOneJoin" resultType="JoinDto">-->
+<!--	<![CDATA[-->
 
-        ]]>
-</select>
+<!--        ]]>-->
+<!--</select>-->
 
     <select id="selectAll" resultMap="joinMap">
 	<![CDATA[
