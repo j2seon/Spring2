@@ -103,7 +103,6 @@
                     </select>
                 </div>
 
-
                 <%--                <div class="inputArea">--%>
                 <%--                    <label for="uploadFile">이미지</label>--%>
                 <%--                    <input type="file" id="uploadFile" name="uploadFile" />--%>

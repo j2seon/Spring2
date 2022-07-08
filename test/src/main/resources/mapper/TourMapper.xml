@@ -34,11 +34,10 @@
             MASTER = #{master},
             EAT = #{eat},
             CORPS = #{corps},
-            CITY = #{city},
             GU = #{GU},
             LON = #{LON},
             LAT = #{lat},
-            HODLIDAY = #{holiday},
+            HOLIDAY = #{holiday},
             REG_DATE = #{reg_date}
             WHERE ID = #{id}
         ]]>

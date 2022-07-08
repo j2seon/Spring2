@@ -1,15 +1,9 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: ddj04
-  Date: 2022-07-06
-  Time: 오전 12:08
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html>
 <head>
   <title>Title</title>
-  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
   <style>
     .OUTLINE {
       stroke-linejoin:round;
@@ -195,10 +189,39 @@
 <script>
   $('svg path').on('click', function () {
     var obj = this.id;
-    var result = document.getElementById('L'+obj).textContent;
-
-    alert(result);
+    var address = document.getElementById('L' + obj).textContent;
+    $.ajax({
+      type: 'POST',
+      url:'/test/tour/region?address='+address,
+      data : address,
+      dataType:"json",
+      success: function (result) {
+        console.log(result)
+        alert("성공")
+      },
+      error: function(result) {
+        alert("실패")
+        console.log(result)
+      }
+    });
   });
 </script>
+<div id="storeList"></div>
+
+<%--<div>--%>
+<%--  <ul>--%>
+<%--    <c:if test='${list}!= null'>--%>
+<%--    <c:forEach var="storedto" items="${list}">--%>
+<%--    <li>${storedto.}</li>--%>
+<%--    <li></li>--%>
+<%--    <li></li>--%>
+<%--    <li></li>--%>
+<%--    </c:forEach>--%>
+<%--    </c:if>--%>
+<%--  </ul>--%>
+
+<%--</div>--%>
+
+
 </body>
 </html>

@@ -1,6 +1,7 @@
 package com.test.test.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -13,10 +14,7 @@ public class breadController {
     public String breadMain(){
          return "main";
     }
-    @RequestMapping(method = RequestMethod.GET,value = "/map")
-    public String breadmap() {
-        return "map";
-    }
+
     @RequestMapping(method = RequestMethod.GET,value = "/api")
     public String breadApi() {
         return "api1";
@@ -30,4 +28,5 @@ public class breadController {
     public String search() {
         return "search";
     }
+
 }

@@ -139,7 +139,6 @@ public class ProductController {
             List<CateDto> list = cateService.categoryList();
             String category = objm.writeValueAsString(list);
             ProductDto productDto = productServie.read(goodsNum);
-            System.out.println(productDto);
             m.addAttribute("category",category);
             m.addAttribute(productDto);
 

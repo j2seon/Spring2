@@ -9,5 +9,6 @@
         <typeAlias alias ="JoinDto" type="com.test.test.domain.JoinDto"/>
         <typeAlias alias ="JoinDto2" type="com.test.test.domain.JoinDto2"/>
         <typeAlias alias="StoreDto" type="com.test.test.domain.StoreDto"/>
+        <typeAlias alias="SearchCondition" type="com.test.test.domain.SearchCondition"/>
     </typeAliases>
 </configuration>

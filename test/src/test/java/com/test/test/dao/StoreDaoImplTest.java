@@ -1,5 +1,6 @@
 package com.test.test.dao;
 
+import com.test.test.domain.SearchCondition;
 import com.test.test.domain.StoreDto;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -21,6 +22,48 @@ public class StoreDaoImplTest {
     @Test
     public void selectAll() throws Exception {
         List<StoreDto> list = storeDao.selectAll();
+        System.out.println(list);
+    }
+
+    @Test
+    public void region() {
+        String region="경기도";
+        List<StoreDto> list = storeDao.Region(region);
+        assertTrue(list.size()!=0);
+        System.out.println(list);
+    }
+
+
+//    @Test
+//    public void searchStore1() {
+//        SearchCondition sc = new SearchCondition("master");
+//        List<StoreDto> list =storeDao.searchStore1(sc);
+//        System.out.println(list);
+//    }
+
+////    @Test
+//    public void searchStore2() {
+//        SearchCondition sc = new SearchCondition("holiday","1");
+//        List<StoreDto> list = storeDao.searchStore2(sc);
+//        System.out.println(list);
+//    }
+
+    @Test
+    public void selectOne() {
+        int id = 3;
+        StoreDto storeDto= storeDao.selectOne(id);
+        assertTrue(storeDto!=null);
+
+    }
+
+    @Test
+    public void selectResultpage() {
+        SearchCondition sc = new SearchCondition(1,10);
+        sc.setAmount(10);
+        sc.setPageNum(1);
+        System.out.println(sc);
+        List<StoreDto>list = storeDao.selectResultpage(sc);
+        assertTrue(list!=null);
         System.out.println(list);
     }
 }

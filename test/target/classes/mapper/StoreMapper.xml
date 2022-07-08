@@ -17,6 +17,12 @@
         (#{gu},#{reg_date},#{holiday},#{lat},#{lon},#{address},#{post_num},#{storeName},#{franchise},#{master},#{eat},#{corps},#{mainimg},#{mainMenu})
     </insert>
 
+    <!--가게 1개 정보-->
+    <select id="selectOne" parameterType="int" resultType="StoreDto">
+        <include refid="stores"/>
+        where ID = #{id}
+    </select>
+
     <!--전체가게 목록 정렬 id 순-->
     <select id="selectAll" resultType="StoreDto">
         SELECT GU,REG_DATE,GOOD,HOLIDAY,LAT,LON,ADDRESS,POST_NUM,STORENAME,FRANCHISE,MASTER,EAT,CORPS,MAINMENU,ID,MAINIMG
@@ -26,7 +32,6 @@
 
     <!--가게 수정-->
     <update id="update" parameterType="int">
-         <![CDATA[
         UPDATE STORE
         SET GU = #{gu},
             REG_DATE= #{reg_date},
@@ -43,22 +48,54 @@
             MAINIMG = #{mainimg},
             MAINMENU = #{mainMenu}
             WHERE ID = #{id}
-        ]]>
     </update>
 
-<!--    &lt;!&ndash;가게 삭제&ndash;&gt;-->
-<!--    <delete id="delete" parameterType="int">-->
-<!--        DELETE FROM STORE-->
-<!--        WHERE ID = #{id}-->
-<!--    </delete>-->
+    <!--가게 삭제-->
+    <delete id="delete" parameterType="int">
+        DELETE FROM STORE
+        WHERE ID = #{id}
+    </delete>
 
-<!--    &lt;!&ndash;좋아요 1증가 (유저랑 상의 필요)&ndash;&gt;-->
-<!--    <update id="goodCnt" parameterType="int">-->
-<!--        UPDATE STORE-->
-<!--        SET   good = good + 1-->
-<!--        WHERE id = #{id}-->
-<!--    </update>-->
+    <!--좋아요 1증가 (유저랑 상의 필요)-->
+    <update id="goodCnt" parameterType="int">
+        UPDATE STORE
+        SET   good = good + 1
+        WHERE id = #{id}
+    </update>
 
+    <!--시,도 값 넘어오면 해당 가게만 검색 -->
+    <select id="Region" parameterType="String" resultType="StoreDto">
+        <include refid="stores"/>
+        where address like #{address} || '%'
+    </select>
+
+
+<!--    <select id="searchStore" parameterType="String" resultType="StoreDto">-->
+<!--        <include refid="stores"/>-->
+<!--        <include refid="searchCondition"/>-->
+<!--    </select>-->
+
+   <select id="searchStore2" parameterType="SearchCondition" resultType="StoreDto">
+       <include refid="stores"/>
+        where ${type}=#{keyword}
+   </select>
+    <select id="searchStore1" parameterType="SearchCondition" resultType="StoreDto">
+        <include refid="stores"/>
+        where ${type}='Y'
+    </select>
+
+    <select id="selectResultpage" resultType="StoreDto">
+        <![CDATA[
+        select ID,GU,REG_DATE,HOLIDAY,LAT,LON,ADDRESS,POST_NUM,STORENAME,FRANCHISE,MASTER,EAT,CORPS,MAINMENU
+        from (
+            select
+             rownum as rn,ID,GU,REG_DATE,HOLIDAY,LAT,LON,ADDRESS,POST_NUM,STORENAME,FRANCHISE,MASTER,EAT,CORPS,MAINMENU
+             from STORE
+             where rownum <= #{pageNum} * #{amount}
+             )
+        where rn > (#{pageNum}-1) * #{amount}
+        ]]>
+    </select>
 
 
 </mapper>

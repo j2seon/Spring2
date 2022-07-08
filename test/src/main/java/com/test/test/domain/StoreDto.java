@@ -181,7 +181,6 @@ public class StoreDto {
 
     public String getQueryString(Integer id){
         return UriComponentsBuilder.newInstance()
-                .queryParam("gu",gu)
                 .queryParam("mainMenu",mainMenu)
                 .queryParam("franchise",franchise)
                 .queryParam("eat",eat)

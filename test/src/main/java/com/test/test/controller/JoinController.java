@@ -22,14 +22,14 @@ public class JoinController {
     public String list(JoinDto joinDto, Model m){
         List<JoinDto> joinList = joinService.getList1();
         m.addAttribute("joinlist", joinList);
-        return "joinList1";
+        return "ex/joinList1";
     }
 
     @GetMapping("/secondlist")
     public String list2(JoinDto2 JoinDto2, Model m){
         List<JoinDto2> joinList = joinService.getList2();
         m.addAttribute("joinlist", joinList);
-        return "joinList";
+        return "ex/joinList";
     }
 
 
