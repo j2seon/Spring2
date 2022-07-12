@@ -10,11 +10,12 @@ public interface StoreDao {
 
     List<StoreDto> Region(String address);
 
-//    List<StoreDto> searchStore1(SearchCondition sc);
-//
-//    List<StoreDto> searchStore2(SearchCondition sc);
     StoreDto selectOne(Integer id);
 
-    List<StoreDto> selectResultpage(SearchCondition sc);
+    List<StoreDto> selectResultPage(SearchCondition sc);
 
+    List<StoreDto> selectAllPage(SearchCondition sc);
+    int count(SearchCondition sc);
     }
+
+

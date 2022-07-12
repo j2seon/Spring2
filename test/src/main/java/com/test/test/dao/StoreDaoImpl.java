@@ -25,25 +25,22 @@ public class StoreDaoImpl implements StoreDao {
         return session.selectList(namespace+"Region",address);
     }
 
-//    @Override
-//    public List<StoreDto> searchStore1(SearchCondition sc){
-//        return session.selectList(namespace+"searchStore1",sc);
-//    }
-//    @Override
-//    public List<StoreDto> searchStore2(SearchCondition sc){
-//        return session.selectList(namespace+"searchStore2",sc);
-//    }
-
-
     @Override
     public StoreDto selectOne(Integer id){
         return session.selectOne(namespace+"selectOne",id);
     }
     @Override
-    public List<StoreDto> selectResultpage(SearchCondition sc){
-        return session.selectList(namespace+"selectResultpage",sc);
+    public List<StoreDto> selectAllPage(SearchCondition sc){
+        return session.selectList(namespace+"selectAllPage",sc);
     }
-
+    @Override
+    public List<StoreDto> selectResultPage(SearchCondition sc){
+        return session.selectList(namespace+"selectResultPage",sc);
+    }
+    @Override
+    public int count(SearchCondition sc){
+        return session.selectOne(namespace+"count",sc);
+    }
 
 
 }

@@ -169,7 +169,7 @@
                             <a class="page" href="<c:url value="/board/list${ph.sc.getQueryString(ph.startNavi-1)}"/>">&lt;</a>
                         </c:if>
                         <c:forEach var="i" begin="${ph.startNavi}" end="${ph.endNavi}">
-                            <a class="page ${i==ph.sc.page? "paging-active" : ""}" href="<c:url value="/board/list${ph.sc.getQueryString(i)}"/>">${i}</a>
+                            <a class="page ${i==ph.sc.? "paging-active" : ""}" href="<c:url value="/board/list${ph.sc.getQueryString(i)}"/>">${i}</a>
                         </c:forEach>
                         <c:if test="${ph.showNext}">
                             <a class="page" href="<c:url value="/board/list${ph.sc.getQueryString(ph.endNavi+1)}"/>">&gt;</a>

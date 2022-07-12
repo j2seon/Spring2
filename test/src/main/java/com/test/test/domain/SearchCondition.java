@@ -11,25 +11,26 @@ public class SearchCondition {
     public SearchCondition(){
         this(1,10);
     }
-//    public SearchCondition(String type){
-//        this.type = type;
-//    }
-//    public SearchCondition(String type, String keyword){
-//        this.type = type;
-//        this.keyword = keyword;
-//    }
+    public SearchCondition(String type){
+        this.type = type;
+    }
 
     public SearchCondition(Integer pageNum, Integer amount) {
         this.pageNum = pageNum;
         this.amount = amount;
     }
+    public SearchCondition(Integer pageNum, Integer amount, String type) {
+        this.pageNum = pageNum;
+        this.amount = amount;
+        this.type = type;
 
-//    public SearchCondition(Integer pageNum, Integer amount, String type, String keyword) {
-//        this.pageNum = pageNum;
-//        this.amount = amount;
-//        this.type = type;
-//        this.keyword = keyword;
-//    }
+    }
+    public SearchCondition(Integer pageNum, Integer amount, String type, String keyword) {
+        this.pageNum = pageNum;
+        this.amount = amount;
+        this.type = type;
+        this.keyword = keyword;
+    }
 
     public String getType() {
         return type;
@@ -63,28 +64,40 @@ public class SearchCondition {
         this.amount = amount;
     }
 
-//    @Override
-//    public String toString() {
-//        return "SearchCondition{" +
-//                "pageNum=" + pageNum +
-//                ", amount=" + amount +
-//                '}';
-//    }
-
 
     @Override
     public String toString() {
         return "SearchCondition{" +
-                "type='" + type + '\'' +
+                "pageNum=" + pageNum +
+                ", amount=" + amount +
+                ", type='" + type + '\'' +
                 ", keyword='" + keyword + '\'' +
                 '}';
     }
 
+    public String getQueryString(Integer pageNum){
+        if(type==null && keyword==null){
+            return UriComponentsBuilder.newInstance()
+                    .queryParam("pageNum",pageNum)
+                    .queryParam("amount",amount).build().toString();
+
+        } else if (type!=null && keyword==null) {
+            return UriComponentsBuilder.newInstance()
+                    .queryParam("pageNum",pageNum)
+                    .queryParam("amount",amount).build().toString();
+
+        }else{
+            return UriComponentsBuilder.newInstance()
+                    .queryParam("pageNum",pageNum)
+                    .queryParam("amount",amount)
+                    .queryParam("type",type)
+                    .queryParam("keyword", keyword)
+                    .build().toString();
+        }
+
+    }
     public String getQueryString(){
-        return UriComponentsBuilder.newInstance()
-                .queryParam("type",type)
-                .queryParam("k", keyword)
-                .build().toString();
+        return getQueryString(pageNum);
     }
 
 }

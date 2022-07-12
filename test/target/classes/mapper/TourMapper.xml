@@ -4,65 +4,130 @@
 
 <mapper namespace="com.test.test.dao.TourMapper">
 
+    <resultMap id="TourDto" type="TourDto">
+        <id property="no" column="NO"/>
+        <result property="startPoint" column = "STARTPOINT"/>
+        <result property="endPoint" column = "ENDPORINT"/>
+        <result property="wayPoint" column = "WAYPOINT"/>
+        <result property="content" column = "CONTENT"/>
+        <result property="title" column = "TITLE"/>
+        <result property="reg_date" column = "REG_DATE"/>
+        <result property="view_cnt" column = "VIEW_CNT"/>
+        <result property="tourImg" column = "TOURIMG"/>
+        <result property="likes" column = "LIKES"/>
+        <result property="address" column="ADDRESS"/>
+    </resultMap>
+
+    <resultMap id="StoreDto" type="StoreDto">
+        <id property="id" column="ID"/>
+        <result property="gu" column="GU"/>
+        <result property="reg_date" column="REG_DATE"/>
+        <result property="good" column="GOOD"/>
+        <result property="holiday" column="HOLIDAY"/>
+        <result property="lat" column="LAT"/>
+        <result property="lon" column="LON"/>
+        <result property="address" column="ADDRESS"/>
+        <result property="post_num" column="POST_NUM"/>
+        <result property="storeName" column="STORENAME"/>
+        <result property="franchise" column="FRANCHISE"/>
+        <result property="master" column="MASTER"/>
+        <result property="eat" column="EAT"/>
+        <result property="corps" column="CORPS"/>
+        <result property="mainimg" column="MAINMENU"/>
+        <result property="mainMenu" column="MAINIMG"/>
+    </resultMap>
+
+    <sql id="tours">
+        SELECT NO, STARTPOINT, ENDPORINT, WAYPOINT, CONTENT, TITLE, REG_DATE, VIEW_CNT, TOURIMG, LIKES
+        FROM TOUR
+    </sql>
+
+    <sql id="store">
+        select ID,GU,REG_DATE,GOOD,HOLIDAY,LAT,LON,ADDRESS,POST_NUM,STORENAME,FRANCHISE,MASTER,EAT,CORPS,MAINMENU,MAINIMG
+        from STORE
+    </sql>
 
     <!--등록-->
-<!--    <insert id="insert" parameterType="StoreDto">-->
-<!--        <![CDATA[-->
-<!--        INSERT INTO TOUR-->
-<!--        ()-->
-<!--        VALUES-->
-<!--        ()-->
-<!--        ]]>-->
-<!--    </insert>-->
+    <insert id="insert" parameterType="TourDto">
+        INSERT INTO TOUR
+        (NO, STARTPOINT, ENDPORINT, WAYPOINT, CONTENT, TITLE, REG_DATE, VIEW_CNT, TOURIMG, LIKES)
+        VALUES
+        (#{no},#{startPoint},#{endPoint},#{wayPoint},#{content},#{title},#{reg_date},#{view_cnt},#{tourImg},#{likes})
+    </insert>
 
-<!--    &lt;!&ndash;전체투어 목록 정렬 id 순&ndash;&gt;-->
-<!--    <select id="seleteAll" resultType="StoreDto">-->
-<!--        <![CDATA[-->
-<!--        <include refid="stores"/>-->
-<!--        ORDER BY id ASC-->
-<!--        ]]>-->
-<!--    </select>-->
+    <!--전체투어 목록 정렬 id 순-->
+    <select id="selectAll" resultType="TourDto">
+        select T.NO,T.STARTPOINT,T.ENDPORINT, T.WAYPOINT, T.CONTENT, T.TITLE, T.REG_DATE,T.VIEW_CNT, T.TOURIMG,T.LIKES,S.ADDRESS
+        FROM TOUR T ,STORE S
+        WHERE T.startpoint = S.ID
+    </select>
 
-    <!--가게 수정-->
-    <update id="update" parameterType="int">
-         <![CDATA[
-        UPDATE STORE
-        SET STORENAME = #{storeName},
-            MAINIMG = #{mainImg},
-            MAINMENU = #{mainMenu},
-            FRANCHISE = #{franchise},
-            MASTER = #{master},
-            EAT = #{eat},
-            CORPS = #{corps},
-            GU = #{GU},
-            LON = #{LON},
-            LAT = #{lat},
-            HOLIDAY = #{holiday},
-            REG_DATE = #{reg_date}
-            WHERE ID = #{id}
-        ]]>
-    </update>
-
-    <!--가게 삭제-->
+    <!--투어 삭제-->
     <delete id="delete" parameterType="int">
-        DELETE FROM STORE
-        WHERE ID = #{id}
+        DELETE FROM TOUR
+        WHERE NO = #{no}
     </delete>
 
     <!--좋아요 1증가 (유저랑 상의 필요)-->
-    <update id="goodCnt" parameterType="int">
-        UPDATE STORE
-        SET   good = good + 1
-        WHERE id = #{id}
+    <update id="likesCnt" parameterType="int">
+        UPDATE TOUR
+        SET   LIKES = LIKES + 1
+        WHERE NO = #{no}
     </update>
 
+    <!--지역별 투어 리스트 출력-->
+    <select id="region" parameterType="String" resultMap="TourDto">
+        select S.ADDRESS,T.NO,T.startpoint,T.ENDPORINT, T.WAYPOINT, T.CONTENT, T.TITLE, T.REG_DATE,T.VIEW_CNT, T.TOURIMG,T.LIKES
+        FROM STORE S, TOUR T
+        WHERE S.id = T.startpoint
+        and S.address like #{address}|| '%'
+    </select>
 
+    <!--지역별 투어 갯수-->
+    <select id="regionCount" parameterType="String" resultType="int">
+        select count(*)
+        from(
+                select rownum rn, S.ADDRESS,T.NO,T.ENDPORINT, T.WAYPOINT, T.CONTENT, T.TITLE, T.REG_DATE,T.VIEW_CNT, T.TOURIMG,T.LIKES
+                FROM TOUR T ,STORE S
+                WHERE t.startpoint=s.ID
+                  and s.address like #{address}|| '%'
+            )
+        order by rn
+    </select>
 
-<!--    <select id="selectOneJoin" resultType="JoinDto">-->
-<!--	<![CDATA[-->
+    <!--1개 읽는거-->
+    <select id="read" parameterType="String" resultMap="TourDto">
+    <include refid="tours"/>
+    where no = #{no}
+    </select>
 
-<!--        ]]>-->
-<!--    </select>-->
+    <!--조회수 1개 올라가기-->
+    <update id="ViewCount" parameterType="int">
+        update tour
+        set view_cnt = view_cnt+1
+        where no = #{no};
+    </update>
+
+    <sql id="searchTour">
+        select rownum as rn,S.ADDRESS,T.NO,T.startpoint,T.ENDPORINT, T.WAYPOINT, T.CONTENT, T.TITLE, T.REG_DATE,T.VIEW_CNT, T.TOURIMG,T.LIKES
+        from STORE S, TOUR T
+        WHERE S.id = T.startpoint
+        and S.address like #{type} || '%'
+    </sql>
+
+    <!--지역별 투어 리스트 출력페이징 test-->
+    <select id="test" resultMap="TourDto">
+        select NO,startpoint,ENDPORINT, WAYPOINT, CONTENT, TITLE,REG_DATE,VIEW_CNT,TOURIMG,LIKES
+        FROM (
+        select rownum as rn,S.ADDRESS,T.NO,T.startpoint,T.ENDPORINT, T.WAYPOINT, T.CONTENT, T.TITLE, T.REG_DATE,T.VIEW_CNT, T.TOURIMG,T.LIKES
+        from STORE S, TOUR T
+        WHERE S.id = T.startpoint
+        and S.address like #{type}|| '%'
+        and <![CDATA[rownum <= #{pageNum} * #{amount}]]>
+        )
+        where <![CDATA[rn > (#{pageNum}-1) * #{amount}]]>
+    </select>
+
 
 <!--    <select id="selectAll" resultMap="joinMap">-->
 <!--	<![CDATA[-->

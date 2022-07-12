@@ -57,13 +57,27 @@ public class StoreDaoImplTest {
     }
 
     @Test
-    public void selectResultpage() {
-        SearchCondition sc = new SearchCondition(1,10);
+    public void selectResultPage() {
+        SearchCondition sc = new SearchCondition(1,10,"holiday","1");
         sc.setAmount(10);
         sc.setPageNum(1);
         System.out.println(sc);
-        List<StoreDto>list = storeDao.selectResultpage(sc);
+        List<StoreDto>list = storeDao.selectResultPage(sc);
         assertTrue(list!=null);
         System.out.println(list);
+    }
+
+    @Test
+    public void selectAllPage() {
+        SearchCondition sc = new SearchCondition(1,10);
+        List<StoreDto> list = storeDao.selectAllPage(sc);
+        System.out.println(list);
+    }
+
+    @Test
+    public void count() {
+        SearchCondition sc = new SearchCondition(1,10);
+        int c = storeDao.count(sc);
+        System.out.println(c);
     }
 }

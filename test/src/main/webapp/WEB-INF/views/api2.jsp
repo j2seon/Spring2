@@ -7,6 +7,33 @@
     <script src="https://apis.openapi.sk.com/tmap/jsv2?version=1&appKey=l7xx51365b973fc14a1990eeb179b36326df"></script>
     <script type="text/javascript">
 
+
+        var options = {
+            enableHighAccuracy: true,
+            timeout: 5000,
+            maximumAge: 0
+        };
+        var lat=0;
+        var lon=0;
+        function success(pos) {
+            var crd = pos.coords;
+
+            console.log('Your current position is:');
+            console.log(`Latitude : ${'${crd.latitude}'}`);
+            console.log(`Longitude: ${'${crd.longitude}'}`);
+            console.log(`More or less ${'${crd.accuracy}'} meters.`);
+
+            lat = pos.coords.latitude;
+            lon = pos.coords.longitude;
+        }
+
+        function error(err) {
+            console.warn(`ERROR(${err.code}): ${err.message}`);
+        }
+
+        navigator.geolocation.getCurrentPosition(success, error, options);
+
+
         var map;
 
         var marker_s, marekr_e, waypoint;
@@ -20,7 +47,7 @@
 
             // 1. 지도 띄우기
             map = new Tmapv2.Map("map_div", {
-                center: new Tmapv2.LatLng(37.405278291509404, 127.12074279785197),
+                center: new Tmapv2.LatLng(35.1748309, 126.91227115), //루트들의 중앙 위치
                 width : "100%",
                 height : "400px",
                 zoom : 14,

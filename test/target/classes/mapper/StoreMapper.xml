@@ -69,33 +69,86 @@
         where address like #{address} || '%'
     </select>
 
-
 <!--    <select id="searchStore" parameterType="String" resultType="StoreDto">-->
 <!--        <include refid="stores"/>-->
 <!--        <include refid="searchCondition"/>-->
 <!--    </select>-->
 
-   <select id="searchStore2" parameterType="SearchCondition" resultType="StoreDto">
-       <include refid="stores"/>
-        where ${type}=#{keyword}
-   </select>
-    <select id="searchStore1" parameterType="SearchCondition" resultType="StoreDto">
-        <include refid="stores"/>
-        where ${type}='Y'
-    </select>
-
-    <select id="selectResultpage" resultType="StoreDto">
-        <![CDATA[
+    <!--검색조건별 가게 select + 페이징 -->
+    <select id="selectResultPage" resultType="StoreDto">
         select ID,GU,REG_DATE,HOLIDAY,LAT,LON,ADDRESS,POST_NUM,STORENAME,FRANCHISE,MASTER,EAT,CORPS,MAINMENU
         from (
             select
              rownum as rn,ID,GU,REG_DATE,HOLIDAY,LAT,LON,ADDRESS,POST_NUM,STORENAME,FRANCHISE,MASTER,EAT,CORPS,MAINMENU
              from STORE
-             where rownum <= #{pageNum} * #{amount}
+             <include refid="searchCondition"/>
+              and <![CDATA[ rownum <= #{pageNum} * #{amount}]]>
              )
-        where rn > (#{pageNum}-1) * #{amount}
-        ]]>
+        where <![CDATA[rn > (#{pageNum}-1) * #{amount}]]>
     </select>
 
+    <!--전체 가게 페이징 -->
+    <select id="selectAllPage" resultType="StoreDto">
+        select ID,GU,REG_DATE,HOLIDAY,LAT,LON,ADDRESS,POST_NUM,STORENAME,FRANCHISE,MASTER,EAT,CORPS,MAINMENU
+        from (
+        select
+        rownum as rn,ID,GU,REG_DATE,HOLIDAY,LAT,LON,ADDRESS,POST_NUM,STORENAME,FRANCHISE,MASTER,EAT,CORPS,MAINMENU
+        from STORE
+         where <![CDATA[ rownum <= #{pageNum} * #{amount}]]>
+        )
+        where <![CDATA[rn > (#{pageNum}-1) * #{amount}]]>
+    </select>
+
+    <!-- 가게 개수(조건별 변경) -->
+    <select id="count" parameterType="SearchCondition" resultType="int">
+        SELECT count(*)
+        from (
+            <include refid="stores"/>
+            <include refid="searchCondition"/>
+             )
+    </select>
+
+<!--    <select id="searchSelectPage" parameterType="SearchCondition" resultType="StoreDto">-->
+<!--        <include refid="stores"/>-->
+<!--        <include refid="searchCondition"/>-->
+<!--    </select>-->
+
+    <sql id="searchCondition">
+        <choose>
+            <when test='type=="master"'>
+                where ${type}='Y'
+            </when>
+            <when test='type=="corps"'>
+                where ${type}='Y'
+            </when>
+            <when test='type=="master"'>
+                where ${type}='Y'
+            </when>
+            <when test='type=="eat"'>
+                where ${type}='Y'
+            </when>
+            <when test='type=="franchise"'>
+                where ${type}='Y'
+            </when>
+            <when test='type=="holiday"and keyword!=null'>
+                 where ${type}=#{keyword}
+            </when>
+            <when test='type=="holiday"and keyword==null'>
+                where holiday in (1,2,3,4,5,6)
+            </when>
+            <when test='type=="mainMenu"and keyword==null'>
+                where mainMenu in (1,2,3,4,5,6,7,8,9,10)
+            </when>
+            <when test='type=="holiday"and keyword!=null'>
+                where ${type}=#{keyword}
+            </when>
+            <when test='type==null and keyword==null'>
+
+            </when>
+            <otherwise>
+                where ${type}=#{keyword}
+            </otherwise>
+        </choose>
+    </sql>
 
 </mapper>

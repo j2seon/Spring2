@@ -22,7 +22,7 @@ public class StoreServiceImplTest {
 
     @Test
     public void regionStore() {
-        String address="대전";
+        String address="경상북도";
         List<StoreDto> list = storeService.regionStore(address);
         assertTrue(list.size()!=0);
         System.out.println(list);
@@ -39,13 +39,17 @@ public class StoreServiceImplTest {
         System.out.println(list);
     }
 
-//    @Test
-//    public void category() {
-//        SearchCondition sc= new SearchCondition("master");
-//        SearchCondition sc2= new SearchCondition("holiday","1");
-//        List<StoreDto> list1 = storeService.category(sc);
-//        assertTrue(list1.size()!=0);
-//        System.out.println("list1 : "+list1);
-//
-//    }
+    @Test
+    public void getList() {
+        SearchCondition sc = new SearchCondition(1,10,"mainMenu","2");
+        List<StoreDto> list = storeService.getList(sc);
+        System.out.println(list);
+    }
+
+    @Test
+    public void getCount() {
+        SearchCondition sc = new SearchCondition(1,10,"holiday","6");
+        int c = storeService.getCount(sc);
+        System.out.println(c);
+    }
 }

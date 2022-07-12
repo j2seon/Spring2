@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
+<%@ page contentType="text/html; charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html>
 <head>
@@ -190,37 +190,65 @@
   $('svg path').on('click', function () {
     var obj = this.id;
     var address = document.getElementById('L' + obj).textContent;
-    $.ajax({
-      type: 'POST',
-      url:'/test/tour/region?address='+address,
-      data : address,
-      dataType:"json",
-      success: function (result) {
-        console.log(result)
-        alert("성공")
-      },
-      error: function(result) {
-        alert("실패")
-        console.log(result)
-      }
-    });
+    $(location).attr('href','/test/tour/region?address='+ address);
+
+   $.ajax({
+       type: 'GET',
+       url:'/test/tour/region?address='+address,
+       success: function (){
+         console.log(address);
+         alert("성공");
+       },
+       error: function() {
+         alert("실패")
+       }
+     });
+   //    $.ajax({
+   //    type: 'POST',
+   //    url:'/test/tour/region',
+   //    data :JSON.stringify(address),
+   //    contentType: "application/json; charset=UTF-8",
+   //    // dataType:"json",
+   //    success: function (result) {
+   //    console.log(result)
+   //    },
+   //    error: function(result) {
+   //    alert("실패")
+   //    console.log(result)
+   //    }
+   //    });
   });
 </script>
-<div id="storeList"></div>
+<div id="tourList"></div>
 
-<%--<div>--%>
-<%--  <ul>--%>
-<%--    <c:if test='${list}!= null'>--%>
-<%--    <c:forEach var="storedto" items="${list}">--%>
-<%--    <li>${storedto.}</li>--%>
-<%--    <li></li>--%>
-<%--    <li></li>--%>
-<%--    <li></li>--%>
-<%--    </c:forEach>--%>
-<%--    </c:if>--%>
-<%--  </ul>--%>
+  <c:forEach items="${list}" var="tour">
+    <p>${tour.no}}</p>
+  </c:forEach>
 
+
+  <%--&lt;%&ndash;  </ul>&ndash;%&gt;--%>
+<%--$('svg path').on('click', function () {--%>
+<%--var obj = this.id;--%>
+<%--var address = document.getElementById('L' + obj).textContent;--%>
+<%--$.ajax({--%>
+<%--type: 'POST',--%>
+<%--url:'/test/tour/region?address='+ address,--%>
+<%--data : address,--%>
+<%--dataType:"json",--%>
+<%--success: function (result) {--%>
+<%--console.log(result)--%>
+<%--alert("성공")--%>
+<%--},--%>
+<%--error: function(result) {--%>
+<%--alert("실패")--%>
+<%--console.log(result)--%>
+<%--}--%>
+<%--});--%>
+<%--});--%>
 <%--</div>--%>
+
+
+
 
 
 </body>

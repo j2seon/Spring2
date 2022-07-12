@@ -19,10 +19,7 @@ public class breadController {
     public String breadApi() {
         return "api1";
     }
-    @RequestMapping(method = RequestMethod.GET,value = "/tour")
-    public String breadTourApi() {
-        return "api2";
-    }
+
 
     @RequestMapping(method = RequestMethod.GET,value = "/search")
     public String search() {

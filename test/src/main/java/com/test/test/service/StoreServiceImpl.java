@@ -14,32 +14,32 @@ public class StoreServiceImpl implements StoreService {
     @Autowired
     StoreDao storeDao;
 
-    @Override
+    @Override //시,도별 가게
     public List<StoreDto> regionStore(String address){
         return storeDao.Region(address);
     }
 
-    @Override
+    @Override //전체가게 출력 페이징 x 
     public List<StoreDto>AllStore() throws Exception {
         return storeDao.selectAll();
     }
 
-//    @Override
-//    public List<StoreDto> category(SearchCondition sc){
-//        if(sc.getKeyword()==null||sc.getKeyword().equals("")){
-//            return storeDao.searchStore1(sc);
-//        }else {
-//            return storeDao.searchStore2(sc);
-//        }
-//    }//
-
-    @Override
+    @Override //가게 1개 출력
     public StoreDto getStore(Integer id){
         return storeDao.selectOne(id);
     }
 
+
+    @Override //1page > 10개 출력 + 검색조건
+    public List<StoreDto> getList(SearchCondition sc) {
+        if(sc.getKeyword()==null && sc.getType()==null){
+            return storeDao.selectAllPage(sc);
+        }else{
+            return storeDao.selectResultPage(sc);
+        }
+    }
     @Override
-    public List<StoreDto> getList(SearchCondition sc){
-        return storeDao.selectResultpage(sc);
+    public int getCount(SearchCondition sc){
+        return storeDao.count(sc);
     }
 }
