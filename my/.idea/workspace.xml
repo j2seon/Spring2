@@ -10,92 +10,48 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="520e26e4-e609-45b9-891e-7adfefaf6d89" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../test/.idea/jsLibraryMappings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../test/.idea/webContexts.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../test/src/main/java/com/test/test/dao/TourDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../test/src/main/java/com/test/test/dao/TourDaoImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../test/src/main/java/com/test/test/service/TourService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../test/src/main/java/com/test/test/service/TourServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../test/src/test/java/com/test/test/dao/TourDaoImplTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../test/src/test/java/com/test/test/service/TourServiceImplTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/boardList.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/boardList.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/views/boardList.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/views/boardList.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/pro-1.0.0-BUILD-SNAPSHOT.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/pro-1.0.0-BUILD-SNAPSHOT.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/pro-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/views/boardList.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/pro-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/views/boardList.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/pro-1.0.0-BUILD-SNAPSHOT/WEB-INF/views/boardList.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/pro-1.0.0-BUILD-SNAPSHOT/WEB-INF/views/boardList.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../test/src/main/java/com/test/test/controller/JoinController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../test/src/main/java/com/test/test/controller/ex/JoinController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../test/src/main/java/com/test/test/controller/StoreController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../test/src/main/java/com/test/test/controller/StoreController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../test/src/main/java/com/test/test/controller/tourController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../test/src/main/java/com/test/test/controller/tourController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../test/src/main/java/com/test/test/dao/Joindao.java" beforeDir="false" afterPath="$PROJECT_DIR$/../test/src/main/java/com/test/test/dao/ex/Joindao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../test/src/main/java/com/test/test/dao/JoindaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../test/src/main/java/com/test/test/dao/ex/JoindaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../test/src/main/java/com/test/test/dao/StoreDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/../test/src/main/java/com/test/test/dao/StoreDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../test/src/main/java/com/test/test/dao/StoreDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../test/src/main/java/com/test/test/dao/StoreDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../test/src/main/java/com/test/test/domain/DepartmentDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/../test/src/main/java/com/test/test/domain/ex/DepartmentDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../test/src/main/java/com/test/test/domain/EmployeeDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/../test/src/main/java/com/test/test/domain/ex/EmployeeDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../test/src/main/java/com/test/test/domain/JoinDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/../test/src/main/java/com/test/test/domain/ex/JoinDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../test/src/main/java/com/test/test/domain/JoinDto2.java" beforeDir="false" afterPath="$PROJECT_DIR$/../test/src/main/java/com/test/test/domain/ex/JoinDto2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../test/src/main/java/com/test/test/domain/PageHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/../test/src/main/java/com/test/test/domain/PageHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../test/src/main/java/com/test/test/dao/TourDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/../test/src/main/java/com/test/test/dao/TourDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../test/src/main/java/com/test/test/dao/TourDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../test/src/main/java/com/test/test/dao/TourDaoImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../test/src/main/java/com/test/test/domain/SearchCondition.java" beforeDir="false" afterPath="$PROJECT_DIR$/../test/src/main/java/com/test/test/domain/SearchCondition.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../test/src/main/java/com/test/test/domain/TourDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/../test/src/main/java/com/test/test/domain/TourDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../test/src/main/java/com/test/test/service/JoinService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../test/src/main/java/com/test/test/service/ex/JoinService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../test/src/main/java/com/test/test/service/JoinServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../test/src/main/java/com/test/test/service/ex/JoinServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../test/src/main/java/com/test/test/service/StoreService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../test/src/main/java/com/test/test/service/StoreService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../test/src/main/java/com/test/test/service/StoreServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../test/src/main/java/com/test/test/service/StoreServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../test/src/main/java/com/test/test/service/TourService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../test/src/main/java/com/test/test/service/TourService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../test/src/main/java/com/test/test/service/TourServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../test/src/main/java/com/test/test/service/TourServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../test/src/main/resources/mapper/StoreMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../test/src/main/resources/mapper/StoreMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../test/src/main/resources/mapper/TourMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../test/src/main/resources/mapper/TourMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../test/src/main/resources/mybatis-config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../test/src/main/resources/mybatis-config.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../test/src/main/webapp/WEB-INF/views/api2.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../test/src/main/webapp/WEB-INF/views/api2.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../test/src/main/webapp/WEB-INF/views/breadStore.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../test/src/main/webapp/WEB-INF/views/breadStore.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../test/src/main/webapp/WEB-INF/views/main.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../test/src/main/webapp/WEB-INF/views/main.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../test/src/main/webapp/WEB-INF/views/map.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../test/src/main/webapp/WEB-INF/views/map.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../test/src/test/java/com/test/test/dao/JoindaoImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../test/src/test/java/com/test/test/dao/JoindaoImplTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../test/src/main/webapp/WEB-INF/views/store.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../test/src/main/webapp/WEB-INF/views/store.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../test/src/test/java/com/test/test/dao/StoreDaoImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../test/src/test/java/com/test/test/dao/StoreDaoImplTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../test/src/test/java/com/test/test/service/StoreServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../test/src/test/java/com/test/test/service/StoreServiceImplTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../test/target/classes/com/test/test/controller/JoinController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../test/src/test/java/com/test/test/dao/TourDaoImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../test/src/test/java/com/test/test/dao/TourDaoImplTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../test/src/test/java/com/test/test/service/TourServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../test/src/test/java/com/test/test/service/TourServiceImplTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../test/target/classes/com/test/test/controller/StoreController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../test/target/classes/com/test/test/controller/StoreController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../test/target/classes/com/test/test/controller/tourController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../test/target/classes/com/test/test/controller/tourController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../test/target/classes/com/test/test/dao/Joindao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../test/target/classes/com/test/test/dao/JoindaoImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../test/target/classes/com/test/test/dao/StoreDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/../test/target/classes/com/test/test/dao/StoreDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../test/target/classes/com/test/test/dao/StoreDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../test/target/classes/com/test/test/dao/StoreDaoImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../test/target/classes/com/test/test/domain/DepartmentDto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../test/target/classes/com/test/test/domain/EmployeeDto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../test/target/classes/com/test/test/domain/JoinDto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../test/target/classes/com/test/test/domain/JoinDto2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../test/target/classes/com/test/test/domain/SearchCondition.class" beforeDir="false" afterPath="$PROJECT_DIR$/../test/target/classes/com/test/test/domain/SearchCondition.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../test/target/classes/com/test/test/domain/TourDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/../test/target/classes/com/test/test/domain/TourDto.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../test/target/classes/com/test/test/service/JoinService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../test/target/classes/com/test/test/service/JoinServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../test/target/classes/com/test/test/service/StoreService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../test/target/classes/com/test/test/service/StoreService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../test/target/classes/com/test/test/service/StoreServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../test/target/classes/com/test/test/service/StoreServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../test/target/classes/com/test/test/dao/TourDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/../test/target/classes/com/test/test/dao/TourDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../test/target/classes/com/test/test/dao/TourDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../test/target/classes/com/test/test/dao/TourDaoImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../test/target/classes/com/test/test/service/TourService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../test/target/classes/com/test/test/service/TourService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../test/target/classes/com/test/test/service/TourServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../test/target/classes/com/test/test/service/TourServiceImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../test/target/classes/mapper/StoreMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../test/target/classes/mapper/StoreMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../test/target/classes/mapper/TourMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../test/target/classes/mapper/TourMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../test/target/classes/mybatis-config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../test/target/classes/mybatis-config.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../test/target/test-1.0.0-BUILD-SNAPSHOT.war" beforeDir="false" afterPath="$PROJECT_DIR$/../test/target/test-1.0.0-BUILD-SNAPSHOT.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../test/target/test-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/test/test/controller/JoinController.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../test/target/test-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/test/test/controller/StoreController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../test/target/test-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/test/test/controller/StoreController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../test/target/test-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/test/test/controller/tourController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../test/target/test-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/test/test/controller/tourController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../test/target/test-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/test/test/dao/Joindao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../test/target/test-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/test/test/dao/JoindaoImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../test/target/test-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/test/test/dao/StoreDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/../test/target/test-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/test/test/dao/StoreDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../test/target/test-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/test/test/dao/StoreDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../test/target/test-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/test/test/dao/StoreDaoImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../test/target/test-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/test/test/domain/DepartmentDto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../test/target/test-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/test/test/domain/EmployeeDto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../test/target/test-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/test/test/domain/JoinDto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../test/target/test-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/test/test/domain/JoinDto2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../test/target/test-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/test/test/domain/SearchCondition.class" beforeDir="false" afterPath="$PROJECT_DIR$/../test/target/test-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/test/test/domain/SearchCondition.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../test/target/test-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/test/test/domain/TourDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/../test/target/test-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/test/test/domain/TourDto.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../test/target/test-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/test/test/service/JoinService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../test/target/test-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/test/test/service/JoinServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../test/target/test-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/test/test/service/StoreService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../test/target/test-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/test/test/service/StoreService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../test/target/test-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/test/test/service/StoreServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../test/target/test-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/test/test/service/StoreServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../test/target/test-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/test/test/dao/TourDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/../test/target/test-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/test/test/dao/TourDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../test/target/test-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/test/test/dao/TourDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../test/target/test-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/test/test/dao/TourDaoImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../test/target/test-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/test/test/service/TourService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../test/target/test-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/test/test/service/TourService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../test/target/test-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/test/test/service/TourServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../test/target/test-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/com/test/test/service/TourServiceImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../test/target/test-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/mapper/StoreMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../test/target/test-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/mapper/StoreMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../test/target/test-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/mapper/TourMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../test/target/test-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/mapper/TourMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../test/target/test-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/mybatis-config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../test/target/test-1.0.0-BUILD-SNAPSHOT/WEB-INF/classes/mybatis-config.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../test/target/test-1.0.0-BUILD-SNAPSHOT/WEB-INF/views/api2.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../test/target/test-1.0.0-BUILD-SNAPSHOT/WEB-INF/views/api2.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../test/target/test-1.0.0-BUILD-SNAPSHOT/WEB-INF/views/breadStore.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../test/target/test-1.0.0-BUILD-SNAPSHOT/WEB-INF/views/breadStore.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../test/target/test-1.0.0-BUILD-SNAPSHOT/WEB-INF/views/main.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../test/target/test-1.0.0-BUILD-SNAPSHOT/WEB-INF/views/main.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../test/target/test-1.0.0-BUILD-SNAPSHOT/WEB-INF/views/map.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../test/target/test-1.0.0-BUILD-SNAPSHOT/WEB-INF/views/map.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../test/target/test-classes/com/test/test/dao/JoindaoImplTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/../test/target/test-classes/com/test/test/dao/JoindaoImplTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../test/target/test-1.0.0-BUILD-SNAPSHOT/WEB-INF/views/store.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../test/target/test-1.0.0-BUILD-SNAPSHOT/WEB-INF/views/store.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../test/target/test-classes/com/test/test/dao/StoreDaoImplTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/../test/target/test-classes/com/test/test/dao/StoreDaoImplTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../test/target/test-classes/com/test/test/service/StoreServiceImplTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/../test/target/test-classes/com/test/test/service/StoreServiceImplTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../test/target/test-classes/com/test/test/dao/TourDaoImplTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/../test/target/test-classes/com/test/test/dao/TourDaoImplTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../test/target/test-classes/com/test/test/service/TourServiceImplTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/../test/target/test-classes/com/test/test/service/TourServiceImplTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -164,7 +120,7 @@
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit4",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit3": "junit.framework.TestCase",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4": "",
-    "last_opened_file_path": "C:/Users/ddj04/IdeaProjects/test",
+    "last_opened_file_path": "C:/Users/ddj04/IdeaProjects/my",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -529,6 +485,7 @@
       <workItem from="1657533440232" duration="4445000" />
       <workItem from="1657564243106" duration="595000" />
       <workItem from="1657587877876" duration="2340000" />
+      <workItem from="1657678137016" duration="4084000" />
     </task>
     <servers />
   </component>

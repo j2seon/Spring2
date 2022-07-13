@@ -22,14 +22,6 @@ public class TourDaoImplTest {
     TourDao tourDao;
 
     @Test
-    public void region() {
-        String address="인천";
-        List<TourDto> list = tourDao.region(address);
-        assertTrue(list.size()!=0);
-        System.out.println(list);
-    }
-
-    @Test
     public void selectAll() {
         List<TourDto> list = tourDao.selectAll();
         System.out.println(list);
@@ -44,16 +36,23 @@ public class TourDaoImplTest {
     @Test
     public void test1() {
         SearchCondition sc = new SearchCondition(2,10,"인천");
-        List<TourDto>list = tourDao.test(sc);
+        List<TourDto>list = tourDao.regions(sc);
         System.out.println(list);
         assertTrue(list!=null);
     }
 
     @Test
     public void read() {
-        String no = "1";
+        int no = 1;
         TourDto dto = tourDao.read(no);
         System.out.println(dto);
 
+    }
+
+    @Test
+    public void viewCount() {
+        int no = 1;
+        int c=tourDao.viewCount(no);
+        assertTrue(c==1);
     }
 }

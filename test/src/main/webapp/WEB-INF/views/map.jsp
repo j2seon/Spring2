@@ -1,5 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <html>
 <head>
   <title>Title</title>
@@ -221,34 +222,49 @@
 </script>
 <div id="tourList"></div>
 
+
+<table>
+  <tr>
+    <th class="no">번호</th>
+    <th class="storeName">투어이름</th>
+    <th class="regdate">등록일</th>
+    <th class="view_cnt">조회수</th>
+  </tr>
   <c:forEach items="${list}" var="tour">
-    <p>${tour.no}}</p>
+    <tr>
+      <td class="no"><c:out value="${tour.no}"/> </td>
+      <td class="storeName"><a href="<c:url value="/tour/map/${tour.no}${ph.sc.queryString}$address=${param.address}"/>">${tour.title}</a></td>
+      <c:choose>
+        <c:when test="${tour.reg_date.time >= startOfToday}">
+          <td class="regdate"><fmt:formatDate value="${tour.reg_date}" pattern="HH:mm" type="time"/></td>
+        </c:when>
+        <c:otherwise>
+          <td class="regdate"><fmt:formatDate value="${tour.reg_date}" pattern="yyyy-MM-dd" type="date"/></td>
+        </c:otherwise>
+      </c:choose>
+      <td class="view_cnt"><c:out value="${tour.view_cnt}"/> </td>
+    </tr>
   </c:forEach>
-
-
-  <%--&lt;%&ndash;  </ul>&ndash;%&gt;--%>
-<%--$('svg path').on('click', function () {--%>
-<%--var obj = this.id;--%>
-<%--var address = document.getElementById('L' + obj).textContent;--%>
-<%--$.ajax({--%>
-<%--type: 'POST',--%>
-<%--url:'/test/tour/region?address='+ address,--%>
-<%--data : address,--%>
-<%--dataType:"json",--%>
-<%--success: function (result) {--%>
-<%--console.log(result)--%>
-<%--alert("성공")--%>
-<%--},--%>
-<%--error: function(result) {--%>
-<%--alert("실패")--%>
-<%--console.log(result)--%>
-<%--}--%>
-<%--});--%>
-<%--});--%>
-<%--</div>--%>
+</table>
 
 
 
+<div class="paging">
+  <c:if test="${totalCnt==null || totalCnt==0}">
+    <div> 게시물이 없습니다. </div>
+  </c:if>
+  <c:if test="${totalCnt!=null && totalCnt!=0}">
+    <c:if test="${ph.prev}">
+      <a class="page" href="<c:url value="/tour/region${ph.sc.getQueryString(ph.startPage-1)}"/>">prev</a>
+    </c:if>
+    <c:forEach var="i" begin="${ph.startPage}" end="${ph.endPage}">
+      <a class="page ${i==ph.sc.pageNum? "paging-active" : ""}" href="<c:url value="/tour/region${ph.sc.getQueryString(i)}&address=${param.address}"/>">${i}</a>
+    </c:forEach>
+    <c:if test="${ph.next}">
+      <a class="page" href="<c:url value="/tour/region${ph.sc.getQueryString(ph.endPage+1)}"/>">next</a>
+    </c:if>
+  </c:if>
+</div>
 
 
 </body>

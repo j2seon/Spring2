@@ -1,6 +1,7 @@
 package com.test.test.service;
 
 import com.test.test.dao.TourDao;
+import com.test.test.domain.SearchCondition;
 import com.test.test.domain.TourDto;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -23,10 +24,14 @@ public class TourServiceImplTest {
     @Autowired
     TourService tourService;
 
+
+
     @Test
-    public void regionGetTour() {
-        String address= "인천";
-        List<TourDto> list = tourService.regionGetTour(address);
+    public void regions() {
+        SearchCondition sc = new SearchCondition(1,10,"인천");
+        List<TourDto>list = tourService.regions(sc);
         System.out.println(list);
+        assertTrue(list!=null);
+
     }
 }

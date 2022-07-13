@@ -6,12 +6,11 @@ import com.test.test.domain.TourDto;
 import java.util.List;
 
 public interface TourDao {
-    List<TourDto> region(String address);
+    List<TourDto> regions(SearchCondition sc);
     int regionCount(String address);
     List<TourDto> selectAll();
-
-    List<TourDto> test(SearchCondition sc);
-    TourDto read(String no);
+    TourDto read(Integer no);
+    int viewCount(Integer no);
 
 
     }

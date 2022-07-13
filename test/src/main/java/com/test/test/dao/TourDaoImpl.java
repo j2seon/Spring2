@@ -17,20 +17,21 @@ public class TourDaoImpl implements TourDao {
     private static String namespace = "com.test.test.dao.TourMapper.";
 
     @Override
-    public List<TourDto> region(String address){
-        return session.selectList(namespace+"region",address);
-    }
-    @Override
     public List<TourDto> selectAll(){
         return session.selectList(namespace+"selectAll");
     }
     @Override
     public int regionCount(String address){return session.selectOne(namespace+"regionCount",address);}
-    public List<TourDto> test(SearchCondition sc){
+    @Override
+    public List<TourDto> regions(SearchCondition sc){
         return session.selectList(namespace+"test",sc);
     }
     @Override
-    public TourDto read(String no){
+    public TourDto read(Integer no){
         return session.selectOne(namespace+"read",no);
+    }
+    @Override
+    public int viewCount(Integer no){
+        return session.update(namespace+"viewCount",no);
     }
 }

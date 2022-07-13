@@ -83,8 +83,8 @@ public class SearchCondition {
 
         } else if (type!=null && keyword==null) {
             return UriComponentsBuilder.newInstance()
-                    .queryParam("pageNum",pageNum)
-                    .queryParam("amount",amount).build().toString();
+                    .queryParam("pageNum", pageNum)
+                    .queryParam("amount", amount).build().toString();
 
         }else{
             return UriComponentsBuilder.newInstance()

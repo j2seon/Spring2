@@ -50,8 +50,9 @@ public class StoreDaoImplTest {
 
     @Test
     public void selectOne() {
-        int id = 3;
+        int id = 2;
         StoreDto storeDto= storeDao.selectOne(id);
+        System.out.println(storeDto);
         assertTrue(storeDto!=null);
 
     }
@@ -79,5 +80,10 @@ public class StoreDaoImplTest {
         SearchCondition sc = new SearchCondition(1,10);
         int c = storeDao.count(sc);
         System.out.println(c);
+    }
+
+    @Test
+    public void storeListId() {
+
     }
 }

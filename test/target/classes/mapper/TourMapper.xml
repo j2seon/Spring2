@@ -7,7 +7,7 @@
     <resultMap id="TourDto" type="TourDto">
         <id property="no" column="NO"/>
         <result property="startPoint" column = "STARTPOINT"/>
-        <result property="endPoint" column = "ENDPORINT"/>
+        <result property="endPoint" column = "ENDPOINT"/>
         <result property="wayPoint" column = "WAYPOINT"/>
         <result property="content" column = "CONTENT"/>
         <result property="title" column = "TITLE"/>
@@ -38,7 +38,7 @@
     </resultMap>
 
     <sql id="tours">
-        SELECT NO, STARTPOINT, ENDPORINT, WAYPOINT, CONTENT, TITLE, REG_DATE, VIEW_CNT, TOURIMG, LIKES
+        SELECT NO, STARTPOINT, ENDPOINT, WAYPOINT, CONTENT, TITLE, REG_DATE, VIEW_CNT, TOURIMG, LIKES
         FROM TOUR
     </sql>
 
@@ -50,14 +50,14 @@
     <!--등록-->
     <insert id="insert" parameterType="TourDto">
         INSERT INTO TOUR
-        (NO, STARTPOINT, ENDPORINT, WAYPOINT, CONTENT, TITLE, REG_DATE, VIEW_CNT, TOURIMG, LIKES)
+        (NO, STARTPOINT, ENDPOINT, WAYPOINT, CONTENT, TITLE, REG_DATE, VIEW_CNT, TOURIMG, LIKES)
         VALUES
         (#{no},#{startPoint},#{endPoint},#{wayPoint},#{content},#{title},#{reg_date},#{view_cnt},#{tourImg},#{likes})
     </insert>
 
     <!--전체투어 목록 정렬 id 순-->
     <select id="selectAll" resultType="TourDto">
-        select T.NO,T.STARTPOINT,T.ENDPORINT, T.WAYPOINT, T.CONTENT, T.TITLE, T.REG_DATE,T.VIEW_CNT, T.TOURIMG,T.LIKES,S.ADDRESS
+        select T.NO,T.STARTPOINT,T.ENDPOINT, T.WAYPOINT, T.CONTENT, T.TITLE, T.REG_DATE,T.VIEW_CNT, T.TOURIMG,T.LIKES,S.ADDRESS
         FROM TOUR T ,STORE S
         WHERE T.startpoint = S.ID
     </select>
@@ -68,26 +68,20 @@
         WHERE NO = #{no}
     </delete>
 
-    <!--좋아요 1증가 (유저랑 상의 필요)-->
-    <update id="likesCnt" parameterType="int">
-        UPDATE TOUR
-        SET   LIKES = LIKES + 1
-        WHERE NO = #{no}
-    </update>
 
-    <!--지역별 투어 리스트 출력-->
-    <select id="region" parameterType="String" resultMap="TourDto">
-        select S.ADDRESS,T.NO,T.startpoint,T.ENDPORINT, T.WAYPOINT, T.CONTENT, T.TITLE, T.REG_DATE,T.VIEW_CNT, T.TOURIMG,T.LIKES
-        FROM STORE S, TOUR T
-        WHERE S.id = T.startpoint
-        and S.address like #{address}|| '%'
-    </select>
+<!--    &lt;!&ndash;지역별 투어 리스트 출력&ndash;&gt;-->
+<!--    <select id="region" parameterType="String" resultMap="TourDto">-->
+<!--        select S.ADDRESS,T.NO,T.startpoint,T.ENDPORINT, T.WAYPOINT, T.CONTENT, T.TITLE, T.REG_DATE,T.VIEW_CNT, T.TOURIMG,T.LIKES-->
+<!--        FROM STORE S, TOUR T-->
+<!--        WHERE S.id = T.startpoint-->
+<!--        and S.address like #{address}|| '%'-->
+<!--    </select>-->
 
     <!--지역별 투어 갯수-->
     <select id="regionCount" parameterType="String" resultType="int">
         select count(*)
         from(
-                select rownum rn, S.ADDRESS,T.NO,T.ENDPORINT, T.WAYPOINT, T.CONTENT, T.TITLE, T.REG_DATE,T.VIEW_CNT, T.TOURIMG,T.LIKES
+                select rownum rn, S.ADDRESS,T.NO,T.ENDPOINT, T.WAYPOINT, T.CONTENT, T.TITLE, T.REG_DATE,T.VIEW_CNT, T.TOURIMG,T.LIKES
                 FROM TOUR T ,STORE S
                 WHERE t.startpoint=s.ID
                   and s.address like #{address}|| '%'
@@ -96,20 +90,27 @@
     </select>
 
     <!--1개 읽는거-->
-    <select id="read" parameterType="String" resultMap="TourDto">
+    <select id="read" parameterType="Integer" resultType="TourDto">
     <include refid="tours"/>
     where no = #{no}
     </select>
 
+    <!--좋아요 1증가 (유저랑 상의 필요)-->
+    <update id="likesCnt" parameterType="Integer">
+        UPDATE TOUR
+        SET   LIKES = LIKES + 1
+        WHERE NO = #{no}
+    </update>
+
     <!--조회수 1개 올라가기-->
-    <update id="ViewCount" parameterType="int">
+    <update id="viewCount" parameterType="Integer">
         update tour
-        set view_cnt = view_cnt+1
-        where no = #{no};
+        set view_cnt = view_cnt + 1
+        where no = #{no}
     </update>
 
     <sql id="searchTour">
-        select rownum as rn,S.ADDRESS,T.NO,T.startpoint,T.ENDPORINT, T.WAYPOINT, T.CONTENT, T.TITLE, T.REG_DATE,T.VIEW_CNT, T.TOURIMG,T.LIKES
+        select rownum as rn,S.ADDRESS,T.NO,T.startpoint,T.ENDPOINT, T.WAYPOINT, T.CONTENT, T.TITLE, T.REG_DATE,T.VIEW_CNT, T.TOURIMG,T.LIKES
         from STORE S, TOUR T
         WHERE S.id = T.startpoint
         and S.address like #{type} || '%'
@@ -117,9 +118,9 @@
 
     <!--지역별 투어 리스트 출력페이징 test-->
     <select id="test" resultMap="TourDto">
-        select NO,startpoint,ENDPORINT, WAYPOINT, CONTENT, TITLE,REG_DATE,VIEW_CNT,TOURIMG,LIKES
+        select NO,startpoint,ENDPOINT, WAYPOINT, CONTENT, TITLE,REG_DATE,VIEW_CNT,TOURIMG,LIKES
         FROM (
-        select rownum as rn,S.ADDRESS,T.NO,T.startpoint,T.ENDPORINT, T.WAYPOINT, T.CONTENT, T.TITLE, T.REG_DATE,T.VIEW_CNT, T.TOURIMG,T.LIKES
+        select rownum as rn,S.ADDRESS,T.NO,T.startpoint,T.ENDPOINT, T.WAYPOINT, T.CONTENT, T.TITLE, T.REG_DATE,T.VIEW_CNT, T.TOURIMG,T.LIKES
         from STORE S, TOUR T
         WHERE S.id = T.startpoint
         and S.address like #{type}|| '%'

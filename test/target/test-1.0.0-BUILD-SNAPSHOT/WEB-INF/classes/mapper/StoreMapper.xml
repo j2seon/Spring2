@@ -18,7 +18,7 @@
     </insert>
 
     <!--가게 1개 정보-->
-    <select id="selectOne" parameterType="int" resultType="StoreDto">
+    <select id="selectOne" parameterType="Integer" resultType="StoreDto">
         <include refid="stores"/>
         where ID = #{id}
     </select>

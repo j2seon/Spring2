@@ -17,7 +17,7 @@
         var lon=0;
         function success(pos) {
             var crd = pos.coords;
-
+            <!--내위치 출력 가능-->
             console.log('Your current position is:');
             console.log(`Latitude : ${'${crd.latitude}'}`);
             console.log(`Longitude: ${'${crd.longitude}'}`);
@@ -28,19 +28,31 @@
         }
 
         function error(err) {
-            console.warn(`ERROR(${err.code}): ${err.message}`);
+            console.warn(`ERROR(${'${err.code}'}): ${'${err.message}'}`);
         }
 
         navigator.geolocation.getCurrentPosition(success, error, options);
 
 
         var map;
-
         var marker_s, marekr_e, waypoint;
         var resultMarkerArr = [];
         //경로그림정보
         var drawInfoArr = [];
         var resultInfoArr = [];
+        var wayPoint = JSON.parse('${wayJson}');
+        var wayLat ;
+        var wayLon ;
+        var wayLatArr = new Array();
+        var wayLonArr= new Array();
+        for(let i=0; i<wayPoint.length; i++){
+            wayLat = new Object();
+            wayLon = new Object();
+            wayLat.lat = wayPoint[i].lat;
+            wayLon.lon = wayPoint[i].lon;
+            wayLatArr.push(wayLat);
+            wayLonArr.push(wayLon);
+        }
 
         function initTmap(){
             resultMarkerArr = [];
@@ -56,13 +68,10 @@
 
             });
 
-
-
-
             // 2. 시작, 도착 심볼찍기
             // 시작
             marker_s = new Tmapv2.Marker({
-                position : new Tmapv2.LatLng(35.05015357, 129.88371915),
+                position : new Tmapv2.LatLng(${start.lat}, ${start.lon}),
                 icon : "http://tmapapi.sktelecom.com/upload/tmap/marker/pin_r_m_s.png",
                 iconSize : new Tmapv2.Size(24, 38),
                 map:map
@@ -70,7 +79,7 @@
             resultMarkerArr.push(marker_s);
             // 도착
             marker_e = new Tmapv2.Marker({
-                position : new Tmapv2.LatLng(35.08622608, 129.91210249),
+                position : new Tmapv2.LatLng(${end.lat}, ${end.lon}),
                 icon : "http://tmapapi.sktelecom.com/upload/tmap/marker/pin_r_m_e.png",
                 iconSize : new Tmapv2.Size(24, 38),
                 map:map
@@ -146,12 +155,12 @@
 
                 var param = JSON.stringify({
                     "startName" : "출발지",
-                    "startX" : "127.103259",
-                    "startY" : "37.402688",
+                    "startX" : "${start.lon}",
+                    "startY" :  "${start.lat}",
                     "startTime" : "201708081103",
                     "endName" : "도착지",
-                    "endX" : "127.142571",
-                    "endY" : "37.414382",
+                    "endX" : "${end.lon}",
+                    "endY" : "${end.lat}",
                     "viaPoints" :
                         [
                             {
@@ -309,7 +318,16 @@
     <option value="3" >교통최적+초보</option>
 </select>
 <button id="btn_select">적용하기</button>
+<p>start lat : ${start.lat}</p>
+<p>start lon : ${start.lon}</p>
+<p>end lat : ${end.lat}</p>
+<p>start lon : ${end.lon}</p>
+<script>
 
+
+</script>
+<p>way  : ${way}</p>
+<p>way  : ${way}</p>
 <div id="map_wrap" class="map_wrap">
     <div id="map_div"></div>
 </div>

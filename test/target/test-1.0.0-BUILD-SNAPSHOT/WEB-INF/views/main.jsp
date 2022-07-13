@@ -13,7 +13,6 @@
 
 <a href="<c:url value="/tour/region"/>"> map 이동</a>
 <a href="<c:url value="/bread/api"/>"> api 이동</a>
-<a href="<c:url value="/bread/tour"/>"> bread tour이동</a>
 <a href="<c:url value="/bread/search"/>"> keyword</a>
 <a href="<c:url value="/store/list"/>"> list</a>
 <p></p>
