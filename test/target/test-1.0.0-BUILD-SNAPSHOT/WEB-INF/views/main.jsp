@@ -11,10 +11,13 @@
     빵메인 뷰
 </h1>
 
-<a href="<c:url value="/tour/region"/>"> map 이동</a>
-<a href="<c:url value="/bread/api"/>"> api 이동</a>
-<a href="<c:url value="/bread/search"/>"> keyword</a>
-<a href="<c:url value="/store/list"/>"> list</a>
+<a href="<c:url value="/tour/region"/>"> 지역별 투어 추천</a>
+
+<a href="<c:url value="/store/list"/>"> 빵집 맞춤검색</a>
+
+<a href="<c:url value="/tour/register"/>"> 투어 등록페이지</a>
+
+<a href="<c:url value="/bread/search"/>"> 키워드별 검색(할지말찌...)</a>
 <p></p>
 </body>
 </html>

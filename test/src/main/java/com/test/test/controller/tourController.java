@@ -15,6 +15,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpSession;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.ZoneId;
@@ -35,7 +36,7 @@ public class tourController {
     @RequestMapping(method = RequestMethod.GET,value = "/region")
     public String breadMap(String address, SearchCondition sc ,Model m)throws Exception {
         if(address==null){
-            return "map";
+            return "regionTour";
         }
         int totalCnt = tourService.regionGetCount(address);
         m.addAttribute("totalCnt",totalCnt);
@@ -46,7 +47,7 @@ public class tourController {
         m.addAttribute("list",list);
         Instant startOfToday = LocalDate.now().atStartOfDay(ZoneId.systemDefault()).toInstant();
         m.addAttribute("startOfToday", startOfToday.toEpochMilli());
-        return "map";
+        return "regionTour";
     }
 
     //api이용 루트 출력
@@ -71,16 +72,21 @@ public class tourController {
         m.addAttribute("wayJson",wayJson);
         m.addAttribute("wayStore",wayStore);
         m.addAttribute("way",way);
-        return "api2";
+        return "tourApi";
     }
 
-//    @RequestMapping(method = RequestMethod.POST, value = "/tour")
-//    public String list(@RequestBody StoreDto storeDto)throws Exception{
+    //투어 등록 페이지 보여주기
+    @RequestMapping(value = "register",method = RequestMethod.GET)
+    public String register (){
+        return "tourAdd";
+    }
+
+//    @RequestMapping(value = "register",method = RequestMethod.POST)
+//    public String registerAdd(TourDto dto, HttpSession session,Model m){
+////        String id = (String)session.getAttribute("id"); 작성자 값이 필요할거같음.
 //
 //
 //    }
-
-
 
 
 

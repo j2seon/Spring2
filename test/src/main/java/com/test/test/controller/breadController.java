@@ -15,15 +15,11 @@ public class breadController {
          return "main";
     }
 
-    @RequestMapping(method = RequestMethod.GET,value = "/api")
-    public String breadApi() {
-        return "api1";
-    }
-
-
+    //키워드... 할까?
     @RequestMapping(method = RequestMethod.GET,value = "/search")
     public String search() {
         return "search";
     }
+
 
 }
